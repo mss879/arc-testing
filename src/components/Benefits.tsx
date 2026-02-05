@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variant } from "framer-motion";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -41,7 +42,7 @@ const Benefits = () => {
                 <img src="https://framerusercontent.com/images/a26OzkC4NwHAkKLOWrAmK8WyvDg.png?width=482&height=390"
                   alt="compass"
                   className="w-full h-full object-contain scale-105"
-                 loading="lazy" decoding="async" />
+                  loading="lazy" decoding="async" />
               </div>
               <h3 className="text-sm md:text-base font-semibold text-white mb-1">Strategy-First Approach</h3>
               <p className="text-[11px] md:text-xs text-zinc-400 leading-snug">Every decision is rooted in clarity, not guesswork.</p>
@@ -63,7 +64,7 @@ const Benefits = () => {
                     <img src="https://framerusercontent.com/images/XQgiis7gGdUPSeOOrtqD2Wy81Qg.png?width=207&height=1200"
                       alt="brush"
                       className="w-full h-auto object-cover"
-                     loading="lazy" decoding="async" />
+                      loading="lazy" decoding="async" />
                   </div>
                   <p className="mt-auto text-[11px] md:text-xs text-white/80 leading-snug max-w-[150px] self-end text-right">
                     We focus on fewer projects to deliver better outcomes.
@@ -114,7 +115,7 @@ const Benefits = () => {
                 <img src="https://framerusercontent.com/images/S9EGmxAIAkL8CpVbIxsP49rQKc.jpg?width=960&height=1200"
                   alt="workspace"
                   className="w-full h-full object-cover"
-                 loading="lazy" decoding="async" />
+                  loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-black/10 to-black/70" />
               </div>
               <div className="p-5">
@@ -131,10 +132,13 @@ const Benefits = () => {
             {/* Collaborative (wide) */}
             <Card index={4} className="relative overflow-hidden p-0 min-h-[260px]">
               <div className="absolute inset-0">
-                <img src="https://framerusercontent.com/images/t3N9e8rX8poj2CmWheGfHX2iME.jpg?width=1200&height=675"
-                  alt="collaborative"
-                  className="w-full h-full object-cover grayscale"  loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+                <DotLottieReact
+                  src="https://cdn.prod.website-files.com/692d319ab5e6b6dca5920d01/69317a56db9a6a740288171e_252006152a966d2b3076b337bca32f72_Comp%202.lottie"
+                  loop
+                  autoplay
+                  className="w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
               </div>
               <div className="relative flex flex-col justify-end h-full p-8">
                 <h3 className="text-2xl font-semibold text-white mb-3 leading-tight">Collaborative Process</h3>
@@ -161,12 +165,12 @@ const Benefits = () => {
                     <div className="absolute left-0 top-2 rotate-[-2deg] shadow-lg rounded-sm overflow-hidden border border-white/10 bg-black/40">
                       <img src="https://framerusercontent.com/images/Anr44n9P3s2LFGs5EurkQxKVKdE.jpg?width=1200&height=600"
                         alt="drafts"
-                        className="h-28 w-44 object-cover"  loading="lazy" decoding="async" />
+                        className="h-28 w-44 object-cover" loading="lazy" decoding="async" />
                     </div>
                     <div className="absolute left-16 top-0 rotate-3 shadow-lg rounded-sm overflow-hidden border border-white/10 bg-black/40">
                       <img src="https://framerusercontent.com/images/UzRaWx7txCAaMyeaMOgrNtRtaY.jpg?width=824&height=1200"
                         alt="sketches"
-                        className="h-28 w-44 object-cover"  loading="lazy" decoding="async" />
+                        className="h-28 w-44 object-cover" loading="lazy" decoding="async" />
                     </div>
                   </div>
                 </div>

@@ -50,6 +50,24 @@ export default function Portfolio() {
 
   const portfolioItems = [
     {
+      id: 24,
+      title: "Halo 360",
+      description: "Digital agency focused on strategic partnerships for marketing and growth.",
+      results: "Custom website ↑ brand visibility 45%, SEO traffic ↑ 60%, Strategic partnership inquiries ↑ 35%, Client retention improvement",
+      image: "/halo.png",
+      link: "#",
+      status: "live"
+    },
+    {
+      id: 25,
+      title: "EXIM Corporation",
+      description: "Specializes in industrial manufacturing and partner networks in Sri Lanka.",
+      results: "Global network reach ↑ 40%, Supply chain efficiency ↑ 25%, Manufacturing inquiries ↑ 30%, Digital catalog engagement",
+      image: "/exim.png",
+      link: "https://eximcpl.com",
+      status: "live"
+    },
+    {
       id: 20,
       title: "Core Craft",
       description: "Premium web design and development agency offering custom website builds, UI/UX design, and brand identity solutions.",
