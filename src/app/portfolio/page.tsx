@@ -50,6 +50,15 @@ export default function Portfolio() {
 
   const portfolioItems = [
     {
+      id: 26,
+      title: "Secretaries Consultant Services (Pvt) Ltd",
+      description: "Secretaries Consultant Services (Pvt) Ltd provides complete end-to-end support spanning the entire corporate lifecycle.",
+      results: "Operational efficiency ↑ 45%, Corporate workflow speed ↑ 40%, Admin overhead ↓ 35%, End-to-end support optimization",
+      image: "/secertery-services.png",
+      link: "#",
+      status: "live"
+    },
+    {
       id: 24,
       title: "Halo 360",
       description: "Digital agency focused on strategic partnerships for marketing and growth.",
