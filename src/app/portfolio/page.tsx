@@ -55,7 +55,7 @@ export default function Portfolio() {
       description: "Secretaries Consultant Services (Pvt) Ltd provides complete end-to-end support spanning the entire corporate lifecycle.",
       results: "Operational efficiency ↑ 45%, Corporate workflow speed ↑ 40%, Admin overhead ↓ 35%, End-to-end support optimization",
       image: "/secertery-services.png",
-      link: "#",
+      link: "https://consultantservices.lk/",
       status: "live"
     },
     {
@@ -64,7 +64,7 @@ export default function Portfolio() {
       description: "Digital agency focused on strategic partnerships for marketing and growth.",
       results: "Custom website ↑ brand visibility 45%, SEO traffic ↑ 60%, Strategic partnership inquiries ↑ 35%, Client retention improvement",
       image: "/halo.png",
-      link: "#",
+      link: "https://halo360.online/",
       status: "live"
     },
     {
