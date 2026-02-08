@@ -1,12 +1,13 @@
 "use client";
 
-import { motion, Variants, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Code2, Palette, Share2, Sparkles, FileText, Zap, MessageSquare, X, Check } from "lucide-react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { ArrowUpRight, Code2, Palette, Share2, Sparkles, FileText, Zap, MessageSquare, X, Check, Laptop, Rocket, BrainCircuit, Bot, Search } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Animation Variants
 const letterContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -15,13 +16,37 @@ const letterContainer: Variants = {
     },
 };
 
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
+
 const letterVariant: Variants = {
     hidden: { y: "0.55em", opacity: 0 },
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
     },
+};
+
+const itemVariants: Variants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring" as const,
+            stiffness: 50,
+            damping: 20
+        }
+    }
 };
 
 const fadeInUp: Variants = {
@@ -29,7 +54,7 @@ const fadeInUp: Variants = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 
@@ -39,7 +64,7 @@ interface ServiceDetails {
     title: string;
     description: string;
     tags: string[];
-    link?: string; // Enhanced validation: Added optional link for direct navigation
+    link?: string;
     modalContent: {
         headline: string;
         subheadline: string;
@@ -54,14 +79,24 @@ interface ServiceDetails {
 
 export default function ServicesList() {
     const [selectedService, setSelectedService] = useState<ServiceDetails | null>(null);
+    const [scrolled, setScrolled] = useState(false);
+
+    // Handle scroll for navbar effect if needed
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const digitalServices: ServiceDetails[] = [
         {
-            icon: <Code2 className="w-8 h-8" />,
-            number: "001",
+            icon: <Laptop className="w-8 h-8" />,
+            number: "01",
             title: "Smart Websites",
-            description: "High-converting smart websites designed to capture attention and drive action with compelling design and strategic messaging.",
-            tags: ["Conversion Optimization", "A/B Testing", "Lead Generation", "Mobile-First"],
+            description: "High-converting, intelligent websites designed to capture attention and drive action. Not just a pretty face—a powerful sales engine.",
+            tags: ["Conversion Optimized", "Next.js", "SEO Ready"],
             link: "/services/web-design-development",
             modalContent: {
                 headline: "Turn Visitors Into Customers—Instantly",
@@ -88,11 +123,11 @@ export default function ServicesList() {
             }
         },
         {
-            icon: <Share2 className="w-8 h-8" />,
-            number: "002",
+            icon: <Rocket className="w-8 h-8" />,
+            number: "02",
             title: "Smart Ad Campaigns",
-            description: "Targeted advertising campaigns powered by data and AI that reach your ideal audience and maximize ROI across all platforms.",
-            tags: ["Facebook Ads", "Instagram Ads", "Google Ads", "Analytics"],
+            description: "Data-driven advertising campaigns that find your ideal customers and scale your revenue with surgical precision.",
+            tags: ["Meta Ads", "Google Ads", "ROI Focused"],
             link: "/services/social-media",
             modalContent: {
                 headline: "Stop Burning Money on Ads That Don't Convert",
@@ -120,11 +155,11 @@ export default function ServicesList() {
             }
         },
         {
-            icon: <Sparkles className="w-8 h-8" />,
-            number: "003",
+            icon: <Code2 className="w-8 h-8" />,
+            number: "03",
             title: "Web Apps",
-            description: "Custom web applications built with modern technologies to solve complex business problems and enhance user experience.",
-            tags: ["React/Next.js", "Real-time Features", "Scalable Architecture", "API Integration"],
+            description: "Custom web applications built with modern tech stacks to solve complex business problems and streamline operations.",
+            tags: ["SaaS", "Internal Tools", "Scalable"],
             link: "/services/web-apps",
             modalContent: {
                 headline: "Build Software That Scales With Your Business",
@@ -152,11 +187,11 @@ export default function ServicesList() {
             }
         },
         {
-            icon: <Zap className="w-8 h-8" />,
-            number: "004",
+            icon: <Search className="w-8 h-8" />,
+            number: "04",
             title: "Smart Funnels",
-            description: "Intelligent sales funnels that guide prospects through the buyer journey with personalized experiences and automated follow-ups.",
-            tags: ["Marketing Automation", "Lead Nurturing", "Conversion Tracking", "Email Sequences"],
+            description: "Intelligent systems that nurture leads from curiosity to conversion on autopilot, 24/7/365.",
+            tags: ["Automation", "Email Marketing", "Lead Nurturing"],
             link: "/services/smart-funnels",
             modalContent: {
                 headline: "Turn Leads Into Customers on Autopilot",
@@ -184,11 +219,11 @@ export default function ServicesList() {
             }
         },
         {
-            icon: <Code2 className="w-8 h-8" />,
-            number: "005",
+            icon: <BrainCircuit className="w-8 h-8" />,
+            number: "05",
             title: "Custom Backend Systems",
-            description: "Robust backend solutions and APIs tailored to your business needs, ensuring security, scalability, and performance.",
-            tags: ["RESTful APIs", "Database Design", "Cloud Infrastructure", "Security"],
+            description: "Robust, secure backend infrastructure designed for scale, speed, and rock-solid reliability.",
+            tags: ["API Development", "Cloud Infrastructure", "Security"],
             link: "/services/custom-backend",
             modalContent: {
                 headline: "Build the Engine That Powers Your Business",
@@ -217,10 +252,10 @@ export default function ServicesList() {
         },
         {
             icon: <Palette className="w-8 h-8" />,
-            number: "006",
+            number: "06",
             title: "Brand Kits",
-            description: "Comprehensive brand identity packages including logos, color schemes, typography, and guidelines to ensure consistency.",
-            tags: ["Logo Design", "Brand Strategy", "Visual Identity", "Brand Guidelines"],
+            description: "Comprehensive visual identities that command authority and distinguish you from the competition.",
+            tags: ["Visual Identity", "Strategy", "Guidelines"],
             link: "/services/branding",
             modalContent: {
                 headline: "Stop Looking Amateur. Build a Brand That Commands Premium Prices",
@@ -252,10 +287,10 @@ export default function ServicesList() {
     const aiServices: ServiceDetails[] = [
         {
             icon: <FileText className="w-8 h-8" />,
-            number: "007",
+            number: "07",
             title: "AI Content Generation",
-            description: "Seamless content creation that generates captivating, high-quality content aligned with your brand voice and strategy.",
-            tags: ["Blog Posts", "Social Media", "SEO Content", "Multi-Language"],
+            description: "Create weeks of high-quality, on-brand content in minutes. Review, refine, and publish at scale.",
+            tags: ["Blog Posts", "Social Media", "SEO"],
             link: "/services/ai-content-generation",
             modalContent: {
                 headline: "Create a Month of Content in One Afternoon",
@@ -284,10 +319,10 @@ export default function ServicesList() {
         },
         {
             icon: <Zap className="w-8 h-8" />,
-            number: "008",
+            number: "08",
             title: "Automated Workflows",
-            description: "Intelligent automation that streamlines repetitive tasks, improves efficiency, and frees your team to focus on growth.",
-            tags: ["Process Automation", "Integrations", "Task Management", "24/7 Operations"],
+            description: "Eliminate repetitive tasks with intelligent automation. Save time, reduce errors, and focus on strategy.",
+            tags: ["n8n", "Zapier", "Process Optimization"],
             link: "/services/ai-automated-workflows",
             modalContent: {
                 headline: "Stop Doing Work a Robot Could Do",
@@ -315,11 +350,11 @@ export default function ServicesList() {
             }
         },
         {
-            icon: <MessageSquare className="w-8 h-8" />,
-            number: "009",
-            title: "AI-Powered Chatbots",
-            description: "Advanced AI chatbots that provide instant, intelligent customer support and enhance user engagement around the clock.",
-            tags: ["Natural Language", "24/7 Support", "Multi-Platform", "Analytics"],
+            icon: <Bot className="w-8 h-8" />,
+            number: "09",
+            title: "AI Chatbots",
+            description: "Smart assistants that provide 24/7 support, qualify leads, and book meetings while you sleep.",
+            tags: ["Customer Support", "Lead Gen", "24/7 Availability"],
             link: "/services/ai-chatbots",
             modalContent: {
                 headline: "Never Miss a Lead. Answer Every Question. 24/7.",
@@ -348,273 +383,206 @@ export default function ServicesList() {
         }
     ];
 
-    return (
-        <div className="min-h-screen bg-black text-white">
-            <Navbar />
-            {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-                <div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 73, 37, 0.15) 1px, transparent 0)`,
-                        backgroundSize: '40px 40px'
-                    }}
-                />
+    const ServiceCard = ({ service, index }: { service: ServiceDetails; index: number }) => {
+        // We handle selection or navigation
+        const handleClick = (e: React.MouseEvent) => {
+            if (!service.link) {
+                e.preventDefault();
+                setSelectedService(service);
+            }
+        };
 
-                <div className="relative z-10 max-w-7xl mx-auto text-center">
-                    <motion.div
-                        initial="hidden"
-                        animate="show"
-                        variants={letterContainer}
-                        className="mb-8"
-                    >
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
-                            {["OUR", "SERVICES"].map((word, i) => (
-                                <span key={i} className="block mb-2">
-                                    {word.split("").map((char, j) => (
-                                        <motion.span
-                                            key={j}
-                                            className="inline-block"
-                                            variants={letterVariant}
-                                        >
-                                            {char === " " ? "\u00A0" : char}
-                                        </motion.span>
-                                    ))}
+        return (
+            <motion.div variants={itemVariants} className="h-full">
+                <Link
+                    href={service.link || "#"}
+                    onClick={handleClick}
+                    className="block h-full"
+                >
+                    <div className="group relative h-full bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/[0.06] hover:border-orange-500/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                        {/* Gradient Glow Effect on Hover */}
+                        <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
+
+                        <div className="relative z-10 flex flex-col h-full">
+                            {/* Header: Icon & Number */}
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="p-3 rounded-xl bg-orange-500/10 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
+                                    {service.icon}
+                                </div>
+                                <span className="text-4xl text-orange-500/40 font-bold tabular-nums group-hover:text-orange-500/60 transition-colors">
+                                    {service.number}
                                 </span>
-                            ))}
-                        </h1>
-                    </motion.div>
+                            </div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.7 }}
-                        className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-12"
-                    >
-                        From digital marketing to AI-powered solutions, we deliver comprehensive services
-                        that drive growth and transform your business.
-                    </motion.p>
-                </div>
-            </section>
+                            {/* Content */}
+                            <div className="flex-1">
+                                <h3 className="text-2xl font-medium text-white mb-3 group-hover:text-orange-400 transition-colors">
+                                    {service.title}
+                                </h3>
+                                <p className="text-neutral-400 leading-relaxed text-sm mb-6">
+                                    {service.description}
+                                </p>
+                            </div>
 
-            {/* Digital Marketing Services */}
-            <section className="py-20 px-4 md:px-8 bg-black">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.3 }}
-                        variants={fadeInUp}
-                        className="mb-16"
-                    >
-                        <div className="flex items-center gap-4 mb-4">
-                            <div className="w-2 h-2 rounded-full bg-accent"></div>
-                            <p className="text-xs tracking-[0.25em] text-neutral-500 uppercase">DIGITAL MARKETING</p>
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2 mt-auto">
+                                {service.tags.map((tag, i) => (
+                                    <span key={i} className="px-3 py-1 text-[11px] font-medium tracking-wide uppercase rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/10 group-hover:border-orange-500/20 group-hover:bg-orange-500/20 transition-all duration-300">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Hover Arrow */}
+                            <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                <ArrowUpRight className="w-6 h-6 text-orange-500" />
+                            </div>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold">
-                            <span className="bg-gradient-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent">
-                                Digital Services
-                            </span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {digitalServices.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, amount: 0.3 }}
-                                variants={fadeInUp}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                {service.link ? (
-                                    <Link
-                                        href={service.link}
-                                        className="group cursor-pointer block p-8 bg-neutral-900/50 border border-neutral-800 rounded-xl hover:border-accent/50 transition-all hover:bg-neutral-900 h-full"
-                                    >
-                                        <div className="flex items-start gap-4 mb-6">
-                                            <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform flex-shrink-0">
-                                                {service.icon}
-                                            </div>
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                    <span className="text-2xl font-bold text-accent">{service.number}</span>
-                                                    <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                                                </div>
-                                                <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors">{service.title}</h3>
-                                            </div>
-                                        </div>
-                                        <p className="text-neutral-400 mb-6">{service.description}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {service.tags.map((tag, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-full text-xs text-neutral-400 group-hover:border-accent/30 transition-colors"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </Link>
-                                ) : (
-                                    <div
-                                        onClick={() => setSelectedService(service)}
-                                        className="group cursor-pointer block p-8 bg-neutral-900/50 border border-neutral-800 rounded-xl hover:border-accent/50 transition-all hover:bg-neutral-900 h-full"
-                                    >
-                                        <div className="flex items-start gap-4 mb-6">
-                                            <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform flex-shrink-0">
-                                                {service.icon}
-                                            </div>
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                    <span className="text-2xl font-bold text-accent">{service.number}</span>
-                                                    <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                                                </div>
-                                                <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors">{service.title}</h3>
-                                            </div>
-                                        </div>
-                                        <p className="text-neutral-400 mb-6">{service.description}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {service.tags.map((tag, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-full text-xs text-neutral-400 group-hover:border-accent/30 transition-colors"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </motion.div>
-                        ))}
                     </div>
-                </div>
-            </section>
+                </Link>
+            </motion.div>
+        );
+    };
 
-            {/* AI Services */}
-            <section className="py-20 px-4 md:px-8 bg-neutral-950">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.3 }}
-                        variants={fadeInUp}
-                        className="mb-16"
-                    >
-                        <div className="flex items-center gap-4 mb-4">
-                            <div className="w-2 h-2 rounded-full bg-accent"></div>
-                            <p className="text-xs tracking-[0.25em] text-neutral-500 uppercase">AI SOLUTIONS</p>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold">
-                            <span className="bg-gradient-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent">
-                                AI-Powered Services
-                            </span>
-                        </h2>
-                    </motion.div>
+    return (
+        <div className="min-h-screen bg-black text-white selection:bg-orange-500/30 selection:text-orange-200">
+            <Navbar />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {aiServices.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, amount: 0.3 }}
-                                variants={fadeInUp}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                {service.link ? (
-                                    <Link
-                                        href={service.link}
-                                        className="group cursor-pointer block p-8 bg-black border border-neutral-800 rounded-xl hover:border-accent/50 transition-all hover:bg-neutral-900 h-full"
-                                    >
-                                        <div className="flex items-start gap-4 mb-6">
-                                            <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform flex-shrink-0">
-                                                {service.icon}
-                                            </div>
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                    <span className="text-2xl font-bold text-accent">{service.number}</span>
-                                                    <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors">{service.title}</h3>
-                                        <p className="text-neutral-400 mb-6 text-sm">{service.description}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {service.tags.map((tag, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-3 py-1 bg-neutral-900 border border-neutral-700 rounded-full text-xs text-neutral-400 group-hover:border-accent/30 transition-colors"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </Link>
-                                ) : (
-                                    <div
-                                        onClick={() => setSelectedService(service)}
-                                        className="group cursor-pointer block p-8 bg-black border border-neutral-800 rounded-xl hover:border-accent/50 transition-all hover:bg-neutral-900 h-full"
-                                    >
-                                        <div className="flex items-start gap-4 mb-6">
-                                            <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform flex-shrink-0">
-                                                {service.icon}
-                                            </div>
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                    <span className="text-2xl font-bold text-accent">{service.number}</span>
-                                                    <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors">{service.title}</h3>
-                                        <p className="text-neutral-400 mb-6 text-sm">{service.description}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {service.tags.map((tag, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-3 py-1 bg-neutral-900 border border-neutral-700 rounded-full text-xs text-neutral-400 group-hover:border-accent/30 transition-colors"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* Background Effects */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen opacity-30" />
+                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange-900/20 rounded-full blur-[120px] mix-blend-screen opacity-30" />
+                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
+            </div>
 
-            {/* CTA Section */}
-            <section className="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-neutral-950">
-                <div className="max-w-4xl mx-auto text-center">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.3 }}
-                        variants={fadeInUp}
-                    >
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                            Ready to Transform Your Business?
-                        </h2>
-                        <p className="text-xl text-neutral-400 mb-8">
-                            Let's discuss how our services can help you achieve your goals. Get in touch today.
-                        </p>
-                        <Link
-                            href="/contact"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:scale-105 transition-transform"
+            <div className="relative z-10">
+                {/* Hero Section */}
+                <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
+                    <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+                    <div
+                        className="absolute inset-0 opacity-20"
+                        style={{
+                            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 73, 37, 0.15) 1px, transparent 0)`,
+                            backgroundSize: '40px 40px'
+                        }}
+                    />
+
+                    <div className="relative z-10 max-w-7xl mx-auto text-center">
+                        <motion.div
+                            initial="hidden"
+                            animate="show"
+                            variants={letterContainer}
+                            className="mb-8"
                         >
-                            Get Started
-                            <ArrowUpRight className="w-5 h-5" />
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white">
+                                {["OUR", "SERVICES"].map((word, i) => (
+                                    <span key={i} className="block mb-2">
+                                        {word.split("").map((char, j) => (
+                                            <motion.span
+                                                key={j}
+                                                className="inline-block"
+                                                variants={letterVariant}
+                                            >
+                                                {char === " " ? "\u00A0" : char}
+                                            </motion.span>
+                                        ))}
+                                    </span>
+                                ))}
+                            </h1>
+                        </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.7 }}
+                            className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-12"
+                        >
+                            From digital marketing to AI-powered solutions, we deliver comprehensive services
+                            that drive growth and transform your business.
+                        </motion.p>
+                    </div>
+                </section>
+
+                {/* Digital Services Grid */}
+                <section className="py-20 px-6 md:px-12">
+                    <div className="max-w-[1800px] mx-auto">
+                        <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-8">
+                            <h2 className="text-3xl md:text-4xl font-medium">
+                                Digital <span className="text-white/40">Services</span>
+                            </h2>
+                            <p className="hidden md:block text-neutral-500 text-sm max-w-xs text-right">
+                                Foundation of your digital presence. Built for speed, conversion, and scale.
+                            </p>
+                        </div>
+
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            variants={containerVariants}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                        >
+                            {digitalServices.map((service, index) => (
+                                <ServiceCard key={index} service={service} index={index} />
+                            ))}
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* AI Services Grid */}
+                <section className="py-20 px-6 md:px-12 bg-white/[0.02]">
+                    <div className="max-w-[1800px] mx-auto">
+                        <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-8">
+                            <h2 className="text-3xl md:text-4xl font-medium">
+                                AI <span className="text-white/40">Solutions</span>
+                            </h2>
+                            <p className="hidden md:block text-neutral-500 text-sm max-w-xs text-right">
+                                Next-generation automation. Leverage AI to work faster and smarter.
+                            </p>
+                        </div>
+
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            variants={containerVariants}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                        >
+                            {aiServices.map((service, index) => (
+                                <ServiceCard key={index} service={service} index={index + 6} />
+                            ))}
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* CTA / Footer Integration */}
+                <section className="py-32 px-6 md:px-12 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-3xl mx-auto"
+                    >
+                        <h2 className="text-4xl md:text-6xl font-medium mb-8">
+                            Ready to <span className="text-orange-500">Scale?</span>
+                        </h2>
+                        <p className="text-xl text-neutral-400 mb-10">
+                            Stop guessing and start growing. Let's discuss how we can transform your business today.
+                        </p>
+                        <Link href="/contact">
+                            <button className="group relative px-8 py-4 rounded-full bg-orange-500 hover:bg-orange-600 transition-all duration-300 shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]">
+                                <span className="relative z-10 flex items-center gap-2 text-white font-bold tracking-wide">
+                                    START A PROJECT
+                                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                </span>
+                            </button>
                         </Link>
                     </motion.div>
-                </div>
-            </section>
+                </section>
+
+                <Footer />
+            </div>
 
             {/* Service Modal */}
             <AnimatePresence>
@@ -623,113 +591,126 @@ export default function ServicesList() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-                        onClick={() => setSelectedService(null)}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
                     >
+                        {/* Backpack Blur Overlay */}
+                        <div
+                            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+                            onClick={() => setSelectedService(null)}
+                        />
+
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl"
+                            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl custom-scrollbar"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Close Button */}
                             <button
                                 onClick={() => setSelectedService(null)}
-                                className="sticky top-4 right-4 float-right z-10 p-2 bg-black/80 hover:bg-black border border-neutral-700 rounded-full transition-colors"
-                                aria-label="Close modal"
+                                className="sticky top-4 right-4 float-right z-10 p-2 bg-black/50 hover:bg-white/10 backdrop-blur-md rounded-full border border-white/10 transition-colors"
                             >
-                                <X className="w-5 h-5" />
+                                <X className="w-5 h-5 text-white" />
                             </button>
 
                             <div className="p-8 md:p-12">
                                 {/* Header */}
-                                <div className="mb-8">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                                <div className="flex flex-col md:flex-row gap-8 mb-12">
+                                    <div className="shrink-0">
+                                        <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 border border-orange-500/20">
                                             {selectedService.icon}
                                         </div>
-                                        <div>
-                                            <span className="text-accent font-bold text-lg">{selectedService.number}</span>
-                                            <h2 className="text-3xl md:text-4xl font-bold mt-1">{selectedService.title}</h2>
+                                    </div>
+                                    <div>
+                                        <div className="flex items-center gap-4 mb-2">
+                                            <span className="text-orange-500 font-bold tracking-widest text-sm uppercase">Service {selectedService.number}</span>
+                                            <div className="h-px flex-1 bg-gradient-to-r from-orange-500/50 to-transparent" />
+                                        </div>
+                                        <h2 className="text-4xl md:text-5xl font-flarex font-medium text-white mb-4">{selectedService.title}</h2>
+                                        <h3 className="text-xl md:text-2xl text-neutral-300 font-medium">
+                                            {selectedService.modalContent.headline}
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                {/* Main Content Grid */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                                    {/* Problem */}
+                                    <div className="p-6 rounded-2xl bg-red-500/5 border border-red-500/10">
+                                        <h4 className="text-lg font-bold text-red-400 mb-3 flex items-center gap-2">
+                                            <span className="w-2 h-2 rounded-full bg-red-400" />
+                                            The Challenge
+                                        </h4>
+                                        <p className="text-neutral-400 leading-relaxed text-sm">
+                                            {selectedService.modalContent.problem}
+                                        </p>
+                                    </div>
+
+                                    {/* Solution */}
+                                    <div className="p-6 rounded-2xl bg-green-500/5 border border-green-500/10">
+                                        <h4 className="text-lg font-bold text-green-400 mb-3 flex items-center gap-2">
+                                            <span className="w-2 h-2 rounded-full bg-green-400" />
+                                            Our Solution
+                                        </h4>
+                                        <p className="text-neutral-400 leading-relaxed text-sm">
+                                            {selectedService.modalContent.solution}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Benefits & Process */}
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                                    <div>
+                                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                                            <Check className="w-5 h-5 text-orange-500" />
+                                            Key Benefits
+                                        </h4>
+                                        <div className="space-y-4">
+                                            {selectedService.modalContent.benefits.map((benefit, i) => (
+                                                <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
+                                                    <span className="text-sm text-neutral-300 leading-relaxed">{benefit}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
 
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">
-                                        {selectedService.modalContent.headline}
-                                    </h3>
-                                    <p className="text-lg text-accent font-medium">
-                                        {selectedService.modalContent.subheadline}
-                                    </p>
-                                </div>
-
-                                {/* Problem */}
-                                <div className="mb-8 p-6 bg-red-950/20 border border-red-900/30 rounded-lg">
-                                    <h4 className="text-xl font-bold mb-3 text-red-400">The Problem</h4>
-                                    <p className="text-neutral-300 leading-relaxed">
-                                        {selectedService.modalContent.problem}
-                                    </p>
-                                </div>
-
-                                {/* Solution */}
-                                <div className="mb-8 p-6 bg-green-950/20 border border-green-900/30 rounded-lg">
-                                    <h4 className="text-xl font-bold mb-3 text-green-400">Our Solution</h4>
-                                    <p className="text-neutral-300 leading-relaxed">
-                                        {selectedService.modalContent.solution}
-                                    </p>
-                                </div>
-
-                                {/* Benefits */}
-                                <div className="mb-8">
-                                    <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                        <Check className="w-5 h-5 text-accent" />
-                                        What You Get
-                                    </h4>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        {selectedService.modalContent.benefits.map((benefit, i) => (
-                                            <div key={i} className="flex items-start gap-3 p-3 bg-neutral-800/50 rounded-lg">
-                                                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                                                <span className="text-sm text-neutral-300">{benefit}</span>
-                                            </div>
-                                        ))}
+                                    <div>
+                                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                                            <Sparkles className="w-5 h-5 text-orange-500" />
+                                            The Process
+                                        </h4>
+                                        <div className="relative border-l border-white/10 ml-3 space-y-8 py-2">
+                                            {selectedService.modalContent.process.map((step, i) => (
+                                                <div key={i} className="relative pl-8">
+                                                    <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-800 border-2 border-orange-500/50" />
+                                                    <span className="block text-xs font-bold text-neutral-500 mb-1">STEP 0{i + 1}</span>
+                                                    <span className="text-sm text-neutral-300 leading-relaxed">{step}</span>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Process */}
-                                <div className="mb-8">
-                                    <h4 className="text-xl font-bold mb-4">How We Do It</h4>
-                                    <div className="space-y-3">
-                                        {selectedService.modalContent.process.map((step, i) => (
-                                            <div key={i} className="flex items-start gap-4 p-4 bg-neutral-800/30 rounded-lg">
-                                                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 text-accent font-bold flex items-center justify-center text-sm">
-                                                    {i + 1}
-                                                </span>
-                                                <span className="text-neutral-300 pt-1">{step}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Results */}
-                                <div className="mb-8 p-6 bg-accent/10 border border-accent/30 rounded-lg">
-                                    <h4 className="text-xl font-bold mb-3 text-accent">Real Results</h4>
-                                    <p className="text-neutral-300 leading-relaxed">
-                                        {selectedService.modalContent.results}
+                                {/* Bottom Results & CTA */}
+                                <div className="p-8 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/5 border border-orange-500/20 text-center">
+                                    <h4 className="text-lg font-bold text-orange-400 mb-4">Proven Results</h4>
+                                    <p className="text-neutral-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                                        "{selectedService.modalContent.results}"
                                     </p>
-                                </div>
 
-                                {/* CTA */}
-                                <div className="text-center pt-6 border-t border-neutral-800">
-                                    <p className="text-lg text-neutral-300 mb-6">
+                                    <div className="h-px w-full bg-white/10 mb-8" />
+
+                                    <h4 className="text-2xl font-flarex text-white mb-6">
                                         {selectedService.modalContent.cta}
-                                    </p>
-                                    <Link
-                                        href="/contact"
-                                        className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:scale-105 transition-transform"
-                                    >
-                                        Let's Talk
-                                        <ArrowUpRight className="w-5 h-5" />
+                                    </h4>
+
+                                    <Link href="/contact" onClick={() => setSelectedService(null)}>
+                                        <button className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-neutral-200 transition-colors">
+                                            Let's Talk Business
+                                        </button>
                                     </Link>
                                 </div>
                             </div>
@@ -737,8 +718,6 @@ export default function ServicesList() {
                     </motion.div>
                 )}
             </AnimatePresence>
-
-            <Footer />
         </div>
     );
 }

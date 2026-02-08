@@ -17,8 +17,8 @@ const Hero = memo(() => {
     if (!video) return;
 
     // Detection for iOS/iPadOS
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
     console.log('Device detected:', { isIOS, userAgent: navigator.userAgent });
 
@@ -26,7 +26,7 @@ const Hero = memo(() => {
     video.playsInline = true;
     video.muted = true;
     video.loop = true;
-    
+
     // Additional iOS-specific attributes
     if (isIOS) {
       video.setAttribute('playsinline', '');
@@ -54,7 +54,7 @@ const Hero = memo(() => {
   useEffect(() => {
     if (!isLoading && videoLoaded && videoRef.current) {
       const video = videoRef.current;
-      
+
       const attemptPlay = async () => {
         try {
           await video.play();
@@ -63,7 +63,7 @@ const Hero = memo(() => {
         } catch (error) {
           console.error('Video autoplay failed:', error);
           setVideoError(true);
-          
+
           // Setup interaction handlers for iOS/iPad
           const handleInteraction = async () => {
             try {
@@ -98,9 +98,9 @@ const Hero = memo(() => {
   return (
     <>
       {isLoading && <LoadingScreen onLoadComplete={() => setIsLoading(false)} />}
-      
-      <section 
-        className="relative h-screen flex flex-col overflow-hidden" 
+
+      <section
+        className="relative h-screen flex flex-col overflow-hidden"
         aria-label="Hero section"
       >
         {/* Video Background - Full Screen Edge to Edge */}
@@ -110,7 +110,7 @@ const Hero = memo(() => {
             playsInline
             loop
             muted
-            preload="none"
+            preload="auto"
             className="w-full h-full object-cover scale-100"
             style={{ transformOrigin: 'center center', willChange: 'auto' }}
             aria-hidden="true"
@@ -127,127 +127,61 @@ const Hero = memo(() => {
             <source src="/herovideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        {/* Fallback for when video doesn't play */}
-        {videoError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" aria-hidden="true" />
-        )}
-        {/* Dark overlay for better text readability */}
-  <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
-        {/* Circular/Radial fade at edges (vignette effect) */}
-        <div 
-          className="absolute inset-0" 
-          style={{ background: 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0.95) 100%)' }}
-          aria-hidden="true"
-        />
-      </div>
-
-      {/* Content - Positioned over video */}
-      <div className="relative z-10 h-full flex flex-col px-6 md:px-8 lg:px-12 pt-32 md:pt-24 lg:pt-40 pb-8">
-        {/* Mobile & Small Screens - Redesigned layout */}
-        <div className="flex-1 md:hidden flex flex-col h-full max-w-[1800px] mx-auto w-full">
-          {/* Top Section - Main Headline on Right - REMOVED FOR MOBILE */}
-          
-          {/* Spacer */}
-          <div className="flex-1"></div>
-
-          {/* Bottom Section - Description, Logos and CTA */}
-          <div className="space-y-6 pb-4">
-            {/* Description */}
-            <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <h2 className="text-lg sm:text-xl leading-relaxed text-justify text-white" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 700 }}>
-                We build brands, websites, and digital experiences{" "}
-                <span className="text-white">
-                  with intention, clarity and care.
-                </span>
-              </h2>
-            </div>
-
-            {/* Trusted By Logos - Horizontal with label on same row */}
-            <div className="flex items-center gap-4 animate-fade-in" style={{ animationDelay: "0.6s" }} role="region" aria-label="Trusted by companies">
-              <p className="text-xs text-white/60 uppercase tracking-wider whitespace-nowrap">
-                TRUSTED BY:
-              </p>
-              <div className="relative overflow-hidden mask-gradient flex-1">
-                <div className="flex gap-6 animate-scroll">
-                  {[...Array(3)].map((_, setIndex) => (
-                    <div key={setIndex} className="flex gap-6 shrink-0">
-                      {[...Array(21)].map((_, i) => (
-                        <img
-                          key={i}
-                          src={`/trust${i + 1}.png`}
-                          alt={`Trusted client logo ${i + 1}`}
-                          className="h-12 w-auto hover:scale-105 transition-transform"
-                          loading="eager"
-                          width="100"
-                          height="48"
-                        />
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button - Full Width */}
-            <div className="animate-fade-in" style={{ animationDelay: "0.8s" }}>
-              <Link href="/contact">
-                <button 
-                  className="group relative w-full px-8 py-4 rounded-full border-2 border-orange-500 hover:bg-orange-500 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]"
-                  aria-label="Start a project with ARC AI"
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-3 text-base font-bold tracking-wide text-orange-500 group-hover:text-white transition-colors">
-                    START A PROJECT
-                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
-                  </span>
-                </button>
-              </Link>
-            </div>
-          </div>
+          {/* Fallback for when video doesn't play */}
+          {videoError && (
+            <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" aria-hidden="true" />
+          )}
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+          {/* Circular/Radial fade at edges (vignette effect) */}
+          <div
+            className="absolute inset-0"
+            style={{ background: 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0.95) 100%)' }}
+            aria-hidden="true"
+          />
         </div>
 
-        {/* Medium Screens (iPad) - Custom Layout */}
-        <div className="hidden md:flex lg:hidden flex-col justify-between h-full max-w-[1800px] mx-auto w-full min-h-0">
-          {/* Top Section - Main Headline on Right with spacing */}
-          <div className="flex items-start justify-end pt-8 md:pt-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-[0.95] tracking-tight text-white text-right" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-              Beyond Visuals.
-              <br />
-              <span className="text-white/60">Built with Vision.</span>
-            </h1>
-          </div>
+        {/* Content - Positioned over video */}
+        <div className="relative z-10 h-full flex flex-col px-6 md:px-8 lg:px-12 pt-32 md:pt-24 lg:pt-40 pb-8">
+          {/* Mobile & Small Screens - Redesigned layout */}
+          <div className="flex-1 md:hidden flex flex-col h-full max-w-[1800px] mx-auto w-full">
+            {/* Top Section - Main Headline on Right - REMOVED FOR MOBILE */}
 
-          {/* Bottom Section - Description, Trusted By and CTA on Left */}
-          <div className="flex items-end pb-8 md:pb-12">
-            <div className="space-y-4 md:space-y-6 w-full md:w-auto">
+            {/* Spacer */}
+            <div className="flex-1"></div>
+
+            {/* Bottom Section - Description, Logos and CTA */}
+            <div className="space-y-6 pb-4">
               {/* Description */}
               <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                <h2 className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl text-justify text-white" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-                  We build brands, websites, AI Automations, and Digital experiences{" "}
+                <h2 className="text-lg sm:text-xl leading-relaxed text-left text-white font-flarex font-bold">
+                  We build brands, Smart websites, and Automations,{" "}
                   <span className="text-white">
                     with intention, clarity and care.
                   </span>
                 </h2>
               </div>
 
-              {/* Trusted By Logos - Bottom Left */}
+              {/* Trusted By Logos - Horizontal with label on same row */}
               <div className="flex items-center gap-4 animate-fade-in" style={{ animationDelay: "0.6s" }} role="region" aria-label="Trusted by companies">
                 <p className="text-xs text-white/60 uppercase tracking-wider whitespace-nowrap">
                   TRUSTED BY:
                 </p>
-                <div className="relative overflow-hidden mask-gradient max-w-md flex-1">
-                  <div className="flex gap-6 md:gap-8 animate-scroll">
+                <div className="relative overflow-hidden mask-gradient flex-1">
+                  <div className="flex gap-6 animate-scroll">
                     {[...Array(3)].map((_, setIndex) => (
-                      <div key={setIndex} className="flex gap-6 md:gap-8 shrink-0">
+                      <div key={setIndex} className="flex gap-6 shrink-0">
                         {[...Array(21)].map((_, i) => (
-                          <img
-                            key={i}
-                            src={`/trust${i + 1}.png`}
-                            alt={`Trusted client logo ${i + 1}`}
-                            className="h-10 md:h-12 w-auto hover:scale-105 transition-transform"
-                            loading="eager"
-                            width="100"
-                            height="48"
-                          />
+                          <div key={i} className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-2 hover:bg-white/20 transition-colors">
+                            <img
+                              src={`/trust${i + 1}.png`}
+                              alt={`Trusted client logo ${i + 1}`}
+                              className="w-full h-full object-contain rounded-full"
+                              loading="eager"
+                              width="100"
+                              height="48"
+                            />
+                          </div>
                         ))}
                       </div>
                     ))}
@@ -255,14 +189,158 @@ const Hero = memo(() => {
                 </div>
               </div>
 
-              {/* CTA Button - Under Trusted By */}
+              {/* CTA Button - Full Width */}
               <div className="animate-fade-in" style={{ animationDelay: "0.8s" }}>
                 <Link href="/contact">
-                  <button 
-                    className="group relative px-8 md:px-12 py-3 md:py-4 rounded-full border-2 border-orange-500 hover:bg-orange-500 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]"
+                  <button
+                    className="group relative w-full px-8 py-4 rounded-full border-2 border-orange-500 hover:bg-orange-500 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]"
                     aria-label="Start a project with ARC AI"
                   >
-                    <span className="relative z-10 flex items-center gap-3 text-sm md:text-base font-semibold tracking-wide text-orange-500 group-hover:text-white transition-colors">
+                    <span className="relative z-10 flex items-center justify-center gap-3 text-base font-bold tracking-wide text-orange-500 group-hover:text-white transition-colors">
+                      START A PROJECT
+                      <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Medium Screens (iPad) - Custom Layout */}
+          <div className="hidden md:flex lg:hidden flex-col justify-between h-full max-w-[1800px] mx-auto w-full min-h-0">
+            {/* Top Section - Main Headline on Right with spacing */}
+            <div className="flex items-start justify-end pt-8 md:pt-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-[0.95] tracking-tight text-white text-right font-flarex">
+                Beyond Visuals.
+                <br />
+                <span className="text-white/60">Built with Vision.</span>
+              </h1>
+            </div>
+
+            {/* Bottom Section - Description, Trusted By and CTA on Left */}
+            <div className="flex items-end pb-8 md:pb-12">
+              <div className="space-y-4 md:space-y-6 w-full md:w-auto">
+                {/* Description */}
+                <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl text-left text-white font-flarex">
+                    We build brands, Smart websites, and Automations,{" "}
+                    <span className="text-white">
+                      with intention, clarity and care.
+                    </span>
+                  </h2>
+                </div>
+
+                {/* Trusted By Logos - Bottom Left */}
+                <div className="flex items-center gap-4 animate-fade-in" style={{ animationDelay: "0.6s" }} role="region" aria-label="Trusted by companies">
+                  <p className="text-xs text-white/60 uppercase tracking-wider whitespace-nowrap">
+                    TRUSTED BY:
+                  </p>
+                  <div className="relative overflow-hidden mask-gradient max-w-md flex-1">
+                    <div className="flex gap-6 md:gap-8 animate-scroll">
+                      {[...Array(3)].map((_, setIndex) => (
+                        <div key={setIndex} className="flex gap-6 md:gap-8 shrink-0">
+                          {[...Array(21)].map((_, i) => (
+                            <div key={i} className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-2 hover:bg-white/20 transition-colors">
+                              <img
+                                src={`/trust${i + 1}.png`}
+                                alt={`Trusted client logo ${i + 1}`}
+                                className="w-full h-full object-contain rounded-full"
+                                loading="eager"
+                                width="100"
+                                height="48"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Button - Under Trusted By */}
+                <div className="animate-fade-in" style={{ animationDelay: "0.8s" }}>
+                  <Link href="/contact">
+                    <button
+                      className="group relative px-8 md:px-12 py-3 md:py-4 rounded-full border-2 border-orange-500 hover:bg-orange-500 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]"
+                      aria-label="Start a project with ARC AI"
+                    >
+                      <span className="relative z-10 flex items-center gap-3 text-sm md:text-base font-semibold tracking-wide text-orange-500 group-hover:text-white transition-colors">
+                        START A PROJECT
+                        <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                      </span>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Large Screens - Original 2-column layout */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-8 max-w-[1800px] mx-auto w-full flex-1">
+            {/* Left Side - Description at bottom */}
+            <div className="flex flex-col justify-end h-full">
+              <div className="space-y-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <h2 className="text-2xl xl:text-3xl font-medium leading-relaxed max-w-xl text-left text-white font-flarex">
+                  We build brands, Smart websites,
+                  <br />
+                  and Automations,{" "}
+                  <span className="text-white">
+                    with intention, clarity and care.
+                  </span>
+                </h2>
+
+                {/* Trusted By Logos */}
+                <div className="space-y-3">
+                  <p className="text-xs text-white/60 uppercase tracking-wider">
+                    TRUSTED BY:
+                  </p>
+                  <div className="relative overflow-hidden mask-gradient">
+                    <div className="flex gap-8 animate-scroll">
+                      {[...Array(3)].map((_, setIndex) => (
+                        <div key={setIndex} className="flex gap-8 shrink-0">
+                          {[...Array(21)].map((_, i) => (
+                            <div key={i} className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-2.5 hover:bg-white/20 transition-colors">
+                              <img
+                                src={`/trust${i + 1}.png`}
+                                alt={`Trusted client logo ${i + 1}`}
+                                className="w-full h-full object-contain rounded-full"
+                                loading="eager"
+                                fetchPriority="high"
+                                decoding="sync"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Main Heading and CTA */}
+            <div className="flex flex-col h-full">
+              {/* Main Headline */}
+              <div className="text-right animate-fade-in" style={{ animationDelay: "0.4s" }}>
+                <h1 className="text-3xl xl:text-[64px] font-semibold leading-[0.9] tracking-tight text-white font-flarex">
+                  Beyond
+                  <br />
+                  <span className="inline-block mb-4">Visuals.</span>
+                  <br />
+                  <span className="text-white/60">Built with</span>
+                  <br />
+                  <span className="text-white/60">Vision.</span>
+                </h1>
+              </div>
+
+              {/* CTA Button - Bottom Right */}
+              <div className="flex justify-end mt-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
+                <Link href="/contact">
+                  <button
+                    className="group relative px-8 py-4 rounded-full border-2 border-orange-500 bg-white/5 backdrop-blur-xl hover:bg-orange-500 transition-all duration-300 overflow-hidden shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]"
+                    aria-label="Start a project with ARC AI"
+                  >
+                    <span className="relative z-10 flex items-center gap-3 text-sm font-semibold tracking-wide text-orange-500 group-hover:text-white transition-colors">
                       START A PROJECT
                       <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
                     </span>
@@ -272,78 +350,7 @@ const Hero = memo(() => {
             </div>
           </div>
         </div>
-
-        {/* Large Screens - Original 2-column layout */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 max-w-[1800px] mx-auto w-full flex-1">
-          {/* Left Side - Description at bottom */}
-          <div className="flex flex-col justify-end h-full">
-            <div className="space-y-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <h2 className="text-2xl xl:text-3xl font-medium leading-relaxed max-w-xl text-justify text-white" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-                We build brands, websites,
-                <br />
-                AI Automations, and Digital experiences{" "}
-                <span className="text-white">
-                  with intention, clarity and care.
-                </span>
-              </h2>
-
-              {/* Trusted By Logos */}
-              <div className="space-y-3">
-                <p className="text-xs text-white/60 uppercase tracking-wider">
-                  TRUSTED BY:
-                </p>
-                <div className="relative overflow-hidden mask-gradient">
-                  <div className="flex gap-8 animate-scroll">
-                    {[...Array(3)].map((_, setIndex) => (
-                      <div key={setIndex} className="flex gap-8 shrink-0">
-                        {[...Array(21)].map((_, i) => (
-                          <img key={i}
-                            src={`/trust${i + 1}.png`}
-                            alt={`Trusted client logo ${i + 1}`}
-                            className="h-12 w-auto hover:scale-105 transition-transform"
-                           loading="eager" fetchPriority="high" decoding="sync" />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Main Heading and CTA */}
-          <div className="flex flex-col justify-between h-full">
-            {/* Main Headline */}
-            <div className="text-right animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <h1 className="text-3xl xl:text-[64px] font-bold leading-[0.9] tracking-tight text-white" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-                Beyond
-                <br />
-                Visuals.
-                <br />
-                <span className="text-white/60">Built with</span>
-                <br />
-                <span className="text-white/60">Vision.</span>
-              </h1>
-            </div>
-
-            {/* CTA Button - Bottom Right */}
-            <div className="flex justify-end mt-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
-              <Link href="/contact">
-                <button 
-                  className="group relative px-8 py-4 rounded-full border-2 border-orange-500 hover:bg-orange-500 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]"
-                  aria-label="Start a project with ARC AI"
-                >
-                  <span className="relative z-10 flex items-center gap-3 text-sm font-semibold tracking-wide text-orange-500 group-hover:text-white transition-colors">
-                    START A PROJECT
-                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
-                  </span>
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 });

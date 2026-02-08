@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "@/index.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -14,6 +15,12 @@ const inter = Inter({
   preload: true,
   adjustFontFallback: true,
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'sans-serif'],
+});
+
+const flarex = localFont({
+  src: "./fonts/flarex.otf",
+  variable: "--font-flarex",
+  display: "swap",
 });
 
 // Comprehensive SEO Metadata for UK and Sri Lankan markets
@@ -161,7 +168,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${flarex.variable}`}>
         <PerformanceMonitor />
         <QueryProvider>
           <TooltipProvider>

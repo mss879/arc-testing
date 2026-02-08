@@ -122,8 +122,8 @@ const Navbar = memo(() => {
 
       <nav
         className={`fixed z-40 transition-all duration-500 ease-in-out ${isScrolled
-            ? "top-0 left-0 right-0 px-6 py-6 md:top-4 md:left-4 md:right-4 lg:left-8 lg:right-8 md:bg-white/[0.03] md:backdrop-blur-2xl md:rounded-full md:border md:border-white/10 md:px-6 md:py-2 md:shadow-2xl"
-            : "top-0 left-0 right-0 px-6 lg:px-12 py-6 bg-transparent border-b border-transparent"
+          ? "top-0 left-0 right-0 px-6 py-6 md:top-4 md:left-4 md:right-4 lg:left-8 lg:right-8 md:bg-white/[0.03] md:backdrop-blur-2xl md:rounded-full md:border md:border-white/10 md:px-6 md:py-2 md:shadow-2xl"
+          : "top-0 left-0 right-0 px-6 lg:px-12 py-6 bg-transparent border-b border-transparent"
           }`}
         role="navigation"
         aria-label="Main navigation"
@@ -163,13 +163,13 @@ const Navbar = memo(() => {
           {/* Medium & Desktop Layout - Original horizontal layout */}
           <div className={`hidden md:flex justify-between pr-20 lg:pr-24 transition-all duration-500 ${isScrolled ? "items-center" : "items-start"}`}>
             {/* Logo */}
-            <a href="/" className={`transition-all duration-500 ${isScrolled ? "" : "-mt-4"} ${isMenuOpen ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
+            <a href="/" className={`transition-all duration-500 ${isScrolled ? "" : "lg:-mt-8"} ${isMenuOpen ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
               <img
                 src="/logo.png"
                 alt="ARC AI - Beyond Visuals. Built with Vision"
                 className={`w-auto transition-all duration-500 cursor-pointer ${isScrolled
                   ? "h-[40px] lg:h-[50px] xl:h-[60px]"
-                  : "h-[80px] lg:h-[120px] xl:h-[160px]"
+                  : "h-[80px] lg:h-[100px] xl:h-[140px]"
                   }`}
                 width="160"
                 height="160"
@@ -180,7 +180,7 @@ const Navbar = memo(() => {
             </a>
 
             {/* Right side - Status, Time, and CTA */}
-            <div className={`flex gap-6 md:gap-8 lg:gap-12 transition-all duration-300 ${isScrolled ? "items-center" : "items-start"} ${isMenuOpen ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
+            <div className={`flex gap-6 md:gap-8 lg:gap-12 items-center transition-all duration-300 ${isMenuOpen ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
               {/* Status and Date */}
               <div className="text-left space-y-0.5">
                 <div className="flex items-center gap-2">
@@ -210,7 +210,7 @@ const Navbar = memo(() => {
                 </a>
               </div>
             </div>
-            </div>
+          </div>
         </div>
       </nav>
     </>

@@ -1,5 +1,7 @@
 // Server Component - Optimized for SEO
 import { Metadata } from "next";
+import Link from "next/link";
+import NextImage from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
@@ -362,15 +364,24 @@ export default function Portfolio() {
               >
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] overflow-hidden rounded-lg mb-6 bg-zinc-900">
-                  <img src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy" decoding="async" />
+                  <div className="absolute inset-0 w-full h-full p-6 flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                      <NextImage
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-contain transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                        priority={index < 4}
+                      />
+                    </div>
+                  </div>
 
                   {/* Status Badge */}
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-4 right-4 z-10">
                     <span
-                      className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider ${item.status === "live"
+                      className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-sm ${item.status === "live"
                         ? "bg-green-500/20 text-green-400 border border-green-500/30"
                         : "bg-orange-500/20 text-orange-400 border border-orange-500/30"
                         }`}
@@ -380,7 +391,7 @@ export default function Portfolio() {
                   </div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex items-center justify-center z-20">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-sm bg-white/10">
                         <svg
@@ -478,16 +489,21 @@ export default function Portfolio() {
               >
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] overflow-hidden rounded-lg mb-6 bg-zinc-900">
-                  <img
-                    src={template.image}
-                    alt={template.title}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <div className="absolute inset-0 w-full h-full p-6 flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                      <NextImage
+                        src={template.image}
+                        alt={template.title}
+                        fill
+                        className="object-contain transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                      />
+                    </div>
+                  </div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 z-10" />
                 </div>
 
                 {/* Template Info */}
