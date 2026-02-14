@@ -89,9 +89,10 @@ export default function UpcomingLaunchesCarousel({ launches }: { launches: Launc
                                                     }`}>
                                                     {launch.status}
                                                 </span>
-                                                <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-wide">
+                                                {/* Title hidden as per request */}
+                                                {/* <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-wide">
                                                     {launch.title}
-                                                </h3>
+                                                </h3> */}
                                             </div>
                                         </div>
                                     </div>
