@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
-import { LogOut, RefreshCw, MessageSquare, Calendar, User, AlignLeft } from 'lucide-react';
+import Link from 'next/link';
+import { LogOut, RefreshCw, MessageSquare, Calendar, User, AlignLeft, Rocket } from 'lucide-react';
 
 interface ChatLog {
     id: string;
@@ -69,6 +70,13 @@ export default function AdminDashboard() {
                             <span className="font-bold text-lg">ARC Admin</span>
                         </div>
                         <div className="flex items-center gap-4">
+                            <Link
+                                href="/admin/launches"
+                                className="flex items-center gap-2 px-3 py-1.5 bg-[#FF4925]/10 hover:bg-[#FF4925]/20 text-[#FF4925] rounded-lg text-sm transition-colors border border-[#FF4925]/20"
+                            >
+                                <Rocket className="w-4 h-4" />
+                                <span>Manage Launches</span>
+                            </Link>
                             <button
                                 onClick={fetchLogs}
                                 className="p-2 text-gray-400 hover:text-white transition-colors"

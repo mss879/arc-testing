@@ -9,6 +9,8 @@ import CTA from "@/components/CTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import PortfolioHero from "@/components/PortfolioHero";
 import ScrollToTop from "@/components/ScrollToTop";
+import UpcomingLaunchesCarousel, { LaunchItem } from "@/components/UpcomingLaunchesCarousel";
+import { supabase } from "@/lib/supabase";
 
 // SEO Metadata for Portfolio Page
 export const metadata: Metadata = {
@@ -48,7 +50,22 @@ export const metadata: Metadata = {
   }
 };
 
-export default function Portfolio() {
+async function getLaunches() {
+  const { data } = await supabase
+    .from('upcoming_launches')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  // Transform or cast data if needed. 
+  // Supabase returns string for launch_date, ensuring it matches LaunchItem which expects string | null.
+  return (data as any[])?.map(item => ({
+    ...item,
+    status: item.status as 'planned' | 'development' | 'ready'
+  })) as LaunchItem[] || [];
+}
+
+export default async function Portfolio() {
+  const launches = await getLaunches();
 
   const portfolioItems = [
     {
@@ -346,6 +363,9 @@ export default function Portfolio() {
 
       {/* Hero Section with Animation */}
       <PortfolioHero />
+
+      {/* Upcoming Launches Section */}
+      <UpcomingLaunchesCarousel launches={launches} />
 
       {/* Portfolio Grid */}
       <section className="relative px-6 lg:px-12 pb-32">
