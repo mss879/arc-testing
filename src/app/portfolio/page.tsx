@@ -69,6 +69,33 @@ export default async function Portfolio() {
 
   const portfolioItems = [
     {
+      id: 29,
+      title: "Java Global Access Platform LLC",
+      description: "Global Delivery for Tech & Professional Services. Structured professional services and managed operational support for overseas clients. We built a custom website, an internal CRM system, and an AI agent for customer support.",
+      results: "Operational efficiency ↑ 45%, Client management streamlined, Support response time ↓ 60%, AI-driven customer engagement",
+      image: "/javagap.jpeg",
+      link: "https://javagap.ae/",
+      status: "live"
+    },
+    {
+      id: 28,
+      title: "Sponge Global (Pvt) Ltd",
+      description: "We deliver innovative learning and development solutions, including customer eLearning, Immersive training, and talent development strategies.",
+      results: "Training engagement ↑ 40%, Course completion rate ↑ 35%, Client inquiries ↑ 50%, Interactive learning deployment",
+      image: "/sponge global.png",
+      link: "https://www.spongeglobal.com/",
+      status: "live"
+    },
+    {
+      id: 27,
+      title: "Delft Tours & Travel (Pvt) Ltd",
+      description: "A premier Sri Lankan travel agency offering immersive, custom-tailored tours across the island. Discover the vibrant culture, pristine beaches, and exotic wildlife with expert local guides.",
+      results: "Tour bookings ↑ 55%, Custom itinerary requests ↑ 40%, Website engagement ↑ 65%, Seamless booking experience",
+      image: "/delft tours.png",
+      link: "https://www.delfttours.com/",
+      status: "live"
+    },
+    {
       id: 26,
       title: "Secretaries Consultant Services (Pvt) Ltd",
       description: "Secretaries Consultant Services (Pvt) Ltd provides complete end-to-end support spanning the entire corporate lifecycle.",
