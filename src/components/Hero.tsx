@@ -155,9 +155,9 @@ const Hero = memo(() => {
               {/* Description */}
               <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
                 <h2 className="text-lg sm:text-xl leading-relaxed text-left text-white font-flarex font-bold">
-                  We build brands, Smart websites, and Automations,{" "}
+                  We build data-driven websites, automations{" "}
                   <span className="text-white">
-                    with intention, clarity and care.
+                    that scale brands and drive revenue.
                   </span>
                 </h2>
               </div>
@@ -223,9 +223,9 @@ const Hero = memo(() => {
                 {/* Description */}
                 <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
                   <h2 className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl text-left text-white font-flarex">
-                    We build brands, Smart websites, and Automations,{" "}
+                    We build data-driven websites, automations{" "}
                     <span className="text-white">
-                      with intention, clarity and care.
+                      that scale brands and drive revenue.
                     </span>
                   </h2>
                 </div>
@@ -281,11 +281,11 @@ const Hero = memo(() => {
             <div className="flex flex-col justify-end h-full">
               <div className="space-y-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
                 <h2 className="text-2xl xl:text-3xl font-medium leading-relaxed max-w-xl text-left text-white font-flarex">
-                  We build brands, Smart websites,
+                  We build data-driven websites,
                   <br />
-                  and Automations,{" "}
+                  automations{" "}
                   <span className="text-white">
-                    with intention, clarity and care.
+                    that scale brands and drive revenue.
                   </span>
                 </h2>
 

@@ -54,7 +54,7 @@ const WhyUs: React.FC = () => {
           <div className="framer-jdz43l mb-6" data-framer-name="(why us)">
             <p className="framer-text text-xs tracking-[0.25em] text-neutral-500 uppercase">(WHY US)</p>
           </div>
-          
+
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
             {/* Left: Large Title */}
             <div className="framer-nrymqv" data-framer-name="Title">
@@ -91,7 +91,7 @@ const WhyUs: React.FC = () => {
                 </div>
               </motion.h2>
             </div>
-            
+
             {/* Right: Description aligned with second line */}
             <div className="flex items-end lg:pb-4">
               <div
@@ -99,7 +99,7 @@ const WhyUs: React.FC = () => {
                 data-framer-name="Description"
               >
                 <p>
-                  With 6+ years of expertise, We crafts bold brands and high-impact digital experience that get results.
+                  With 6+ years of expertise, we craft bold brands and high-impact digital experiences that drive measurable results.
                 </p>
               </div>
             </div>
@@ -136,7 +136,7 @@ const Stat = ({ item, index }: { item: StatItem; index: number }) => {
         const step = (now: number) => {
           const progress = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-            const current = Math.round(target * eased);
+          const current = Math.round(target * eased);
           setDisplayValue(current.toString());
           if (progress < 1) requestAnimationFrame(step);
         };
