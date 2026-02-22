@@ -35,6 +35,10 @@ const ProblemSection = dynamic(() => import("@/components/ProblemSection"), {
   ssr: true,
   loading: () => <SectionLoader />
 });
+const PortfolioCarousel = dynamic(() => import("@/components/PortfolioCarousel"), {
+  ssr: true,
+  loading: () => <SectionLoader />
+});
 const SolutionSection = dynamic(() => import("@/components/SolutionSection"), {
   ssr: true,
   loading: () => <SectionLoader />
@@ -130,6 +134,7 @@ export default function HomePage() {
         <Benefits />
         <ClientsSection />
         <ProblemSection />
+        <PortfolioCarousel />
         <SolutionSection />
         <ServicesSection />
         <Features />

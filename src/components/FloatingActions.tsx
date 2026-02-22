@@ -60,16 +60,28 @@ const FloatingActions = () => {
             {/* Calendar/Meeting Button */}
             <motion.button
               onClick={openCalendly}
-              className="group relative w-14 h-14 bg-[#FF4925] rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
+              className="group relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-110 overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255, 73, 37, 0.8), rgba(255, 73, 37, 0.4))',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                boxShadow: '0 8px 32px 0 rgba(255, 73, 37, 0.3), inset 0 2px 4px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRight: '1px solid rgba(255, 255, 255, 0.1)'
+              }}
             >
+              {/* Glossy Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-50 pointer-events-none rounded-full" />
+
               {/* Tooltip */}
-              <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900/90 backdrop-blur-md border border-white/10 text-white text-sm rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl transform group-hover:-translate-x-1 duration-300">
                 Book a Meeting
               </div>
 
               {/* Calendar Icon */}
               <svg
-                className="w-7 h-7 text-white"
+                className="w-6 h-6 text-white drop-shadow-md z-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -87,16 +99,28 @@ const FloatingActions = () => {
             {/* WhatsApp Button */}
             <motion.button
               onClick={openWhatsApp}
-              className="group relative w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
+              className="group relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-110 overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(37, 211, 102, 0.8), rgba(37, 211, 102, 0.4))',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                boxShadow: '0 8px 32px 0 rgba(37, 211, 102, 0.3), inset 0 2px 4px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRight: '1px solid rgba(255, 255, 255, 0.1)'
+              }}
             >
+              {/* Glossy Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-50 pointer-events-none rounded-full" />
+
               {/* Tooltip */}
-              <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900/90 backdrop-blur-md border border-white/10 text-white text-sm rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl transform group-hover:-translate-x-1 duration-300">
                 Chat on WhatsApp
               </div>
 
               {/* WhatsApp Icon */}
               <svg
-                className="w-7 h-7 text-white"
+                className="w-6 h-6 text-white drop-shadow-md z-10"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"

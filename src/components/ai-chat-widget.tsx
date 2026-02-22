@@ -374,26 +374,32 @@ export function AiChatWidget() {
                 </AnimatePresence>
 
                 <div className="relative w-14 h-14">
-                    <span className="absolute inset-0 rounded-full bg-[#F75834] opacity-75 animate-heartbeat"></span>
+                    <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#F75834] to-[#FFA07A] opacity-40 animate-ping blur-md"></span>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className={`
-                            relative w-14 h-14 bg-[#0A1A2F] border border-[#F75834]/40 rounded-full shadow-2xl 
-                            flex items-center justify-center overflow-hidden hover:border-[#F75834]/60 
-                            transition-all z-50 group
+                            relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden transition-all duration-500 hover:scale-110 z-50 group
                         `}
                         style={{
-                            boxShadow: 'rgba(0, 0, 0, 0.4) 0px 4px 20px, rgba(255, 215, 0, 0.15) 0px 0px 20px',
-                            transform: 'scale(1.05) translateZ(0px)'
+                            background: 'linear-gradient(135deg, rgba(247, 88, 52, 0.8), rgba(247, 88, 52, 0.4))',
+                            backdropFilter: 'blur(16px)',
+                            WebkitBackdropFilter: 'blur(16px)',
+                            boxShadow: '0 8px 32px 0 rgba(247, 88, 52, 0.4), inset 0 2px 4px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2)',
+                            border: '1px solid rgba(255, 255, 255, 0.4)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                            borderRight: '1px solid rgba(255, 255, 255, 0.1)'
                         }}
                     >
+                        {/* Glossy Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent opacity-50 pointer-events-none rounded-full" />
+
                         {/* Tooltip */}
-                        <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                        <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900/90 backdrop-blur-md border border-white/10 text-white text-sm rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl transform group-hover:-translate-x-1 duration-300">
                             AI Concierge
                         </div>
 
                         <div className="relative z-10">
-                            {isOpen ? <X className="w-6 h-6 text-[#F75834]" /> : <MessageCircle className="w-6 h-6 text-[#F75834]" />}
+                            {isOpen ? <X className="w-6 h-6 text-white drop-shadow-md" /> : <MessageCircle className="w-6 h-6 text-white drop-shadow-md" />}
                         </div>
                     </button>
                 </div>
