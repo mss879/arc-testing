@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { memo, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import LoadingScreen from "./LoadingScreen";
+import { clientLogos } from "@/lib/client-logos";
 
 const Hero = memo(() => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -171,11 +172,11 @@ const Hero = memo(() => {
                   <div className="flex gap-6 animate-scroll">
                     {[...Array(3)].map((_, setIndex) => (
                       <div key={setIndex} className="flex gap-6 shrink-0">
-                        {[...Array(21)].map((_, i) => (
+                        {clientLogos.map((logo, i) => (
                           <div key={i} className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-2 hover:bg-white/20 transition-colors">
                             <img
-                              src={`/trust${i + 1}.png`}
-                              alt={`Trusted client logo ${i + 1}`}
+                              src={`/logos/${logo.file}.webp`}
+                              alt={`${logo.name} logo`}
                               className="w-full h-full object-contain rounded-full"
                               loading="eager"
                               width="100"
@@ -239,11 +240,11 @@ const Hero = memo(() => {
                     <div className="flex gap-6 md:gap-8 animate-scroll">
                       {[...Array(3)].map((_, setIndex) => (
                         <div key={setIndex} className="flex gap-6 md:gap-8 shrink-0">
-                          {[...Array(21)].map((_, i) => (
+                          {clientLogos.map((logo, i) => (
                             <div key={i} className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-2 hover:bg-white/20 transition-colors">
                               <img
-                                src={`/trust${i + 1}.png`}
-                                alt={`Trusted client logo ${i + 1}`}
+                                src={`/logos/${logo.file}.webp`}
+                                alt={`${logo.name} logo`}
                                 className="w-full h-full object-contain rounded-full"
                                 loading="eager"
                                 width="100"
@@ -298,11 +299,11 @@ const Hero = memo(() => {
                     <div className="flex gap-8 animate-scroll">
                       {[...Array(3)].map((_, setIndex) => (
                         <div key={setIndex} className="flex gap-8 shrink-0">
-                          {[...Array(21)].map((_, i) => (
+                          {clientLogos.map((logo, i) => (
                             <div key={i} className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-2.5 hover:bg-white/20 transition-colors">
                               <img
-                                src={`/trust${i + 1}.png`}
-                                alt={`Trusted client logo ${i + 1}`}
+                                src={`/logos/${logo.file}.webp`}
+                                alt={`${logo.name} logo`}
                                 className="w-full h-full object-contain rounded-full"
                                 loading="eager"
                                 fetchPriority="high"

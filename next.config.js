@@ -2,10 +2,16 @@
 const nextConfig = {
   // output: 'export', // Commented out to enable API routes (SSR)
   images: {
-    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'gbkrwadxqzwuhhxmkfjb.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+    ],
   },
   // Disable trailing slashes
   trailingSlash: false,

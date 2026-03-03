@@ -15,7 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://arcai.agency/blog/ai-chatbots-customer-service`,
+      url: `https://www.arcai.agency/blog/ai-chatbots-customer-service`,
+      locale: "en_GB",
       images: [
         {
           url: post.featuredImage,
@@ -27,12 +28,14 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
+      site: "@arcaiagency",
+      creator: "@arcaiagency",
       title: post.title,
       description: post.excerpt,
       images: [post.featuredImage],
     },
     alternates: {
-      canonical: `https://arcai.agency/blog/ai-chatbots-customer-service`,
+      canonical: `https://www.arcai.agency/blog/ai-chatbots-customer-service`,
     },
   };
 }

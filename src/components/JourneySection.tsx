@@ -10,7 +10,7 @@ const JourneySection = () => {
   const journeyData = [
     {
       year: "2022",
-      title: "ARC Digital Canvas Founded",
+      title: "ARC AI Founded",
       description: "Started our journey revolutionizing businesses through AI automation and intelligent workflow solutions.",
       icon: Flag,
       gradient: "from-[#FF4925] to-[#E63E1F]",
@@ -89,7 +89,7 @@ const JourneySection = () => {
   return (
     <section className="py-16 px-6 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto">
-        <h2 
+        <h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-16 text-center"
           style={{
             fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
@@ -99,7 +99,7 @@ const JourneySection = () => {
         </h2>
         <div className="relative">
           {/* Timeline Line */}
-          <div 
+          <div
             className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5"
             style={{
               background: 'linear-gradient(rgb(255, 73, 37), rgb(230, 62, 31), rgb(255, 73, 37))'
@@ -116,9 +116,8 @@ const JourneySection = () => {
                 <div
                   key={index}
                   ref={(el) => { itemRefs.current[index] = el; }}
-                  className={`relative flex flex-col ${
-                    isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                  } gap-8 md:gap-12`}
+                  className={`relative flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                    } gap-8 md:gap-12`}
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? 'none' : 'translateY(20px)',
@@ -126,7 +125,7 @@ const JourneySection = () => {
                   }}
                 >
                   {/* Timeline Node */}
-                  <div 
+                  <div
                     className="absolute left-4 md:left-1/2 w-8 h-8 -translate-x-1/2"
                     style={{
                       transform: 'translateX(-50%)'
@@ -141,23 +140,21 @@ const JourneySection = () => {
 
                   {/* Content Card */}
                   <div
-                    className={`flex-1 ${
-                      isEven ? 'md:text-right' : 'md:text-left'
-                    } pl-16 md:pt-6 md:pb-6 ${
-                      isEven
+                    className={`flex-1 ${isEven ? 'md:text-right' : 'md:text-left'
+                      } pl-16 md:pt-6 md:pb-6 ${isEven
                         ? 'md:pl-[calc(50%_+_4rem)] md:pr-6'
                         : 'md:pr-[calc(50%_+_4rem)] md:pl-6'
-                    }`}
+                      }`}
                   >
                     <div className="group relative">
                       {/* Glow Effect */}
-                      <div 
+                      <div
                         className={`absolute inset-0 bg-gradient-to-r ${item.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-300`}
                       />
-                      
+
                       {/* Card */}
                       <div className="relative bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10 hover:border-[#FF4925]/30 transition-all duration-300">
-                        <span 
+                        <span
                           className={`text-3xl font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}
                           style={{
                             fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
@@ -165,7 +162,7 @@ const JourneySection = () => {
                         >
                           {item.year}
                         </span>
-                        <h3 
+                        <h3
                           className="text-xl font-bold text-white mt-2 mb-3"
                           style={{
                             fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
@@ -173,7 +170,7 @@ const JourneySection = () => {
                         >
                           {item.title}
                         </h3>
-                        <p 
+                        <p
                           className="text-gray-300"
                           style={{
                             fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"

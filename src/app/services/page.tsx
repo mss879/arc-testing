@@ -3,38 +3,44 @@ import ServicesList from "@/components/ServicesList";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing & AI Automation Services | ARC AI",
-  description: "Explore our comprehensive suite of digital services including AI automation, smart web design, chatbots, and data-driven digital marketing strategies.",
+  title: "ARC AI | Digital Services UK & Sri Lanka — AI, Web Design & Marketing",
+  description: "ARC AI services: AI automation, web design, chatbots, branding & digital marketing in UK & Sri Lanka. From smart websites to automated workflows.",
   keywords: [
-    "AI automation services", "digital marketing services", "web design agency",
-    "AI chatbots", "workflow automation", "content generation", "custom web apps",
-    "brand identity design", "smart ad campaigns", "digital transformation"
+    "AI automation services UK", "web design services Sri Lanka",
+    "AI chatbot services UK", "workflow automation agency UK",
+    "content generation Sri Lanka", "custom web apps UK",
+    "brand identity design Sri Lanka", "social media marketing UK",
+    "digital transformation services UK", "software company UK services",
+    "AI company Sri Lanka services", "best web design UK"
   ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Digital Marketing & AI Automation Services | ARC AI",
     description: "Transform your business with our AI-powered digital services. From smart websites to automated workflows, we deliver results that matter.",
-    url: "https://arcai.agency/services",
+    url: "https://www.arcai.agency/services",
     siteName: "ARC AI Agency",
     images: [
       {
-        url: "https://arcai.agency/shareable-img.png",
+        url: "https://www.arcai.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Digital Marketing & AI Automation Services | ARC AI",
+        type: "image/jpeg",
       },
     ],
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@arcaiagency",
+    creator: "@arcaiagency",
     title: "Digital Marketing & AI Automation Services | ARC AI",
     description: "Transform your business with our AI-powered digital services.",
-    images: ["https://arcai.agency/shareable-img.png"],
+    images: ["https://www.arcai.agency/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://arcai.agency/services"
+    canonical: "https://www.arcai.agency/services"
   }
 };
 
@@ -45,7 +51,7 @@ export default function ServicesPage() {
         type="services"
         pageTitle="Our Services"
         pageDescription="Comprehensive digital marketing and AI-powered services including web design, smart ad campaigns, and automated workflows."
-        pageUrl="https://arcai.agency/services"
+        pageUrl="https://www.arcai.agency/services"
       />
       <ServicesList />
     </>

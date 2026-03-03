@@ -65,39 +65,45 @@ import FloatingActions from "@/components/FloatingActions";
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: "AI Automation and Digital Marketing Company UK | Sri Lanka | ARC AI",
-  description: "Leading AI automation and digital marketing company in UK & Sri Lanka. Expert web design, branding, AI automation, chatbots, content generation & digital marketing services. Transform your business with cutting-edge technology.",
+  title: "ARC AI | AI Automation & Web Design Agency UK & Sri Lanka",
+  description: "ARC AI: Leading AI automation & web design agency in UK & Sri Lanka. Expert AI chatbots, automation workflows, branding & digital marketing. Get a free quote.",
   keywords: [
-    "AI digital agency UK", "web design agency London", "AI automation UK", "digital marketing UK",
-    "AI chatbot development UK", "web development agency UK", "branding agency UK",
-    "AI digital agency Sri Lanka", "web design agency Colombo", "digital marketing Sri Lanka",
-    "AI web design", "artificial intelligence marketing", "chatbot development", "workflow automation"
+    "AI company UK", "AI companies in UK", "AI companies in Sri Lanka",
+    "software company UK", "software company Sri Lanka",
+    "websites in UK", "websites in Sri Lanka",
+    "web design agency UK", "best software company UK",
+    "best software company Sri Lanka", "AI automation agency UK",
+    "AI chatbot development UK", "web design Sri Lanka", "digital marketing UK",
+    "branding agency UK", "AI automation Sri Lanka"
   ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI - AI Automation and Digital Marketing Company",
     description: "Leading AI automation and digital marketing company in UK & Sri Lanka. Transform your business with cutting-edge web design, AI automation, and digital marketing.",
-    url: "https://arcai.agency",
+    url: "https://www.arcai.agency",
     siteName: "ARC AI Agency",
     images: [
       {
-        url: "https://arcai.agency/shareable-img.png",
+        url: "https://www.arcai.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "ARC AI - AI Automation and Digital Marketing Company",
+        type: "image/jpeg",
       },
     ],
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@arcaiagency",
+    creator: "@arcaiagency",
     title: "ARC AI - AI Automation and Digital Marketing Company",
     description: "Leading AI automation and digital marketing company in UK & Sri Lanka",
-    images: ["https://arcai.agency/shareable-img.png"],
+    images: ["https://www.arcai.agency/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://arcai.agency"
+    canonical: "https://www.arcai.agency"
   }
 };
 
@@ -112,7 +118,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background dark">
       {/* Schema.org Structured Data for SEO */}
-      <SchemaOrg type="home" />
+      <SchemaOrg type="home" showFAQ={true} />
 
       {/* Skip to main content link for accessibility */}
       <a

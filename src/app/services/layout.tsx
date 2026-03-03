@@ -11,23 +11,23 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Services - Digital Marketing & AI Solutions",
         description: "Comprehensive digital marketing and AI-powered services to transform your business and drive growth.",
-        url: "https://arcai.agency/services",
+        url: "https://www.arcai.agency/services",
         type: "website",
         images: [{
-            url: "https://arcai.agency/shareable-img.png",
+            url: "https://www.arcai.agency/og-image.jpg",
             width: 1200,
             height: 630,
-            alt: "ARC Digital Canvas Services"
+            alt: "ARC AI Services"
         }]
     },
     twitter: {
         card: "summary_large_image",
         title: "Services - Digital Marketing & AI Solutions",
         description: "Comprehensive digital marketing and AI-powered services",
-        images: ["https://arcai.agency/shareable-img.png"]
+        images: ["https://www.arcai.agency/og-image.jpg"]
     },
     alternates: {
-        canonical: "https://arcai.agency/services"
+        canonical: "https://www.arcai.agency/services"
     }
 };
 

@@ -59,28 +59,16 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
+    site: '@arcaiagency',
+    creator: '@arcaiagency',
     title: 'ARC AI - AI Automation and Digital Marketing Company',
     description: 'Leading AI automation and digital marketing company in UK & Sri Lanka. Expert web design, branding, AI automation & digital marketing.',
     images: ['https://www.arcai.agency/og-image.jpg'],
   },
 
   // Keeping other existing metadata for SEO but ensuring they don't conflict
-  keywords: [
-    // UK Market Keywords
-    "AI digital agency UK", "web design agency London", "AI automation UK", "digital marketing UK",
-    "AI chatbot development UK", "web development agency UK", "branding agency UK",
-    "AI content generation UK", "automated workflows UK", "digital transformation UK",
-    // Sri Lanka Market Keywords
-    "AI digital agency Sri Lanka", "web design agency Colombo", "AI automation Sri Lanka",
-    "digital marketing Sri Lanka", "web development Sri Lanka", "branding agency Sri Lanka",
-    "AI chatbot Sri Lanka", "digital agency Colombo", "website design Sri Lanka",
-    // General Keywords
-    "AI web design", "artificial intelligence marketing", "AI powered website",
-    "chatbot development", "workflow automation", "content generation AI",
-    "custom web design", "brand identity design", "digital experience design",
-    "motion design", "social media marketing", "SEO optimization"
-  ],
-  authors: [{ name: "ARC AI", url: "https://arcai.agency" }],
+  // Note: Google has officially ignored meta keywords since 2009 — removed to keep code clean
+  authors: [{ name: "ARC AI", url: "https://www.arcai.agency" }],
   creator: "ARC AI",
   publisher: "ARC AI",
   robots: {
@@ -95,22 +83,21 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://arcai.agency',
+    canonical: 'https://www.arcai.agency',
     languages: {
-      'en-GB': 'https://arcai.agency',
-      'en-LK': 'https://arcai.agency',
+      'en-GB': 'https://www.arcai.agency',
+      'en-LK': 'https://www.arcai.agency',
     },
   },
-  verification: {
-    google: 'your-google-verification-code', // Add your Google Search Console verification code
-  },
+  // TODO: Replace with your actual Google Search Console verification code
+  // verification: { google: 'paste-your-actual-code-here' },
   category: 'technology',
   classification: 'Business Services',
   other: {
     'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
+    'geo.placename': 'Birmingham, United Kingdom',
     'geo.region.secondary': 'LK',
-    'geo.placename.secondary': 'Sri Lanka',
+    'geo.placename.secondary': 'Colombo, Sri Lanka',
     'distribution': 'global',
     'revisit-after': '7 days',
     'language': 'English',
@@ -125,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en-GB" className="dark">
       <head>
         {/* Critical Meta Tags */}
         <meta charSet="utf-8" />

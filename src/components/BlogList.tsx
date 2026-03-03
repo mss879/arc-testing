@@ -34,6 +34,33 @@ const fadeInUp: Variants = {
 export default function BlogList() {
     const blogPosts = [
         {
+            id: "smart-websites-sri-lanka-2026",
+            title: "Why Your Sri Lankan Business Needs a Smart Website in 2026",
+            date: "March 4, 2026",
+            category: "Web Development",
+            image: "/smart-website-sri-lanka.png",
+            excerpt: "Traditional websites are dead. Learn why Sri Lankan businesses are upgrading to AI-powered Smart Websites to capture leads, answer queries, and drive sales 24/7.",
+            tags: ["Smart Websites", "Web Development", "Sri Lanka Business"]
+        },
+        {
+            id: "ai-customer-service-agent-sri-lanka",
+            title: "The Ultimate AI Customer Service Agent for Sri Lankan Businesses",
+            date: "March 4, 2026",
+            category: "AI Agents",
+            image: "/ai-agent-cs-lk.png",
+            excerpt: "See how the AI agent on our website works and why it is the perfect 24/7 customer service solution for businesses in Sri Lanka to handle inquiries instantly.",
+            tags: ["AI Agents", "Customer Service", "Sri Lanka Business"]
+        },
+        {
+            id: "ai-automation-cost-cutting-sri-lanka",
+            title: "AI Automation in Sri Lanka: How to Cut Costs and Scale Fast",
+            date: "March 4, 2026",
+            category: "AI Automation",
+            image: "/ai-automation-lk.png",
+            excerpt: "AI Automation is the newest competitive advantage for Sri Lankan businesses. Learn how automating repetitive tasks can drastically reduce your operational costs and human resource dependencies.",
+            tags: ["AI Automation", "Cost Cutting", "Sri Lanka Business"]
+        },
+        {
             id: "ai-agents-sri-lanka",
             title: "The Rise of AI Agents: Transforming Business Operations in Sri Lanka",
             date: "March 20, 2025",
@@ -179,7 +206,7 @@ export default function BlogList() {
                             <img src="/favicon.png" alt="ARC AI" className="w-full h-full object-contain" loading="lazy" decoding="async" />
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold">ARC Digital Canvas</h3>
+                            <h3 className="text-xl font-bold">ARC AI</h3>
                             <p className="text-neutral-400">Digital Marketing & AI Experts</p>
                         </div>
                     </motion.div>

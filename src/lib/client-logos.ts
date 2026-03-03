@@ -1,0 +1,32 @@
+// All client trust logos - company name and filename mapping
+export const clientLogos = [
+    { name: "YBO Agency", file: "yboagency" },
+    { name: "Zenzur", file: "zenzur" },
+    { name: "Car Rush", file: "car-rush" },
+    { name: "Care Arena Ceylon", file: "care-arena-ceylon" },
+    { name: "Ceylon Motors", file: "ceylonmotors" },
+    { name: "Ceylon Tea Land", file: "ceylontealand" },
+    { name: "DEK Studio", file: "dek-studio" },
+    { name: "Digital Kade", file: "digital-kade" },
+    { name: "Essential Marketing", file: "essential" },
+    { name: "Fit Bite", file: "fit-bite" },
+    { name: "Heatwave Pro", file: "heatwave-pro" },
+    { name: "Hijab Boutique", file: "hijab-boutique" },
+    { name: "Hilltop Recruitment", file: "hilltop-recruitment" },
+    { name: "Island Jerky", file: "island-jerky" },
+    { name: "Noble Mentorship", file: "noble-mentorship" },
+    { name: "Rivon", file: "rivon" },
+    { name: "Skoop", file: "skoop" },
+    { name: "Social Sphere", file: "social-sphere" },
+    { name: "Sundelmar", file: "sundelmar" },
+    { name: "Universal Kids", file: "universal-kids" },
+    { name: "Vibe Web Studio", file: "vibe-web-studio" },
+    { name: "S&S Traders", file: "ss-traders" },
+    { name: "Sponge Global", file: "sponge-global" },
+    { name: "Exim", file: "exim" },
+    { name: "Halo", file: "halo" },
+    { name: "Java Gap", file: "java-gap" },
+    { name: "Logo Client", file: "logo-client" },
+] as const;
+
+export const LOGO_COUNT = clientLogos.length;

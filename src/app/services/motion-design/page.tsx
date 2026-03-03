@@ -3,30 +3,43 @@ import { Metadata } from "next";
 import MotionDesignContent from "./content";
 
 export const metadata: Metadata = {
-  title: "Motion Design Services | ARC AI",
-  description: "Bring your digital experiences to life with ARC AI's motion design services. User-centric animations, micro-interactions, and visual storytelling.",
+  title: "ARC AI | Motion Design & Animation Agency UK & Sri Lanka",
+  description: "Bring your brand to life with motion design. ARC AI creates UI animations, micro-interactions & visual storytelling for businesses in UK & Sri Lanka.",
+  keywords: [
+    "motion design agency UK", "animation studio Sri Lanka",
+    "UI animation agency Birmingham", "web animation Colombo",
+    "micro-interaction design UK", "motion graphics agency UK",
+    "brand animation Sri Lanka", "Framer Motion development UK",
+    "scroll animations UK", "digital animation studio Sri Lanka"
+  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Motion Design Services | ARC AI",
     description: "Transform your interfaces with engaging motion design from ARC AI.",
-    url: "https://arcai.agency/services/motion-design",
+    url: "https://www.arcai.agency/services/motion-design",
     siteName: "ARC AI Agency",
     images: [
       {
-        url: "https://arcai.agency/shareable-img.png",
+        url: "https://www.arcai.agency/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "ARC AI Motion Design Services",
+        type: "image/jpeg",
       },
     ],
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@arcaiagency",
+    creator: "@arcaiagency",
     title: "Motion Design Services | ARC AI",
     description: "Transform your interfaces with engaging motion design from ARC AI.",
-    images: ["https://arcai.agency/shareable-img.png"],
+    images: ["https://www.arcai.agency/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.arcai.agency/services/motion-design"
   }
 };
 

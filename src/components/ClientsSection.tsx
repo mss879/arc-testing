@@ -2,6 +2,7 @@
 
 import { memo, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { clientLogos } from "@/lib/client-logos";
 
 const ClientsSection = memo(() => {
   const [rotation, setRotation] = useState(0);
@@ -28,13 +29,11 @@ const ClientsSection = memo(() => {
     setIsCalendlyOpen(false);
   };
 
-  // Array of trust logos (1-21)
-  const logos = Array.from({ length: 21 }, (_, i) => `/trust${i + 1}.png`);
-
-  // Create 21 arms positioned around the circle, one for each logo
-  const arms = Array.from({ length: 21 }, (_, i) => ({
-    rotation: i * (360 / 21), // 360/21 ≈ 17.14 degrees each
-    logo: logos[i],
+  // Create arms positioned around the circle, one for each logo
+  const arms = clientLogos.map((logo, i) => ({
+    rotation: i * (360 / clientLogos.length),
+    logo: `/logos/${logo.file}.webp`,
+    name: logo.name,
   }));
 
   return (
@@ -43,9 +42,9 @@ const ClientsSection = memo(() => {
         <div className="relative flex flex-col items-center">
           {/* Spinning Circle with Images - Positioned higher to show only top half */}
           <div className="relative w-full h-[350px] md:h-[450px] mb-0 overflow-hidden">
-            <div 
+            <div
               className="absolute left-1/2 -top-[150px] md:-top-[400px] -translate-x-1/2 w-[1800px] h-[1800px] md:w-[2400px] md:h-[2400px]"
-              style={{ 
+              style={{
                 perspective: "1200px",
                 transformStyle: "preserve-3d"
               }}
@@ -76,7 +75,7 @@ const ClientsSection = memo(() => {
                       }}
                     >
                       <div
-                        className="w-[110px] h-[110px] rounded-full bg-white border-[6px] border-neutral-100 shadow-lg overflow-hidden"
+                        className="w-[110px] h-[110px] rounded-full bg-white border-[6px] border-neutral-100 shadow-lg overflow-hidden p-3 flex items-center justify-center"
                         style={{
                           boxShadow:
                             "rgba(108, 113, 128, 0.08) 0px 2px 4px 0px, rgba(108, 113, 128, 0.07) 0px 7px 7px 0px, rgba(108, 113, 128, 0.04) 0px 17px 10px 0px, rgba(108, 113, 128, 0.01) 0px 29px 12px 0px",
@@ -84,8 +83,8 @@ const ClientsSection = memo(() => {
                       >
                         <img
                           src={arm.logo}
-                          alt="Client logo"
-                          className="w-full h-full object-cover"
+                          alt={`${arm.name} logo`}
+                          className="w-full h-full object-contain"
                           loading="lazy"
                         />
                       </div>
@@ -96,15 +95,15 @@ const ClientsSection = memo(() => {
             </div>
 
             {/* Bottom Fade/Blur Mask - hides bottom half */}
-            <div 
+            <div
               className="absolute inset-0 pointer-events-none"
               style={{
                 background: "linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.9) 85%, rgb(0,0,0) 100%)"
               }}
             />
-            
+
             {/* Side blur edges */}
-            <div 
+            <div
               className="absolute inset-0 pointer-events-none"
               style={{
                 background: "radial-gradient(ellipse at center top, transparent 0%, transparent 50%, rgba(0,0,0,0.3) 80%, rgb(0,0,0) 100%)"

@@ -1,4 +1,4 @@
-
+﻿
 import { Metadata } from "next";
 import BlogPost from "./content";
 
@@ -15,7 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://arcai.agency/blog/influencer-marketing-strategy`,
+      url: `https://www.arcai.agency/blog/influencer-marketing-strategy`,
+      locale: "en_GB",
       images: [
         {
           url: post.featuredImage,
@@ -27,12 +28,14 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
+      site: "@arcaiagency",
+      creator: "@arcaiagency",
       title: post.title,
       description: post.excerpt,
       images: [post.featuredImage],
     },
     alternates: {
-      canonical: `https://arcai.agency/blog/influencer-marketing-strategy`,
+      canonical: `https://www.arcai.agency/blog/influencer-marketing-strategy`,
     },
   };
 }
@@ -40,3 +43,4 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Page() {
   return <BlogPost />;
 }
+

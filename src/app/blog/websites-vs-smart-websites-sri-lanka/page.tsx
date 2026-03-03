@@ -18,7 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
         openGraph: {
             title: post.title,
             description: post.excerpt,
-            url: `https://arcai.agency/blog/websites-vs-smart-websites-sri-lanka`,
+            url: `https://www.arcai.agency/blog/websites-vs-smart-websites-sri-lanka`,
+            locale: "en_GB",
             images: [
                 {
                     url: post.featuredImage,
@@ -30,12 +31,14 @@ export async function generateMetadata(): Promise<Metadata> {
         },
         twitter: {
             card: "summary_large_image",
+            site: "@arcaiagency",
+            creator: "@arcaiagency",
             title: post.title,
             description: post.excerpt,
             images: [post.featuredImage],
         },
         alternates: {
-            canonical: `https://arcai.agency/blog/websites-vs-smart-websites-sri-lanka`,
+            canonical: `https://www.arcai.agency/blog/websites-vs-smart-websites-sri-lanka`,
         },
     };
 }

@@ -1,69 +1,94 @@
 import { MetadataRoute } from 'next';
-import fs from 'fs';
-import path from 'path';
 
 export const dynamic = 'force-static';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.arcai.agency';
 
-    // Helper function to get last modified date of a file
-    const getLastModified = (filePath: string): Date => {
-        try {
-            const stats = fs.statSync(filePath);
-            return stats.mtime;
-        } catch (e) {
-            return new Date();
-        }
-    };
-
-    // 1. Static Pages
-    // We'll check the main app/page.tsx, app/about/page.tsx etc to get their real dates
-    const staticRoutes = [
-        { route: '', filePath: 'src/app/page.tsx' },
-        { route: '/about', filePath: 'src/app/about/page.tsx' },
-        { route: '/portfolio', filePath: 'src/app/portfolio/page.tsx' },
-        { route: '/contact', filePath: 'src/app/contact/page.tsx' },
-        { route: '/blog', filePath: 'src/app/blog/page.tsx' },
-        { route: '/services', filePath: 'src/app/services/page.tsx' },
+    // Static pages with real content dates (not file system timestamps)
+    const staticPages: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}`,
+            lastModified: new Date('2026-03-04'),
+            changeFrequency: 'weekly',
+            priority: 1.0,
+        },
+        {
+            url: `${baseUrl}/about`,
+            lastModified: new Date('2026-03-04'),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/portfolio`,
+            lastModified: new Date('2026-03-04'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/contact`,
+            lastModified: new Date('2026-03-04'),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date('2026-03-04'),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/services`,
+            lastModified: new Date('2026-03-04'),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
     ];
 
-    const staticPages = staticRoutes.map(item => ({
-        url: `${baseUrl}${item.route}`,
-        lastModified: getLastModified(path.join(process.cwd(), item.filePath)),
+    // Service pages
+    const servicePages: MetadataRoute.Sitemap = [
+        'web-design-development',
+        'ai-chatbots',
+        'ai-automated-workflows',
+        'ai-content-generation',
+        'branding',
+        'custom-backend',
+        'motion-design',
+        'smart-funnels',
+        'social-media',
+        'web-apps',
+    ].map(slug => ({
+        url: `${baseUrl}/services/${slug}`,
+        lastModified: new Date('2026-03-04'),
         changeFrequency: 'monthly' as const,
-        priority: item.route === '' ? 1 : 0.8,
+        priority: 0.9,
     }));
 
-    // Helper to get dynamic routes with validation and real dates
-    const getDynamicRoutes = (baseDir: string, urlPrefix: string, defaultPriority: number) => {
-        const dirPath = path.join(process.cwd(), baseDir);
-
-        if (!fs.existsSync(dirPath)) return [];
-
-        const folders = fs.readdirSync(dirPath).filter(file => {
-            const fullPath = path.join(dirPath, file);
-            // Must be a directory AND contain page.tsx
-            return fs.statSync(fullPath).isDirectory() &&
-                fs.existsSync(path.join(fullPath, 'page.tsx'));
-        });
-
-        return folders.map(folder => {
-            const pagePath = path.join(dirPath, folder, 'page.tsx');
-            return {
-                url: `${baseUrl}${urlPrefix}/${folder}`,
-                lastModified: getLastModified(pagePath),
-                changeFrequency: 'weekly' as const,
-                priority: defaultPriority,
-            };
-        });
-    };
-
-    // 2. Dynamic Services
-    const servicePages = getDynamicRoutes('src/app/services', '/services', 0.9);
-
-    // 3. Dynamic Blog Posts
-    const blogPages = getDynamicRoutes('src/app/blog', '/blog', 0.6);
+    // Blog posts with their actual publish dates
+    const blogPages: MetadataRoute.Sitemap = [
+        { slug: 'ai-agents-sri-lanka', date: '2024-10-01' },
+        { slug: 'ai-analytics-business-intelligence', date: '2024-11-01' },
+        { slug: 'ai-automation-transform-business-2024', date: '2024-09-01' },
+        { slug: 'ai-chatbots-customer-service', date: '2024-08-01' },
+        { slug: 'ai-content-generation-marketing', date: '2024-07-01' },
+        { slug: 'digital-marketing-strategies-2024', date: '2024-06-01' },
+        { slug: 'email-marketing-automation', date: '2024-05-01' },
+        { slug: 'influencer-marketing-strategy', date: '2024-04-01' },
+        { slug: 'marketing-analytics-dashboard', date: '2024-03-01' },
+        { slug: 'seo-optimization-best-practices', date: '2024-12-01' },
+        { slug: 'social-media-marketing-guide', date: '2024-02-01' },
+        { slug: 'video-marketing-2025', date: '2025-01-01' },
+        { slug: 'websites-vs-smart-websites-sri-lanka', date: '2025-03-01' },
+        { slug: 'workflow-automation-tools-2024', date: '2024-01-01' },
+        { slug: 'smart-websites-sri-lanka-2026', date: '2026-03-04' },
+        { slug: 'ai-customer-service-agent-sri-lanka', date: '2026-03-04' },
+        { slug: 'ai-automation-cost-cutting-sri-lanka', date: '2026-03-04' },
+    ].map(({ slug, date }) => ({
+        url: `${baseUrl}/blog/${slug}`,
+        lastModified: new Date(date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+    }));
 
     return [...staticPages, ...servicePages, ...blogPages];
 }
