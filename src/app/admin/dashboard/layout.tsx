@@ -79,9 +79,8 @@ export default function DashboardLayout({
 
             {/* Sidebar */}
             <aside
-                className={`fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-zinc-950 border-r border-white/10 flex flex-col transition-transform duration-300 ${
-                    sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-                }`}
+                className={`fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-zinc-950 border-r border-white/10 flex flex-col transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+                    }`}
             >
                 {/* Logo / Branding */}
                 <div className="p-6 border-b border-white/10">
@@ -105,11 +104,10 @@ export default function DashboardLayout({
                                 key={item.path}
                                 href={item.path}
                                 onClick={() => setSidebarOpen(false)}
-                                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
-                                    isActive
+                                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${isActive
                                         ? 'bg-[#FF4925]/10 text-[#FF4925] border border-[#FF4925]/20'
                                         : 'text-gray-400 hover:text-white hover:bg-white/5'
-                                }`}
+                                    }`}
                             >
                                 <item.icon className={`w-5 h-5 ${isActive ? 'text-[#FF4925]' : ''}`} />
                                 {item.name}

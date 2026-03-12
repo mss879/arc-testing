@@ -147,7 +147,7 @@ const Hero = memo(() => {
           {/* Mobile & Small Screens - Redesigned layout */}
           <div className="flex-1 md:hidden flex flex-col h-full max-w-[1800px] mx-auto w-full">
             {/* Mobile H1 — critical for SEO (Google mobile-first indexing) */}
-            <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <div className="animate-fade-in mt-12" style={{ animationDelay: "0.2s" }}>
               <h1 className="text-3xl sm:text-4xl font-semibold leading-[1.1] tracking-tight text-white text-left font-flarex">
                 Beyond Visuals.
                 <br />

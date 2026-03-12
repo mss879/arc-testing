@@ -40,15 +40,17 @@ const Benefits = () => {
             {/* Col 1: Strategy */}
             <Card index={0} className="bg-white/[0.04] border-white/10">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5">
-                <Image src="/images/compass.webp"
+                <Image src="/images/collaborative_compass.webp"
                   alt="compass"
                   fill
-                  className="object-contain scale-105"
+                  className="object-cover scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   loading="lazy" />
               </div>
-              <h3 className="text-sm md:text-base font-semibold text-white mb-1">Strategy-First Approach</h3>
-              <p className="text-[11px] md:text-xs text-zinc-400 leading-snug">Every decision is rooted in clarity, not guesswork.</p>
+              <div className="mt-4 pb-2">
+                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Strategy-First Execution</h3>
+                <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed">We don't pull tactics from thin air. Every system we architect is rooted in deep operational clarity and scalable design.</p>
+              </div>
             </Card>
 
             {/* Col 2: Stacked (Quality + Support) */}
@@ -126,8 +128,8 @@ const Benefits = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-black/10 to-black/70" />
               </div>
               <div className="p-5">
-                <h3 className="text-sm md:text-base font-semibold text-white mb-1">Bespoke Engineering</h3>
-                <p className="text-[11px] md:text-xs text-zinc-400 leading-snug max-w-[280px]">
+                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Bespoke Engineering</h3>
+                <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed max-w-[280px]">
                   No cookie-cutter templates. We architect custom solutions engineered explicitly for your operational goals.
                 </p>
               </div>
@@ -136,24 +138,19 @@ const Benefits = () => {
 
           {/* Second Row: Two wide cards spanning full width */}
           <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-            {/* Collaborative (wide) - plain div to avoid any animation/GPU overhead on video */}
-            <div
-              className="relative rounded-xl border border-white/10 overflow-hidden p-0 min-h-[300px] md:min-h-[400px] bg-black"
-            >
-              {/* Full Background Video */}
+            {/* Collaborative (wide) */}
+            <Card index={4} className="relative overflow-hidden p-0 min-h-[300px] md:min-h-[400px] bg-black">
+              {/* Full Background Image */}
               <div className="absolute inset-0">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  suppressHydrationWarning
-                  className="w-full h-full object-cover"
-                >
-                  <source src="/images/collaborative_bg.webm" type="video/webm" suppressHydrationWarning />
-                  <source src="/images/collaborative_bg.mp4" type="video/mp4" suppressHydrationWarning />
-                </video>
+                <Image
+                  src="/images/collaborative_partnership.webp"
+                  alt="Collaborative partnership"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={90}
+                  loading="lazy"
+                />
                 {/* Gradient Overlay for Text Readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
               </div>
@@ -165,7 +162,7 @@ const Benefits = () => {
                   We don't just build for you; we build with you. True collaboration creates solutions that actually fit your workflow.
                 </p>
               </div>
-            </div>
+            </Card>
 
 
             {/* Col 5: Data-Driven Performance (wide) */}
@@ -190,8 +187,8 @@ const Benefits = () => {
               </div>
 
               <div className="relative z-10 flex flex-col justify-center h-full pt-10 pb-4 pl-5 pr-4">
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-3">Data-Driven Performance</h3>
-                <p className="text-[12px] md:text-sm text-zinc-300 leading-snug max-w-[280px] md:max-w-xs mb-4">
+                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Data-Driven Performance</h3>
+                <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed max-w-[280px] md:max-w-xs mb-4">
                   Beautiful design is only half the equation. We architect scalable solutions backed by analytics, ensuring every interaction translates to measurable business growth.
                 </p>
               </div>
