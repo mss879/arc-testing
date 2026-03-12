@@ -2,6 +2,7 @@
 
 import { motion, Variant } from "framer-motion";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import Image from "next/image";
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -39,10 +40,12 @@ const Benefits = () => {
             {/* Col 1: Strategy */}
             <Card index={0} className="bg-white/[0.04] border-white/10">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5">
-                <img src="https://framerusercontent.com/images/a26OzkC4NwHAkKLOWrAmK8WyvDg.png?width=482&height=390"
+                <Image src="/images/compass.webp"
                   alt="compass"
-                  className="w-full h-full object-contain scale-105"
-                  loading="lazy" decoding="async" />
+                  fill
+                  className="object-contain scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy" />
               </div>
               <h3 className="text-sm md:text-base font-semibold text-white mb-1">Strategy-First Approach</h3>
               <p className="text-[11px] md:text-xs text-zinc-400 leading-snug">Every decision is rooted in clarity, not guesswork.</p>
@@ -61,10 +64,12 @@ const Benefits = () => {
                     Quantity, Always
                   </h3>
                   <div className="absolute left-6 bottom-0 translate-y-[73%] md:translate-y-[67%] w-16 md:w-20 select-none pointer-events-none">
-                    <img src="https://framerusercontent.com/images/XQgiis7gGdUPSeOOrtqD2Wy81Qg.png?width=207&height=1200"
+                    <Image src="/images/brush.webp"
                       alt="brush"
+                      width={80}
+                      height={460}
                       className="w-full h-auto object-cover"
-                      loading="lazy" decoding="async" />
+                      loading="lazy" />
                   </div>
                   <p className="mt-auto text-[11px] md:text-xs text-white/80 leading-snug max-w-[150px] self-end text-right">
                     We focus on fewer projects to deliver better outcomes.
@@ -109,19 +114,21 @@ const Benefits = () => {
               </Card>
             </div>
 
-            {/* Col 3: Tailored */}
+            {/* Col 3: Engineered */}
             <Card index={3} className="relative overflow-hidden p-0">
               <div className="relative w-full aspect-[4/3]">
-                <img src="https://framerusercontent.com/images/S9EGmxAIAkL8CpVbIxsP49rQKc.jpg?width=960&height=1200"
-                  alt="workspace"
-                  className="w-full h-full object-cover"
-                  loading="lazy" decoding="async" />
+                <Image src="/images/bespoke_engineering.webp"
+                  alt="bespoke engineering"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-black/10 to-black/70" />
               </div>
               <div className="p-5">
-                <h3 className="text-sm md:text-base font-semibold text-white mb-1">Tailored Solutions</h3>
-                <p className="text-[11px] md:text-xs text-zinc-400 leading-snug max-w-xs">
-                  No one-size-fits-all — everything is shaped to fit your goals.
+                <h3 className="text-sm md:text-base font-semibold text-white mb-1">Bespoke Engineering</h3>
+                <p className="text-[11px] md:text-xs text-zinc-400 leading-snug max-w-[280px]">
+                  No cookie-cutter templates. We architect custom solutions engineered explicitly for your operational goals.
                 </p>
               </div>
             </Card>
@@ -129,51 +136,64 @@ const Benefits = () => {
 
           {/* Second Row: Two wide cards spanning full width */}
           <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-            {/* Collaborative (wide) */}
-            <Card index={4} className="relative overflow-hidden p-0 min-h-[260px]">
+            {/* Collaborative (wide) - plain div to avoid any animation/GPU overhead on video */}
+            <div
+              className="relative rounded-xl border border-white/10 overflow-hidden p-0 min-h-[300px] md:min-h-[400px] bg-black"
+            >
+              {/* Full Background Video */}
               <div className="absolute inset-0">
-                <DotLottieReact
-                  src="https://cdn.prod.website-files.com/692d319ab5e6b6dca5920d01/69317a56db9a6a740288171e_252006152a966d2b3076b337bca32f72_Comp%202.lottie"
+                <video
+                  autoPlay
                   loop
-                  autoplay
-                  className="w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+                  muted
+                  playsInline
+                  preload="auto"
+                  suppressHydrationWarning
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/images/collaborative_bg.webm" type="video/webm" suppressHydrationWarning />
+                  <source src="/images/collaborative_bg.mp4" type="video/mp4" suppressHydrationWarning />
+                </video>
+                {/* Gradient Overlay for Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
               </div>
-              <div className="relative flex flex-col justify-end h-full p-8">
-                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight">Collaborative Process</h3>
-                <p className="text-[12px] md:text-sm text-white/80 leading-snug max-w-xs">
-                  We work with you, not just for you.
+
+              {/* Text Area explicitly positioned at the bottom */}
+              <div className="relative flex flex-col justify-end h-full p-6 md:p-8 z-10 pt-48">
+                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Collaborative Partnership</h3>
+                <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed max-w-sm">
+                  We don't just build for you; we build with you. True collaboration creates solutions that actually fit your workflow.
                 </p>
               </div>
-            </Card>
+            </div>
 
-            {/* Creative Meets Practical (wide) */}
+
+            {/* Col 5: Data-Driven Performance (wide) */}
             <Card index={5} className="relative bg-white/[0.03] min-h-[260px]">
-              <div className="absolute top-4 left-5 flex gap-1">
+              <div className="absolute top-4 left-5 flex gap-1 z-20">
                 <span className="h-2 w-2 rounded-full bg-orange-500" />
                 <span className="h-2 w-2 rounded-full bg-orange-500/70" />
                 <span className="h-2 w-2 rounded-full bg-orange-500/40" />
               </div>
-              <div className="flex flex-col h-full pt-10 pb-4 pl-5 pr-4">
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-3">Creative Meets Practical</h3>
-                <p className="text-[12px] md:text-sm text-zinc-400 leading-snug max-w-md mb-4">
-                  Smart design that actually works in the real world.
+
+              {/* Full Background Image */}
+              <div className="absolute inset-0 overflow-hidden rounded-xl">
+                <Image src="/images/data_driven_design.webp"
+                  alt="Data-driven design"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy" />
+                {/* Gradients to keep text readable and replicate the dark card feel */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
+              </div>
+
+              <div className="relative z-10 flex flex-col justify-center h-full pt-10 pb-4 pl-5 pr-4">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-3">Data-Driven Performance</h3>
+                <p className="text-[12px] md:text-sm text-zinc-300 leading-snug max-w-[280px] md:max-w-xs mb-4">
+                  Beautiful design is only half the equation. We architect scalable solutions backed by analytics, ensuring every interaction translates to measurable business growth.
                 </p>
-                <div className="relative mt-auto flex justify-end pr-2">
-                  <div className="relative w-56 h-40">
-                    <div className="absolute left-0 top-2 rotate-[-2deg] shadow-lg rounded-sm overflow-hidden border border-white/10 bg-black/40">
-                      <img src="https://framerusercontent.com/images/Anr44n9P3s2LFGs5EurkQxKVKdE.jpg?width=1200&height=600"
-                        alt="drafts"
-                        className="h-28 w-44 object-cover" loading="lazy" decoding="async" />
-                    </div>
-                    <div className="absolute left-16 top-0 rotate-3 shadow-lg rounded-sm overflow-hidden border border-white/10 bg-black/40">
-                      <img src="https://framerusercontent.com/images/UzRaWx7txCAaMyeaMOgrNtRtaY.jpg?width=824&height=1200"
-                        alt="sketches"
-                        className="h-28 w-44 object-cover" loading="lazy" decoding="async" />
-                    </div>
-                  </div>
-                </div>
               </div>
             </Card>
           </div>
@@ -195,9 +215,8 @@ const Card = ({ children, index, className = "" }: { children: React.ReactNode; 
       before:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.14),transparent_65%)]
       bg-black/20 backdrop-blur-[2px]
       shadow-[0_1px_0_0_rgba(255,255,255,0.04),0_2px_4px_-1px_rgba(0,0,0,0.55),0_8px_18px_-6px_rgba(0,0,0,0.55)]
-      hover:shadow-[0_2px_0_0_rgba(255,255,255,0.05),0_6px_14px_-4px_rgba(0,0,0,0.55),0_20px_40px_-12px_rgba(0,0,0,0.65)]
-      hover:-translate-y-1 hover:scale-[1.015] transform-gpu will-change-transform
-      transition-all duration-400 ease-[cubic-bezier(.22,1,.36,1)] hover:border-white/25
+      transform-gpu
+      transition-all duration-400 ease-[cubic-bezier(.22,1,.36,1)]
       ${className}`}
   >
     {children}

@@ -96,8 +96,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@arcaiagency",
-    creator: "@arcaiagency",
+    site: "@arc_ai_agency",
+    creator: "@arc_ai_agency",
     title: "ARC AI - AI Automation and Digital Marketing Company",
     description: "Leading AI automation and digital marketing company in UK & Sri Lanka",
     images: ["https://www.arcai.agency/og-image.jpg"],
@@ -110,7 +110,7 @@ export const metadata: Metadata = {
 // Loading fallback component
 const SectionLoader = () => (
   <div className="w-full h-96 flex items-center justify-center bg-black">
-    <div className="animate-pulse text-white/60">Loading...</div>
+    <div className="animate-pulse text-white/70">Loading...</div>
   </div>
 );
 

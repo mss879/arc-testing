@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { MessageCircle, X, Send } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -134,6 +134,7 @@ const MessageContent = ({ content }: { content: string }) => {
 };
 
 export function AiChatWidget() {
+    const sessionId = useMemo(() => crypto.randomUUID(), []);
     const [isOpen, setIsOpen] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [isWelcomeOpen, setIsWelcomeOpen] = useState(true); // New state for welcome bubble
@@ -210,7 +211,7 @@ export function AiChatWidget() {
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ messages: apiMessages }),
+                body: JSON.stringify({ messages: apiMessages, sessionId }),
             });
 
             const data = await response.json();

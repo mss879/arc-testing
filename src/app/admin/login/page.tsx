@@ -27,7 +27,7 @@ export default function AdminLogin() {
                 throw error;
             }
 
-            router.push('/admin');
+            router.push('/admin/dashboard');
         } catch (err) {
             // Explicitly cast error to Error or string to access message
             const message = err instanceof Error ? err.message : 'Login failed';

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { supabase } from '@/lib/supabase';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phone: "",
     company: "",
     service: "",
     message: "",
@@ -38,18 +39,30 @@ export default function ContactForm() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch(
-        "https://hook.eu2.make.com/7dnl4byhd8yxuet88sa42iijvsauxeet",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
+        // Also save as CRM lead via Supabase RPC
+        try {
+          await supabase.rpc('submit_contact_form', {
+            p_full_name: formData.name,
+            p_phone: formData.phone,
+            p_company: formData.company || null,
+            p_subject: formData.service || null,
+            p_message: formData.message,
+            p_source: 'website contact form',
+          });
+        } catch (crmError) {
+          console.error('CRM lead save error:', crmError);
+          // Don't block the user — webhook already sent
+        }
+
         setSubmitStatus({
           type: "success",
           message: "Thank you! Your message has been sent successfully.",
@@ -57,7 +70,7 @@ export default function ContactForm() {
         // Reset form
         setFormData({
           name: "",
-          email: "",
+          phone: "",
           company: "",
           service: "",
           message: "",
@@ -91,41 +104,44 @@ export default function ContactForm() {
       className="space-y-6 bg-[rgb(20,20,20)] border border-[rgb(40,40,40)] rounded-3xl p-8 lg:p-10"
     >
       {/* Name & Email Row */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <Input
             type="text"
             name="name"
             placeholder={isMobile ? "Name" : "Enter your name"}
             required
+            aria-label="Your name"
             value={formData.name}
             onChange={handleChange}
-            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
+            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
           />
         </div>
         <div>
           <Input
-            type="email"
-            name="email"
-            placeholder="Email"
+            type="tel"
+            name="phone"
+            placeholder={isMobile ? "Phone" : "Phone number"}
             required
-            value={formData.email}
+            aria-label="Phone number"
+            value={formData.phone}
             onChange={handleChange}
-            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
+            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
           />
         </div>
       </div>
 
       {/* Company & Service Row */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <Input
             type="text"
             name="company"
             placeholder={isMobile ? "Company" : "Company name"}
+            aria-label="Company name"
             value={formData.company}
             onChange={handleChange}
-            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
+            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
           />
         </div>
         <div>
@@ -133,9 +149,10 @@ export default function ContactForm() {
             type="text"
             name="service"
             placeholder={isMobile ? "Service" : "Service interested"}
+            aria-label="Service interested in"
             value={formData.service}
             onChange={handleChange}
-            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
+            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
           />
         </div>
       </div>
@@ -146,9 +163,10 @@ export default function ContactForm() {
           name="message"
           placeholder="Message"
           required
+          aria-label="Your message"
           value={formData.message}
           onChange={handleChange}
-          className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl min-h-[160px] resize-none px-6 py-4"
+          className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl min-h-[160px] resize-none px-6 py-4"
         />
       </div>
 
@@ -169,7 +187,7 @@ export default function ContactForm() {
       <div className="space-y-6 pt-2">
         <div className="flex flex-col md:flex-row items-start md:justify-between gap-6">
           <p className="text-sm text-[rgb(119,119,119)] leading-relaxed order-2 md:order-1">
-            By submitting you agree to<br />our <span className="underline">Terms of Service</span> and <span className="underline">Privacy Policy</span>
+            By submitting you agree to<br />our <a href="/terms-of-service" className="underline hover:text-white transition-colors">Terms of Service</a> and <a href="/privacy-policy" className="underline hover:text-white transition-colors">Privacy Policy</a>
           </p>
 
           <Button

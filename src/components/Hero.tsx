@@ -146,7 +146,14 @@ const Hero = memo(() => {
         <div className="relative z-10 h-full flex flex-col px-6 md:px-8 lg:px-12 pt-32 md:pt-24 lg:pt-40 pb-8">
           {/* Mobile & Small Screens - Redesigned layout */}
           <div className="flex-1 md:hidden flex flex-col h-full max-w-[1800px] mx-auto w-full">
-            {/* Top Section - Main Headline on Right - REMOVED FOR MOBILE */}
+            {/* Mobile H1 — critical for SEO (Google mobile-first indexing) */}
+            <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              <h1 className="text-3xl sm:text-4xl font-semibold leading-[1.1] tracking-tight text-white text-left font-flarex">
+                Beyond Visuals.
+                <br />
+                <span className="text-white/70">Built with Vision.</span>
+              </h1>
+            </div>
 
             {/* Spacer */}
             <div className="flex-1"></div>
@@ -165,7 +172,7 @@ const Hero = memo(() => {
 
               {/* Trusted By Logos - Horizontal with label on same row */}
               <div className="flex items-center gap-4 animate-fade-in" style={{ animationDelay: "0.6s" }} role="region" aria-label="Trusted by companies">
-                <p className="text-xs text-white/60 uppercase tracking-wider whitespace-nowrap">
+                <p className="text-xs text-white/70 uppercase tracking-wider whitespace-nowrap">
                   TRUSTED BY:
                 </p>
                 <div className="relative overflow-hidden mask-gradient flex-1">
@@ -214,7 +221,7 @@ const Hero = memo(() => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-[0.95] tracking-tight text-white text-right font-flarex">
                 Beyond Visuals.
                 <br />
-                <span className="text-white/60">Built with Vision.</span>
+                <span className="text-white/70">Built with Vision.</span>
               </h1>
             </div>
 
@@ -233,7 +240,7 @@ const Hero = memo(() => {
 
                 {/* Trusted By Logos - Bottom Left */}
                 <div className="flex items-center gap-4 animate-fade-in" style={{ animationDelay: "0.6s" }} role="region" aria-label="Trusted by companies">
-                  <p className="text-xs text-white/60 uppercase tracking-wider whitespace-nowrap">
+                  <p className="text-xs text-white/70 uppercase tracking-wider whitespace-nowrap">
                     TRUSTED BY:
                   </p>
                   <div className="relative overflow-hidden mask-gradient max-w-md flex-1">
@@ -292,7 +299,7 @@ const Hero = memo(() => {
 
                 {/* Trusted By Logos */}
                 <div className="space-y-3">
-                  <p className="text-xs text-white/60 uppercase tracking-wider">
+                  <p className="text-xs text-white/70 uppercase tracking-wider">
                     TRUSTED BY:
                   </p>
                   <div className="relative overflow-hidden mask-gradient">
@@ -328,9 +335,9 @@ const Hero = memo(() => {
                   <br />
                   <span className="inline-block mb-4">Visuals.</span>
                   <br />
-                  <span className="text-white/60">Built with</span>
+                  <span className="text-white/70">Built with</span>
                   <br />
-                  <span className="text-white/60">Vision.</span>
+                  <span className="text-white/70">Vision.</span>
                 </h1>
               </div>
 

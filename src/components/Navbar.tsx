@@ -74,13 +74,13 @@ const Navbar = memo(() => {
               </div>
               <span className="text-sm font-medium text-white">Available for project</span>
             </div>
-            <div className="text-[10px] text-white/60 pl-4">{availabilityDate}</div>
+            <div className="text-[10px] text-white/70 pl-4">{availabilityDate}</div>
           </div>
 
           {/* Time */}
           <div className="text-left space-y-1">
             <time className="text-sm font-medium text-white">{formatTime}</time>
-            <div className="text-[10px] text-white/60">{timezone}</div>
+            <div className="text-[10px] text-white/70">{timezone}</div>
           </div>
         </div>
       </div>
@@ -190,13 +190,13 @@ const Navbar = memo(() => {
                   </div>
                   <span className={`font-medium text-white transition-all duration-500 ${isScrolled ? "text-sm" : "text-base lg:text-lg"}`}>Available for project</span>
                 </div>
-                <div className={`text-xs lg:text-sm text-white/60 pl-4 transition-all duration-300 ${isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}>{availabilityDate}</div>
+                <div className={`text-xs lg:text-sm text-white/70 pl-4 transition-all duration-300 ${isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}>{availabilityDate}</div>
               </div>
 
               {/* Time */}
               <div className="text-left space-y-0.5">
                 <time className={`font-medium text-white transition-all duration-500 ${isScrolled ? "text-sm" : "text-base lg:text-lg"}`}>{formatTime}</time>
-                <div className={`text-xs lg:text-sm text-white/60 transition-all duration-300 ${isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}>{timezone}</div>
+                <div className={`text-xs lg:text-sm text-white/70 transition-all duration-300 ${isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}>{timezone}</div>
               </div>
 
               {/* CTA Button and Menu - Close together */}

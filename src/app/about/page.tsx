@@ -14,7 +14,7 @@ import { Rocket, Users, MapPin } from "lucide-react";
 // SEO Metadata for About Page
 export const metadata: Metadata = {
   title: "ARC AI | About Us — AI Company UK & Sri Lanka",
-  description: "ARC AI: Leading AI & digital agency founded 2022, serving UK & Sri Lanka. Expert web design, AI automation & digital marketing. 100+ clients, 4.9/5 rating.",
+  description: "ARC AI: Leading AI & digital agency founded 2022, serving UK & Sri Lanka. Expert web design, AI automation & digital marketing. 100+ clients, 4.9/5 on Google Reviews.",
   keywords: [
     "about ARC AI", "AI company UK", "AI companies in Sri Lanka",
     "software company UK", "best software company Sri Lanka",
@@ -179,7 +179,7 @@ export default function About() {
 
               {/* Subheading */}
               <p
-                className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
                 style={{
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
                 }}
@@ -199,7 +199,7 @@ export default function About() {
                     border: '1px solid rgba(255, 255, 255, 0.05)'
                   }}
                 >
-                  <div className="flex items-center gap-2 text-white/60">
+                  <div className="flex items-center gap-2 text-white/70">
                     <Rocket className="w-4 h-4" />
                     <span className="text-xs font-medium">Founded In</span>
                   </div>
@@ -217,13 +217,14 @@ export default function About() {
                     border: '1px solid rgba(255, 255, 255, 0.05)'
                   }}
                 >
-                  <div className="flex items-center gap-2 text-white/60">
+                  <div className="flex items-center gap-2 text-white/70">
                     <Users className="w-4 h-4" />
                     <span className="text-xs font-medium">Customers</span>
                   </div>
                   <div className="text-3xl md:text-4xl font-bold text-white">
                     100+
                   </div>
+                  <span className="text-[10px] text-white/50">Verified clients</span>
                 </div>
 
                 {/* Rating Card */}
@@ -235,7 +236,7 @@ export default function About() {
                     border: '1px solid rgba(255, 255, 255, 0.05)'
                   }}
                 >
-                  <div className="flex items-center gap-2 text-white/60">
+                  <div className="flex items-center gap-2 text-white/70">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
@@ -244,6 +245,7 @@ export default function About() {
                   <div className="text-3xl md:text-4xl font-bold text-white">
                     4.9/5
                   </div>
+                  <span className="text-[10px] text-white/50">Google Reviews</span>
                 </div>
 
               </div>

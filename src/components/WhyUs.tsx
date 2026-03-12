@@ -7,6 +7,7 @@
    recreate with Tailwind / Framer Motion.
 */
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useAnimation, useInView, Variants } from "framer-motion";
 
 const title = "NUMBERS DON'T LIE";
@@ -34,16 +35,14 @@ const WhyUs: React.FC = () => {
       {/* Background Image Wrapper */}
       <div className="framer-btynsp absolute inset-0 -z-10" data-framer-name="BG">
         <div style={{ position: "absolute", borderRadius: "inherit", top: 0, right: 0, bottom: 0, left: 0 }}>
-          <img
-            decoding="async"
-            loading="lazy"
-            width={2880}
-            height={1786}
-            sizes="100vw"
-            srcSet="https://framerusercontent.com/images/zoIInaosVMRrQmmsA0vfTGt9I.png?scale-down-to=512&width=2880&height=1786 512w,https://framerusercontent.com/images/zoIInaosVMRrQmmsA0vfTGt9I.png?scale-down-to=1024&width=2880&height=1786 1024w,https://framerusercontent.com/images/zoIInaosVMRrQmmsA0vfTGt9I.png?scale-down-to=2048&width=2880&height=1786 2048w,https://framerusercontent.com/images/zoIInaosVMRrQmmsA0vfTGt9I.png?width=2880&height=1786 2880w"
-            src="https://framerusercontent.com/images/zoIInaosVMRrQmmsA0vfTGt9I.png?width=2880&height=1786"
+          <Image
+            src="/images/why-us-bg.webp"
             alt=""
-            style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", objectPosition: "center", objectFit: "fill" }}
+            fill
+            sizes="100vw"
+            quality={85}
+            priority={false}
+            style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", objectPosition: "center", objectFit: "cover" }}
           />
         </div>
       </div>

@@ -81,10 +81,10 @@ export default function SchemaOrg({
       }
     ],
     "sameAs": [
-      "https://www.linkedin.com/company/arc-ai-agency",
-      "https://twitter.com/arcaiagency",
-      "https://www.facebook.com/arcaiagency",
-      "https://www.instagram.com/arcaiagency"
+      "https://x.com/arc_ai_agency",
+      "https://www.instagram.com/arcai_agency/",
+      "https://www.linkedin.com/company/105845719",
+      "https://www.facebook.com/ARCAI.lk"
     ],
     "contactPoint": [
       {
@@ -151,8 +151,10 @@ export default function SchemaOrg({
       "closes": "18:00"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/arc-ai-agency",
-      "https://twitter.com/arcaiagency"
+      "https://x.com/arc_ai_agency",
+      "https://www.instagram.com/arcai_agency/",
+      "https://www.linkedin.com/company/105845719",
+      "https://www.facebook.com/ARCAI.lk"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
@@ -210,8 +212,10 @@ export default function SchemaOrg({
       "closes": "18:00"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/arc-ai-agency",
-      "https://www.facebook.com/arcaiagency"
+      "https://x.com/arc_ai_agency",
+      "https://www.instagram.com/arcai_agency/",
+      "https://www.linkedin.com/company/105845719",
+      "https://www.facebook.com/ARCAI.lk"
     ],
     "contactPoint": {
       "@type": "ContactPoint",

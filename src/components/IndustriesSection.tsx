@@ -107,7 +107,7 @@ const IndustriesSection = () => {
             Industries We Serve
           </h2>
           <p 
-            className="text-base md:text-lg text-white/60 max-w-3xl mx-auto"
+            className="text-base md:text-lg text-white/70 max-w-3xl mx-auto"
             style={{
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
             }}

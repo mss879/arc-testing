@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import "./Footer.css";
 
 const Footer = () => {
@@ -18,27 +19,44 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscribeStatus, setSubscribeStatus] = useState<{ type: "success" | "error" | null; message: string }>({ type: null, message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email.trim()) return;
+
     setIsSubscribing(true);
-    
-    // Simulate subscription
-    setTimeout(() => {
-      console.log("Email submitted:", email);
-      setEmail("");
+    setSubscribeStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubscribeStatus({ type: "success", message: "You're subscribed! 🎉" });
+        setEmail("");
+      } else {
+        setSubscribeStatus({ type: "error", message: data.error || "Something went wrong. Please try again." });
+      }
+    } catch {
+      setSubscribeStatus({ type: "error", message: "Network error. Please try again." });
+    } finally {
       setIsSubscribing(false);
-    }, 1000);
+    }
   };
 
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Works", href: "/works" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
     { label: "Blog", href: "/blog" },
-    { label: "404", href: "/404" },
-    { label: "Waitlist", href: "/waitlist" },
   ];
 
   const socialLinks = [
@@ -139,7 +157,7 @@ const Footer = () => {
                     <motion.a
                       key={link.label}
                       href={link.href}
-                      className="relative group"
+                      className="relative group py-1"
                       onMouseEnter={() => setHoveredLink(link.label)}
                       onMouseLeave={() => setHoveredLink(null)}
                       initial={{ opacity: 0, y: 10 }}
@@ -185,7 +203,7 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative group"
+                      className="relative group py-1"
                       onMouseEnter={() => setHoveredLink(link.label)}
                       onMouseLeave={() => setHoveredLink(null)}
                       initial={{ opacity: 0, y: 10 }}
@@ -252,7 +270,8 @@ const Footer = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter email address"
-                      className="w-full bg-transparent border-0 border-b border-[#333333] text-white placeholder-[#777777] py-3 focus:outline-none focus:border-[#FF4925] transition-colors"
+                      aria-label="Email address for newsletter"
+                      className="w-full bg-transparent border-0 border-b border-[#333333] text-white placeholder-[#777777] py-3 focus:outline-none focus:border-[#FF4925] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 transition-colors"
                     />
                     <motion.div
                       className="absolute bottom-0 left-0 h-[2px] bg-[#FF4925]"
@@ -307,6 +326,11 @@ const Footer = () => {
                     </div>
                   </motion.button>
                 </form>
+                {subscribeStatus.type && (
+                  <p className={`text-sm mt-2 ${subscribeStatus.type === "success" ? "text-green-400" : "text-red-400"}`}>
+                    {subscribeStatus.message}
+                  </p>
+                )}
               </motion.div>
             </div>
           </div>
@@ -360,10 +384,14 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <img src="/logo.png"
+              <Image
+                src="/logo.png"
                 alt="Arc AI Logo"
+                width={160}
+                height={160}
                 className="h-24 md:h-32 lg:h-40 w-auto object-contain"
-               loading="lazy" decoding="async" />
+                loading="lazy"
+              />
             </motion.div>
 
             {/* Tagline */}

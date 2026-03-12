@@ -11,6 +11,11 @@ const nextConfig = {
         hostname: 'gbkrwadxqzwuhhxmkfjb.supabase.co',
         pathname: '/storage/v1/object/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'framerusercontent.com',
+        pathname: '/images/**',
+      },
     ],
   },
   // Disable trailing slashes
