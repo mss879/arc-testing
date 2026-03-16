@@ -10,6 +10,7 @@ import {
     Users,
     Mail,
     MessageSquare,
+    Briefcase,
     LogOut,
     Menu,
     X,
@@ -23,6 +24,7 @@ const navItems = [
     { name: 'Contacts Archive', path: '/admin/dashboard/contacts', icon: Users },
     { name: 'Email Newsletter', path: '/admin/dashboard/subscribers', icon: Mail },
     { name: 'AI Chat History', path: '/admin/dashboard/chat', icon: MessageSquare },
+    { name: 'Careers', path: '/admin/dashboard/careers', icon: Briefcase },
 ];
 
 export default function DashboardLayout({

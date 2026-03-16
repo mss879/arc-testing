@@ -139,6 +139,24 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                 </div>
               </a>
 
+              {/* Careers Link */}
+              <a
+                href="/careers"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation('/careers');
+                }}
+                className="group block py-6 border-b border-[rgb(88,88,88)] hover:border-[rgb(255,73,37)] transition-all duration-300"
+                style={{ animationDelay: "0.6s" }}
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[rgb(202,202,202)] group-hover:text-white transition-colors uppercase">
+                    Careers
+                  </h3>
+                  <div className="h-px flex-1 ml-8 bg-[rgb(255,73,37)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+              </a>
+
               {/* Contact Link */}
               <a
                 href="/contact"
@@ -147,7 +165,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                   handleNavigation('/contact');
                 }}
                 className="group block py-6 border-b border-[rgb(88,88,88)] hover:border-[rgb(255,73,37)] transition-all duration-300"
-                style={{ animationDelay: "0.6s" }}
+                style={{ animationDelay: "0.7s" }}
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[rgb(202,202,202)] group-hover:text-white transition-colors uppercase">
