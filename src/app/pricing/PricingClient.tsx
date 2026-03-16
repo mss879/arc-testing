@@ -378,12 +378,39 @@ export default function PricingClient() {
             </h2>
           </div>
 
-          <div className="overflow-x-auto -mx-6 px-6 pb-4">
-            <div className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
-              <table className="w-full min-w-[768px] text-left">
+          {/* Mobile View - Stacked Cards */}
+          <div className="md:hidden space-y-4">
+            {comparisonFeatures.map((feature) => (
+              <div key={feature.name} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] space-y-4">
+                <p className="text-sm font-bold text-gray-900">{feature.name}</p>
+                <div className="flex flex-wrap gap-2">
+                  {(['starter', 'launch', 'growth', 'scale'] as const).map((tier) => {
+                    if (!feature[tier]) return null;
+                    const pkg = packages.find(p => p.name.toLowerCase() === tier);
+                    if (!pkg) return null;
+                    
+                    return (
+                      <div 
+                        key={tier} 
+                        className="px-2.5 py-1 text-[10px] font-black uppercase tracking-widest rounded-md"
+                        style={{ backgroundColor: `${pkg.color}15`, color: pkg.color }}
+                      >
+                        {pkg.name}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop View - Traditional Table */}
+          <div className="hidden md:block relative -mx-6 px-6 pb-4">
+            <div className="overflow-x-auto rounded-3xl border border-gray-200 bg-white shadow-sm">
+              <table className="w-full min-w-[800px] text-left border-collapse">
                 <thead>
-                  <tr className="bg-gray-50/80 border-b border-gray-200">
-                    <th className="py-5 px-6 text-xs font-black text-gray-500 uppercase tracking-widest w-[40%]">Feature</th>
+                  <tr className="bg-gray-50 border-b border-gray-200">
+                    <th className="py-5 px-6 text-xs font-black text-gray-500 uppercase tracking-widest w-[35%] sticky left-0 z-20 bg-gray-50 border-r border-gray-200 shadow-[4px_0_12px_rgba(0,0,0,0.03)]">Feature</th>
                     {packages.map((pkg) => (
                       <th key={pkg.name} className="py-5 px-4 text-center border-l border-gray-100">
                         <p className="text-sm font-black uppercase tracking-widest" style={{ color: pkg.color }}>{pkg.name}</p>
@@ -394,8 +421,8 @@ export default function PricingClient() {
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {comparisonFeatures.map((feature, i) => (
-                    <tr key={feature.name} className={`hover:bg-gray-50/50 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'}`}>
-                      <td className="py-4 px-6 text-sm font-bold text-gray-700">{feature.name}</td>
+                    <tr key={feature.name} className={`group transition-colors ${i % 2 === 0 ? 'bg-white hover:bg-gray-50/80' : 'bg-gray-50/70 hover:bg-gray-100/60'}`}>
+                      <td className={`py-4 px-6 text-sm font-bold text-gray-700 sticky left-0 z-10 border-r border-gray-100 shadow-[2px_0_12px_rgba(0,0,0,0.02)] transition-colors ${i % 2 === 0 ? 'bg-white group-hover:bg-[#f8fafc]' : 'bg-[#f8fafc] group-hover:bg-[#f1f5f9]'}`}>{feature.name}</td>
                       {(['starter', 'launch', 'growth', 'scale'] as const).map((tier) => (
                         <td key={tier} className="py-4 px-4 text-center border-l border-gray-100">
                           {feature[tier] ? (
