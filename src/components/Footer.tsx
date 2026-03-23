@@ -67,9 +67,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer ref={footerRef} className="relative bg-black text-white overflow-hidden">
+    <footer ref={footerRef} className="relative bg-black text-white overflow-hidden" aria-label="Site footer">
       {/* Horizontal Fade at Top - positioned above footer */}
-      <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-20 pointer-events-none"></div>
+      <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-20 pointer-events-none" aria-hidden="true"></div>
       
       {/* Main Section */}
       <div className="relative bg-black">
@@ -152,7 +152,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <p className="text-[#777777] text-sm uppercase tracking-wider">(LINKS)</p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <nav aria-label="Footer navigation"><div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {navLinks.map((link, index) => (
                     <motion.a
                       key={link.label}
@@ -184,7 +184,7 @@ const Footer = () => {
                       </div>
                     </motion.a>
                   ))}
-                </div>
+                </div></nav>
               </motion.div>
 
               {/* Social Links */}
@@ -203,6 +203,7 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`${link.label} (opens in new tab)`}
                       className="relative group py-1"
                       onMouseEnter={() => setHoveredLink(link.label)}
                       onMouseLeave={() => setHoveredLink(null)}
@@ -236,6 +237,7 @@ const Footer = () => {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
+                          aria-hidden="true"
                         >
                           <path
                             strokeLinecap="round"
@@ -327,7 +329,7 @@ const Footer = () => {
                   </motion.button>
                 </form>
                 {subscribeStatus.type && (
-                  <p className={`text-sm mt-2 ${subscribeStatus.type === "success" ? "text-green-400" : "text-red-400"}`}>
+                  <p role="status" aria-live="polite" className={`text-sm mt-2 ${subscribeStatus.type === "success" ? "text-green-400" : "text-red-400"}`}>
                     {subscribeStatus.message}
                   </p>
                 )}

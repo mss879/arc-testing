@@ -119,17 +119,35 @@ function renderPackageBlock(pkg: PackageInfo, index: number): string {
     </table>`;
 }
 
+// Map new package names to legacy option keys for email template compatibility
+type PackageKey = 'option1' | 'option2' | 'option3' | 'starter' | 'launch' | 'growth' | 'scale' | 'flow' | 'engage' | 'qualify' | 'command' | 'all';
+
+const PACKAGE_TO_OPTION: Record<string, string> = {
+  option1: 'option1',
+  option2: 'option2',
+  option3: 'option3',
+  starter: 'option1',   // Rs 60K maps to option1
+  launch: 'option2',    // Rs 90K maps to option2
+  growth: 'option2',    // Rs 130K maps to option2 (closest)
+  scale: 'option3',     // Rs 160K maps to option3
+  flow: 'option1',      // AI Flow maps to option1
+  engage: 'option2',    // AI Engage maps to option2
+  qualify: 'option3',   // AI Qualify maps to option3
+  command: 'option3',   // AI Command maps to option3
+};
+
 export function generateProposalEmail(
   name: string,
   company: string,
-  selectedPackage: 'option1' | 'option2' | 'option3' | 'all'
+  selectedPackage: PackageKey
 ): string {
   const year = new Date().getFullYear();
   const isAll = selectedPackage === 'all';
 
+  const mappedKey = isAll ? 'all' : (PACKAGE_TO_OPTION[selectedPackage] || 'option1');
   const packagesToShow = isAll
     ? ['option1', 'option2', 'option3']
-    : [selectedPackage];
+    : [mappedKey];
 
   const packageBlocks = packagesToShow
     .map((key, i) => renderPackageBlock(PACKAGES[key], isAll ? i + 1 : parseInt(key.replace('option', ''))))

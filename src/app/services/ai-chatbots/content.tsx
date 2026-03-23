@@ -31,15 +31,16 @@ const fadeInUp: Variants = {
     },
 };
 
-export default function AIChatbotsContent() {
+export default function AIAgentsContent() {
     return (
         <div className="min-h-screen bg-black text-white">
             <Navbar />
             {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+            <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20" aria-label="AI agents overview">
+                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" aria-hidden="true" />
                 <div
                     className="absolute inset-0 opacity-20"
+                    aria-hidden="true"
                     style={{
                         backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 73, 37, 0.15) 1px, transparent 0)`,
                         backgroundSize: '40px 40px'
@@ -76,7 +77,7 @@ export default function AIChatbotsContent() {
                         transition={{ delay: 0.5, duration: 0.7 }}
                         className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-12"
                     >
-                        AI-driven chatbots with advanced cognitive technologies to elevate customer support
+                        AI-driven AI agents with advanced cognitive technologies to elevate customer support
                         and automate business operations. 24/7 intelligent assistance.
                     </motion.p>
 
@@ -91,7 +92,7 @@ export default function AIChatbotsContent() {
                             className="group relative px-8 py-4 bg-accent text-white font-semibold rounded-lg overflow-hidden transition-all hover:scale-105"
                         >
                             <span className="relative z-10 flex items-center gap-2">
-                                Build Your Chatbot
+                                Build Your AI Agent
                                 <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </span>
                         </Link>
@@ -106,7 +107,7 @@ export default function AIChatbotsContent() {
             </section>
 
             {/* Key Features */}
-            <section className="py-20 px-4 md:px-8 bg-black">
+            <section className="py-20 px-4 md:px-8 bg-black" aria-label="AI Agent capabilities">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial="hidden"
@@ -117,7 +118,7 @@ export default function AIChatbotsContent() {
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
                             <span className="bg-gradient-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent">
-                                Chatbot Capabilities
+                                AI Agent Capabilities
                             </span>
                         </h2>
                         <p className="text-neutral-400 text-lg">Advanced AI features for superior customer interactions</p>
@@ -133,7 +134,7 @@ export default function AIChatbotsContent() {
                             {
                                 icon: <Clock className="w-8 h-8" />,
                                 title: "24/7 Availability",
-                                description: "Never miss a customer inquiry. Your chatbot works round-the-clock, handling unlimited conversations."
+                                description: "Never miss a customer inquiry. Your AI agent works round-the-clock, handling unlimited conversations."
                             },
                             {
                                 icon: <Globe className="w-8 h-8" />,
@@ -177,7 +178,7 @@ export default function AIChatbotsContent() {
             </section>
 
             {/* Use Cases */}
-            <section className="py-20 px-4 md:px-8 bg-neutral-950">
+            <section className="py-20 px-4 md:px-8 bg-neutral-950" aria-label="AI Agent use cases">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial="hidden"
@@ -191,7 +192,7 @@ export default function AIChatbotsContent() {
                                 Use Cases
                             </span>
                         </h2>
-                        <p className="text-neutral-400 text-lg">Perfect applications for AI chatbots</p>
+                        <p className="text-neutral-400 text-lg">Perfect applications for AI agents</p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -256,7 +257,7 @@ export default function AIChatbotsContent() {
             </section>
 
             {/* Platform Integrations */}
-            <section className="py-20 px-4 md:px-8 bg-black">
+            <section className="py-20 px-4 md:px-8 bg-black" aria-label="Platform integrations">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial="hidden"
@@ -270,7 +271,7 @@ export default function AIChatbotsContent() {
                                 Platform Integrations
                             </span>
                         </h2>
-                        <p className="text-neutral-400 text-lg">Deploy your chatbot anywhere your customers are</p>
+                        <p className="text-neutral-400 text-lg">Deploy your AI agent anywhere your customers are</p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -317,7 +318,7 @@ export default function AIChatbotsContent() {
             </section>
 
             {/* Implementation Process */}
-            <section className="py-20 px-4 md:px-8 bg-neutral-950">
+            <section className="py-20 px-4 md:px-8 bg-neutral-950" aria-label="Implementation process">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial="hidden"
@@ -328,7 +329,7 @@ export default function AIChatbotsContent() {
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
                             <span className="bg-gradient-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent">
-                                How We Build Your Chatbot
+                                How We Build Your AI Agent
                             </span>
                         </h2>
                         <p className="text-neutral-400 text-lg">From concept to deployment in weeks</p>
@@ -336,13 +337,13 @@ export default function AIChatbotsContent() {
 
                     <div className="relative">
                         {/* Connection Line */}
-                        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-transparent hidden md:block" />
+                        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-transparent hidden md:block" aria-hidden="true" />
 
                         {[
                             {
                                 step: "01",
                                 title: "Requirements & Strategy",
-                                description: "Define chatbot goals, use cases, conversation flows, and success metrics with your team."
+                                description: "Define AI agent goals, use cases, conversation flows, and success metrics with your team."
                             },
                             {
                                 step: "02",
@@ -352,7 +353,7 @@ export default function AIChatbotsContent() {
                             {
                                 step: "03",
                                 title: "AI Training",
-                                description: "Train the chatbot on your specific domain knowledge, FAQs, and business processes."
+                                description: "Train the AI agent on your specific domain knowledge, FAQs, and business processes."
                             },
                             {
                                 step: "04",
@@ -398,7 +399,7 @@ export default function AIChatbotsContent() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-neutral-950">
+            <section className="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-neutral-950" aria-label="Get started with AI agents">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div
                         initial="hidden"
@@ -410,13 +411,13 @@ export default function AIChatbotsContent() {
                             Transform Customer Support with AI
                         </h2>
                         <p className="text-xl text-neutral-400 mb-8">
-                            Deploy intelligent chatbots that delight customers and reduce support costs. Get started today.
+                            Deploy intelligent AI agents that delight customers and reduce support costs. Get started today.
                         </p>
                         <Link
                             href="/contact"
                             className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:scale-105 transition-transform"
                         >
-                            Build Your Chatbot
+                            Build Your AI Agent
                             <ArrowUpRight className="w-5 h-5" />
                         </Link>
                     </motion.div>

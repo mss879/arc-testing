@@ -61,7 +61,7 @@ export default function ContactPage() {
       <main>
 
         {/* Contact Section */}
-        <section className="pt-48 md:pt-56 lg:pt-64 pb-20 px-6 lg:px-12">
+        <section className="pt-48 md:pt-56 lg:pt-64 pb-20 px-6 lg:px-12" aria-label="Contact form">
           <div className="max-w-[1400px] mx-auto">
             <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-24 xl:gap-32">
               {/* Left Column */}
@@ -105,6 +105,7 @@ export default function ContactPage() {
                       href="https://cal.com"
                       target="_blank"
                       rel="noopener"
+                      aria-label="Book a call with ARC AI (opens in new tab)"
                       className="text-[rgb(255,73,37)] hover:text-[rgb(255,93,57)] underline transition-colors font-medium"
                     >
                       Book a call
@@ -116,7 +117,7 @@ export default function ContactPage() {
             </div>
 
             {/* Trust Logos Carousel */}
-            <div className="mt-20 mb-12">
+            <div className="mt-20 mb-12" role="region" aria-label="Trusted by clients">
               <div className="text-center mb-8">
                 <p className="text-sm text-[rgb(119,119,119)] uppercase tracking-wider">
                   TRUSTED BY 100+ CLIENTS
@@ -125,8 +126,8 @@ export default function ContactPage() {
 
               <div className="relative overflow-hidden">
                 {/* Gradient masks on sides */}
-                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[rgb(10,10,10)] to-transparent z-10 pointer-events-none"></div>
-                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[rgb(10,10,10)] to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[rgb(10,10,10)] to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[rgb(10,10,10)] to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
 
                 {/* Scrolling container */}
                 <div className="flex gap-12 animate-scroll-trust">
@@ -168,7 +169,7 @@ export default function ContactPage() {
             </div>
 
             {/* Visit Us Section */}
-            <div className="space-y-12">
+            <div className="space-y-12" role="region" aria-label="Contact information">
               {/* Title */}
               <div className="text-center">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[rgb(202,202,202)] uppercase tracking-tight">
@@ -181,9 +182,9 @@ export default function ContactPage() {
                 {/* Email Address */}
                 <div className="group relative space-y-4 bg-gradient-to-br from-white/[0.08] via-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-white/30 transition-all duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden">
                   {/* Glass shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" aria-hidden="true"></div>
                   {/* Reflection effect */}
-                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
                   {/* Content */}
                   <div className="relative z-10 space-y-4">
                     <div>
@@ -208,9 +209,9 @@ export default function ContactPage() {
                 {/* Phone Numbers */}
                 <div className="group relative space-y-4 bg-gradient-to-br from-white/[0.08] via-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-white/30 transition-all duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden">
                   {/* Glass shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" aria-hidden="true"></div>
                   {/* Reflection effect */}
-                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
                   {/* Content */}
                   <div className="relative z-10 space-y-4">
                     <div>
@@ -241,9 +242,9 @@ export default function ContactPage() {
                 {/* Office Locations */}
                 <div className="group relative space-y-4 bg-gradient-to-br from-white/[0.08] via-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-white/30 transition-all duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden">
                   {/* Glass shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" aria-hidden="true"></div>
                   {/* Reflection effect */}
-                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
                   {/* Content */}
                   <div className="relative z-10 space-y-4">
                     <div>
@@ -265,9 +266,9 @@ export default function ContactPage() {
                 {/* Business Hours */}
                 <div className="group relative space-y-4 bg-gradient-to-br from-white/[0.08] via-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-white/30 transition-all duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden">
                   {/* Glass shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" aria-hidden="true"></div>
                   {/* Reflection effect */}
-                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 group-hover:opacity-75 opacity-50 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
                   {/* Content */}
                   <div className="relative z-10 space-y-4">
                     <div>

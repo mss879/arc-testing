@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   },
 };
 
-import PricingClient from "./PricingClient";
+import WebPricingClient from "./WebPricingClient";
 
-export default function PricingPage() {
-  return <PricingClient />;
+export default function WebPricingPage() {
+  return <WebPricingClient />;
 }

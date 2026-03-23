@@ -3,6 +3,7 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ArrowUpRight, Code2, Palette, Share2, Sparkles, FileText, Zap, MessageSquare, X, Check, Laptop, Rocket, BrainCircuit, Bot, Search } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -79,16 +80,6 @@ interface ServiceDetails {
 
 export default function ServicesList() {
     const [selectedService, setSelectedService] = useState<ServiceDetails | null>(null);
-    const [scrolled, setScrolled] = useState(false);
-
-    // Handle scroll for navbar effect if needed
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     const digitalServices: ServiceDetails[] = [
         {
@@ -128,7 +119,7 @@ export default function ServicesList() {
             title: "Smart Ad Campaigns",
             description: "Data-driven advertising campaigns that find your ideal customers and scale your revenue with surgical precision.",
             tags: ["Meta Ads", "Google Ads", "ROI Focused"],
-            link: "/services/social-media",
+            link: "/services/smart-ad-campaigns",
             modalContent: {
                 headline: "Stop Burning Money on Ads That Don't Convert",
                 subheadline: "Data-driven campaigns that find your customers and make them buy",
@@ -286,105 +277,255 @@ export default function ServicesList() {
 
     const aiServices: ServiceDetails[] = [
         {
-            icon: <FileText className="w-8 h-8" />,
-            number: "07",
-            title: "AI Content Generation",
-            description: "Create weeks of high-quality, on-brand content in minutes. Review, refine, and publish at scale.",
-            tags: ["Blog Posts", "Social Media", "SEO"],
-            link: "/services/ai-content-generation",
+            icon: <Search className="w-8 h-8" />,
+            number: "01",
+            title: "Consulting & Automation Audits",
+            description: "Expert guidance to map your current processes and identify the exact areas where AI will drive the highest ROI.",
+            tags: ["Strategy", "Roadmapping", "Process Audit"],
+            link: "/services/consulting-audits",
             modalContent: {
-                headline: "Create a Month of Content in One Afternoon",
-                subheadline: "AI-powered content that sounds like you, ranks on Google, and converts",
-                problem: "Content marketing works, but it's exhausting. Blog posts, social media, emails, ad copy—it never ends. You hire writers who miss deadlines, don't understand your voice, and charge $500 per article. Meanwhile, your content calendar is empty and your competitors are dominating.",
-                solution: "Our AI content generation system creates high-quality, on-brand content at scale. Trained on your voice and industry, it produces blog posts, social media content, email sequences, and ad copy that actually converts. Human oversight ensures quality, AI provides speed.",
+                headline: "Stop Guessing. Build a Strategic AI Roadmap.",
+                subheadline: "We find the bottlenecks costing you money and map the exact AI systems to solve them",
+                problem: "You know AI can help your business, but you don't know where to start. Buying off-the-shelf software leads to disjointed systems that your team hates using, creating more work instead of less.",
+                solution: "We shadow your operations, interview your team, and map your entire business workflow. We then deliver a clear, actionable blueprint showing exactly where AI integration will save hours and generate revenue.",
                 benefits: [
-                    "Produce 20-30 high-quality articles per month at a fraction of the cost",
-                    "Maintain consistent brand voice across all content",
-                    "SEO-optimized content that ranks on Google",
-                    "Multi-language support to reach global audiences",
-                    "Social media content that engages and converts",
-                    "Content calendar planned and executed automatically"
+                    "Identify hidden inefficiencies draining your resources",
+                    "Prioritize AI investments based on immediate ROI",
+                    "Stop buying bloated software you only use 10% of",
+                    "Align your team on the future of your company's tech stack",
+                    "Get a clear 3-to-6 month implementation roadmap"
                 ],
                 process: [
-                    "Brand voice analysis and content strategy session",
-                    "AI model training on your existing content and guidelines",
-                    "Content calendar planning based on your goals",
-                    "AI generates drafts, humans review and refine",
-                    "SEO optimization and keyword integration",
-                    "Publishing and performance tracking"
+                    "Process mapping and team interviews",
+                    "Tech stack audit and integration review",
+                    "Identification of manual bottlenecks",
+                    "Solution design and AI tool selection",
+                    "Roadmap presentation with ROI estimates"
                 ],
-                results: "One B2B client went from 2 blog posts per month to 25, increasing organic traffic by 412% in 6 months. Another saved $8,400 monthly on freelance writers while improving content quality.",
-                cta: "Ready to dominate with content? Let's build your AI content engine."
-            }
-        },
-        {
-            icon: <Zap className="w-8 h-8" />,
-            number: "08",
-            title: "Automated Workflows",
-            description: "Eliminate repetitive tasks with intelligent automation. Save time, reduce errors, and focus on strategy.",
-            tags: ["n8n", "Zapier", "Process Optimization"],
-            link: "/services/ai-automated-workflows",
-            modalContent: {
-                headline: "Stop Doing Work a Robot Could Do",
-                subheadline: "Intelligent automation that handles repetitive tasks while you focus on growth",
-                problem: "Your team is drowning in busy work. Data entry, email routing, report generation, customer onboarding—tasks that eat hours but create zero value. Your best people are doing monkey work instead of moving the business forward.",
-                solution: "We build intelligent automation workflows that handle repetitive tasks flawlessly. From lead routing to data synchronization to report generation, we connect your tools and eliminate manual work. Your team focuses on strategy while AI handles execution.",
-                benefits: [
-                    "Eliminate 15-30 hours of manual work per person weekly",
-                    "Zero human error in repetitive processes",
-                    "24/7 operation—automation never sleeps or takes breaks",
-                    "Seamless integration between all your existing tools",
-                    "Instant scalability without hiring more people",
-                    "Real-time alerts and monitoring for peace of mind"
-                ],
-                process: [
-                    "Process audit to identify automation opportunities",
-                    "Map current workflows and pain points",
-                    "Design intelligent automation sequences",
-                    "Build integrations between your tools (Zapier, Make, custom APIs)",
-                    "Test thoroughly and train your team",
-                    "Monitor, optimize, and expand automation"
-                ],
-                results: "One agency automated their entire client onboarding process, saving 12 hours per client. Another eliminated 85% of manual data entry, allowing their team to handle 3x more customers without hiring.",
-                cta: "Ready to buy back your time? Let's automate the boring stuff."
+                results: "We recently audited a consultancy, identified 40 hours of weekly manual admin work, and provided a roadmap that eliminated it entirely within 3 weeks.",
+                cta: "Ready to find out exactly how much time AI can save you? Schedule an audit."
             }
         },
         {
             icon: <Bot className="w-8 h-8" />,
-            number: "09",
-            title: "AI Chatbots",
-            description: "Smart assistants that provide 24/7 support, qualify leads, and book meetings while you sleep.",
-            tags: ["Customer Support", "Lead Gen", "24/7 Availability"],
+            number: "02",
+            title: "Website AI Agents (Engage)",
+            description: "Smart website agents that provide 24/7 support, answer FAQs instantly, and qualify leads while you sleep.",
+            tags: ["Lead Gen", "24/7 Support", "Website AI"],
             link: "/services/ai-chatbots",
             modalContent: {
                 headline: "Never Miss a Lead. Answer Every Question. 24/7.",
-                subheadline: "AI chatbots that convert visitors, support customers, and work while you sleep",
-                problem: "Leads hit your website at 2am and bounce because no one's there to help. Your support team is overwhelmed with repetitive questions. Live chat costs a fortune and still misses 60% of inquiries. You're losing sales and frustrating customers.",
-                solution: "We deploy AI-powered chatbots that handle customer interactions intelligently. Trained on your business, products, and FAQs, they answer questions, qualify leads, book appointments, and escalate complex issues to humans—all instantly, 24/7.",
+                subheadline: "Deploy an AI agent trained exclusively on your business data to capture and convert.",
+                problem: "Visitors land on your site, have a quick question, but get no immediate answer. They bounce to a competitor. Your human support team is bogged down answering the same 5 questions every single day.",
+                solution: "We build custom AI agents fed directly from your website, PDFs, and knowledge base. They converse naturally, instantly answer queries, capture contact info, and book meetings directly onto your calendar.",
                 benefits: [
-                    "Capture leads 24/7, even when your team is offline",
-                    "Respond to 95% of inquiries instantly",
-                    "Reduce support costs by 60-80%",
-                    "Qualify leads before they reach sales",
-                    "Multi-platform deployment (website, Facebook, WhatsApp)",
-                    "Continuously learns and improves from conversations"
+                    "Engage website visitors 24/7/365",
+                    "Dramatically reduce support ticket volume",
+                    "Capture leads even when your office is closed",
+                    "Instantly qualify prospects before they reach sales",
+                    "Multi-platform: Deploy to Website, WhatsApp, or Instagram"
                 ],
                 process: [
-                    "Map common questions and customer journey touchpoints",
-                    "Train AI on your business, products, and brand voice",
-                    "Design conversation flows and escalation protocols",
-                    "Integrate with your CRM and support tools",
-                    "Deploy across your platforms and test thoroughly",
-                    "Monitor performance and refine based on real conversations"
+                    "Knowledge base compilation (URLs, PDFs, Docs)",
+                    "Bot persona design and prompt engineering",
+                    "Integration with your calendar and CRM",
+                    "Sandbox testing with tricky edge cases",
+                    "Live deployment and continuous learning loop"
                 ],
-                results: "One e-commerce client captured 340 additional qualified leads in the first month. Another reduced support ticket volume by 73% while improving customer satisfaction scores.",
-                cta: "Ready to never miss another lead? Let's build your AI support team."
+                results: "Our Engage agents typically convert 3x more website visitors into booked meetings than standard web forms alone.",
+                cta: "Ready to turn your website into a 24/7 sales rep? Let's build your AI Agent."
+            }
+        },
+        {
+            icon: <Zap className="w-8 h-8" />,
+            number: "03",
+            title: "Automated Workflows (Flow)",
+            description: "Connect your apps and eliminate repetitive copy-paste tasks. Data moves seamlessly across your business.",
+            tags: ["Make/n8n", "Zapier", "API Connections"],
+            link: "/services/ai-automated-workflows",
+            modalContent: {
+                headline: "Stop Doing Work a Robot Could Do",
+                subheadline: "Intelligent automation that syncs data across your tools automatically.",
+                problem: "Your team is acting like human API connectors. Moving data from Stripe to your CRM, emailing clients manually when a form is filled, and updating Google Sheets is soul-crushing busywork.",
+                solution: "We build complex, resilient automated workflows using Make, Zapier, or n8n. If an event happens in App A, we guarantee it securely updates App B, C, and D without a single click from your team.",
+                benefits: [
+                    "Eliminate 15-30 hours of manual data entry weekly",
+                    "Zero human error in repetitive processes",
+                    "Instant response times for client triggers",
+                    "Connect legacy systems to modern tools",
+                    "Scale operations without hiring administrative bloat"
+                ],
+                process: [
+                    "Map the existing manual data flow",
+                    "Design the automated logic sequence",
+                    "Build API connections and webhooks",
+                    "Implement error handling and edge cases",
+                    "Deploy and monitor for 99.9% uptime"
+                ],
+                results: "One client removed entirely their need for a full-time admin assistant by automating their contract generation and signing flow.",
+                cta: "Ready to buy back your time? Let's automate the boring stuff."
+            }
+        },
+        {
+            icon: <FileText className="w-8 h-8" />,
+            number: "04",
+            title: "AI Data Processing",
+            description: "Automatically extract clean, structured data from messy PDFs, receipts, and emails directly into your database.",
+            tags: ["Parsing", "OCR", "Data Extraction"],
+            link: "/services/ai-data-processing",
+            modalContent: {
+                headline: "Turn Messy Documents into Clean Data Instantly",
+                subheadline: "Let AI read, understand, and categorize your invoices, forms, and emails.",
+                problem: "You receive hundreds of invoices, forms, or emails in different formats. Someone has to sit there, read them, and type the data into your system. It's slow, expensive, and prone to typos.",
+                solution: "We implement Vision and NLP models that 'read' incoming documents just like a human would, intelligently extract precisely the fields you need (even from photos or handwritten notes), and push structured JSON data into your software.",
+                benefits: [
+                    "Process documents in seconds, not hours",
+                    "Handle variable layouts (every vendor invoice looks different)",
+                    "Reduce manual entry errors to near-zero",
+                    "Free up finance and admin teams for high-level work",
+                    "Process thousands of documents in parallel"
+                ],
+                process: [
+                    "Analyze document samples and required fields",
+                    "Configure AI vision and text extraction models",
+                    "Set up the ingestion pipeline (e.g., specific email inbox)",
+                    "Format output payload for your database",
+                    "Test with high-variance documents"
+                ],
+                results: "A logistics client completely automated their waybill data entry, saving over 40 hours a week and removing a 24-hour processing bottleneck.",
+                cta: "Stop typing. Start extracting. Let's process your data automatically."
+            }
+        },
+        {
+            icon: <Palette className="w-8 h-8" />,
+            number: "05",
+            title: "AI Content Generation",
+            description: "Produce SEO-optimized articles, newsletters, and social copy scaled across multiple tone-of-voice profiles.",
+            tags: ["SEO", "Copywriting", "At Scale"],
+            link: "/services/ai-content-generation",
+            modalContent: {
+                headline: "Create a Month of Content in One Afternoon",
+                subheadline: "AI-powered content engines that sound exactly like your brand.",
+                problem: "Content marketing works, but writing it is exhausting. You hire writers who miss deadlines, don't understand your voice, and charge $500 an article. Your pipeline runs dry.",
+                solution: "We build custom content generation pipelines. You input a topic, and the system researches it, outlines it, and drafts it in your precise brand voice, applying SEO best practices at every step.",
+                benefits: [
+                    "Produce 20-30 high-quality articles per month",
+                    "Maintain consistent brand voice with fine-tuned models",
+                    "Built-in SEO optimization (Target keywords, LSI)",
+                    "Rapidly generate variations for A/B testing",
+                    "Dramatically reduce content marketing costs"
+                ],
+                process: [
+                    "Brand voice extraction from your past best content",
+                    "Prompt chain design (Research -> Outline -> Draft -> Edit)",
+                    "Integration with your CMS (WordPress, Webflow, Shopify)",
+                    "Human-in-the-loop review workflow setup",
+                    "Publishing test and refinement"
+                ],
+                results: "One B2B client went from 2 blog posts per month to 25, increasing organic traffic by 412% in 6 months.",
+                cta: "Ready to dominate the search results? Build your content engine."
+            }
+        },
+        {
+            icon: <MessageSquare className="w-8 h-8" />,
+            number: "06",
+            title: "AI Voice Assistants (Qualify)",
+            description: "Human-sounding AI voice agents that call inbound leads within 5 minutes or handle your customer support line.",
+            tags: ["Inbound Calls", "Outbound SDR", "Voice AI"],
+            link: "/services/ai-voice-assistants",
+            modalContent: {
+                headline: "The AI Receptionist That Never Sleeps. Or Takes Breaks.",
+                subheadline: "Deploy human-sounding voice agents to call leads instantly and answer customer queries.",
+                problem: "Speed to lead is everything. If you don't call a web lead within 5 minutes, your close rate drops by 80%. But having human reps dial leads 24/7 is impossible, and missing customer calls costs you trust.",
+                solution: "We build state-of-the-art Voice AI agents with ultra-low latency. They sound remarkably human, can handle interruptions, understand nuance, qualify the lead using your script, and book them straight to your calendar.",
+                benefits: [
+                    "Call 100% of inbound leads within 60 seconds",
+                    "Handle infinite simultaneous inbound calls",
+                    "Never put a customer on hold again",
+                    "Filter out tire-kickers and pass only hot leads to humans",
+                    "Post-call summaries dropped instantly into your CRM"
+                ],
+                process: [
+                    "Scripting and call logic tree design",
+                    "Voice cloning or selection from premium models",
+                    "Connecting telephony (Twilio/Bland/Vapi)",
+                    "Webhook integration to CRM for post-call logging",
+                    "Live call testing and interruption fine-tuning"
+                ],
+                results: "A service provider saw a 45% lift in booked appointments simply because the AI called every lead instantly, catching them while their interest was highest.",
+                cta: "Ready to answer every call and dial every lead? Let's deploy your voice agent."
+            }
+        },
+        {
+            icon: <Share2 className="w-8 h-8" />,
+            number: "07",
+            title: "AI Sales Reps (SDRs)",
+            description: "Automated prospectors that research targets, write hyper-personalized cold emails, and manage follow-ups.",
+            tags: ["Outbound", "Cold Email", "Research"],
+            link: "/services/ai-sales-sdrs",
+            modalContent: {
+                headline: "Scale Your Outbound Without Hiring a Floor of SDRs",
+                subheadline: "AI agents that research prospects and write 1-to-1 personalized emails at scale.",
+                problem: "Generic cold emails don't work anymore. To get replies, you need deep personalization. But having humans research a company's recent news, tech stack, and pain points takes 15 minutes per email. You can't scale it.",
+                solution: "We build AI prospectors. You feed it a list of leads; the AI scrapes their LinkedIn, company website, and recent news, then drafts a hyper-personalized email connecting their exact situation to your offer. It sends, follows up, and logs replies.",
+                benefits: [
+                    "Achieve 1-to-1 personalization at massive scale",
+                    "Increase open and reply rates exponentially",
+                    "Send 1,000 highly researched emails a day automatically",
+                    "Detect out-of-office replies and handle objections",
+                    "Free your human closers to only take booked meetings"
+                ],
+                process: [
+                    "Data enrichment workflow setup (Apollo/Clay/LinkedIn)",
+                    "Scraping and AI analysis prompts configuration",
+                    "Email copywriting frameworks development",
+                    "Sending infrastructure setup (warming up domains)",
+                    "A/B testing subject lines and angles"
+                ],
+                results: "Our AI SDR pipelines regularly achieve 8-12% positive reply rates on cold traffic because the personalization is indistinguishable from deep human research.",
+                cta: "Ready to fill your pipeline with targeted meetings? Hire an AI SDR."
+            }
+        },
+        {
+            icon: <BrainCircuit className="w-8 h-8" />,
+            number: "08",
+            title: "AI Multi-Agent Systems (Command)",
+            description: "Complete organizational intelligence. Multiple specialized AI agents working together to run entire departments.",
+            tags: ["Orchestration", "Enterprise", "Command Tier"],
+            link: "/services/ai-multi-agent-systems",
+            modalContent: {
+                headline: "The Full AI Revenue System Architecture",
+                subheadline: "Specialized AI agents working together as a cohesive digital workforce.",
+                problem: "Individual automations are great, but they are isolated. For true transformation, you don't just need a chatbot—you need a chat agent that talks to a research agent, that passes data to an analysis agent, that drafts a report for a human executive.",
+                solution: "We build LangChain/CrewAI multi-agent architectures. We create 'manager' agents that delegate tasks to 'worker' agents (e.g., a researcher, a writer, a reviewer), collaborating in real-time to execute wildly complex, multi-step organizational tasks.",
+                benefits: [
+                    "Complete digital transformation of core departments",
+                    "Intelligent error correction (Agents checking other Agents)",
+                    "End-to-end automation of previously 'un-automatable' tasks",
+                    "Executive dashboards granting total visibility",
+                    "Massive operational leverage for lean teams"
+                ],
+                process: [
+                    "System architecture and capability mapping",
+                    "Individual agent persona and tool definition",
+                    "Orchestration layer and state memory built",
+                    "Security, guardrails, and human-intervention loops",
+                    "Phased organizational rollout and training"
+                ],
+                results: "The ultimate scaling lever. A 'Command' tier system allows a 5-person company to output the operational capacity and revenue of a 50-person agency.",
+                cta: "Ready for the pinnacle of AI automation? Let's architect your system."
             }
         }
     ];
 
-    const ServiceCard = ({ service, index }: { service: ServiceDetails; index: number }) => {
-        // We handle selection or navigation
+    const ServiceCard = ({ service, index, type }: { service: ServiceDetails; index: number; type: 'ai' | 'digital' }) => {
+        // AI theme gets orange/purple vibes, Digital gets blue/emerald vibes
+        const themeColor = type === 'ai' ? 'orange' : 'blue';
+        const glowColor = type === 'ai' ? 'from-orange-500/30 to-purple-600/30' : 'from-blue-500/30 to-emerald-500/30';
+        const textHighlight = type === 'ai' ? 'text-orange-400' : 'text-blue-400';
+        const bgHighlight = type === 'ai' ? 'bg-orange-500/10 text-orange-400 border-orange-500/20 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500/50' : 'bg-blue-500/10 text-blue-400 border-blue-500/20 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500/50';
+        const tagStyle = type === 'ai' ? 'bg-orange-500/5 text-orange-300 border-orange-500/10 group-hover:border-orange-500/30 group-hover:bg-orange-500/10' : 'bg-blue-500/5 text-blue-300 border-blue-500/10 group-hover:border-blue-500/30 group-hover:bg-blue-500/10';
+
         const handleClick = (e: React.MouseEvent) => {
             if (!service.link) {
                 e.preventDefault();
@@ -394,32 +535,29 @@ export default function ServicesList() {
 
         return (
             <motion.div variants={itemVariants} className="h-full">
-                <Link
-                    href={service.link || "#"}
-                    onClick={handleClick}
-                    className="block h-full"
-                >
-                    <div className="group relative h-full bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/[0.06] hover:border-orange-500/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        {/* Gradient Glow Effect on Hover */}
-                        <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
-
+                <Link href={service.link || "#"} onClick={handleClick} className="block h-full">
+                    <div className="group relative h-full bg-[#050505] border border-white/5 rounded-[24px] p-8 sm:p-10 hover:bg-[#0a0a0a] transition-all duration-500 overflow-hidden isolate">
+                        {/* Premium Glow Effect */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${glowColor} opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700 -z-10`} />
+                        <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
                         <div className="relative z-10 flex flex-col h-full">
                             {/* Header: Icon & Number */}
-                            <div className="flex justify-between items-start mb-6">
-                                <div className="p-3 rounded-xl bg-orange-500/10 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
+                            <div className="flex justify-between items-start mb-8">
+                                <div className={`p-4 rounded-2xl border transition-all duration-500 ${bgHighlight}`}>
                                     {service.icon}
                                 </div>
-                                <span className="text-4xl text-orange-500/40 font-bold tabular-nums group-hover:text-orange-500/60 transition-colors">
+                                <span className="text-5xl font-black text-white/5 group-hover:text-white/10 transition-colors duration-500 tracking-tighter">
                                     {service.number}
                                 </span>
                             </div>
 
                             {/* Content */}
                             <div className="flex-1">
-                                <h3 className="text-2xl font-medium text-white mb-3 group-hover:text-orange-400 transition-colors">
+                                <h3 className={`text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:${textHighlight} transition-colors duration-300 tracking-tight`}>
                                     {service.title}
                                 </h3>
-                                <p className="text-neutral-400 leading-relaxed text-sm mb-6">
+                                <p className="text-neutral-400 leading-relaxed text-sm sm:text-base mb-8 font-medium">
                                     {service.description}
                                 </p>
                             </div>
@@ -427,15 +565,17 @@ export default function ServicesList() {
                             {/* Tags */}
                             <div className="flex flex-wrap gap-2 mt-auto">
                                 {service.tags.map((tag, i) => (
-                                    <span key={i} className="px-3 py-1 text-[11px] font-medium tracking-wide uppercase rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/10 group-hover:border-orange-500/20 group-hover:bg-orange-500/20 transition-all duration-300">
+                                    <span key={i} className={`px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase rounded-md border transition-all duration-300 ${tagStyle}`}>
                                         {tag}
                                     </span>
                                 ))}
                             </div>
 
                             {/* Hover Arrow */}
-                            <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                                <ArrowUpRight className="w-6 h-6 text-orange-500" />
+                            <div className="absolute bottom-10 right-10 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 ${textHighlight}`}>
+                                    <ArrowUpRight className="w-5 h-5" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -455,26 +595,71 @@ export default function ServicesList() {
                 <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 w-full overflow-hidden">
                 {/* Hero Section */}
-                <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
-                    <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+                <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20 w-full">
+                    {/* The Dark Seamless Fade */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black z-0" />
+                    
+                    {/* Geometric grid mesh overlay */}
                     <div
-                        className="absolute inset-0 opacity-20"
+                        className="absolute inset-0 opacity-20 z-0 mix-blend-screen"
                         style={{
                             backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 73, 37, 0.15) 1px, transparent 0)`,
                             backgroundSize: '40px 40px'
                         }}
                     />
 
-                    <div className="relative z-10 max-w-7xl mx-auto text-center">
+                    {/* Left Floating Render (Higher on Mobile) */}
+                    <motion.div
+                        animate={{ y: [0, -20, 0], rotate: [0, 5, -5, 0] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute block left-[-15%] lg:left-[5%] top-[20%] lg:top-[30%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] opacity-40 lg:opacity-90 z-0 pointer-events-none"
+                    >
+                        <Image 
+                            src="/services-1.webp" 
+                            alt="Digital Services Infrastructure" 
+                            fill 
+                            className="object-contain drop-shadow-2xl" 
+                            priority 
+                        />
+                    </motion.div>
+
+                    {/* Right Floating Render (Lower on Mobile) */}
+                    <motion.div
+                        animate={{ y: [0, 20, 0], rotate: [0, -5, 5, 0] }}
+                        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute block right-[-10%] lg:right-[5%] top-[75%] lg:top-[45%] w-[180px] h-[180px] lg:w-[260px] lg:h-[260px] opacity-40 lg:opacity-90 z-0 pointer-events-none"
+                    >
+                        <Image 
+                            src="/services-2.webp" 
+                            alt="AI Automation Systems" 
+                            fill 
+                            className="object-contain drop-shadow-2xl" 
+                            priority 
+                        />
+                    </motion.div>
+
+                    <div className="relative z-20 max-w-7xl mx-auto text-center">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                            className="mb-8"
+                        >
+                            <span className="px-6 py-2 rounded-full bg-white/5 backdrop-blur-md text-xs font-bold tracking-widest uppercase text-neutral-300 border border-white/10 shadow-[0_0_30px_rgba(249,115,22,0.3)] flex items-center gap-2 mx-auto w-max">
+                                <Search className="w-4 h-4 text-orange-500 animate-[pulse_2s_linear_infinite]" />
+                                Explore Future Tech
+                            </span>
+                        </motion.div>
+
                         <motion.div
                             initial="hidden"
                             animate="show"
                             variants={letterContainer}
                             className="mb-8"
                         >
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white">
+                            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight text-white mix-blend-lighten">
                                 {["OUR", "SERVICES"].map((word, i) => (
                                     <span key={i} className="block mb-2">
                                         {word.split("").map((char, j) => (
@@ -498,81 +683,90 @@ export default function ServicesList() {
                             className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-12"
                         >
                             From digital marketing to AI-powered solutions, we deliver comprehensive services
-                            that drive growth and transform your business.
+                            that drive growth and transform your business securely.
                         </motion.p>
                     </div>
                 </section>
 
-                {/* Digital Services Grid */}
-                <section className="py-20 px-6 md:px-12">
-                    <div className="max-w-[1800px] mx-auto">
-                        <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-8">
-                            <h2 className="text-3xl md:text-4xl font-medium">
-                                Digital <span className="text-white/40">Services</span>
-                            </h2>
-                            <p className="hidden md:block text-neutral-500 text-sm max-w-xs text-right">
-                                Foundation of your digital presence. Built for speed, conversion, and scale.
+                {/* AI Services Grid (Showcased First) */}
+                <section className="py-24 px-4 md:px-8 border-t border-white/5 bg-[#020202] relative overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-900/20 via-black to-black pointer-events-none mix-blend-screen" />
+                    <div className="max-w-[1400px] mx-auto relative z-10 w-full">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                            <div>
+                                <h2 className="text-sm font-black text-orange-500 uppercase tracking-[0.3em] mb-4">Core Competency</h2>
+                                <h3 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight">
+                                    Artificial <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Intelligence.</span>
+                                </h3>
+                            </div>
+                            <p className="text-neutral-400 text-base md:text-lg max-w-sm md:text-right font-medium leading-relaxed">
+                                Unfair advantages built in code. Scale your revenue and cut operational bloat instantly.
                             </p>
                         </div>
 
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{ once: true, amount: 0.1 }}
                             variants={containerVariants}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-                        >
-                            {digitalServices.map((service, index) => (
-                                <ServiceCard key={index} service={service} index={index} />
-                            ))}
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* AI Services Grid */}
-                <section className="py-20 px-6 md:px-12 bg-white/[0.02]">
-                    <div className="max-w-[1800px] mx-auto">
-                        <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-8">
-                            <h2 className="text-3xl md:text-4xl font-medium">
-                                AI <span className="text-white/40">Solutions</span>
-                            </h2>
-                            <p className="hidden md:block text-neutral-500 text-sm max-w-xs text-right">
-                                Next-generation automation. Leverage AI to work faster and smarter.
-                            </p>
-                        </div>
-
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
-                            variants={containerVariants}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full"
                         >
                             {aiServices.map((service, index) => (
-                                <ServiceCard key={index} service={service} index={index + 6} />
+                                <ServiceCard key={index} service={service} index={index} type="ai" />
                             ))}
                         </motion.div>
                     </div>
                 </section>
 
-                {/* CTA / Footer Integration */}
-                <section className="py-32 px-6 md:px-12 text-center">
+                {/* Digital Services Grid (Showcased Second) */}
+                <section className="py-24 px-4 md:px-8 bg-black relative w-full">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black pointer-events-none mix-blend-screen" />
+                    <div className="max-w-[1400px] mx-auto relative z-10 w-full border-t border-white/5 pt-24">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                            <div>
+                                <h2 className="text-sm font-black text-blue-500 uppercase tracking-[0.3em] mb-4">Foundation</h2>
+                                <h3 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight">
+                                    Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500">Infrastructure.</span>
+                                </h3>
+                            </div>
+                            <p className="text-neutral-400 text-base md:text-lg max-w-sm md:text-right font-medium leading-relaxed">
+                                High-performance software, websites, and funnels engineered to convert traffic into cash.
+                            </p>
+                        </div>
+
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.1 }}
+                            variants={containerVariants}
+                            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 w-full"
+                        >
+                            {digitalServices.map((service, index) => (
+                                <ServiceCard key={index} service={service} index={index} type="digital" />
+                            ))}
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* Dark Custom CTA section */}
+                <section className="py-32 px-6 md:px-12 text-center relative overflow-hidden bg-[#050505] border-t border-white/5">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-blue-500/5" />
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-3xl mx-auto"
+                        className="max-w-3xl mx-auto relative z-10"
                     >
-                        <h2 className="text-4xl md:text-6xl font-medium mb-8">
-                            Ready to <span className="text-orange-500">Scale?</span>
+                        <h2 className="text-5xl md:text-7xl font-black mb-8 text-white tracking-tight">
+                            Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Scale?</span>
                         </h2>
-                        <p className="text-xl text-neutral-400 mb-10">
-                            Stop guessing and start growing. Let's discuss how we can transform your business today.
+                        <p className="text-xl text-neutral-400 mb-10 font-medium leading-relaxed">
+                            Stop guessing and start growing. Let's discuss how we can transform your operations today.
                         </p>
                         <Link href="/contact">
-                            <button className="group relative px-8 py-4 rounded-full bg-orange-500 hover:bg-orange-600 transition-all duration-300 shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]">
-                                <span className="relative z-10 flex items-center gap-2 text-white font-bold tracking-wide">
+                            <button className="group relative px-10 py-5 rounded-full bg-orange-500 hover:bg-orange-600 transition-all duration-300 shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]">
+                                <span className="relative z-10 flex items-center gap-2 text-white font-bold tracking-widest text-sm uppercase">
                                     START A PROJECT
                                     <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </span>
@@ -591,11 +785,11 @@ export default function ServicesList() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-xl bg-black/80"
                     >
-                        {/* Backpack Blur Overlay */}
+                        {/* Overlay Close */}
                         <div
-                            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+                            className="absolute inset-0"
                             onClick={() => setSelectedService(null)}
                         />
 
@@ -604,90 +798,90 @@ export default function ServicesList() {
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl custom-scrollbar"
+                            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] custom-scrollbar"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Close Button */}
                             <button
                                 onClick={() => setSelectedService(null)}
-                                className="sticky top-4 right-4 float-right z-10 p-2 bg-black/50 hover:bg-white/10 backdrop-blur-md rounded-full border border-white/10 transition-colors"
+                                className="sticky top-6 right-6 float-right z-10 p-3 bg-black/50 hover:bg-white/10 backdrop-blur-md rounded-full border border-white/10 transition-colors"
                             >
                                 <X className="w-5 h-5 text-white" />
                             </button>
 
-                            <div className="p-8 md:p-12">
+                            <div className="p-8 md:p-12 relative z-0">
                                 {/* Header */}
                                 <div className="flex flex-col md:flex-row gap-8 mb-12">
                                     <div className="shrink-0">
-                                        <div className="w-20 h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 border border-orange-500/20">
+                                        <div className="w-24 h-24 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 border border-orange-500/20 shadow-[0_0_20px_rgba(249,115,22,0.2)]">
                                             {selectedService.icon}
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="flex items-center gap-4 mb-2">
+                                        <div className="flex items-center gap-4 mb-3">
                                             <span className="text-orange-500 font-bold tracking-widest text-sm uppercase">Service {selectedService.number}</span>
                                             <div className="h-px flex-1 bg-gradient-to-r from-orange-500/50 to-transparent" />
                                         </div>
-                                        <h2 className="text-4xl md:text-5xl font-flarex font-medium text-white mb-4">{selectedService.title}</h2>
-                                        <h3 className="text-xl md:text-2xl text-neutral-300 font-medium">
+                                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">{selectedService.title}</h2>
+                                        <h3 className="text-xl md:text-2xl text-neutral-300 font-medium leading-relaxed">
                                             {selectedService.modalContent.headline}
                                         </h3>
                                     </div>
                                 </div>
 
                                 {/* Main Content Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                                     {/* Problem */}
-                                    <div className="p-6 rounded-2xl bg-red-500/5 border border-red-500/10">
-                                        <h4 className="text-lg font-bold text-red-400 mb-3 flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-red-400" />
+                                    <div className="p-8 rounded-2xl bg-[#0d0d0d] border border-red-500/10 hover:border-red-500/20 transition-colors">
+                                        <h4 className="text-lg font-bold text-red-400 mb-4 flex items-center gap-3">
+                                            <span className="w-3 h-3 rounded-full bg-red-400 shadow-[0_0_10px_rgba(248,113,113,0.5)] animate-pulse" />
                                             The Challenge
                                         </h4>
-                                        <p className="text-neutral-400 leading-relaxed text-sm">
+                                        <p className="text-neutral-400 leading-relaxed font-medium">
                                             {selectedService.modalContent.problem}
                                         </p>
                                     </div>
 
                                     {/* Solution */}
-                                    <div className="p-6 rounded-2xl bg-green-500/5 border border-green-500/10">
-                                        <h4 className="text-lg font-bold text-green-400 mb-3 flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-green-400" />
+                                    <div className="p-8 rounded-2xl bg-[#0d0d0d] border border-emerald-500/10 hover:border-emerald-500/20 transition-colors">
+                                        <h4 className="text-lg font-bold text-emerald-400 mb-4 flex items-center gap-3">
+                                            <span className="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)] animate-pulse" />
                                             Our Solution
                                         </h4>
-                                        <p className="text-neutral-400 leading-relaxed text-sm">
+                                        <p className="text-neutral-400 leading-relaxed font-medium">
                                             {selectedService.modalContent.solution}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Benefits & Process */}
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
                                     <div>
-                                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                                            <Check className="w-5 h-5 text-orange-500" />
+                                        <h4 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
+                                            <Check className="w-6 h-6 text-orange-500" />
                                             Key Benefits
                                         </h4>
                                         <div className="space-y-4">
                                             {selectedService.modalContent.benefits.map((benefit, i) => (
-                                                <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
-                                                    <span className="text-sm text-neutral-300 leading-relaxed">{benefit}</span>
+                                                <div key={i} className="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all">
+                                                    <div className="w-2 h-2 rounded-full bg-orange-500 mt-2 shrink-0 shadow-[0_0_10px_rgba(249,115,22,0.8)]" />
+                                                    <span className="text-base text-neutral-300 font-medium leading-relaxed">{benefit}</span>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
 
                                     <div>
-                                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                                            <Sparkles className="w-5 h-5 text-orange-500" />
+                                        <h4 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
+                                            <Sparkles className="w-6 h-6 text-orange-500" />
                                             The Process
                                         </h4>
-                                        <div className="relative border-l border-white/10 ml-3 space-y-8 py-2">
+                                        <div className="relative border-l border-white/10 ml-4 space-y-10 py-2">
                                             {selectedService.modalContent.process.map((step, i) => (
                                                 <div key={i} className="relative pl-8">
-                                                    <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-800 border-2 border-orange-500/50" />
-                                                    <span className="block text-xs font-bold text-neutral-500 mb-1">STEP 0{i + 1}</span>
-                                                    <span className="text-sm text-neutral-300 leading-relaxed">{step}</span>
+                                                    <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-800 border-2 border-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.5)]" />
+                                                    <span className="block text-xs font-bold text-orange-500 mb-2 tracking-widest uppercase">STEP 0{i + 1}</span>
+                                                    <span className="text-base text-neutral-300 font-medium leading-relaxed block">{step}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -695,20 +889,22 @@ export default function ServicesList() {
                                 </div>
 
                                 {/* Bottom Results & CTA */}
-                                <div className="p-8 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/5 border border-orange-500/20 text-center">
-                                    <h4 className="text-lg font-bold text-orange-400 mb-4">Proven Results</h4>
-                                    <p className="text-neutral-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                                <div className="p-10 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/5 border border-orange-500/20 text-center relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay" />
+                                    
+                                    <h4 className="text-sm font-bold tracking-widest text-orange-400 mb-6 uppercase">Proven Results</h4>
+                                    <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-10 font-medium leading-relaxed italic">
                                         "{selectedService.modalContent.results}"
                                     </p>
 
-                                    <div className="h-px w-full bg-white/10 mb-8" />
+                                    <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent mb-10" />
 
-                                    <h4 className="text-2xl font-flarex text-white mb-6">
+                                    <h4 className="text-2xl md:text-4xl font-black text-white mb-8 tracking-tight">
                                         {selectedService.modalContent.cta}
                                     </h4>
 
                                     <Link href="/contact" onClick={() => setSelectedService(null)}>
-                                        <button className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-neutral-200 transition-colors">
+                                        <button className="relative px-10 py-5 rounded-full bg-white text-black font-bold uppercase tracking-widest hover:bg-neutral-200 hover:scale-[1.02] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                                             Let's Talk Business
                                         </button>
                                     </Link>

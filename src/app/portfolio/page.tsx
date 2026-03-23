@@ -400,7 +400,7 @@ export default async function Portfolio() {
         <UpcomingLaunchesCarousel launches={launches} />
 
         {/* Portfolio Grid */}
-        <section className="relative px-6 lg:px-12 pb-32">
+        <section className="relative px-6 lg:px-12 pb-32" aria-label="Portfolio projects">
           <div className="max-w-[1800px] w-full mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {portfolioItems.map((item, index) => (
@@ -409,6 +409,7 @@ export default async function Portfolio() {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${item.title} - view project (opens in new tab)`}
                   className="group cursor-pointer transition-all duration-700 opacity-100 translate-y-0"
                   style={{
                     transitionDelay: `${index * 150}ms`,
@@ -451,6 +452,7 @@ export default async function Portfolio() {
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"
@@ -487,6 +489,7 @@ export default async function Portfolio() {
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
+                          aria-hidden="true"
                         >
                           <path
                             strokeLinecap="round"
@@ -511,7 +514,7 @@ export default async function Portfolio() {
         </section>
 
         {/* Demos built for clients Section */}
-        <section className="relative px-6 lg:px-12 pb-32">
+        <section className="relative px-6 lg:px-12 pb-32" aria-label="Demo templates">
           <div className="max-w-[1800px] w-full mx-auto">
             {/* Section Heading */}
             <div className="mb-16 text-center">
@@ -534,6 +537,7 @@ export default async function Portfolio() {
                   href={template.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${template.title} demo (opens in new tab)`}
                   className="group cursor-pointer transition-all duration-700 opacity-100 translate-y-0"
                   style={{
                     transitionDelay: `${index * 150}ms`,

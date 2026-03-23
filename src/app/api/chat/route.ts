@@ -1,6 +1,7 @@
 import { openai } from '@ai-sdk/openai';
 import { generateText, tool, stepCountIs } from 'ai';
 import { SYSTEM_PROMPT } from '@/lib/ai-context';
+import { retrieveContext } from '@/lib/rag';
 import { supabase } from '@/lib/supabase';
 import { createClient } from '@supabase/supabase-js';
 import { z } from 'zod';
@@ -64,10 +65,23 @@ export async function POST(req: Request) {
             content: typeof msg.content === 'string' ? msg.content : '',
         }));
 
-        // Call OpenAI with tool support
+        // RAG: retrieve relevant context from knowledge base
+        const latestUserMessage = formattedMessages
+            .filter((m: { role: string }) => m.role === 'user')
+            .pop();
+        const ragContext = latestUserMessage
+            ? await retrieveContext(latestUserMessage.content as string)
+            : '';
+
+        // Build system prompt with RAG context
+        const systemPromptWithContext = ragContext
+            ? `${SYSTEM_PROMPT}\n${ragContext}`
+            : SYSTEM_PROMPT;
+
+        // Call OpenAI with tool support + RAG context
         const result = await generateText({
             model: openai('gpt-5.4'),
-            system: SYSTEM_PROMPT,
+            system: systemPromptWithContext,
             messages: formattedMessages,
             stopWhen: stepCountIs(5),
             tools: {
@@ -77,7 +91,7 @@ export async function POST(req: Request) {
                         name: z.string().describe("The prospect's full name"),
                         email: z.string().email().describe("The prospect's email address"),
                         company: z.string().describe("The prospect's company name"),
-                        selectedPackage: z.enum(['option1', 'option2', 'option3', 'all']).describe("Which package: option1 (Rs 65K website), option2 (Rs 95K website+system), option3 (Rs 120K website+system+AI), or all (send all 3 packages)"),
+                        selectedPackage: z.enum(['starter', 'launch', 'growth', 'scale', 'flow', 'engage', 'qualify', 'command', 'all']).describe("Which package the user is interested in. Web packages: starter, launch, growth, scale. AI packages: flow, engage, qualify, command. Use 'all' if the user cannot choose."),
                     }),
                     execute: async ({ name, email, company, selectedPackage }) => {
                         console.log(`Executing sendProposal tool for ${email} (package: ${selectedPackage})...`);

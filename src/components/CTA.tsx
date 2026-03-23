@@ -42,13 +42,14 @@ const CTA = () => {
           }
         }
       `}</style>
-      <section ref={sectionRef} className="relative bg-[rgb(10,10,10)] overflow-hidden">
+      <section ref={sectionRef} className="relative bg-[rgb(10,10,10)] overflow-hidden" aria-label="Call to action">
       <div className="relative min-h-[600px] lg:min-h-[500px]">
         {/* Background with gradient overlay */}
         <div className="absolute inset-0">
           {/* Gradient Mask */}
           <div 
             className="absolute inset-0 bg-[rgb(10,10,10)] z-10"
+            aria-hidden="true"
             style={{
               WebkitMask: 'linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 14%, rgba(0, 0, 0, 0) 81%, rgb(0, 0, 0) 100%)',
               mask: 'linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 14%, rgba(0, 0, 0, 0) 81%, rgb(0, 0, 0) 100%)'
@@ -110,13 +111,12 @@ const CTA = () => {
               {/* CTA Button */}
               <a
                 href="#contact"
-                className="group"
+                className="group relative inline-block bg-transparent border-2 border-[rgb(255,73,37)] text-[rgb(255,73,37)] hover:bg-[rgb(255,73,37)] hover:text-white font-bold py-4 px-12 rounded-full overflow-hidden transition-all duration-300"
+                aria-label="Get in touch with ARC AI"
               >
-                <button className="relative bg-transparent border-2 border-[rgb(255,73,37)] text-[rgb(255,73,37)] hover:bg-[rgb(255,73,37)] hover:text-white font-bold py-4 px-12 rounded-full overflow-hidden transition-all duration-300">
                   <span className="relative z-10 text-lg tracking-wide">
                     GET IN TOUCH
                   </span>
-                </button>
               </a>
             </div>
           </div>

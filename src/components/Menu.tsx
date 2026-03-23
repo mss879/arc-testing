@@ -19,18 +19,24 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Menu Sidebar */}
       <div
+        id="main-menu"
         className={`fixed top-0 right-0 h-full w-full md:w-[500px] lg:w-[600px] xl:w-[700px] bg-[rgb(10,10,10)] z-50 transform transition-transform duration-500 ease-in-out overflow-y-auto scrollbar-hide ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
           fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
         }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation menu"
+        aria-hidden={!isOpen}
       >
-        <nav className="min-h-full flex flex-col">
+        <nav className="min-h-full flex flex-col" aria-label="Main menu navigation">
           {/* Menu Container with Border */}
           <div className="flex-1 flex flex-col border-l border-[rgb(51,51,51)]">
             {/* Header */}

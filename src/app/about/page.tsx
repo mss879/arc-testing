@@ -69,9 +69,10 @@ export default function About() {
         {/* Company Hero Section */}
         <section
           className="relative min-h-screen w-full flex items-center justify-center px-6 pt-48 pb-32 overflow-hidden"
+          aria-label="About ARC AI hero"
         >
           {/* Background Video */}
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0" aria-hidden="true">
             <video
               autoPlay
               loop
@@ -88,6 +89,7 @@ export default function About() {
             {/* Subtle overlay for text contrast */}
             <div
               className="absolute inset-0"
+              aria-hidden="true"
               style={{
                 background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%)'
               }}
@@ -97,6 +99,7 @@ export default function About() {
           {/* First Map SVG Background */}
           <div
             className="absolute inset-0 z-0"
+            aria-hidden="true"
             style={{
               fill: 'rgba(0, 0, 0, 0)',
               color: 'rgba(0, 0, 0, 0)',
@@ -188,7 +191,7 @@ export default function About() {
               </p>
 
               {/* Stats Cards - Horizontal layout as in screenshot */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 w-full max-w-3xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 w-full max-w-3xl" role="region" aria-label="Company statistics">
 
                 {/* Launched In Card */}
                 <div
@@ -237,7 +240,7 @@ export default function About() {
                   }}
                 >
                   <div className="flex items-center gap-2 text-white/70">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
                     <span className="text-xs font-medium">Customer Rating</span>
@@ -251,7 +254,7 @@ export default function About() {
               </div>
 
               {/* Tech Stack Infinite Scroll */}
-              <div className="w-full mt-16">
+              <div className="w-full mt-16" role="region" aria-label="Technology stack">
                 <p className="text-center text-white/40 text-sm uppercase tracking-wider mb-8">
                   Powered By Industry-Leading Technology
                 </p>
@@ -372,6 +375,7 @@ export default function About() {
           {/* Dark overlay to match screenshot darkness */}
           <div
             className="absolute inset-0 pointer-events-none"
+            aria-hidden="true"
             style={{
               background: 'radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.6) 80%)'
             }}

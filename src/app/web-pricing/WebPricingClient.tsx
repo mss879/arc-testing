@@ -107,7 +107,7 @@ const comparisonFeatures = [
   { name: 'AI Agent (24/7 Support)', starter: false, launch: false, growth: false, scale: true },
 ];
 
-export default function PricingClient() {
+export default function WebPricingClient() {
   const [hoveredPkg, setHoveredPkg] = useState<string | null>(null);
 
   return (

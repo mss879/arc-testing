@@ -36,10 +36,11 @@ export default function SmartFunnelsContent() {
         <div className="min-h-screen bg-black text-white">
             <Navbar />
             {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+            <section className="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20" aria-label="Smart funnels overview">
+                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" aria-hidden="true" />
                 <div
                     className="absolute inset-0 opacity-20"
+                    aria-hidden="true"
                     style={{
                         backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.15) 1px, transparent 0)`,
                         backgroundSize: '40px 40px'
@@ -286,7 +287,7 @@ export default function SmartFunnelsContent() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-neutral-950">
+            <section className="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-neutral-950" aria-label="Get started">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div
                         initial="hidden"

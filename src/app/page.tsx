@@ -120,14 +120,6 @@ export default function HomePage() {
       {/* Schema.org Structured Data for SEO */}
       <SchemaOrg type="home" showFAQ={true} />
 
-      {/* Skip to main content link for accessibility */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-primary focus:text-white focus:top-4 focus:left-4"
-      >
-        Skip to main content
-      </a>
-
       <Navbar />
 
       {/* Main content wrapper with semantic HTML */}

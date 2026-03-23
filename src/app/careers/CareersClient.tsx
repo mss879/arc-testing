@@ -57,12 +57,13 @@ export default function CareersClient() {
     return (
         <>
             {/* Hero Section — Compact & Premium */}
-            <section className="relative pt-36 md:pt-48 pb-12 px-6 lg:px-12 overflow-hidden">
+            <section className="relative pt-36 md:pt-48 pb-12 px-6 lg:px-12 overflow-hidden" aria-label="Careers hero">
                 {/* Background effects */}
-                <div className="absolute inset-0 bg-[rgb(10,10,10)]" />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#FF4925]/[0.05] via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-[rgb(10,10,10)]" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#FF4925]/[0.05] via-transparent to-transparent pointer-events-none" aria-hidden="true" />
                 <div
                     className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[900px] h-[300px] md:h-[400px] opacity-25 pointer-events-none"
+                    aria-hidden="true"
                     style={{
                         background: 'radial-gradient(ellipse at center, rgba(255,73,37,0.15) 0%, transparent 70%)'
                     }}
@@ -88,7 +89,7 @@ export default function CareersClient() {
             </section>
 
             {/* Vacancies Section */}
-            <section className="pb-32 px-6 lg:px-12 relative bg-[rgb(10,10,10)]">
+            <section className="pb-32 px-6 lg:px-12 relative bg-[rgb(10,10,10)]" aria-label="Open positions">
                 <div className="max-w-[1400px] mx-auto">
                     {/* Divider */}
                     <div className="mb-20">
@@ -137,9 +138,9 @@ export default function CareersClient() {
                                     className="group relative flex flex-col justify-between bg-gradient-to-br from-white/[0.08] via-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-white/30 transition-all duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden min-h-[380px]"
                                 >
                                     {/* Glass shine effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" aria-hidden="true"></div>
                                     {/* Reflection hover effect */}
-                                    <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-[rgb(255,73,37)]/10 to-transparent rotate-45 group-hover:opacity-100 opacity-0 transition-opacity duration-700 pointer-events-none"></div>
+                                    <div className="absolute -top-[50%] -right-[50%] w-full h-full bg-gradient-to-br from-[rgb(255,73,37)]/10 to-transparent rotate-45 group-hover:opacity-100 opacity-0 transition-opacity duration-700 pointer-events-none" aria-hidden="true"></div>
 
                                     {/* Card Content - Z-index to sit above effects */}
                                     <div className="relative z-10 flex flex-col h-full">
@@ -217,11 +218,12 @@ export default function CareersClient() {
 
             {/* Job Details Modal - Custom component built for this view */}
             {expandedId && vacancies.find(v => v.id === expandedId) && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 pb-20 sm:pb-6">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 pb-20 sm:pb-6" role="dialog" aria-modal="true" aria-label="Job details">
                     {/* Backdrop */}
                     <div
                         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
                         onClick={() => setExpandedId(null)}
+                        aria-hidden="true"
                     />
 
                     {/* Modal Content */}
@@ -245,6 +247,7 @@ export default function CareersClient() {
                             </div>
                             <button
                                 onClick={() => setExpandedId(null)}
+                                aria-label="Close job details"
                                 className="p-2 bg-white/5 hover:bg-white/10 rounded-xl text-gray-400 hover:text-white transition-colors self-start"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
