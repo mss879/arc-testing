@@ -163,8 +163,23 @@ export function generateProposalEmail(
     .map((key, i) => renderPackageBlock(WEB_PACKAGES[key], i + 1))
     .join('');
 
+  // When 'all' is selected, also render AI packages
+  const aiPackageBlocks = isAll
+    ? AI_PACKAGE_KEYS.map((key, i) => renderAIPackageBlock(AI_PACKAGES[key], i + 1)).join('')
+    : '';
+
   const selectedPkg = isAll ? null : WEB_PACKAGES[selectedPackage];
-  const subjectLine = isAll ? 'Your Executive Proposal' : `${selectedPkg?.name} Executive Proposal`;
+  const subjectLine = isAll ? 'Your Complete Proposal' : `${selectedPkg?.name} Executive Proposal`;
+
+  // Build the combined packages section for 'all'
+  const allPackagesHtml = isAll
+    ? `<p style="margin: 8px 0 24px 0; font-size: 15px; color: #86868b; line-height: 1.6;">Below you'll find our Website packages and AI System packages. Each tier builds upon the previous one.</p>
+       <p style="margin: 0 0 16px 0; font-size: 18px; color: #f5f5f7; font-weight: 600; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">🌐 Website Packages</p>
+       ${packageBlocks}
+       <div style="height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(59,130,246,0.5) 50%, rgba(255,255,255,0) 100%); margin: 32px 0;"></div>
+       <p style="margin: 0 0 16px 0; font-size: 18px; color: #f5f5f7; font-weight: 600; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">🤖 AI System Packages</p>
+       ${aiPackageBlocks}`
+    : packageBlocks;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -245,8 +260,7 @@ export function generateProposalEmail(
                 <!-- Package(s) Section -->
                 <tr><td style="padding: 40px 48px 10px 48px;">
                     <p style="margin: 0 0 8px 0; font-size: 11px; color: #FF4925; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;">03 — ${isAll ? 'Strategic Tier Options' : 'Recommended Blueprint'}</p>
-                    ${isAll ? `<p style="margin: 8px 0 24px 0; font-size: 15px; color: #86868b; line-height: 1.6;">Select the tier that aligns perfectly with your current operational velocity. Each tier seamlessly builds upon the robust architecture of the preceding one.</p>` : ''}
-                    ${packageBlocks}
+                    ${allPackagesHtml}
                 </td></tr>
 
                 <!-- Timeline Section -->
