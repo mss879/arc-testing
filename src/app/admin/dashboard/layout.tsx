@@ -11,6 +11,7 @@ import {
     Mail,
     MessageSquare,
     Briefcase,
+    ClipboardList,
     LogOut,
     Menu,
     X,
@@ -25,6 +26,7 @@ const navItems = [
     { name: 'Email Newsletter', path: '/admin/dashboard/subscribers', icon: Mail },
     { name: 'AI Chat History', path: '/admin/dashboard/chat', icon: MessageSquare },
     { name: 'Careers', path: '/admin/dashboard/careers', icon: Briefcase },
+    { name: 'Job Requests', path: '/admin/dashboard/job-requests', icon: ClipboardList },
 ];
 
 export default function DashboardLayout({
