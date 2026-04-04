@@ -1,8 +1,46 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | ARC AI",
+  title: "Privacy Policy | ARC AI — How We Protect Your Data",
   description: "ARC AI privacy policy — how we collect, use, and protect your personal data in compliance with GDPR and UK data protection laws.",
+  openGraph: {
+    title: "Privacy Policy | ARC AI",
+    description: "Learn how ARC AI collects, uses, and protects your personal data. GDPR and UK data protection compliant.",
+    url: "https://www.arcai.agency/privacy-policy",
+    siteName: "ARC AI Agency",
+    images: [
+      {
+        url: "https://www.arcai.agency/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ARC AI Privacy Policy",
+        type: "image/jpeg",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@arcaiagency",
+    title: "Privacy Policy | ARC AI",
+    description: "Learn how ARC AI collects, uses, and protects your personal data.",
+    images: ["https://www.arcai.agency/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.arcai.agency/privacy-policy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function PrivacyPolicyPage() {

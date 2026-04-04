@@ -9,13 +9,6 @@ import CareersClient from "./CareersClient";
 export const metadata: Metadata = {
   title: "Careers at ARC AI | Join Our Team — AI Agency UK & Sri Lanka",
   description: "Join ARC AI and help build the future of AI automation and digital marketing. Explore open positions in web development, AI engineering, design, and marketing across UK and Sri Lanka.",
-  keywords: [
-    "careers at ARC AI", "AI jobs UK", "AI company jobs Sri Lanka",
-    "web development jobs UK", "AI automation careers", "digital marketing jobs UK",
-    "software engineer jobs Sri Lanka", "AI agency careers",
-    "tech jobs Colombo", "remote AI jobs", "join ARC AI team",
-    "AI developer jobs", "web design jobs UK", "marketing jobs Sri Lanka"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Careers at ARC AI — Join Our Team",

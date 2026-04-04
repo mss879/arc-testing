@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import "./AIServices.css";
 
 const itemVariants: Variants = {
@@ -387,11 +388,11 @@ const AIServices = () => {
                         data-framer-background-image-wrapper="true"
                         style={{ position: "absolute", borderRadius: "inherit", inset: "0px" }}
                       >
-                        <img
-                          width="154"
-                          height="110"
+                        <Image
+                          width={154}
+                          height={110}
                           src="https://framerusercontent.com/images/8x7d36XigNJwbX3MhEzcU6N7N8.png"
-                          alt="logo"
+                          alt="AI automated workflow integration icon"
                           style={{
                             display: "block",
                             width: "100%",
@@ -401,7 +402,6 @@ const AIServices = () => {
                             objectFit: "contain",
                           }}
                           loading="lazy"
-                          decoding="async"
                         />
                       </div>
                     </div>

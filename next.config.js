@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: 'framerusercontent.com',
         pathname: '/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
     ],
   },
   // Disable trailing slashes

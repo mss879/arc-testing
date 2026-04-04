@@ -5,13 +5,6 @@ import SchemaOrg from "@/components/SchemaOrg";
 export const metadata: Metadata = {
     title: "Smart Sales Funnels & Marketing Automation | ARC AI",
     description: "Intelligent sales funnels that guide prospects from lead to customer automatically. Maximize conversions with behavior-based automation and personalization.",
-    keywords: [
-        "sales funnel agency UK", "marketing automation Sri Lanka",
-        "lead generation funnels UK", "sales pipeline Colombo",
-        "conversion optimisation UK", "email marketing automation UK",
-        "AI sales funnel Sri Lanka", "digital sales funnel agency UK",
-        "automated lead nurturing UK", "customer journey automation Sri Lanka"
-    ],
     authors: [{ name: "ARC AI Agency" }],
     openGraph: {
         title: "Smart Sales Funnels & Marketing Automation | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.arcai.agency/services/smart-funnels"
-    }
+    },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function SmartFunnelsPage() {

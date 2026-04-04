@@ -40,6 +40,18 @@ export async function generateMetadata(): Promise<Metadata> {
         alternates: {
             canonical: `https://www.arcai.agency/blog/websites-vs-smart-websites-sri-lanka`,
         },
+
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
     };
 }
 

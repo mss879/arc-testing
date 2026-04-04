@@ -5,14 +5,6 @@ import SchemaOrg from "@/components/SchemaOrg";
 export const metadata: Metadata = {
   title: "Professional Web Design & Development Services | ARC AI",
   description: "Custom web design and development services using Next.js and React. We build fast, responsive, and SEO-friendly websites that convert visitors into customers.",
-  keywords: [
-    "web design agency UK", "website design Sri Lanka",
-    "web development company Birmingham", "website development Colombo",
-    "custom website design UK", "web design company Sri Lanka",
-    "Next.js web developer UK", "websites in UK", "websites in Sri Lanka",
-    "best web design agency UK", "affordable website design Sri Lanka",
-    "SEO web design UK", "responsive website Sri Lanka", "ecommerce website UK"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Professional Web Design & Development Services | ARC AI",
@@ -41,7 +33,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/web-design-development"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function WebDesignPage() {

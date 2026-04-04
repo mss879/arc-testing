@@ -5,13 +5,6 @@ import MotionDesignContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | Motion Design & Animation Agency UK & Sri Lanka",
   description: "Bring your brand to life with motion design. ARC AI creates UI animations, micro-interactions & visual storytelling for businesses in UK & Sri Lanka.",
-  keywords: [
-    "motion design agency UK", "animation studio Sri Lanka",
-    "UI animation agency Birmingham", "web animation Colombo",
-    "micro-interaction design UK", "motion graphics agency UK",
-    "brand animation Sri Lanka", "Framer Motion development UK",
-    "scroll animations UK", "digital animation studio Sri Lanka"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Motion Design Services | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/motion-design"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function MotionDesignPage() {

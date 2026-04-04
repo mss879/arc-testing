@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import Image from "next/image";
 
 const letterContainer: Variants = {
   hidden: { opacity: 0 },
@@ -245,9 +246,11 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ service, isOpen, onMouseEnter
                 delay: isOpen ? 0.05 : 0,
               }}
             >
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
+                width={400}
+                height={500}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

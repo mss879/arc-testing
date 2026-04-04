@@ -111,18 +111,16 @@ const Hero = memo(() => {
             playsInline
             loop
             muted
-            preload="auto"
+            preload="metadata"
             suppressHydrationWarning
             className="w-full h-full object-cover scale-100"
             style={{ transformOrigin: 'center center', willChange: 'auto' }}
             aria-hidden="true"
             onLoadedData={() => {
-              console.log('Video loaded');
               setVideoLoaded(true);
             }}
-            onPlay={() => console.log('Video started playing')}
-            onError={(e) => {
-              console.error('Video error:', e);
+            onPlay={() => {}}
+            onError={() => {
               setVideoError(true);
             }}
           >
@@ -147,13 +145,13 @@ const Hero = memo(() => {
         <div className="relative z-10 h-full flex flex-col px-6 md:px-8 lg:px-12 pt-32 md:pt-24 lg:pt-40 pb-8">
           {/* Mobile & Small Screens - Redesigned layout */}
           <div className="flex-1 md:hidden flex flex-col h-full max-w-[1800px] mx-auto w-full">
-            {/* Mobile H1 — critical for SEO (Google mobile-first indexing) */}
+            {/* Mobile tagline — styled as heading but uses <p> to avoid duplicate H1 */}
             <div className="animate-fade-in mt-12" style={{ animationDelay: "0.2s" }}>
-              <h1 className="text-3xl sm:text-4xl font-semibold leading-[1.1] tracking-tight text-white text-left font-flarex">
-                Beyond Visuals.
+              <p className="text-3xl sm:text-4xl font-semibold leading-[1.1] tracking-tight text-white text-left font-flarex" role="heading" aria-level={2}>
+                AI Automation &amp;
                 <br />
-                <span className="text-white/70">Built with Vision.</span>
-              </h1>
+                <span className="text-white/70">Web Design Agency</span>
+              </p>
             </div>
 
             {/* Spacer */}
@@ -163,12 +161,12 @@ const Hero = memo(() => {
             <div className="space-y-6 pb-4">
               {/* Description */}
               <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                <h2 className="text-lg sm:text-xl leading-relaxed text-left text-white font-flarex font-bold">
+                <p className="text-lg sm:text-xl leading-relaxed text-left text-white font-flarex font-bold">
                   We build data-driven websites, automations{" "}
                   <span className="text-white">
                     that scale brands and drive revenue.
                   </span>
-                </h2>
+                </p>
               </div>
 
               {/* Trusted By Logos - Horizontal with label on same row */}
@@ -219,11 +217,11 @@ const Hero = memo(() => {
           <div className="hidden md:flex lg:hidden flex-col justify-between h-full max-w-[1800px] mx-auto w-full min-h-0">
             {/* Top Section - Main Headline on Right with spacing */}
             <div className="flex items-start justify-end pt-8 md:pt-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-[0.95] tracking-tight text-white text-right font-flarex">
-                Beyond Visuals.
+              <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-[0.95] tracking-tight text-white text-right font-flarex" role="heading" aria-level={2}>
+                AI Automation &amp;
                 <br />
-                <span className="text-white/70">Built with Vision.</span>
-              </h1>
+                <span className="text-white/70">Web Design Agency</span>
+              </p>
             </div>
 
             {/* Bottom Section - Description, Trusted By and CTA on Left */}
@@ -231,12 +229,12 @@ const Hero = memo(() => {
               <div className="space-y-4 md:space-y-6 w-full md:w-auto">
                 {/* Description */}
                 <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                  <h2 className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl text-left text-white font-flarex">
+                  <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl text-left text-white font-flarex">
                     We build data-driven websites, automations{" "}
                     <span className="text-white">
                       that scale brands and drive revenue.
                     </span>
-                  </h2>
+                  </p>
                 </div>
 
                 {/* Trusted By Logos - Bottom Left */}
@@ -289,14 +287,14 @@ const Hero = memo(() => {
             {/* Left Side - Description at bottom */}
             <div className="flex flex-col justify-end h-full">
               <div className="space-y-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                <h2 className="text-2xl xl:text-3xl font-medium leading-relaxed max-w-xl text-left text-white font-flarex">
+                <p className="text-2xl xl:text-3xl font-medium leading-relaxed max-w-xl text-left text-white font-flarex">
                   We build data-driven websites,
                   <br />
                   automations{" "}
                   <span className="text-white">
                     that scale brands and drive revenue.
                   </span>
-                </h2>
+                </p>
 
                 {/* Trusted By Logos */}
                 <div className="space-y-3">
@@ -331,7 +329,7 @@ const Hero = memo(() => {
             <div className="flex flex-col h-full">
               {/* Main Headline */}
               <div className="text-right animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                <h1 className="text-3xl xl:text-[64px] font-semibold leading-[0.9] tracking-tight text-white font-flarex">
+                <p className="text-3xl xl:text-[64px] font-semibold leading-[0.9] tracking-tight text-white font-flarex" role="heading" aria-level={2}>
                   Beyond
                   <br />
                   <span className="inline-block mb-4">Visuals.</span>
@@ -339,7 +337,7 @@ const Hero = memo(() => {
                   <span className="text-white/70">Built with</span>
                   <br />
                   <span className="text-white/70">Vision.</span>
-                </h1>
+                </p>
               </div>
 
               {/* CTA Button - Bottom Right */}

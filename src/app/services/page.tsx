@@ -5,14 +5,6 @@ import SchemaOrg from "@/components/SchemaOrg";
 export const metadata: Metadata = {
   title: "ARC AI | Digital Services UK & Sri Lanka — AI, Web Design & Marketing",
   description: "ARC AI services: AI automation, web design, chatbots, branding & digital marketing in UK & Sri Lanka. From smart websites to automated workflows.",
-  keywords: [
-    "AI automation services UK", "web design services Sri Lanka",
-    "AI chatbot services UK", "workflow automation agency UK",
-    "content generation Sri Lanka", "custom web apps UK",
-    "brand identity design Sri Lanka", "social media marketing UK",
-    "digital transformation services UK", "software company UK services",
-    "AI company Sri Lanka services", "best web design UK"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Digital Marketing & AI Automation Services | ARC AI",
@@ -41,7 +33,18 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function ServicesPage() {

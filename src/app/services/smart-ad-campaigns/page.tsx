@@ -4,9 +4,6 @@ import SmartAdCampaignsContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | Smart Ad Campaigns UK & Sri Lanka",
   description: "Data-driven Meta and Google advertising campaigns that scale ROI. ARC AI serves businesses in UK & Sri Lanka.",
-  keywords: [
-    "Meta ads UK", "Google ads agency Sri Lanka", "performance marketing", "ROAS agency", "AI ad targeting"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI | Smart Ad Campaigns",
@@ -35,7 +32,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/smart-ad-campaigns"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function SmartAdCampaignsPage() {

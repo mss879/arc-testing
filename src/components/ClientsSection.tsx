@@ -2,6 +2,7 @@
 
 import { memo, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { clientLogos } from "@/lib/client-logos";
 
 const ClientsSection = memo(() => {
@@ -81,9 +82,11 @@ const ClientsSection = memo(() => {
                             "rgba(108, 113, 128, 0.08) 0px 2px 4px 0px, rgba(108, 113, 128, 0.07) 0px 7px 7px 0px, rgba(108, 113, 128, 0.04) 0px 17px 10px 0px, rgba(108, 113, 128, 0.01) 0px 29px 12px 0px",
                         }}
                       >
-                        <img
+                        <Image
                           src={arm.logo}
                           alt={`${arm.name} logo`}
+                          width={110}
+                          height={110}
                           className="w-full h-full object-contain"
                           loading="lazy"
                         />

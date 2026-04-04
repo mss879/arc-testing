@@ -1,8 +1,46 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | ARC AI",
-  description: "ARC AI terms of service — the terms and conditions governing the use of our website and services.",
+  title: "Terms of Service | ARC AI — Usage Terms & Conditions",
+  description: "ARC AI terms of service — the terms and conditions governing the use of our website, AI automation, and digital marketing services.",
+  openGraph: {
+    title: "Terms of Service | ARC AI",
+    description: "Read the terms and conditions governing the use of ARC AI website and services.",
+    url: "https://www.arcai.agency/terms-of-service",
+    siteName: "ARC AI Agency",
+    images: [
+      {
+        url: "https://www.arcai.agency/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ARC AI Terms of Service",
+        type: "image/jpeg",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@arcaiagency",
+    title: "Terms of Service | ARC AI",
+    description: "Read the terms and conditions governing the use of ARC AI services.",
+    images: ["https://www.arcai.agency/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.arcai.agency/terms-of-service",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function TermsOfServicePage() {

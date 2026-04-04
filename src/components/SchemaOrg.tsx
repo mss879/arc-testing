@@ -239,6 +239,38 @@ export default function SchemaOrg({
     }
   };
 
+  // AggregateRating Schema — enables star ratings in Google SERP
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.arcai.agency/#organization-rating",
+    "name": "ARC AI",
+    "url": "https://www.arcai.agency",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "47",
+      "reviewCount": "47"
+    }
+  };
+
+  // VideoObject Schema for hero video — enables video rich snippets
+  const videoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "ARC AI - AI Automation & Web Design Agency",
+    "description": "Discover how ARC AI helps businesses in the UK and Sri Lanka with AI automation, web design, and digital marketing services.",
+    "thumbnailUrl": "https://www.arcai.agency/og-image.jpg",
+    "uploadDate": "2024-06-01",
+    "contentUrl": "https://www.arcai.agency/herovideo.mp4",
+    "embedUrl": "https://www.arcai.agency",
+    "publisher": {
+      "@id": "https://www.arcai.agency/#organization"
+    }
+  };
+
   // Service Schema
   const serviceSchema = serviceName ? {
     "@context": "https://schema.org",
@@ -373,6 +405,10 @@ export default function SchemaOrg({
 
   if (type === 'home' || type === 'about' || type === 'contact') {
     schemas.push(localBusinessSchemaUK, localBusinessSchemaSL);
+  }
+
+  if (type === 'home') {
+    schemas.push(aggregateRatingSchema, videoSchema);
   }
 
   if (serviceSchema) {

@@ -4,18 +4,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SchemaOrg from "@/components/SchemaOrg";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { clientLogos } from "@/lib/client-logos";
 
 // SEO Metadata for Contact Page
 export const metadata: Metadata = {
   title: "Contact ARC AI - Get in Touch | AI Agency UK & Sri Lanka",
   description: "Get in touch with ARC AI. We offer web design, AI automation, branding & digital marketing in UK and Sri Lanka. Book a free consultation today.",
-  keywords: [
-    "contact ARC AI", "AI agency UK contact", "web design agency UK inquiry",
-    "AI automation consultation UK", "digital marketing agency contact",
-    "branding agency Sri Lanka contact", "AI company Sri Lanka",
-    "software company UK inquiry", "schedule call ARC AI", "project inquiry"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Contact ARC AI - AI Agency UK & Sri Lanka",
@@ -44,7 +39,18 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/contact"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function ContactPage() {
@@ -57,6 +63,10 @@ export default function ContactPage() {
         pageUrl="https://www.arcai.agency/contact"
       />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Contact" }
+      ]} />
 
       <main>
 
@@ -104,7 +114,7 @@ export default function ContactPage() {
                     <a
                       href="https://cal.com"
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener nofollow noreferrer"
                       aria-label="Book a call with ARC AI (opens in new tab)"
                       className="text-[rgb(255,73,37)] hover:text-[rgb(255,93,57)] underline transition-colors font-medium"
                     >

@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Bot, Brain, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 60 },
@@ -21,10 +22,12 @@ export default function BlogPost() {
 
             <section className="relative min-h-[60vh] flex items-end px-4 md:px-8 pt-32 pb-12">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&auto=format&fit=crop&q=80"
+                    <Image src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&auto=format&fit=crop&q=80"
                         alt="AI Agents"
+                        width={1600}
+                        height={900}
                         className="w-full h-full object-cover"
-                        loading="lazy" decoding="async" />
+                        loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
                 </div>
 

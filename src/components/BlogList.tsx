@@ -3,7 +3,9 @@
 import { motion, Variants } from "framer-motion";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const letterContainer: Variants = {
     hidden: { opacity: 0 },
@@ -81,7 +83,7 @@ export default function BlogList() {
         {
             id: "ai-automation-transform-business-2024",
             title: "How AI Automation is Transforming Businesses in 2024",
-            date: "Oct 11, 2024",
+            date: "Jan 11, 2026",
             category: "AI Automation",
             image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=80",
             excerpt: "Discover how AI automation is revolutionizing business operations, increasing efficiency, and reducing costs across industries.",
@@ -90,7 +92,7 @@ export default function BlogList() {
         {
             id: "digital-marketing-strategies-2024",
             title: "10 Digital Marketing Strategies That Actually Work in 2024",
-            date: "Oct 5, 2024",
+            date: "Jan 5, 2026",
             category: "Digital Marketing",
             image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
             excerpt: "Learn the most effective digital marketing strategies to grow your brand, engage customers, and increase conversions in today's competitive landscape.",
@@ -99,7 +101,7 @@ export default function BlogList() {
         {
             id: "ai-chatbots-customer-service",
             title: "The Ultimate Guide to AI Chatbots for Customer Service",
-            date: "Sep 28, 2024",
+            date: "Dec 28, 2025",
             category: "AI Automation",
             image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&auto=format&fit=crop&q=80",
             excerpt: "AI chatbots are revolutionizing customer service. Learn how to implement intelligent conversational AI to enhance customer experience 24/7.",
@@ -108,7 +110,7 @@ export default function BlogList() {
         {
             id: "seo-optimization-best-practices",
             title: "SEO Optimization Best Practices to Rank #1 on Google",
-            date: "Sep 20, 2024",
+            date: "Dec 20, 2025",
             category: "Digital Marketing",
             image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=800&auto=format&fit=crop&q=80",
             excerpt: "Master the art of SEO with proven strategies for keyword research, on-page optimization, link building, and technical SEO to dominate search rankings.",
@@ -117,7 +119,7 @@ export default function BlogList() {
         {
             id: "workflow-automation-tools-2024",
             title: "Top 10 Workflow Automation Tools Every Business Needs",
-            date: "Sep 15, 2024",
+            date: "Dec 15, 2025",
             category: "AI Automation",
             image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
             excerpt: "Streamline your business processes with these powerful workflow automation tools. Save time, reduce errors, and boost productivity instantly.",
@@ -126,7 +128,7 @@ export default function BlogList() {
         {
             id: "social-media-marketing-guide",
             title: "Social Media Marketing: A Complete Guide for 2024",
-            date: "Sep 8, 2024",
+            date: "Dec 8, 2025",
             category: "Digital Marketing",
             image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=80",
             excerpt: "Build a powerful social media presence with advanced strategies for engagement, content creation, and audience growth across all platforms.",
@@ -135,7 +137,7 @@ export default function BlogList() {
         {
             id: "ai-content-generation-marketing",
             title: "How AI Content Generation is Revolutionizing Marketing",
-            date: "Aug 30, 2024",
+            date: "Nov 30, 2025",
             category: "AI Automation",
             image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80",
             excerpt: "Explore how AI-powered content generation tools are helping marketers create high-quality, SEO-optimized content at scale.",
@@ -144,7 +146,7 @@ export default function BlogList() {
         {
             id: "email-marketing-automation",
             title: "Email Marketing Automation: Strategies for Maximum ROI",
-            date: "Aug 22, 2024",
+            date: "Nov 22, 2025",
             category: "Digital Marketing",
             image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80",
             excerpt: "Maximize your email marketing ROI with automation strategies, personalization techniques, and proven campaign workflows.",
@@ -153,7 +155,7 @@ export default function BlogList() {
         {
             id: "influencer-marketing-strategy",
             title: "Influencer Marketing Strategy: Partner Your Way to Growth",
-            date: "Aug 18, 2024",
+            date: "Nov 18, 2025",
             category: "Digital Marketing",
             image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&auto=format&fit=crop&q=80",
             excerpt: "Master influencer partnerships and authentic collaborations that drive real business results in 2024.",
@@ -162,7 +164,7 @@ export default function BlogList() {
         {
             id: "video-marketing-2025",
             title: "Video Marketing Mastery: Dominate YouTube, TikTok & Reels",
-            date: "Aug 15, 2024",
+            date: "Nov 15, 2025",
             category: "Digital Marketing",
             image: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&auto=format&fit=crop&q=80",
             excerpt: "Create video content that captivates audiences and drives conversions across all platforms.",
@@ -171,7 +173,7 @@ export default function BlogList() {
         {
             id: "marketing-analytics-dashboard",
             title: "Building the Ultimate Marketing Analytics Dashboard",
-            date: "Aug 12, 2024",
+            date: "Nov 12, 2025",
             category: "Analytics",
             image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
             excerpt: "Track the metrics that matter and make data-driven decisions with comprehensive dashboards.",
@@ -182,6 +184,10 @@ export default function BlogList() {
     return (
         <div className="min-h-screen bg-black text-white">
             <Navbar />
+            <Breadcrumbs items={[
+                { label: "Home", href: "/" },
+                { label: "Blog" }
+            ]} />
 
             {/* Hero Section */}
             <section className="relative min-h-[70vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
@@ -203,7 +209,7 @@ export default function BlogList() {
                         className="flex items-center gap-4 mb-8 justify-center"
                     >
                         <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-orange-600 flex items-center justify-center p-2">
-                            <img src="/favicon.png" alt="ARC AI" className="w-full h-full object-contain" loading="lazy" decoding="async" />
+                            <Image src="/favicon.png" alt="ARC AI" width={64} height={64} className="w-full h-full object-contain" loading="lazy" />
                         </div>
                         <div>
                             <h3 className="text-xl font-bold">ARC AI</h3>
@@ -263,10 +269,12 @@ export default function BlogList() {
                                     <div className="group relative h-[500px] rounded-2xl overflow-hidden cursor-pointer">
                                         {/* Background Image */}
                                         <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
-                                            <img src={post.image}
+                                            <Image src={post.image}
                                                 alt={post.title}
+                                                width={800}
+                                                height={500}
                                                 className="w-full h-full object-cover"
-                                                loading="lazy" decoding="async" />
+                                                loading="lazy" />
                                         </div>
 
                                         {/* Overlay */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 
 const ValuesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -164,15 +165,13 @@ const ValuesSection = () => {
                   borderColor: 'rgba(255, 73, 37, 0.3)'
                 }}
               >
-                <img
+                <Image
                   src="/founder.jpg"
-                  alt="Shahid Shamir"
+                  alt="Shahid Shamir — Founder & CEO, ARC AI"
+                  width={64}
+                  height={64}
                   className="w-full h-full object-cover"
-                  style={{
-                    display: 'block',
-                    objectPosition: 'center center',
-                    objectFit: 'cover'
-                  }}
+                  loading="lazy"
                 />
               </div>
               <div className="text-left">

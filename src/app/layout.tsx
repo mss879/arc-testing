@@ -61,8 +61,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    site: '@arc_ai_agency',
-    creator: '@arc_ai_agency',
+    site: '@arcaiagency',
+    creator: '@arcaiagency',
     title: 'ARC AI - AI Automation and Digital Marketing Company',
     description: 'Leading AI automation and digital marketing company in UK & Sri Lanka. Expert web design, branding, AI automation & digital marketing.',
     images: ['https://www.arcai.agency/og-image.jpg'],
@@ -89,6 +89,7 @@ export const metadata: Metadata = {
     languages: {
       'en-GB': 'https://www.arcai.agency',
       'en-LK': 'https://www.arcai.agency',
+      'x-default': 'https://www.arcai.agency',
     },
   },
   // Google Search Console verification
@@ -99,8 +100,6 @@ export const metadata: Metadata = {
   other: {
     'geo.region': 'GB',
     'geo.placename': 'Birmingham, United Kingdom',
-    'geo.region.secondary': 'LK',
-    'geo.placename.secondary': 'Colombo, Sri Lanka',
     'distribution': 'global',
     'revisit-after': '7 days',
     'language': 'English',
@@ -135,6 +134,7 @@ export default async function RootLayout({
         <link rel="preload" as="image" href="/logo.png" type="image/png" fetchPriority="high" />
         {/* Remove video preload - let browser decide based on bandwidth */}
         <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" type="font/woff2" crossOrigin="anonymous" fetchPriority="high" />
+        <link rel="preload" as="font" href="/fonts/flarex.otf" type="font/otf" crossOrigin="anonymous" />
 
 
         {/* Web App Manifest - Deferred */}

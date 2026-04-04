@@ -5,13 +5,6 @@ import AIAutomatedWorkflowsContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | AI Workflow Automation UK & Sri Lanka",
   description: "Automate your business operations with AI-powered workflows. ARC AI serves businesses in UK & Sri Lanka — cut costs, eliminate errors & scale 24/7.",
-  keywords: [
-    "AI workflow automation UK", "business automation Sri Lanka",
-    "automated workflows Birmingham", "workflow automation company UK",
-    "process automation Sri Lanka", "AI automation agency UK",
-    "n8n automation UK", "Zapier alternatives UK", "Make.com agency Sri Lanka",
-    "digital transformation UK", "RPA automation company"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "AI Automated Workflows Services | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/ai-automated-workflows"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AIAutomatedWorkflowsPage() {

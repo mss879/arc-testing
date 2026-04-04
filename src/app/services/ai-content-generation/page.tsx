@@ -5,13 +5,6 @@ import AIContentGenerationContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | AI Content Generation Services UK & Sri Lanka",
   description: "Scale content creation with AI in UK & Sri Lanka. ARC AI generates SEO articles, ad copy, social content & more — aligned with your brand, at scale.",
-  keywords: [
-    "AI content generation UK", "AI content agency Sri Lanka",
-    "AI copywriting services UK", "automated content creation Colombo",
-    "SEO content generation agency UK", "AI marketing content UK",
-    "blog content generation Sri Lanka", "social media content AI UK",
-    "brand content creation agency Birmingham", "AI writing services UK"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "AI Content Generation Services | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/ai-content-generation"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AIContentGenerationPage() {

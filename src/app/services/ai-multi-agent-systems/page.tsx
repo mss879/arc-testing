@@ -4,9 +4,6 @@ import AIMultiAgentSystemsContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | AI Multi-Agent Systems UK & Sri Lanka",
   description: "Complete organizational intelligence with specialized AI agents working together securely.",
-  keywords: [
-    "Multi-agent AI architecture", "enterprise AI workflows", "LangChain development UK", "CrewAI agency Sri Lanka"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI | AI Multi-Agent Systems",
@@ -35,7 +32,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/ai-multi-agent-systems"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AIMultiAgentSystemsPage() {

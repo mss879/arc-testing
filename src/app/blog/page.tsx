@@ -5,13 +5,6 @@ import SchemaOrg from "@/components/SchemaOrg";
 export const metadata: Metadata = {
   title: "ARC AI Blog | AI & Digital Marketing Insights UK & Sri Lanka",
   description: "Expert insights on AI automation, web design & digital marketing for UK & Sri Lanka. Learn how to grow your business with cutting-edge AI solutions.",
-  keywords: [
-    "AI automation blog UK", "digital marketing blog Sri Lanka",
-    "AI tips for businesses UK", "web design advice Sri Lanka",
-    "AI companies Sri Lanka blog", "software company UK insights",
-    "AI chatbot tips UK", "digital transformation blog Sri Lanka",
-    "marketing technology trends UK", "AI business automation 2025"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Digital Marketing & AI Insights | ARC AI Blog",
@@ -40,7 +33,18 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/blog"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function BlogPage() {

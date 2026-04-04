@@ -9,19 +9,14 @@ import AboutTextAnimation from "@/components/AboutTextAnimation";
 import ValuesSection from "@/components/ValuesSection";
 import JourneySection from "@/components/JourneySection";
 import IndustriesSection from "@/components/IndustriesSection";
-import { Rocket, Users, MapPin } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import AboutHeroVideo from "./AboutHeroVideo";
+import { Rocket, Users } from "lucide-react";
 
 // SEO Metadata for About Page
 export const metadata: Metadata = {
   title: "ARC AI | About Us — AI Company UK & Sri Lanka",
   description: "ARC AI: Leading AI & digital agency founded 2022, serving UK & Sri Lanka. Expert web design, AI automation & digital marketing. 100+ clients, 4.9/5 on Google Reviews.",
-  keywords: [
-    "about ARC AI", "AI company UK", "AI companies in Sri Lanka",
-    "software company UK", "best software company Sri Lanka",
-    "AI agency Birmingham UK", "AI automation experts Sri Lanka",
-    "digital agency Colombo", "web design company UK",
-    "AI automation agency UK", "digital transformation UK"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "About ARC AI - AI Digital Agency",
@@ -64,6 +59,10 @@ export default function About() {
         pageUrl="https://www.arcai.agency/about"
       />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "About" }
+      ]} />
 
       <main>
         {/* Company Hero Section */}
@@ -73,19 +72,7 @@ export default function About() {
         >
           {/* Background Video */}
           <div className="absolute inset-0 z-0" aria-hidden="true">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{
-                opacity: 1
-              }}
-            >
-              <source src="/about-hero.mp4" type="video/mp4" />
-            </video>
+            <AboutHeroVideo />
             {/* Subtle overlay for text contrast */}
             <div
               className="absolute inset-0"
@@ -177,7 +164,7 @@ export default function About() {
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
                 }}
               >
-                Revolutionizing Business Through AI Automation & Digital Marketing
+                About ARC AI — AI Automation & Digital Marketing Agency
               </h1>
 
               {/* Subheading */}

@@ -37,6 +37,18 @@ export async function generateMetadata(): Promise<Metadata> {
         alternates: {
             canonical: `https://www.arcai.agency/blog/smart-websites-sri-lanka-2026`,
         },
+
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
     };
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, memo } from "react";
+import Image from "next/image";
 import Menu from "./Menu";
 
 const Navbar = memo(() => {
@@ -135,15 +136,13 @@ const Navbar = memo(() => {
             <div className="flex items-start justify-between pr-16">
               {/* Logo */}
               <a href="/" className={`transition-all duration-500 -mt-3 ${isMenuOpen ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
-                <img
+                <Image
                   src="/logo.png"
-                  alt="ARC AI - Beyond Visuals. Built with Vision"
+                  alt="ARC AI - AI Automation & Web Design Agency"
+                  width={80}
+                  height={80}
                   className="w-auto h-[70px] sm:h-[80px] cursor-pointer"
-                  width="80"
-                  height="80"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="sync"
+                  priority
                 />
               </a>
 
@@ -164,19 +163,17 @@ const Navbar = memo(() => {
           <div className={`hidden md:flex justify-between pr-20 lg:pr-24 transition-all duration-500 ${isScrolled ? "items-center" : "items-start"}`}>
             {/* Logo */}
             <a href="/" className={`transition-all duration-500 ${isScrolled ? "" : "lg:-mt-8"} ${isMenuOpen ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
-              <img
-                src="/logo.png"
-                alt="ARC AI - Beyond Visuals. Built with Vision"
-                className={`w-auto transition-all duration-500 cursor-pointer ${isScrolled
-                  ? "h-[40px] lg:h-[50px] xl:h-[60px]"
-                  : "h-[80px] lg:h-[100px] xl:h-[140px]"
-                  }`}
-                width="160"
-                height="160"
-                loading="eager"
-                fetchPriority="high"
-                decoding="sync"
-              />
+                <Image
+                  src="/logo.png"
+                  alt="ARC AI - AI Automation & Web Design Agency"
+                  width={160}
+                  height={160}
+                  className={`w-auto transition-all duration-500 cursor-pointer ${isScrolled
+                    ? "h-[40px] lg:h-[50px] xl:h-[60px]"
+                    : "h-[80px] lg:h-[100px] xl:h-[140px]"
+                    }`}
+                  priority
+                />
             </a>
 
             {/* Right side - Status, Time, and CTA */}

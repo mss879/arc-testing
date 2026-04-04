@@ -15,50 +15,17 @@ const Benefits = dynamic(() => import("@/components/Benefits"), {
   ssr: true,
   loading: () => <SectionLoader />
 });
-const ClientsSection = dynamic(() => import("@/components/ClientsSection"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const ServicesSection = dynamic(() => import("@/components/ServicesSection"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const Features = dynamic(() => import("@/components/Features"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const AIServices = dynamic(() => import("@/components/AIServices"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const ProblemSection = dynamic(() => import("@/components/ProblemSection"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const PortfolioCarousel = dynamic(() => import("@/components/PortfolioCarousel"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const SolutionSection = dynamic(() => import("@/components/SolutionSection"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const Integrations = dynamic(() => import("@/components/Integrations"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const Process = dynamic(() => import("@/components/Process"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const CTA = dynamic(() => import("@/components/CTA"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
-const Footer = dynamic(() => import("@/components/Footer"), {
-  ssr: true,
-  loading: () => <SectionLoader />
-});
+const ClientsSection = dynamic(() => import("@/components/ClientsSection"));
+const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
+const Features = dynamic(() => import("@/components/Features"));
+const AIServices = dynamic(() => import("@/components/AIServices"));
+const ProblemSection = dynamic(() => import("@/components/ProblemSection"));
+const PortfolioCarousel = dynamic(() => import("@/components/PortfolioCarousel"));
+const SolutionSection = dynamic(() => import("@/components/SolutionSection"));
+const Integrations = dynamic(() => import("@/components/Integrations"));
+const Process = dynamic(() => import("@/components/Process"));
+const CTA = dynamic(() => import("@/components/CTA"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 // Client-only component - imported separately
 import FloatingActions from "@/components/FloatingActions";
@@ -67,15 +34,6 @@ import FloatingActions from "@/components/FloatingActions";
 export const metadata: Metadata = {
   title: "ARC AI | AI Automation & Web Design Agency UK & Sri Lanka",
   description: "ARC AI: Leading AI automation & web design agency in UK & Sri Lanka. Expert AI chatbots, automation workflows, branding & digital marketing. Get a free quote.",
-  keywords: [
-    "AI company UK", "AI companies in UK", "AI companies in Sri Lanka",
-    "software company UK", "software company Sri Lanka",
-    "websites in UK", "websites in Sri Lanka",
-    "web design agency UK", "best software company UK",
-    "best software company Sri Lanka", "AI automation agency UK",
-    "AI chatbot development UK", "web design Sri Lanka", "digital marketing UK",
-    "branding agency UK", "AI automation Sri Lanka"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI - AI Automation and Digital Marketing Company",
@@ -96,22 +54,31 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@arc_ai_agency",
-    creator: "@arc_ai_agency",
+    site: "@arcaiagency",
+    creator: "@arcaiagency",
     title: "ARC AI - AI Automation and Digital Marketing Company",
     description: "Leading AI automation and digital marketing company in UK & Sri Lanka",
     images: ["https://www.arcai.agency/og-image.jpg"],
   },
   alternates: {
     canonical: "https://www.arcai.agency"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
-// Loading fallback component
+// Loading fallback component — invisible to search engines
 const SectionLoader = () => (
-  <div className="w-full h-96 flex items-center justify-center bg-black">
-    <div className="animate-pulse text-white/70">Loading...</div>
-  </div>
+  <div className="w-full h-96 bg-black" aria-busy="true" aria-label="Loading section" />
 );
 
 export default function HomePage() {
@@ -120,10 +87,13 @@ export default function HomePage() {
       {/* Schema.org Structured Data for SEO */}
       <SchemaOrg type="home" showFAQ={true} />
 
+      {/* SEO H1 — keyword-rich, visible, single H1 for the entire page */}
+      <h1 className="sr-only">ARC AI — AI Automation & Web Design Agency in UK & Sri Lanka</h1>
+
       <Navbar />
 
       {/* Main content wrapper with semantic HTML */}
-      <main id="main-content" role="main">
+      <article>
         {/* Above the fold - load immediately */}
         <Hero />
 
@@ -139,8 +109,134 @@ export default function HomePage() {
         <AIServices />
         <Integrations />
         <Process />
+
+        {/* Crawlable SEO content — provides Google with keyword-rich text */}
+        <section className="relative bg-black py-24 px-6 lg:px-12" aria-label="About ARC AI services">
+          <div className="max-w-5xl mx-auto space-y-16">
+
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                AI Automation & Digital Marketing Agency — Serving the UK & Sri Lanka
+              </h2>
+              <p className="text-lg text-zinc-300 leading-relaxed">
+                ARC AI is a specialist AI automation and web design agency with offices in Birmingham, UK and Colombo, Sri Lanka. We help businesses of all sizes — from ambitious startups to established enterprises — leverage artificial intelligence, automation workflows, and data-driven marketing to grow faster, reduce costs, and outperform their competition.
+              </p>
+              <p className="text-base text-zinc-400 leading-relaxed">
+                Founded in 2022, ARC AI has served over 100 verified clients across the United Kingdom, Sri Lanka, the Middle East, and beyond. Our team of AI engineers, full-stack developers, UX designers, and digital strategists work together to deliver solutions that are not just visually stunning but technically superior — built on modern frameworks like Next.js, React, and Node.js, powered by platforms like OpenAI, n8n, Make.com, and Zapier.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-white">Web Design & Development</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  We design and develop custom, responsive websites that are SEO-optimised from the ground up. Every site we build is engineered for speed, accessibility, and conversion — using server-side rendering, structured data, and performance best practices. Whether you need a corporate website, e-commerce platform, or SaaS application, we deliver pixel-perfect results that rank on Google and convert visitors into customers.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-white">AI Chatbots & Virtual Assistants</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Our AI chatbot solutions operate 24/7 to handle customer inquiries, qualify leads, schedule appointments, and process orders — all without human intervention. Built on large language models and trained on your business data, our chatbots deliver accurate, context-aware responses that improve customer satisfaction and reduce operational costs by up to 60%.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-white">AI Workflow Automation</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  We build intelligent automation workflows that connect your tools, eliminate repetitive tasks, and streamline business operations. From automated lead nurturing and CRM integrations to invoice processing and data entry, our automation solutions save businesses an average of 20+ hours per week while reducing errors and improving consistency.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-white">Digital Marketing & Branding</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Our data-driven digital marketing services include social media management, content marketing, search engine optimisation, paid advertising, and brand identity design. We create comprehensive marketing strategies that build brand awareness, drive qualified traffic, and generate measurable ROI across all digital channels.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                Why Businesses Choose ARC AI
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Dual-Market Expertise</h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    With teams in both the UK and Sri Lanka, we understand the unique business landscape, consumer behaviour, and digital marketing dynamics of both markets. This dual presence allows us to offer competitive pricing without compromising on quality.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">AI-First Approach</h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Unlike traditional agencies, we integrate AI into everything we build. From AI-powered content generation and automated customer service to predictive analytics and smart sales funnels, every solution is designed to learn, adapt, and improve over time.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Proven Results</h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Our portfolio speaks for itself — with a 4.9 out of 5 rating on Google Reviews and over 100 successful projects delivered. We have helped clients increase leads by up to 67%, reduce operational costs by 45%, and achieve measurable growth across key performance indicators.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-6">
+                <details className="group border border-zinc-800 rounded-lg p-6" open>
+                  <summary className="text-white font-medium cursor-pointer list-none flex items-center justify-between">
+                    What AI services does ARC AI offer in the UK?
+                    <span className="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="text-zinc-400 mt-4 leading-relaxed">
+                    ARC AI offers AI chatbot development, workflow automation, AI content generation, smart sales funnels, web design and development, motion design, branding, and social media marketing for businesses in the UK, with offices in Birmingham.
+                  </p>
+                </details>
+                <details className="group border border-zinc-800 rounded-lg p-6">
+                  <summary className="text-white font-medium cursor-pointer list-none flex items-center justify-between">
+                    Does ARC AI work with businesses in Sri Lanka?
+                    <span className="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="text-zinc-400 mt-4 leading-relaxed">
+                    Yes. ARC AI is a dual-market agency with a team in Colombo, Sri Lanka. We serve Sri Lankan businesses across all our services including web design, AI automation, branding, and digital marketing.
+                  </p>
+                </details>
+                <details className="group border border-zinc-800 rounded-lg p-6">
+                  <summary className="text-white font-medium cursor-pointer list-none flex items-center justify-between">
+                    How much does a website cost with ARC AI?
+                    <span className="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="text-zinc-400 mt-4 leading-relaxed">
+                    Website pricing varies based on complexity, features, and requirements. We offer packages for all business sizes — from simple landing pages to complex enterprise web applications. Contact us for a free, no-obligation quote tailored to your project.
+                  </p>
+                </details>
+                <details className="group border border-zinc-800 rounded-lg p-6">
+                  <summary className="text-white font-medium cursor-pointer list-none flex items-center justify-between">
+                    Can ARC AI build an AI chatbot for my business?
+                    <span className="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="text-zinc-400 mt-4 leading-relaxed">
+                    Yes. ARC AI specialises in AI chatbot development for businesses in the UK and Sri Lanka. Our chatbots operate 24/7, handle customer inquiries, qualify leads, and integrate with your existing CRM, email, and messaging systems.
+                  </p>
+                </details>
+                <details className="group border border-zinc-800 rounded-lg p-6">
+                  <summary className="text-white font-medium cursor-pointer list-none flex items-center justify-between">
+                    What makes ARC AI different from other agencies?
+                    <span className="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="text-zinc-400 mt-4 leading-relaxed">
+                    ARC AI combines AI-first thinking with design and marketing expertise. We use cutting-edge tools like OpenAI, TensorFlow, n8n, and Make.com to build solutions that are not just beautiful but automated and intelligent. We serve both UK and Sri Lanka markets with dedicated teams in each region, offering enterprise-quality work at competitive rates.
+                  </p>
+                </details>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         <CTA />
-      </main>
+      </article>
 
       <Footer />
       <FloatingActions />

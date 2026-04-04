@@ -32,6 +32,21 @@ function discoverPages(subDir: string): { slug: string; lastModified: Date }[] {
         });
 }
 
+/**
+ * Returns the actual file modification date for a page route,
+ * instead of new Date() which changes on every build.
+ */
+function getPageModDate(route: string): Date {
+    // For root page, look at src/app/page.tsx
+    const pagePath = route === '.'
+        ? path.join(process.cwd(), 'src', 'app', 'page.tsx')
+        : path.join(process.cwd(), 'src', 'app', route, 'page.tsx');
+    if (fs.existsSync(pagePath)) {
+        return fs.statSync(pagePath).mtime;
+    }
+    return new Date('2026-03-01'); // Fallback
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.arcai.agency';
 
@@ -39,69 +54,83 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticPages: MetadataRoute.Sitemap = [
         {
             url: baseUrl,
-            lastModified: new Date(),
+            lastModified: getPageModDate('.'),
             changeFrequency: 'weekly',
             priority: 1.0,
         },
         {
             url: `${baseUrl}/about`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('about'),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
             url: `${baseUrl}/portfolio`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('portfolio'),
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
             url: `${baseUrl}/contact`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('contact'),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
             url: `${baseUrl}/blog`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('blog'),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
         {
             url: `${baseUrl}/services`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('services'),
             changeFrequency: 'monthly',
             priority: 0.9,
         },
         {
             url: `${baseUrl}/careers`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('careers'),
             changeFrequency: 'weekly',
             priority: 0.7,
         },
         {
+            url: `${baseUrl}/job-request`,
+            lastModified: getPageModDate('job-request'),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+        {
             url: `${baseUrl}/privacy-policy`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('privacy-policy'),
             changeFrequency: 'yearly',
             priority: 0.3,
         },
         {
             url: `${baseUrl}/terms-of-service`,
-            lastModified: new Date(),
+            lastModified: getPageModDate('terms-of-service'),
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        // NOTE: /ai-pricing and /web-pricing are intentionally excluded
+        // because they have robots: { index: false, follow: false }
         {
-            url: `${baseUrl}/ai-pricing`,
-            lastModified: new Date(),
+            url: `${baseUrl}/case-studies`,
+            lastModified: getPageModDate('case-studies'),
             changeFrequency: 'monthly',
-            priority: 0.7,
+            priority: 0.8,
         },
         {
-            url: `${baseUrl}/web-pricing`,
-            lastModified: new Date(),
+            url: `${baseUrl}/ai-agency-birmingham`,
+            lastModified: getPageModDate('ai-agency-birmingham'),
             changeFrequency: 'monthly',
-            priority: 0.7,
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/ai-automation-sri-lanka`,
+            lastModified: getPageModDate('ai-automation-sri-lanka'),
+            changeFrequency: 'monthly',
+            priority: 0.8,
         },
     ];
 

@@ -4,9 +4,6 @@ import AIVoiceAssistantsContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | AI Voice Assistants UK & Sri Lanka",
   description: "Human-sounding AI voice agents to call inbound leads instantly and handle 24/7 customer support.",
-  keywords: [
-    "AI voice agents UK", "automated calling AI", "AI receptionist Sri Lanka", "voice AI for business"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI | AI Voice Assistants",
@@ -35,7 +32,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/ai-voice-assistants"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AIVoiceAssistantsPage() {

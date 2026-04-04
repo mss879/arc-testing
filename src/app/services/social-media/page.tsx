@@ -5,13 +5,6 @@ import SocialMediaContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | Social Media Marketing Agency UK & Sri Lanka",
   description: "Grow your brand on social media with ARC AI. Data-driven strategy, content creation & community management for businesses in UK & Sri Lanka.",
-  keywords: [
-    "social media marketing agency UK", "social media management Sri Lanka",
-    "social media agency Birmingham", "Facebook marketing agency UK",
-    "Instagram marketing Sri Lanka", "LinkedIn marketing agency UK",
-    "social media strategy Colombo", "content creation agency UK",
-    "TikTok marketing agency UK", "digital marketing agency Sri Lanka"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Social Media Marketing Service | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/social-media"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function SocialMediaPage() {

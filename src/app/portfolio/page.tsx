@@ -8,6 +8,7 @@ import FloatingActions from "@/components/FloatingActions";
 import CTA from "@/components/CTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import PortfolioHero from "@/components/PortfolioHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ScrollToTop from "@/components/ScrollToTop";
 import UpcomingLaunchesCarousel, { LaunchItem } from "@/components/UpcomingLaunchesCarousel";
 import { supabase } from "@/lib/supabase";
@@ -16,12 +17,6 @@ import { supabase } from "@/lib/supabase";
 export const metadata: Metadata = {
   title: "Portfolio - Our Best Work | ARC AI",
   description: "Explore ARC AI portfolio of successful web design, AI automation, branding, and digital marketing projects for clients in UK and Sri Lanka. See our proven results.",
-  keywords: [
-    "portfolio", "web design portfolio", "AI automation case studies",
-    "digital marketing projects", "branding work", "client success stories",
-    "web development examples", "AI chatbot projects", "design showcase",
-    "UK web design portfolio", "Sri Lanka digital agency work"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Portfolio - Our Best Work | ARC AI",
@@ -50,7 +45,18 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/portfolio"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 async function getLaunches() {
@@ -390,6 +396,10 @@ export default async function Portfolio() {
         pageUrl="https://www.arcai.agency/portfolio"
       />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Portfolio" }
+      ]} />
       <FloatingActions />
 
       <main>
@@ -409,7 +419,7 @@ export default async function Portfolio() {
                   key={item.id}
                   href={item.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   aria-label={`${item.title} - view project (opens in new tab)`}
                   className="group cursor-pointer transition-all duration-700 opacity-100 translate-y-0"
                   style={{
@@ -537,7 +547,7 @@ export default async function Portfolio() {
                   key={template.id}
                   href={template.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   aria-label={`${template.title} demo (opens in new tab)`}
                   className="group cursor-pointer transition-all duration-700 opacity-100 translate-y-0"
                   style={{

@@ -4,9 +4,6 @@ import AISalesSDRsContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | AI Sales Reps (SDRs) UK & Sri Lanka",
   description: "Automated prospectors that research targets and write hyper-personalized cold emails at massive scale.",
-  keywords: [
-    "AI SDR software", "automated cold email AI", "sales automation UK", "AI prospecting Sri Lanka"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI | AI Sales Reps (SDRs)",
@@ -35,7 +32,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/ai-sales-sdrs"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AISalesSDRsPage() {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const CTA = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,12 +59,13 @@ const CTA = () => {
           
           {/* Hand Image - Centered */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <img
+            <Image
               src="https://framerusercontent.com/images/3X1HO3X74cUE2rChqeNy9aFq20.jpg"
-              alt="person hand in a dramatic lighting"
+              alt="Dramatic lighting visual representing creative partnership"
+              width={800}
+              height={600}
               className="w-full h-full object-contain"
               loading="lazy"
-              decoding="auto"
             />
           </div>
         </div>
@@ -110,9 +112,9 @@ const CTA = () => {
 
               {/* CTA Button */}
               <a
-                href="#contact"
+                href="/contact"
                 className="group relative inline-block bg-transparent border-2 border-[rgb(255,73,37)] text-[rgb(255,73,37)] hover:bg-[rgb(255,73,37)] hover:text-white font-bold py-4 px-12 rounded-full overflow-hidden transition-all duration-300"
-                aria-label="Get in touch with ARC AI"
+                aria-label="Contact ARC AI to discuss your project"
               >
                   <span className="relative z-10 text-lg tracking-wide">
                     GET IN TOUCH

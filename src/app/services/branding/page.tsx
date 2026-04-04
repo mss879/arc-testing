@@ -5,13 +5,6 @@ import BrandingContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | Branding Agency UK & Sri Lanka",
   description: "Build a powerful brand identity with ARC AI. Expert branding agency serving UK & Sri Lanka — logo design, brand strategy, visual identity & guidelines.",
-  keywords: [
-    "branding agency UK", "brand identity design Sri Lanka",
-    "logo design agency Birmingham", "branding company Colombo",
-    "brand strategy UK", "visual identity design Sri Lanka",
-    "branding agency for startups UK", "rebranding agency UK",
-    "brand guidelines design Sri Lanka", "best branding agency UK"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Branding Services | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/branding"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function BrandingPage() {

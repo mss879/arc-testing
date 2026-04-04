@@ -4,9 +4,6 @@ import ConsultingAuditsContent from "./content";
 export const metadata: Metadata = {
   title: "ARC AI | Consulting & Automation Audits UK & Sri Lanka",
   description: "Expert strategic consulting to map your business processes and identify high-ROI AI integration opportunities.",
-  keywords: [
-    "AI consulting UK", "automation audit Sri Lanka", "digital transformation", "business process mapping"
-  ],
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "ARC AI | Consulting & Automation Audits",
@@ -35,7 +32,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.arcai.agency/services/consulting-audits"
-  }
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function ConsultingAuditsPage() {

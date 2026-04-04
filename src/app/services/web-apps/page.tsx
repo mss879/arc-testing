@@ -5,13 +5,6 @@ import SchemaOrg from "@/components/SchemaOrg";
 export const metadata: Metadata = {
     title: "Custom Web App Development Services | ARC AI",
     description: "Enterprise-grade custom web applications, SaaS platforms, and internal tools built with Next.js and React. Scalable, secure, and tailored to your business.",
-    keywords: [
-        "custom web app development UK", "SaaS development Sri Lanka",
-        "web application company Birmingham", "enterprise web apps Colombo",
-        "Next.js development agency UK", "React web app company Sri Lanka",
-        "software company UK web apps", "best web app developers UK",
-        "secure web portal development UK", "internal tools development Sri Lanka"
-    ],
     authors: [{ name: "ARC AI Agency" }],
     openGraph: {
         title: "Custom Web App Development Services | ARC AI",
@@ -40,7 +33,19 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.arcai.agency/services/web-apps"
-    }
+    },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function WebAppsPage() {
