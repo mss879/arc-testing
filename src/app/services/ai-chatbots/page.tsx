@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import AIAgentsContent from "./content";
 
 export const metadata: Metadata = {
-  title: "ARC AI | AI Agent Development UK & Sri Lanka",
-  description: "Deploy intelligent AI agents in UK & Sri Lanka. ARC AI builds 24/7 customer support AI agents that automate operations, qualify leads & reduce support costs.",
+  title: "AI Agent Development | Top AI Company Sri Lanka & UK — ARC AI",
+  description: "Deploy intelligent AI agents with ARC AI, one of the top AI companies in Sri Lanka & UK. 24/7 customer support AI agents that automate operations, qualify leads & reduce support costs by 60%.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "AI Agents Service | ARC AI",

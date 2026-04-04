@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, TrendingDown, Settings, ShieldAlert, Cpu } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Cpu } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -63,7 +63,7 @@ export default function BlogPost() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="prose prose-invert prose-lg max-w-none">
                         <div className="space-y-6 text-neutral-300 leading-relaxed">
                             <p className="text-xl text-neutral-200">
-                                Across Sri Lanka, businesses are dealing with rising operational costs, high employee turnover, and inefficiencies caused by manual data entry. But a new wave is taking over Colombo's smartest companies: <strong>AI Automation</strong>. It is no longer a buzzword; it is a brutal, effective tool for cutting costs and reducing the need for manual workers.
+                                Across Sri Lanka, businesses are dealing with rising operational costs, high employee turnover, and inefficiencies caused by manual data entry. But a new wave is taking over Colombo&apos;s smartest companies: <strong>AI Automation</strong>. It is no longer a buzzword; it is a brutal, effective tool for cutting costs and reducing the need for manual workers. Leading <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI companies in Sri Lanka</Link> are helping businesses automate everything from invoicing to lead routing.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">The High Cost of Manual Work in Sri Lanka</h2>
@@ -79,12 +79,12 @@ export default function BlogPost() {
                             <ul className="list-disc pl-6 space-y-2 mt-4">
                                 <li><strong>Invoicing Automation:</strong> When an order comes via your website, AI automatically generates a PDF invoice and emails it to the customer. No accountant needed.</li>
                                 <li><strong>Data Entry:</strong> AI reads supplier PDFs, extracts the pricing data, and updates your inventory database in seconds.</li>
-                                <li><strong>Lead Routing:</strong> AI reads incoming inquiries, determines if it's high-priority, and immediately texts your best salesperson on WhatsApp.</li>
+                                <li><strong>Lead Routing:</strong> AI reads incoming inquiries, determines if it&apos;s high-priority, and immediately texts your best salesperson on WhatsApp.</li>
                             </ul>
 
-                            <h2 className="text-3xl font-bold text-white mt-12 mb-6">Cutting Costs & Reducing Headcount Dependencies</h2>
+                            <h2 className="text-3xl font-bold text-white mt-12 mb-6">Cutting Costs &amp; Reducing Headcount Dependencies</h2>
                             <p>
-                                By implementing AI workflows, a mid-sized business can effectively automate the workload of 2 to 3 administrative employees. This doesn't necessarily mean firing people; it means your business can scale 3x without having to hire new administrative staff. You cut your operational overhead drastically while operating with machine-level precision.
+                                By implementing AI workflows, a mid-sized business can effectively automate the workload of 2 to 3 administrative employees. This doesn&apos;t necessarily mean firing people; it means your business can scale 3x without having to hire new administrative staff. You cut your operational overhead drastically while operating with machine-level precision.
                             </p>
 
                             <div className="bg-gradient-to-r from-accent/20 to-orange-600/20 border border-accent/30 rounded-xl p-8 mt-12">
@@ -93,7 +93,7 @@ export default function BlogPost() {
                                     Automate Your Business with ARC AI
                                 </h3>
                                 <p className="text-neutral-200 mb-6">
-                                    Stop paying humans to do a robot's job. ARC AI builds custom automation pipelines for Sri Lankan businesses that streamline operations and cut costs from Day 1.
+                                    Stop paying humans to do a robot&apos;s job. ARC AI builds custom automation pipelines for Sri Lankan businesses that streamline operations and cut costs from Day 1.
                                 </p>
                                 <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors">
                                     Book an Automation Audit

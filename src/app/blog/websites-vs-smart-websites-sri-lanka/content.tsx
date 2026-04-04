@@ -63,12 +63,12 @@ export default function BlogPost() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="prose prose-invert prose-lg max-w-none">
                         <div className="space-y-6 text-neutral-300 leading-relaxed">
                             <p className="text-xl text-neutral-200">
-                                In the rapidly evolving Sri Lankan digital landscape, having a "company website" is no longer enough. The difference between a traditional static website and a modern "Smart Website" is the difference between a digital brochure and a 24/7 sales engine.
+                                In the rapidly evolving Sri Lankan digital landscape, having a &quot;company website&quot; is no longer enough. The difference between a traditional static website and a modern &quot;Smart Website&quot; is the difference between a digital brochure and a 24/7 sales engine.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">What is a Traditional Website?</h2>
                             <p>
-                                A traditional website is static. It displays information—your "About Us," "Services," and "Contact" details—and waits for the customer to act. It's passive.
+                                A traditional website is static. It displays information—your &quot;About Us,&quot; &quot;Services,&quot; and &quot;Contact&quot; details—and waits for the customer to act. It&apos;s passive.
                             </p>
                             <ul className="list-disc pl-6 space-y-2">
                                 <li>Static text and images</li>
@@ -77,7 +77,7 @@ export default function BlogPost() {
                                 <li>No personalized interaction</li>
                             </ul>
                             <p>
-                                In the context of Sri local businesses—whether you're a hotel in Galle, a gem dealer in Ratnapura, or a tech startup in Colombo—a static site often fails to capture the immediacy that international and local modern clients expect.
+                                In the context of local Sri Lankan businesses—whether you&apos;re a hotel in Galle, a gem dealer in Ratnapura, or a tech startup in Colombo—a static site often fails to capture the immediacy that international and local modern clients expect.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">What is a Smart Website?</h2>
@@ -107,18 +107,18 @@ export default function BlogPost() {
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">2. Cost Efficiency</h3>
                             <p>
-                                Hiring 24/7 support staff is expensive. A Smart Website acts as your first line of support and sales, handling repetitive queries about prices, location, or "is this available?" without adding to your payroll.
+                                Hiring 24/7 support staff is expensive. A Smart Website acts as your first line of support and sales, handling repetitive queries about prices, location, or &quot;is this available?&quot; without adding to your payroll.
                             </p>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">3. Beating the Competition</h3>
                             <p>
-                                Many local competitors still run outdated, slow websites. upgraded to a fast, interactive Smart Website gives you an immediate trust advantage. Customers perceive modern, responsive digital experiences as a signal of product quality and reliability.
+                                Many local competitors still run outdated, slow websites. Upgrading to a fast, interactive Smart Website gives you an immediate trust advantage. Customers perceive modern, responsive digital experiences as a signal of product quality and reliability.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">Key Features of ARC AI Smart Websites</h2>
 
                             <ul className="list-disc pl-6 space-y-2">
-                                <li><strong>Next.js & React:</strong> The same technology used by Netflix and Uber for lightning-fast speeds.</li>
+                                <li><strong>Next.js &amp; React:</strong> The same technology used by Netflix and Uber for lightning-fast speeds.</li>
                                 <li><strong>AI Integration:</strong> Built-in agents that know your business inside out.</li>
                                 <li><strong>Mobile First:</strong> Optimized for the 70%+ of Sri Lankans who access the web via smartphone.</li>
                                 <li><strong>SEO Built-in:</strong> Structured to rank high on Google for competitive keywords.</li>
@@ -130,7 +130,7 @@ export default function BlogPost() {
                                     Upgrade to a Smart Website Today
                                 </h3>
                                 <p className="text-neutral-200 mb-6">
-                                    Don't let your website be a static cost center. Turn it into a dynamic profit generator. ARC AI builds Smart Websites tailored for the Sri Lankan market.
+                                    Don&apos;t let your website be a static cost center. Turn it into a dynamic profit generator. ARC AI, one of the <Link href="/ai-companies-sri-lanka" className="text-white hover:underline font-semibold">top AI companies in Sri Lanka</Link>, builds Smart Websites tailored for the Sri Lankan market.
                                 </p>
                                 <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors">
                                     Get a Smart Website Proposal

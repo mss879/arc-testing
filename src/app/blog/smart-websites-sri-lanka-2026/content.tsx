@@ -63,10 +63,10 @@ export default function BlogPost() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="prose prose-invert prose-lg max-w-none">
                         <div className="space-y-6 text-neutral-300 leading-relaxed">
                             <p className="text-xl text-neutral-200">
-                                Look at most local business websites in Sri Lanka today. They are essentially digital business cards—static, unresponsive, and waiting passively for a visitor to hopefully click "Contact Us." In 2026, this approach is costing you money. Welcome to the era of the <strong>Smart Website</strong>.
+                                Look at most local business websites in Sri Lanka today. They are essentially digital business cards—static, unresponsive, and waiting passively for a visitor to hopefully click &quot;Contact Us.&quot; In 2026, this approach is costing you money. Welcome to the era of the <strong>Smart Website</strong>.
                             </p>
 
-                            <h2 className="text-3xl font-bold text-white mt-12 mb-6">What Exactly is a "Smart Website"?</h2>
+                            <h2 className="text-3xl font-bold text-white mt-12 mb-6">What Exactly is a &quot;Smart Website&quot;?</h2>
                             <p>
                                 A traditional website is a digital brochure. A Smart Website is a <strong>digital employee</strong>. Built with AI and automation at its core, a Smart Website actively works to convert visitors into customers.
                             </p>
@@ -76,7 +76,7 @@ export default function BlogPost() {
                                     <h3 className="text-xl font-bold text-white mb-3 text-red-400">Traditional Website</h3>
                                     <ul className="space-y-2 text-sm text-neutral-400">
                                         <li>• Static text and images</li>
-                                        <li>• "Please fill this form and we will reply in 24 hours"</li>
+                                        <li>• &quot;Please fill this form and we will reply in 24 hours&quot;</li>
                                         <li>• The same experience for every visitor</li>
                                         <li>• Zero post-visit follow-up</li>
                                     </ul>
@@ -85,7 +85,7 @@ export default function BlogPost() {
                                     <h3 className="text-xl font-bold text-white mb-3 text-accent">Smart Website</h3>
                                     <ul className="space-y-2 text-sm text-neutral-300">
                                         <li>• Embedded AI Agents that answer questions instantly</li>
-                                        <li>• "Let me book that appointment for you right now"</li>
+                                        <li>• &quot;Let me book that appointment for you right now&quot;</li>
                                         <li>• Dynamic content based on user behavior</li>
                                         <li>• Automated WhatsApp/Email follow-ups</li>
                                     </ul>
@@ -97,12 +97,12 @@ export default function BlogPost() {
                                 The Sri Lankan consumer has evolved. During the recent economic shifts, digital adoption skyrocketed. People now expect instant answers. If an expat looking to buy property in Colombo, or a tourist booking a villa in Galle, lands on your site at 2:00 AM Sri Lankan time—who is going to answer them?
                             </p>
                             <p>
-                                A Smart Website bridges this gap. It provides a premium, immediate experience regardless of the time or day. It doesn't ask for Poya days off, and it never replies with "Check our Facebook page for details."
+                                A Smart Website bridges this gap. It provides a premium, immediate experience regardless of the time or day. It doesn&apos;t ask for Poya days off, and it never replies with &quot;Check our Facebook page for details.&quot;
                             </p>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The ARC AI Advantage</h3>
                             <p>
-                                At ARC AI, we don't just build websites; we engineer sales machines. Our Smart Websites are built using Next.js (the same ultra-fast technology used by global giants) and are deeply integrated with customized AI capabilities. We optimize for the Sri Lankan market—making sure the site loads lightning-fast even on 3G connections, and integrating seamlessly with local communication habits like WhatsApp.
+                                At ARC AI, we don&apos;t just build websites; we engineer sales machines. As one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link>, our Smart Websites are built using Next.js (the same ultra-fast technology used by global giants) and are deeply integrated with customized AI capabilities. We optimize for the Sri Lankan market—making sure the site loads lightning-fast even on 3G connections, and integrating seamlessly with local communication habits like WhatsApp.
                             </p>
 
                             <div className="bg-gradient-to-r from-accent/20 to-orange-600/20 border border-accent/30 rounded-xl p-8 mt-12">

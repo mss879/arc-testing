@@ -9,8 +9,8 @@ import { clientLogos } from "@/lib/client-logos";
 
 // SEO Metadata for Contact Page
 export const metadata: Metadata = {
-  title: "Contact ARC AI - Get in Touch | AI Agency UK & Sri Lanka",
-  description: "Get in touch with ARC AI. We offer web design, AI automation, branding & digital marketing in UK and Sri Lanka. Book a free consultation today.",
+  title: "Contact ARC AI | Top AI Company Sri Lanka & UK — Get a Free Quote",
+  description: "Contact ARC AI, one of the top AI companies in Sri Lanka & UK. Get a free consultation for AI automation, chatbots, web design & digital marketing. Book a call today.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Contact ARC AI - AI Agency UK & Sri Lanka",
@@ -98,7 +98,7 @@ export default function ContactPage() {
                 {/* Description */}
                 <div className="max-w-md">
                   <p className="text-base text-[rgb(119,119,119)] leading-relaxed">
-                    Have a project in mind? We'd love to hear about it. Let's create something great together!
+                    Have a project in mind? As one of the <a href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</a> and the UK, we deliver AI automation, web design, and digital marketing that drives real results. Let&apos;s create something great together!
                   </p>
                 </div>
               </div>

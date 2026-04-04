@@ -1,5 +1,6 @@
 // Server Component - Optimized for SEO
 import { Metadata } from "next";
+import Link from "next/link";
 import dynamic from 'next/dynamic';
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -88,7 +89,7 @@ export default function HomePage() {
       <SchemaOrg type="home" showFAQ={true} />
 
       {/* SEO H1 — keyword-rich, visible, single H1 for the entire page */}
-      <h1 className="sr-only">ARC AI — AI Automation & Web Design Agency in UK & Sri Lanka</h1>
+      <h1 className="sr-only">ARC AI — AI Automation & Web Design Agency in UK & Sri Lanka | Top AI Company in Sri Lanka</h1>
 
       <Navbar />
 
@@ -119,10 +120,10 @@ export default function HomePage() {
                 AI Automation & Digital Marketing Agency — Serving the UK & Sri Lanka
               </h2>
               <p className="text-lg text-zinc-300 leading-relaxed">
-                ARC AI is a specialist AI automation and web design agency with offices in Birmingham, UK and Colombo, Sri Lanka. We help businesses of all sizes — from ambitious startups to established enterprises — leverage artificial intelligence, automation workflows, and data-driven marketing to grow faster, reduce costs, and outperform their competition.
+                ARC AI is a specialist AI automation and web design agency with offices in Birmingham, UK and Colombo, Sri Lanka. Recognised as one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link>, we help businesses of all sizes — from ambitious startups to established enterprises — leverage artificial intelligence, automation workflows, and data-driven marketing to grow faster, reduce costs, and outperform their competition.
               </p>
               <p className="text-base text-zinc-400 leading-relaxed">
-                Founded in 2022, ARC AI has served over 100 verified clients across the United Kingdom, Sri Lanka, the Middle East, and beyond. Our team of AI engineers, full-stack developers, UX designers, and digital strategists work together to deliver solutions that are not just visually stunning but technically superior — built on modern frameworks like Next.js, React, and Node.js, powered by platforms like OpenAI, n8n, Make.com, and Zapier.
+                Founded in 2022, ARC AI has served over 100 verified clients across the United Kingdom, Sri Lanka, the Middle East, and beyond. As a leading AI company in Sri Lanka and the UK, our team of AI engineers, full-stack developers, UX designers, and digital strategists work together to deliver solutions that are not just visually stunning but technically superior — built on modern frameworks like Next.js, React, and Node.js, powered by platforms like OpenAI, n8n, Make.com, and Zapier.
               </p>
             </div>
 
@@ -161,7 +162,7 @@ export default function HomePage() {
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold text-white">Dual-Market Expertise</h3>
                   <p className="text-zinc-400 leading-relaxed">
-                    With teams in both the UK and Sri Lanka, we understand the unique business landscape, consumer behaviour, and digital marketing dynamics of both markets. This dual presence allows us to offer competitive pricing without compromising on quality.
+                    With teams in both the UK and Sri Lanka, we understand the unique business landscape, consumer behaviour, and digital marketing dynamics of both markets. This is why businesses consistently rank ARC AI among the top AI companies in Sri Lanka — our dual presence allows us to offer competitive pricing without compromising on quality.
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -199,7 +200,7 @@ export default function HomePage() {
                     <span className="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
                   </summary>
                   <p className="text-zinc-400 mt-4 leading-relaxed">
-                    Yes. ARC AI is a dual-market agency with a team in Colombo, Sri Lanka. We serve Sri Lankan businesses across all our services including web design, AI automation, branding, and digital marketing.
+                    Yes. ARC AI is recognised as one of the <a href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</a>, with a dedicated team in Colombo. We serve Sri Lankan businesses across all our services including web design, AI automation, branding, and digital marketing.
                   </p>
                 </details>
                 <details className="group border border-zinc-800 rounded-lg p-6">
@@ -229,6 +230,27 @@ export default function HomePage() {
                     ARC AI combines AI-first thinking with design and marketing expertise. We use cutting-edge tools like OpenAI, TensorFlow, n8n, and Make.com to build solutions that are not just beautiful but automated and intelligent. We serve both UK and Sri Lanka markets with dedicated teams in each region, offering enterprise-quality work at competitive rates.
                   </p>
                 </details>
+              </div>
+            </div>
+
+            {/* Location pages — internal link equity funnel */}
+            <div className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                Locations We Serve
+              </h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <a href="/ai-agency-birmingham" className="group p-5 rounded-xl border border-zinc-800 hover:border-[rgb(255,73,37)]/30 transition-colors">
+                  <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">AI Agency Birmingham</p>
+                  <p className="text-sm text-zinc-400 mt-1">AI automation, web design & digital marketing in Birmingham, UK.</p>
+                </a>
+                <a href="/ai-automation-sri-lanka" className="group p-5 rounded-xl border border-zinc-800 hover:border-[rgb(255,73,37)]/30 transition-colors">
+                  <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">AI Automation Sri Lanka</p>
+                  <p className="text-sm text-zinc-400 mt-1">AI automation & web design services for businesses across Sri Lanka.</p>
+                </a>
+                <a href="/ai-companies-sri-lanka" className="group p-5 rounded-xl border border-zinc-800 hover:border-[rgb(255,73,37)]/30 transition-colors">
+                  <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">Top AI Companies in Sri Lanka</p>
+                  <p className="text-sm text-zinc-400 mt-1">Discover why ARC AI is the #1 AI company in Sri Lanka for 2026.</p>
+                </a>
               </div>
             </div>
 

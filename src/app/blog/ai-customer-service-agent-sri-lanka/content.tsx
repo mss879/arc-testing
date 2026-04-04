@@ -63,20 +63,20 @@ export default function BlogPost() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="prose prose-invert prose-lg max-w-none">
                         <div className="space-y-6 text-neutral-300 leading-relaxed">
                             <p className="text-xl text-neutral-200">
-                                Have you interacted with the AI Agent in the bottom corner of our website? It's not a standard, pre-programmed chatbot. It's a fully contextual, intelligent digital employee that understands our business perfectly. And it is exactly what Sri Lankan customer service needs right now.
+                                Have you interacted with the AI Agent in the bottom corner of our website? It&apos;s not a standard, pre-programmed chatbot. It&apos;s a fully contextual, intelligent digital employee that understands our business perfectly. And it is exactly what Sri Lankan customer service needs right now. As one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link>, we built this to demonstrate what AI can do for your business.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">The Customer Service Crisis in Sri Lanka</h2>
                             <p>
-                                Every Sri Lankan business owner knows the struggle: customers expect responses within minutes, whether it's via WhatsApp, Facebook Messenger, or your website. But staffing a 24/7 customer service desk is expensive, and human error leads to lost leads.
+                                Every Sri Lankan business owner knows the struggle: customers expect responses within minutes, whether it&apos;s via WhatsApp, Facebook Messenger, or your website. But staffing a 24/7 customer service desk is expensive, and human error leads to lost leads.
                             </p>
                             <p>
-                                How often do you lose a sale simply because a customer messaged at 9:00 PM asking for a price list, and your team only replied the next morning at 10:00 AM? In that 13-hour window, they already checked your competitor's page.
+                                How often do you lose a sale simply because a customer messaged at 9:00 PM asking for a price list, and your team only replied the next morning at 10:00 AM? In that 13-hour window, they already checked your competitor&apos;s page.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">How Our AI Agent Solves This</h2>
                             <p>
-                                The AI agent you see on our website (go ahead, test it!) is built specifically to address these gaps. Here's why it's the perfect model for Sri Lankan businesses:
+                                The AI agent you see on our website (go ahead, test it!) is built specifically to address these gaps. Here&apos;s why it&apos;s the perfect model for Sri Lankan businesses:
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
@@ -91,14 +91,14 @@ export default function BlogPost() {
                                     <Brain className="w-8 h-8 text-accent mb-4" />
                                     <h3 className="text-xl font-bold text-white mb-2">Deep Business Knowledge</h3>
                                     <p className="text-sm text-neutral-400">
-                                        Unlike old chatbots that just say "I don't understand," our agent is trained on your exact data—your prices, your return policy, your services.
+                                        Unlike old chatbots that just say &quot;I don&apos;t understand,&quot; our agent is trained on your exact data—your prices, your return policy, your services.
                                     </p>
                                 </div>
                                 <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
                                     <MessageSquare className="w-8 h-8 text-accent mb-4" />
                                     <h3 className="text-xl font-bold text-white mb-2">Contextual Conversations</h3>
                                     <p className="text-sm text-neutral-400">
-                                        It remembers up context organically. If a user asks "How much for a website?" and then says "What about a simple one?", it knows they mean a simple website.
+                                        It remembers context organically. If a user asks &quot;How much for a website?&quot; and then says &quot;What about a simple one?&quot;, it knows they mean a simple website.
                                     </p>
                                 </div>
                                 <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">

@@ -15,8 +15,8 @@ import { Rocket, Users } from "lucide-react";
 
 // SEO Metadata for About Page
 export const metadata: Metadata = {
-  title: "ARC AI | About Us — AI Company UK & Sri Lanka",
-  description: "ARC AI: Leading AI & digital agency founded 2022, serving UK & Sri Lanka. Expert web design, AI automation & digital marketing. 100+ clients, 4.9/5 on Google Reviews.",
+  title: "About ARC AI | Top AI Company in Sri Lanka & UK",
+  description: "About ARC AI — one of the top AI companies in Sri Lanka & UK. Founded 2022, 100+ clients, 4.9/5 Google Reviews. Expert AI automation, chatbots, web design & digital marketing.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "About ARC AI - AI Digital Agency",
@@ -164,7 +164,7 @@ export default function About() {
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
                 }}
               >
-                About ARC AI — AI Automation & Digital Marketing Agency
+                About ARC AI — Top AI Company in Sri Lanka &amp; UK
               </h1>
 
               {/* Subheading */}
@@ -174,7 +174,7 @@ export default function About() {
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
                 }}
               >
-                We combine cutting-edge AI technology with strategic digital marketing to transform businesses. From intelligent automation to data-driven campaigns, we help you scale faster and smarter.
+                We combine cutting-edge AI technology with strategic digital marketing to transform businesses. Recognised as one of the <a href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</a>, we deliver intelligent automation and data-driven campaigns that help you scale faster and smarter.
               </p>
 
               {/* Stats Cards - Horizontal layout as in screenshot */}

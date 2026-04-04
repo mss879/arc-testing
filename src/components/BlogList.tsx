@@ -45,6 +45,33 @@ export default function BlogList() {
             tags: ["AI Companies Sri Lanka", "AI ROI", "Case Studies", "Business Automation"]
         },
         {
+            id: "ai-chatbots-sri-lankan-businesses",
+            title: "Best AI Chatbots for Sri Lankan Businesses (2026)",
+            date: "April 4, 2026",
+            category: "AI Chatbots",
+            image: "/ai-automation-lk.png",
+            excerpt: "Discover the best AI chatbots for Sri Lankan businesses in 2026. Learn how AI chatbots in Sinhala, Tamil & English are transforming customer service across Sri Lanka.",
+            tags: ["AI Chatbots", "AI Companies Sri Lanka", "WhatsApp Chatbot", "Customer Service AI"]
+        },
+        {
+            id: "ai-for-tourism-sri-lanka",
+            title: "How AI Is Revolutionising Tourism in Sri Lanka (2026)",
+            date: "April 4, 2026",
+            category: "AI Tourism",
+            image: "/ai-automation-lk.png",
+            excerpt: "Learn how AI companies in Sri Lanka are transforming the tourism industry with AI chatbots, automated booking systems, and multilingual guest experiences.",
+            tags: ["AI Tourism", "AI Companies Sri Lanka", "Hotel AI", "Tourism Automation"]
+        },
+        {
+            id: "ai-vs-manual-operations-sri-lanka",
+            title: "AI vs Manual Operations: Cost Comparison for Sri Lankan Businesses",
+            date: "April 4, 2026",
+            category: "AI ROI",
+            image: "/ai-automation-lk.png",
+            excerpt: "A detailed cost comparison of AI automation vs manual operations for Sri Lankan businesses. See real ROI data and calculate your potential savings.",
+            tags: ["AI ROI", "AI Companies Sri Lanka", "Cost Savings", "Business Automation"]
+        },
+        {
             id: "ai-solutions-sri-lankan-industries",
             title: "How AI Companies in Sri Lanka Are Transforming Key Industries",
             date: "April 4, 2026",

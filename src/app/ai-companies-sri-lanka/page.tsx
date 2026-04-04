@@ -183,6 +183,78 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.arcai.agency/ai-companies-sri-lanka#webpage",
+  url: "https://www.arcai.agency/ai-companies-sri-lanka",
+  name: "Top AI Companies in Sri Lanka (2026) — Leading AI Agency | ARC AI",
+  description: "Discover the top AI companies in Sri Lanka for 2026. ARC AI is Colombo's leading AI company offering chatbots, automation, web design & digital marketing.",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": "https://www.arcai.agency/#website",
+    url: "https://www.arcai.agency",
+    name: "ARC AI Agency",
+    publisher: { "@id": "https://www.arcai.agency/#organization" },
+  },
+  about: { "@id": "https://www.arcai.agency/ai-companies-sri-lanka#localbusiness" },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://www.arcai.agency/og-image.jpg",
+  },
+  datePublished: "2026-01-15",
+  dateModified: "2026-04-04",
+  inLanguage: "en",
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.arcai.agency/#organization",
+  name: "ARC AI",
+  alternateName: "ARC AI Agency",
+  url: "https://www.arcai.agency",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://www.arcai.agency/logo.png",
+    width: 512,
+    height: 512,
+  },
+  description: "ARC AI is one of the top AI companies in Sri Lanka and the UK, specialising in AI automation, chatbot development, web design, and digital marketing.",
+  email: "support@arcai.agency",
+  telephone: "+94771852522",
+  address: [
+    {
+      "@type": "PostalAddress",
+      addressCountry: "LK",
+      addressLocality: "Colombo",
+      addressRegion: "Western Province",
+    },
+    {
+      "@type": "PostalAddress",
+      addressCountry: "GB",
+      addressLocality: "Birmingham",
+      addressRegion: "West Midlands",
+    },
+  ],
+  sameAs: [
+    "https://x.com/arc_ai_agency",
+    "https://www.instagram.com/arcai_agency/",
+    "https://www.linkedin.com/company/105845719",
+    "https://www.facebook.com/ARCAI.lk",
+  ],
+  foundingDate: "2022",
+  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
+  knowsAbout: [
+    "Artificial Intelligence",
+    "AI Chatbots",
+    "Workflow Automation",
+    "Web Design",
+    "Digital Marketing",
+    "Machine Learning",
+  ],
+};
+
 export default function AICompaniesSriLankaPage() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -200,6 +272,14 @@ export default function AICompaniesSriLankaPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
       <Navbar />

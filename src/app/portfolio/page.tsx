@@ -15,8 +15,8 @@ import { supabase } from "@/lib/supabase";
 
 // SEO Metadata for Portfolio Page
 export const metadata: Metadata = {
-  title: "Portfolio - Our Best Work | ARC AI",
-  description: "Explore ARC AI portfolio of successful web design, AI automation, branding, and digital marketing projects for clients in UK and Sri Lanka. See our proven results.",
+  title: "Portfolio | Top AI Company Work — ARC AI",
+  description: "Explore the portfolio of ARC AI, one of the top AI companies in Sri Lanka & UK. Successful web design, AI automation, branding & digital marketing projects with proven results.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Portfolio - Our Best Work | ARC AI",
@@ -406,6 +406,15 @@ export default async function Portfolio() {
 
         {/* Hero Section with Animation */}
         <PortfolioHero />
+
+        {/* SEO Context */}
+        <section className="px-6 lg:px-12 pb-8 -mt-8" aria-label="Portfolio introduction">
+          <div className="max-w-[1800px] mx-auto">
+            <p className="text-zinc-400 text-base leading-relaxed max-w-3xl">
+              As one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link> and the UK, ARC AI has delivered 100+ successful projects across AI automation, web design, branding, and digital marketing.
+            </p>
+          </div>
+        </section>
 
         {/* Upcoming Launches Section */}
         <UpcomingLaunchesCarousel launches={launches} />

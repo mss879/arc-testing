@@ -28,8 +28,8 @@ const flarex = localFont({
 // Comprehensive SEO Metadata for UK and Sri Lankan markets
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.arcai.agency'),
-  title: 'ARC AI - AI Automation and Digital Marketing Company UK | Sri Lanka',
-  description: 'Leading AI automation and digital marketing company in UK & Sri Lanka. Expert web design, branding, AI automation, chatbots, content generation & digital marketing services. Transform your business with cutting-edge technology.',
+  title: 'ARC AI - Top AI Company in Sri Lanka | AI Automation & Digital Marketing UK',
+  description: 'ARC AI is a leading AI company in Sri Lanka & the UK. Expert AI automation, chatbots, web design, branding & digital marketing services. Ranked among the top AI companies in Sri Lanka. Transform your business with cutting-edge technology.',
 
   icons: {
     icon: [
