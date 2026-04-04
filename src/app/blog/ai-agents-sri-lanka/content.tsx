@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Bot, Brain, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Bot } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -63,7 +63,7 @@ export default function BlogPost() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="prose prose-invert prose-lg max-w-none">
                         <div className="space-y-6 text-neutral-300 leading-relaxed">
                             <p className="text-xl text-neutral-200">
-                                AI is moving beyond simple "chatbots" that answer FAQs. We are entering the era of AI Agents—autonomous digital employees that can reason, plan, and execute tasks. For Sri Lankan businesses, this is the productivity leap we've been waiting for.
+                                AI is moving beyond simple &quot;chatbots&quot; that answer FAQs. We are entering the era of AI Agents—autonomous digital employees that can reason, plan, and execute tasks. For Sri Lankan businesses, this is the productivity leap we&apos;ve been waiting for.
                             </p>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">What is an AI Agent?</h2>
@@ -73,18 +73,18 @@ export default function BlogPost() {
                             <ul className="list-disc pl-6 space-y-2">
                                 <li><strong>Access databases:</strong> Check your inventory or room availability.</li>
                                 <li><strong>Perform actions:</strong> Send an email, create an invoice, or update your CRM.</li>
-                                <li><strong>Reason:</strong> Make decisions based on rules you set (e.g., "If the customer is a VIP, offer a discount").</li>
+                                <li><strong>Reason:</strong> Make decisions based on rules you set (e.g., &quot;If the customer is a VIP, offer a discount&quot;).</li>
                             </ul>
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">Game-Changing Use Cases for Sri Lanka</h2>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">1. Tourism and Hospitality</h3>
                             <p>
-                                Sri Lanka's tourism boom requires efficient handling of international guests. An AI Agent can:
+                                Sri Lanka&apos;s tourism boom requires efficient handling of international guests. An AI Agent can:
                             </p>
                             <ul className="list-disc pl-6 space-y-2">
                                 <li>Handle booking inquiries in English, German, French, or Mandarin 24/7.</li>
-                                <li>Automatically suggest itineraries based on the guest's preferences.</li>
+                                <li>Automatically suggest itineraries based on the guest&apos;s preferences.</li>
                                 <li>Coordinate with drivers and guides by sending WhatsApp updates automatically.</li>
                             </ul>
 
@@ -95,10 +95,10 @@ export default function BlogPost() {
                             <ul className="list-disc pl-6 space-y-2">
                                 <li>Engage visitors browsing luxury apartments.</li>
                                 <li>Ask qualifying questions (budget, timeline, requirements).</li>
-                                <li>Schedule a viewing directly into the agent's calendar only for high-quality leads.</li>
+                                <li>Schedule a viewing directly into the agent&apos;s calendar only for high-quality leads.</li>
                             </ul>
 
-                            <h3 className="text-2xl font-bold text-white mt-8 mb-4">3. E-commerce & Retail</h3>
+                            <h3 className="text-2xl font-bold text-white mt-8 mb-4">3. E-commerce &amp; Retail</h3>
                             <p>
                                 For local brands selling overseas, AI Agents bridge the time gap. They can:
                             </p>
@@ -110,7 +110,7 @@ export default function BlogPost() {
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">Why Arc AI Agents?</h2>
                             <p>
-                                At ARC AI, we build custom agents tailored to the Sri Lankan business context.
+                                At ARC AI, we build custom agents tailored to the Sri Lankan business context. As one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link>, we deliver AI solutions that are:
                             </p>
                             <ul className="list-disc pl-6 space-y-2">
                                 <li><strong>Context Aware:</strong> Our agents understand local nuances.</li>
@@ -124,7 +124,7 @@ export default function BlogPost() {
                                     Hire Your First Digital Employee
                                 </h3>
                                 <p className="text-neutral-200 mb-6">
-                                    Ready to automate your operations? Let's build an AI Agent that works for your business 24/7.
+                                    Ready to automate your operations? Let&apos;s build an AI Agent that works for your business 24/7.
                                 </p>
                                 <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors">
                                     Explore AI Agent Solutions

@@ -132,6 +132,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'monthly',
             priority: 0.8,
         },
+        {
+            url: `${baseUrl}/ai-companies-sri-lanka`,
+            lastModified: getPageModDate('ai-companies-sri-lanka'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
     ];
 
     // ─── Service pages (auto-discovered) ─────────────────────────

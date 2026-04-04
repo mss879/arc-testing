@@ -36,6 +36,33 @@ const fadeInUp: Variants = {
 export default function BlogList() {
     const blogPosts = [
         {
+            id: "how-ai-transforms-sri-lanka-businesses-2026",
+            title: "How AI Is Transforming Sri Lankan Businesses in 2026 — Real Results",
+            date: "April 4, 2026",
+            category: "AI Companies",
+            image: "/ai-automation-lk.png",
+            excerpt: "See real case studies and ROI data showing how AI companies in Sri Lanka are delivering measurable results — from 167% booking increases to 60% cost reductions.",
+            tags: ["AI Companies Sri Lanka", "AI ROI", "Case Studies", "Business Automation"]
+        },
+        {
+            id: "ai-solutions-sri-lankan-industries",
+            title: "How AI Companies in Sri Lanka Are Transforming Key Industries",
+            date: "April 4, 2026",
+            category: "AI Companies",
+            image: "/ai-automation-lk.png",
+            excerpt: "Discover how AI companies in Sri Lanka are revolutionising tourism, real estate, e-commerce, healthcare, and manufacturing with custom AI solutions.",
+            tags: ["AI Sri Lanka", "AI Tourism", "AI Real Estate", "Digital Transformation"]
+        },
+        {
+            id: "best-ai-companies-sri-lanka-2026",
+            title: "Best AI Companies in Sri Lanka (2026) — Complete Guide",
+            date: "April 4, 2026",
+            category: "AI Companies",
+            image: "/ai-automation-lk.png",
+            excerpt: "Discover the best AI companies in Sri Lanka for 2026. Learn what to look for in an AI partner and why ARC AI leads Sri Lanka's AI industry.",
+            tags: ["AI Companies Sri Lanka", "Top AI Companies", "AI Agency Colombo", "AI Chatbots"]
+        },
+        {
             id: "smart-websites-sri-lanka-2026",
             title: "Why Your Sri Lankan Business Needs a Smart Website in 2026",
             date: "March 4, 2026",
