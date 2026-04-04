@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const post = {
         title: "How AI Is Revolutionising Tourism in Sri Lanka (2026) | ARC AI",
         excerpt: "Learn how AI companies in Sri Lanka are transforming the tourism industry with AI chatbots, automated booking systems, and multilingual guest experiences. Real case studies and ROI data.",
-        featuredImage: "/ai-automation-lk.png"
+        featuredImage: "/ai_tourism_blog.webp"
     };
 
     return {

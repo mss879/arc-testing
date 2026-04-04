@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const post = {
         title: "Best AI Chatbots for Sri Lankan Businesses (2026) | ARC AI",
         excerpt: "Discover the best AI chatbots for Sri Lankan businesses in 2026. Learn how AI chatbots in Sinhala, Tamil & English are transforming customer service for top AI companies in Sri Lanka.",
-        featuredImage: "/ai-automation-lk.png"
+        featuredImage: "/ai_chatbots_blog.webp"
     };
 
     return {

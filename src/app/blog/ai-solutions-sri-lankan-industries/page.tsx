@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const post = {
         title: "How AI Companies in Sri Lanka Are Transforming Key Industries (2026) | ARC AI",
         excerpt: "Discover how AI companies in Sri Lanka are revolutionising tourism, real estate, e-commerce, healthcare, and manufacturing with custom AI solutions, chatbots, and automation.",
-        featuredImage: "/ai-automation-lk.png"
+        featuredImage: "/ai_key_industries_blog.webp"
     };
 
     return {

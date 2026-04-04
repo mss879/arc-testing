@@ -49,7 +49,7 @@ export default function BlogList() {
             title: "Best AI Chatbots for Sri Lankan Businesses (2026)",
             date: "April 4, 2026",
             category: "AI Chatbots",
-            image: "/ai-automation-lk.png",
+            image: "/ai_chatbots_blog.webp",
             excerpt: "Discover the best AI chatbots for Sri Lankan businesses in 2026. Learn how AI chatbots in Sinhala, Tamil & English are transforming customer service across Sri Lanka.",
             tags: ["AI Chatbots", "AI Companies Sri Lanka", "WhatsApp Chatbot", "Customer Service AI"]
         },
@@ -58,7 +58,7 @@ export default function BlogList() {
             title: "How AI Is Revolutionising Tourism in Sri Lanka (2026)",
             date: "April 4, 2026",
             category: "AI Tourism",
-            image: "/ai-automation-lk.png",
+            image: "/ai_tourism_blog.webp",
             excerpt: "Learn how AI companies in Sri Lanka are transforming the tourism industry with AI chatbots, automated booking systems, and multilingual guest experiences.",
             tags: ["AI Tourism", "AI Companies Sri Lanka", "Hotel AI", "Tourism Automation"]
         },
@@ -67,7 +67,7 @@ export default function BlogList() {
             title: "AI vs Manual Operations: Cost Comparison for Sri Lankan Businesses",
             date: "April 4, 2026",
             category: "AI ROI",
-            image: "/ai-automation-lk.png",
+            image: "/ai_cost_comparison_blog.webp",
             excerpt: "A detailed cost comparison of AI automation vs manual operations for Sri Lankan businesses. See real ROI data and calculate your potential savings.",
             tags: ["AI ROI", "AI Companies Sri Lanka", "Cost Savings", "Business Automation"]
         },
@@ -76,7 +76,7 @@ export default function BlogList() {
             title: "How AI Companies in Sri Lanka Are Transforming Key Industries",
             date: "April 4, 2026",
             category: "AI Companies",
-            image: "/ai-automation-lk.png",
+            image: "/ai_key_industries_blog.webp",
             excerpt: "Discover how AI companies in Sri Lanka are revolutionising tourism, real estate, e-commerce, healthcare, and manufacturing with custom AI solutions.",
             tags: ["AI Sri Lanka", "AI Tourism", "AI Real Estate", "Digital Transformation"]
         },
@@ -85,7 +85,7 @@ export default function BlogList() {
             title: "Best AI Companies in Sri Lanka (2026) — Complete Guide",
             date: "April 4, 2026",
             category: "AI Companies",
-            image: "/ai-automation-lk.png",
+            image: "/ai_companies_sri_lanka_blog.webp",
             excerpt: "Discover the best AI companies in Sri Lanka for 2026. Learn what to look for in an AI partner and why ARC AI leads Sri Lanka's AI industry.",
             tags: ["AI Companies Sri Lanka", "Top AI Companies", "AI Agency Colombo", "AI Chatbots"]
         },

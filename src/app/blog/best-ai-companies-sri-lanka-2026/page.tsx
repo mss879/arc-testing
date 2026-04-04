@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const post = {
         title: "Best AI Companies in Sri Lanka (2026) — Complete Guide | ARC AI",
         excerpt: "Discover the best AI companies in Sri Lanka for 2026. Learn what to look for in an AI partner, compare services, and find out why ARC AI leads Sri Lanka's AI industry with 100+ projects and a 4.9/5 rating.",
-        featuredImage: "/ai-automation-lk.png"
+        featuredImage: "/ai_companies_sri_lanka_blog.webp"
     };
 
     return {

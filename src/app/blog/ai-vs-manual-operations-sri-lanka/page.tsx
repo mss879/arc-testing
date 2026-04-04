@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const post = {
         title: "AI vs Manual Operations: Cost Comparison for Sri Lankan Businesses | ARC AI",
         excerpt: "A detailed cost comparison of AI automation vs manual operations for Sri Lankan businesses. See real ROI data from top AI companies in Sri Lanka and calculate your potential savings.",
-        featuredImage: "/ai-automation-lk.png"
+        featuredImage: "/ai_cost_comparison_blog.webp"
     };
 
     return {
