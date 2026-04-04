@@ -71,7 +71,7 @@ export default function ContactPage() {
       <main>
 
         {/* Contact Section */}
-        <section className="pt-48 md:pt-56 lg:pt-64 pb-20 px-6 lg:px-12" aria-label="Contact form">
+        <section className="pt-8 md:pt-12 lg:pt-16 pb-20 px-6 lg:px-12" aria-label="Contact form">
           <div className="max-w-[1400px] mx-auto">
             <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-24 xl:gap-32">
               {/* Left Column */}

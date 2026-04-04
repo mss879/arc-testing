@@ -66,9 +66,9 @@ export default function About() {
 
       <main>
         {/* Company Hero Section */}
-        <section
-          className="relative min-h-screen w-full flex items-center justify-center px-6 pt-48 pb-32 overflow-hidden"
-          aria-label="About ARC AI hero"
+        <section 
+          className="relative min-h-[80vh] w-full flex items-center justify-center px-6 pt-8 md:pt-16 pb-20 overflow-hidden"
+          aria-label="About Hero"
         >
           {/* Background Video */}
           <div className="absolute inset-0 z-0" aria-hidden="true">

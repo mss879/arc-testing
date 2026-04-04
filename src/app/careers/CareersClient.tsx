@@ -57,7 +57,7 @@ export default function CareersClient() {
     return (
         <>
             {/* Hero Section — Compact & Premium */}
-            <section className="relative pt-36 md:pt-48 pb-12 px-6 lg:px-12 overflow-hidden" aria-label="Careers hero">
+            <section className="relative pt-[180px] md:pt-48 pb-12 px-6 lg:px-12 overflow-hidden" aria-label="Careers hero">
                 {/* Background effects */}
                 <div className="absolute inset-0 bg-[rgb(10,10,10)]" aria-hidden="true" />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#FF4925]/[0.05] via-transparent to-transparent pointer-events-none" aria-hidden="true" />

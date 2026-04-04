@@ -62,7 +62,7 @@ export default function PortfolioHero() {
   }, []);
 
   return (
-    <section className="relative min-h-[50vh] w-full flex items-center justify-center px-6 pt-48 pb-20 bg-black">
+    <section className="relative w-full flex items-center justify-center px-6 pt-8 md:pt-16 pb-20 bg-black min-h-[40vh]">
       <div className="max-w-7xl mx-auto text-center">
         <div className="flex justify-center items-center mb-6 min-h-[120px] md:min-h-[160px]">
           <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white uppercase leading-none tracking-tight relative w-full">

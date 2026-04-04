@@ -190,7 +190,7 @@ export default function BlogList() {
             ]} />
 
             {/* Hero Section */}
-            <section className="relative min-h-[70vh] flex items-center justify-center px-4 md:px-8 pt-32 pb-20">
+            <section className="relative flex items-center justify-center px-4 md:px-8 pt-8 md:pt-16 pb-20 min-h-[50vh]">
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
                 <div
                     className="absolute inset-0 opacity-20"
