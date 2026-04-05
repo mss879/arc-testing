@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
             images: [`https://www.arcai.agency${post.featuredImage}`],
         },
         alternates: {
-            canonical: "https://www.arcai.agency/blog/best-ai-companies-sri-lanka-2026",
+            canonical: "https://www.arcai.agency/ai-companies-sri-lanka",
         },
         robots: {
             index: true,

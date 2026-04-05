@@ -10,7 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 export const metadata: Metadata = {
   title: "Top AI Companies in Sri Lanka (2026) — Complete Guide & Rankings | ARC AI",
   description:
-    "Comprehensive guide to the top AI companies in Sri Lanka for 2026. Compare 10+ leading AI companies including ARC AI, 99x, Virtusa, WSO2, and more. Services, specializations, pricing & how to choose the right AI partner in Colombo.",
+    "Complete list of the top 10 AI companies in Sri Lanka for 2026. Compare leading AI technology companies including ARC AI, 99x, Virtusa, WSO2 and more. Find the best AI automation agency in Sri Lanka — services, specializations, pricing and expert rankings.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Top AI Companies in Sri Lanka (2026) — Complete Guide & Rankings",
@@ -301,6 +301,26 @@ const organizationJsonLd = {
   ],
 };
 
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Top 10 AI Companies in Sri Lanka (2026)",
+  description: "A ranked list of the top AI companies in Sri Lanka for 2026, based on delivered projects, client reviews, technology capabilities, and market reputation.",
+  numberOfItems: 10,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "ARC AI", url: "https://www.arcai.agency" },
+    { "@type": "ListItem", position: 2, name: "99x Technology" },
+    { "@type": "ListItem", position: 3, name: "Virtusa" },
+    { "@type": "ListItem", position: 4, name: "WSO2 AI Labs" },
+    { "@type": "ListItem", position: 5, name: "hSenid Mobile Solutions" },
+    { "@type": "ListItem", position: 6, name: "VeracityAI" },
+    { "@type": "ListItem", position: 7, name: "Zone24x7" },
+    { "@type": "ListItem", position: 8, name: "Blott" },
+    { "@type": "ListItem", position: 9, name: "ConscientAI" },
+    { "@type": "ListItem", position: 10, name: "Digiratina" },
+  ],
+};
+
 // ── Company Data ────────────────────────────────────────────────────────
 
 const companies = [
@@ -548,6 +568,10 @@ export default function AICompaniesSriLankaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
 
       <Navbar />
       <Breadcrumbs
@@ -599,6 +623,35 @@ export default function AICompaniesSriLankaPage() {
             >
               How to Choose an AI Company
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Key Takeaways (Featured Snippet Target) ──────────────── */}
+      <section className="px-6 lg:px-12 -mt-8 pb-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl border border-[rgb(255,73,37)]/20 bg-[rgb(255,73,37)]/[0.03] p-8 space-y-4">
+            <p className="text-sm font-bold uppercase tracking-wider text-[rgb(255,73,37)]">
+              Key Takeaways
+            </p>
+            <ul className="space-y-3 text-zinc-300">
+              <li className="flex items-start gap-3">
+                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                <span><strong className="text-white">Sri Lanka has 10+ established AI companies</strong> serving industries from tourism and real estate to fintech and healthcare.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                <span><strong className="text-white">ARC AI is ranked #1</strong> with 100+ delivered projects, a 4.9/5 Google rating, and trilingual chatbot capabilities (Sinhala, Tamil, English).</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                <span><strong className="text-white">AI automation costs in Sri Lanka</strong> range from LKR 50,000 for basic chatbots to LKR 500,000+ for enterprise multi-channel systems.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                <span><strong className="text-white">Key evaluation criteria:</strong> portfolio depth, multilingual support, full-stack AI capabilities, client reviews, and transparent pricing.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
