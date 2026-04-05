@@ -69,9 +69,9 @@ const Process = () => {
                 {/* Step Number */}
                 <div className="mb-4 sm:mb-auto">
                   <div className="flex items-start gap-0.5 mb-4 sm:mb-8">
-                    <h3 className="text-lg font-bold text-[rgb(119,119,119)] tracking-wide">
+                    <p className="text-lg font-bold text-[rgb(119,119,119)] tracking-wide">
                       STEP {step.number}
-                    </h3>
+                    </p>
                     <span className="text-lg font-bold text-[rgb(255,73,37)]">.</span>
                   </div>
                 </div>

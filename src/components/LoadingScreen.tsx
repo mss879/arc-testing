@@ -27,7 +27,7 @@ const TypingText = memo(({ text }: { text: string }) => {
   const line2 = displayedText.slice(20); // " INTO REALITY."
   
   return (
-    <h1 className="text-4xl md:text-6xl text-white tracking-tight text-center leading-tight" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 900 }}>
+    <p className="text-4xl md:text-6xl text-white tracking-tight text-center leading-tight" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontWeight: 900 }} role="heading" aria-level={2}>
       {line1}
       {line2 && <><br />{line2}</>}
       <motion.span
@@ -37,7 +37,7 @@ const TypingText = memo(({ text }: { text: string }) => {
       >
         |
       </motion.span>
-    </h1>
+    </p>
   );
 });
 

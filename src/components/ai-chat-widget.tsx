@@ -103,13 +103,13 @@ const MessageContent = ({ content }: { content: string }) => {
 
                 // Headers
                 if (trimmed.startsWith('### ')) {
-                    return <h3 key={i} className="font-bold text-sm my-1">{formatInline(trimmed.substring(4))}</h3>;
+                    return <p key={i} className="font-bold text-sm my-1">{formatInline(trimmed.substring(4))}</p>;
                 }
                 if (trimmed.startsWith('## ')) {
-                    return <h2 key={i} className="font-bold text-base my-2">{formatInline(trimmed.substring(3))}</h2>;
+                    return <p key={i} className="font-bold text-base my-2">{formatInline(trimmed.substring(3))}</p>;
                 }
                 if (trimmed.startsWith('# ')) {
-                    return <h1 key={i} className="font-bold text-lg my-2">{formatInline(trimmed.substring(2))}</h1>;
+                    return <p key={i} className="font-bold text-lg my-2">{formatInline(trimmed.substring(2))}</p>;
                 }
 
                 // List items

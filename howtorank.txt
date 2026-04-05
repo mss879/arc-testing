@@ -1,0 +1,1650 @@
+Articles
+Tools
+Templates
+About
+
+Check My Site's SEO
+Semrush
+helps you:
+Close
+Do keyword research
+Audit your local listings
+Perform competitor analyses
+Manage social media accounts
+And much more!
+Backlinko readers get:
+A 14-day trial for premium features. 55+ tools.
+Free access for core features.
+
+
+AI Keyword Ideas in Seconds
+Instant keyword ideas built for today’s search.
+
+Enter keyword
+
+Get Free Keywords
+How to Rank Higher (& Get More Visibility) on Google
+leigh-profile-pic
+Chris Hanna
+Written by Leigh McKenzie & Chris Hanna
+
+Last updated on Jan. 22, 2026
+Rank higher on Google – Blog post image
+On this page
+
+How Does Google (and AI) Rank Pages Today?
+Tip #1: Nail the Basics of Traditional SEO
+Tip #2: Optimize for Content Satisfaction Signals
+Tip #3: Write Clear, Well-Structured Content
+Tip #4: Go Deep on Your Topic (Not Wide)
+Tip #5: Build Topic Clusters with Smart Internal Linking
+Tip #6: Use Related Entities and Subtopics
+Tip #7: Choose the Best Format for the Topic
+Tip #8: Publish Content Worth Talking About
+Why Ranking High on Google Still Matters
+If you want to rank higher on Google this year, you’re in the right place.
+
+In this guide, I’ll show you the exact strategy we’re using right now to maximize visibility for keywords like “SEO best practices”:
+
+Google SERP – SEO best practices – AI Overview
+And “keyword rankings”:
+
+Google SERP – Keyword rankings – AI Overview
+It’s also helping us influence LLMs, like ChatGPT:
+
+ChatGPT – Where to learn SEO
+And Google’s Gemini:
+
+Gemini – Best SEO tools
+These aren’t just top rankings. They’re high-visibility placements across multiple surfaces — AI Overviews (AIOs), organic results, and LLM chatbots.
+
+That’s the reality of SEO in 2026.
+
+If you only focus on where you rank in one search engine, you’re missing the bigger picture.
+
+What matters now is how your content is being presented and where it’s being pulled into the experience.
+
+Google and other AI platforms now:
+
+Pull passages, not just pages
+Surface answers before links
+Highlight brands that are consistently mentioned, even without backlinks
+In the guide below, I’ll show you the tactics and tools we’re using to make sure our content gets discovered across the entire AI-powered web.
+
+But first, a primer on what it actually means to rank higher on Google these days.
+
+How Does Google (and AI) Rank Pages Today?
+Search engines don’t just rank pages anymore. They assemble answers.
+
+When someone performs a search:
+
+Google analyzes the intent behind the query
+It then pulls relevant passages from across the web
+And it compiles the most useful pieces into features like AI Overviews, snippets, and carousels
+Yes, there are still (usually) 10 blue links. But SERP features are a huge component of the results pages.
+
+Here’s a deeper dive on what’s going on.
+
+Intent Matching at the Passage Level
+Google breaks your content into chunks and matches them to specific search intents. You’re not ranking as one page — you’re competing passage by passage.
+
+Take this example, “what is an seo campaign”:
+
+Google SERP – What is an SEO campaign – AI Overview
+Google matches, and links directly to, the relevant paragraph in the article:
+
+Backlinko – SEO Campaign – Relevant paragraph
+(More on how to optimize for that in Step 2 below.)
+
+This isn’t just true for the AI Overviews though — it’s long been the case for ranking in the featured snippet at the top of Google’s traditional search results:
+
+Google SERP – What are search terms – Featured snippet – Collage
+LLM-Driven Summarization
+AI Overviews and chat tools like Gemini or ChatGPT pull data from content that’s structured clearly and appears trustworthy, regardless of its ranking position.
+
+That’s why you’ll often see sources linked in the AI Overviews that aren’t even on page 1. Like this example, where the CDC is quoted 3+ times in the AIO, but doesn’t appear anywhere on the first page:
+
+Google SERP – How to sleep better – AI Overview – Sources
+Unlinked Mentions and Brand Presence
+Repeated brand mentions (even without backlinks) influence which sources LLMs cite or summarize. Authority isn’t just about links anymore — it’s about presence.
+
+AI Overviews are already leaning on forums, for example:
+
+Google SERP – Best email marketing platforms – AI Overview
+These are unlinked mentions, often deep within discussions. Yet they’re helping direct what appears at the very top of the Google search results.
+
+Content Satisfaction Signals
+Dwell time, engagement, and whether users continue their search (or stop) all send signals to Google and Gemini (which powers the AIOs) about which content actually solves the query.
+
+So if your content:
+
+Doesn’t give your user value immediately
+Is packed with dense paragraphs
+Lacks clear structure
+Feels generic
+You’re probably going to be ignored. Even if you do rank.
+
+To win visibility today, your content needs to:
+
+Answer specific intents clearly and quickly
+Be structured so Google (and other AI tools) can easily parse it and pull it apart to match relevant sections to specific queries
+Reinforce your brand’s credibility and topical depth
+(And still be optimized for all the SEO basics, of course.)
+
+That’s the bar in 2026. And everything in this guide is built to help you hit it.
+
+Tip #1: Nail the Basics of Traditional SEO
+Even though Google Search is changing, the fundamentals still matter.
+
+The absolute basics of SEO still move the needle when you layer them on top of quality content and everything else we’ll discuss below.
+
+
+Useful resource: If you’re still pretty new to search engine optimization, check out our beginner’s SEO guide.
+
+For now, here’s what to focus on to rank higher, faster.
+
+Optimize for Your Target Keywords
+Targeting words people use when searching is still a fundamental aspect of SEO.
+
+
+Free tool: If you’re still looking for the right terms to target, try our free keyword research tool.
+
+Include your target keyword and variations of it throughout your content (naturally).
+
+Also include it in your headings and (perhaps most importantly) in your title tag.
+
+Your title tag is still one of the strongest ranking signals Google looks at.
+
+So, make it compelling, but also include your target keyword. Like we did here for our article on SEO strategy:
+
+Google SERP – SEO Strategy – Title
+Speed Up Your Pages
+Page speed is a ranking factor. So if you improve your page speed, you can rank higher on Google.
+
+You can check your page speed and find out where you can make improvements by running your site through the free PageSpeed Insights tool:
+
+PageSpeed Insights – Backlinko – Mobile
+Optimize for Mobile
+When your pages load slowly or look broken on mobile, users bounce back to search results. That sends negative satisfaction signals to Google about your content.
+
+Fast, mobile-friendly pages provide better user experience.
+
+This ties directly into the satisfaction signals and business metrics that matter most (more on these later). But it also just makes users more likely to trust you and eventually convert.
+
+Use Strategic Internal Linking
+Good internal links help both users and search engines navigate your content.
+
+How do you implement them properly?
+
+Use descriptive anchor text and link to relevant, helpful pages. Don’t overthink it.
+
+Backlinko – Content Distribution – Descriptive anchor text
+For more specific guidance, check out our post about internal linking (see what I did there?).
+
+Other basics to nail down include:
+
+A logical site structure
+Crawlable and indexable pages
+Building a natural backlink profile
+These fundamentals create the foundation that lets all your other SEO efforts actually work.
+
+Get the basics right first, then layer on the advanced strategies.
+
+Tip #2: Optimize for Content Satisfaction Signals
+Google doesn’t just look at who clicks. It looks at who clicks back.
+
+If someone lands on your page, doesn’t find what they need, and returns to the search results to try again? That tells Google your content wasn’t satisfying.
+
+This isn’t about bounce rate or time on page in your analytics tool.
+
+It’s about bounce-back to the SERP. A real-world signal that your content didn’t deliver.
+
+Here’s how you make sure you do deliver:
+
+Lead with the Answer
+
+Don’t bury the good stuff. Put your main point, solution, or key information right at the top of your content.
+
+We do this all the time. For example, check out this post on E-E-A-T:
+
+Backlinko – Google E-E-A-T – Paragraph
+Within the first section, we give the reader a:
+
+Straight answer to the question of what E-E-A-T stands for
+Table explaining what each of the components actually means in practice
+Free template to audit their own site’s E-E-A-T
+This approach works for more than just user experience. When you lead with clear, direct answers, you’re more likely to get pulled into AI Overviews and featured snippets.
+
+Google SERP – How to improve E-E-A-T – AI Overview
+Write in Short Bursts
+To keep readers engaged, use short sentences and paragraphs. Like we do here at Backlinko:
+
+Backlinko – How to Do a Content Audit
+This makes your content easier to scan and digest. In other words: you make it quicker and easier for the reader to get what they need.
+
+Notice how this very guide is structured?
+
+Each point gets its own space to breathe. You’re not fighting through walls of text to find what you need.
+
+This encourages readers to spend more time on the page, potentially sending useful signals to Google about our content quality.
+
+Use Clear Formatting That’s Effortless to Skim
+When your content is well-organized with clear subheadings, users can quickly find their answers.
+
+This is yet another technique that we use:
+
+Backlinko – Content Audits – Paragraph
+Search engines and AI tools can also parse and understand your content layout more easily when you chunk your content like this.
+
+This makes it more likely that you’ll appear in AI Overviews and other generative results.
+
+Break Up Your Content with Visuals and Examples
+Visuals help make your content easier to digest while also giving readers a more valuable experience.
+
+But only if they actually add real value, not just decoration.
+
+Skip the generic stock photos and text-heavy images. Instead, use:
+
+Screenshots that show exactly what you’re explaining
+Charts or graphs that illustrate your points
+Step-by-step visual guides
+Before/after comparisons
+Backlinko – Crawl Budget – Images
+Tip #3: Write Clear, Well-Structured Content
+This one is simple, but so underused.
+
+The best websites have always done this. But now it matters even more since AI search tools often surface individual sections of content — not entire pages.
+
+Search engines and LLMs don’t care how long your post is or if you mention your target keyword a certain number of times (although keyword optimization is still important). They care how clearly it answers real questions.
+Here’s how to make sure your content does that.
+
+Use Logical Headings and Match Them to Your Content
+Your headings help guide users and search engines through your content.
+
+There’s no need to over-optimize or overthink this: just think of your headings as signposts that point your users and search engines (and AI tools) to each part of your content.
+
+If your content doesn’t match the heading above it, you’ll likely confuse both users and bots. So avoid using generic headings that don’t explain what’s coming below it.
+
+Bad example:
+
+Here’s Why This Matters
+
+Good example:
+
+Why SEO Matters for Small Businesses
+
+Add a Table of Contents and/or Jump Links
+Let users skip straight to what they came for.
+
+This works especially well for comprehensive guides or tool roundups. You might structure it with H2s for categories and H3s for individual tools or steps.
+
+We do this with a dedicated table of contents on our posts:
+
+Backlinko – Keyword Mapping – ToC
+But we also add jump links in the content where it makes sense:
+
+Backlinko – Keyword Mapping – Jump link
+This way, users can jump to exactly what they need instead of scrolling through everything.
+
+Follow the Inverted Pyramid Structure
+With the inverted pyramid structure, you start each section with the most important points. You then continue into the supporting information, context, or statements, and you finish with the less important but still useful content.
+
+Like this example:
+
+Backlinko – Scale Content – Paragraph
+The heading sets up what the section will cover (creating detailed briefs for posts). The first sentence is the most important point (why a brief matters).
+
+Then, there’s some supporting information with examples and an image (what the document includes, along with a screenshot).
+
+Finally, the end of the section includes some “nice to have” information. It’s not critical, but it gives the reader some more relevant tips:
+
+Backlinko – Scale Content – Outline your articles
+Tip #4: Go Deep on Your Topic (Not Wide)
+Topical authority beats generalist fluff.
+
+But nowadays, topical authority isn’t just about covering everything under a topic and calling it a day. You can’t expect to pick up rankings for keywords across the board just by publishing more content.
+
+Real topical authority means merging first-hand experience and expertise with great writing, clear structure, and a deep understanding of user intent.
+
+You give users everything they need to know within a piece of content — without creating a 10,000-word article when a 2,000-word article will do the job better.
+
+So, publish content that reinforces your core topic.
+
+Here at Backlinko, we focus on SEO, content marketing, and digital marketing strategies. We don’t suddenly start writing about web development or running a business just because those topics have a high search demand.
+
+Backlinko Blog – Articles
+This instantly makes it easy for everyone on our team to go deep, not wide.
+
+With a laser focus on the search intent for each topic we take on, nobody feels like they need to cover absolutely everything under the sun. And our readers don’t feel overwhelmed with lots of unnecessary information.
+
+Instead, we just ensure we create content that answers all their important questions about a topic.
+
+Tip #5: Build Topic Clusters with Smart Internal Linking
+Topic clusters are groups of pages covering a single topic or theme in detail.
+
+You typically have a pillar page that goes deep on the broad overall topic. Then you have cluster pages that discuss more specific aspects or concepts under that broad topic.
+
+For example, we have a topic cluster all about YouTube marketing:
+
+Backlinko Hub – YouTubeBacklinko Hub – YouTube
+Clusters can help you cover topics in depth and in a way that’s highly optimized for your target keywords.
+
+Need proof?
+
+Our YouTube marketing topic cluster drives 12K clicks every month:
+
+SEO Gets – Backlinko – YouTube
+Once you’ve created your topic clusters, the next step is to link all the pages together.
+
+When you mention a concept you’ve covered in detail elsewhere, link to that content using descriptive anchor text that tells both users and search engines what they’ll find.
+
+Prioritize links to and from high-converting or high-authority pages. Again, this ties back to focusing on business outcomes rather than just the highest-volume keywords.
+
+If you have data showing which pages convert best, make sure those get priority in your linking strategy.
+
+Use a hub and spoke structure for your topic clusters. Create pillar pages for your main topics, then build subtopic content that links back to those pillars.
+
+Topic clusters
+For more info on linking all your pages together in this way, check out our full guide to creating topic clusters.
+
+Tip #6: Use Related Entities and Subtopics
+Entities are the people, places, things, and concepts that search engines recognize and understand. Think of them as the building blocks that help search and AI systems make sense of your content.
+
+Targeting entities and the relationships between them isn’t groundbreaking to SEO. These concepts have always mattered.
+
+But everyone needs to think about them more intentionally now.
+
+You can have a play around with Google’s own tool to help understand how this works. It uses NLP (natural language processing).
+
+You don’t need to know what that is to rank higher on Google. But getting a basic understanding of what entities are is a good idea, and the tool does a good job of visualizing it.
+
+Google Cloud – Try the API
+LLMs and Google’s AI Overviews use entities and entity relationships when deciding what to show and where to show it.
+
+Here’s an example to help illustrate this:
+
+When you write about “email marketing,” related entities might include:
+
+Conversion rates
+A/B testing
+Email automation
+Lead nurturing
+Specific tools (e.g., Mailchimp)
+Including these naturally in your content can help search and AI systems understand the full context of what you’re covering.
+
+Tip #7: Choose the Best Format for the Topic
+Not every query deserves a blog post. Some searches are clearly better suited to video content.
+
+Like “how to swing a golf club”:
+
+Google SERP – How to swing a golf club
+Using the right format can improve your rankings, engagement, and AI visibility.
+
+SEO was never just about written content. But now, thinking about format from the very beginning is almost a requirement.
+
+If you’re just starting out, you need to think about whether your content would be better served by videos, heavily visual content, or even audio for interviews and commentary.
+
+The quickest way to find out?
+
+Run a Google search for your target keywords. If a bunch of videos come up, consider that format. If it’s short-form content, that’s another consideration. If it is just long-form blog articles, then a blog post likely is still a good idea.
+
+Think About Resource Management Upfront
+Yes, videos and visual content typically require more resources than blog posts. But consider this scenario:
+
+You spend months creating 20 blog posts that don’t convert well because users actually wanted video tutorials. Now you have to create those videos anyway, and you’ve essentially doubled your work.
+
+Instead, you might spend that same time creating three high-quality YouTube videos that convert much better than those 20 blog posts ever would.
+
+The goal isn’t to intimidate you into expensive video production. It’s to help you think strategically about where to invest your time and energy.
+
+Bonus Tip: Repurpose Your Best Content into Other Formats
+Repurposing lets you get more value out of your existing content. Each format serves different user preferences and different platforms.
+
+For example, a detailed article about “email marketing strategy” could become:
+
+A YouTube video walking through the strategy
+A downloadable checklist
+An infographic for social sharing
+A podcast episode discussing the concepts
+
+Further reading: What Is Repurposing Content?
+
+Tip #8: Publish Content Worth Talking About
+Let’s be clear: backlinks are still crucial for ranking higher on Google. This is especially true for competitive keywords.
+
+Just look at the number of links pointing to sites that rank for a term like “project management software”:
+
+Semrush – Keyword Overview – Project management software
+But in a world where visibility matters across different search surfaces — not just traditional Google rankings — mentions become extremely powerful.
+
+LLMs and AI tools pull information from across the web, whether there’s a clickable link…
+
+Google SERP – How to build backlinks – AI Overview
+…or not:
+
+ChatGPT – Best ways to learn SEO
+When your brand gets mentioned on forums like Reddit, in newsletters, or in social media discussions, those mentions can feature in AI summaries and overviews.
+
+And with Google’s AI Mode rolling out, “ranking at the top of Google” becomes “being mentioned at the top of Google’s answers.”
+
+That’s why you need content worth citing, even when people don’t link back to you.
+
+The good news is that a lot of what it takes to get more mentions is similar to what it takes to build high-quality backlinks.
+
+Here are a few key ways to get more mentions:
+
+Include Original Research, Insights, or Frameworks
+This is the classic “become a source” approach. Create content that others naturally want to reference. We do this all the time with our studies:
+
+Google SERP – Site:Backlinko study
+And they get mentioned all over the internet (not always with a link):
+
+Brand Monitoring – Backlinko
+This could be full studies with original data. Or it could be frameworks and insights woven throughout your regular content that people find worth quoting.
+
+When you publish something genuinely useful and original, other creators will mention it — with or without a link.
+
+Be Quotable
+Use clear, bold statements that people can and will want to reference.
+
+This ties into originality. Don’t just follow the herd, but also don’t be contrarian for the sake of it. People will only quote you if what you’re saying resonates with them and they can’t get the same insight from someone else.
+
+Ask yourself: Am I saying something someone could just find in a Wikipedia article? Or is this actually original enough that people feel they need to mention me as the source?
+
+Pitch Journalists, Podcasters, and Newsletter Writers
+Ideally, when you pitch other creators, you’ll get backlinks from these outreach efforts, which directly help you rank higher on Google. But even when you just get mentioned in their content, you’re becoming part of the wider discussion around your topic.
+
+This boosts your brand presence across the platforms where AI tools (like Google’s AI Mode and AI Overviews) pull information.
+
+Track Your Mentions with Monitoring Tools
+Tools like Semrush’s Brand Monitoring can help you see where you’re being mentioned across the web.
+
+Semrush – Brand Monitoring – Backlinko mentions
+Semrush also has an AI Visibility Toolkit that lets you see what AI systems think about your brand.
+
+Semrush – AI SEO Toolkit – Brand Performance – Backlinko
+
+Note: These tools are evolving fast, as is the AI space in general. For more on what this all means, check out our guide to LLM visibility.
+
+Why This Matters for Rankings
+Mentions signal authority even when there’s no clickable link. When your brand consistently appears in discussions around your topic, it reinforces your expertise in that area.
+
+This doesn’t replace the need for traditional backlinks. But it does influence where you appear across search surfaces, from AI Overviews to traditional search results.
+
+The goal is building a reputation that extends beyond your own website — becoming the source people naturally reference when discussing your topic.
+
+Why Ranking High on Google Still Matters
+Ranking high on Google is still a worthwhile goal. But it’s only useful if it leads to:
+
+Clicks from the right audience
+Visibility in the right moments
+Progress towards tangible business outcomes
+Want to stay ahead of your competition and understand what it takes to rank on Google in the AI era? Check out our guide to generative engine optimization (GEO).
+
+Backlinko is owned by Semrush. We’re still obsessed with bringing you world-class SEO insights, backed by hands-on experience. Unless otherwise noted, this content was written by either an employee or paid contractor of Semrush Inc.
+
+582
+shares
+Backlinko turns AI SEO into clear, actionable strategies with step-by-step frameworks and examples to help you rank in an AI-driven search world. Think less guessing, more visibility.
+
+Learn
+Blog
+Newsletter
+Templates
+Best SEO Tools
+Company
+About
+Semrush AI Visiblity
+Semrush Free Trial
+Contact
+Connect
+Twitter
+YouTube
+Instagram
+Terms of Service
+Privacy Notice
+© 2026 Backlinko is a Trademark of Semrush Inc
+
+Skip to content
+Products
+Moz Pro
+Your all-in-one suite of SEO essentials.
+
+Moz Local
+Raise your local SEO visibility with complete local SEO management.
+
+STAT
+SERP tracking and analytics for enterprise SEO experts.
+
+Moz API
+Power your SEO with our index of over 44 trillion links.
+
+Compare SEO Products
+See which Moz SEO solution best meets your business needs.
+
+Moz Data
+Power your SEO strategy & AI models with custom data solutions.
+
+Track your brand’s footprint in AI search
+Moz Pro
+Track your brand’s footprint in AI search
+Free SEO Tools
+Domain Analysis
+Get top competitive SEO metrics like DA, top pages and more.
+
+Keyword Explorer
+Find traffic-driving keywords with our 1.25 billion+ keyword index.
+
+Link Explorer
+Explore over 40 trillion links for powerful backlink data.
+
+Competitive Research
+Uncover valuable insights on your organic search competitors.
+
+MozBar
+See top SEO metrics for free as you browse the web.
+
+More Free SEO Tools
+Explore all the free SEO tools Moz has to offer.
+
+Let your business shine with Listings AI
+Let your business shine with Listings AI
+Learn SEO
+Beginner's Guide to SEO
+The #1 most popular introduction to SEO, trusted by millions.
+
+SEO Learning Center
+Broaden your knowledge with SEO resources for all skill levels.
+
+On-Demand Webinars
+Learn modern SEO best practices from industry experts.
+
+How-To Guides
+Step-by-step guides to search success from the authority on SEO.
+
+Moz Academy
+Upskill and get certified with on-demand courses & certifications.
+
+MozCon
+Save on Early Bird tickets and join us in London or New York City
+
+Access 20 years of data with flexible pricing
+Moz API
+Access 20 years of data with flexible pricing
+Blog
+Why Moz
+Digital Marketers
+Simplify SEO tasks to save time and grow your traffic.
+
+Small Business Solutions
+Uncover insights to make smarter marketing decisions in less time.
+
+Agency Solutions
+Earn & keep valuable clients with unparalleled data & insights.
+
+Enterprise Solutions
+Gain a competitive edge in the ever-changing world of search.
+
+The Moz Story
+Moz was the first & remains the most trusted SEO company.
+
+New Releases
+Get the scoop on the latest and greatest from Moz.
+
+Surface actionable competitive intel
+New Feature
+Surface actionable competitive intel
+Log in
+Moz Pro
+How it works
+Solutions
+Pricing
+Testimonials
+How to Rank on Google
+25-Step Master SEO Checklist
+Table of Contents:
+1. Introduction
+
+How do you actually rank a webpage using SEO?
+Here's how to rank on Google:
+1. Working Smarter, Not Harder
+2. Start With A Mighty Seed
+3. List It Out: Dream Your Keyword Theme
+4. Leverage The Competition
+5. Finding Diamonds in the Google Rough
+6. Creating Value
+7. Detect Intent: Form & Function
+8. Be The Last Click
+9. Why Completeness Beats Length
+10. Smart Topic Modeling (Without A Computer)
+11. E-A-T Your Authority
+12. CTR Starts Here: Be The First Click
+13. On-Page: Master the Basics
+14. Schema All The Things
+15. Make it Fast, Make it Sing
+16. Over-Optimization: Titles, URLs, Stuffing, and Links
+17. Internal Links, Relevance, & User Engagement
+18. Linking Internally for the Reasonable Surfer
+19. Content Hubs & Category Pages
+20. The 50/50 Rule of Link Building
+21. Don't Create Content Until You Do This First
+22. The Easiest Shortcut to Good Links
+23. Tentpole & Flywheels: Link Building on AutoPilot
+24. A World of Link Building Tactics
+25. Keep It Fresh: Links, Content, & Engagement
+Share
+   
+How do you actually rank a webpage using SEO?
+So you've done the work and read Moz's famous Beginner's Guide to SEO. But now, how do you actually rank a webpage in Google?
+
+In truth, there are thousands of articles, guides, and tutorials published about SEO every year. Most of these guides are either very introductory or broad, or go to the opposite end of the spectrum and cover a very specific topic.
+
+Virtually none show you how to rank a webpage, start-to-finish.
+
+What's needed is a guide or blueprint. To be helpful, we need a step-by-step checklist for ranking a page starting from an idea, all the way to traffic pouring into your Google Analytics account.
+
+This is that checklist.
+
+It’s meant as a framework for newer SEOs to build their own work on top of. This basic process has helped, in one form or another, 1000s of pages and upwards to millions of keywords to gain higher rankings.
+
+Think of it as an intermediate SEO instruction manual, for beginners.
+
+Level: Beginner to intermediate
+Timeframe: 2 to 12 weeks
+What you need to know: This checklist assumes you have at least a basic understanding of SEO. You can write a title tag, know what a rel=canonical is, and maybe you've even built a link or two.
+New around here?
+If you are new to SEO, we recommend reading our Beginner's Guide to SEO and exploring our SEO Learning Center.
+
+Here's how to rank on Google:
+Working Smarter, Not Harder
+Start With A Mighty Seed
+List It Out: Dream Your Keyword Theme
+Leverage The Competition
+Finding Diamonds in the Google Rough
+Creating Value
+Detect Intent: Form & Function
+Be The Last Click
+Why Completeness Beats Length
+Smart Topic Modeling (Without A Computer)
+E-A-T Your Authority
+ 
+CTR Starts Here: Be The First Click
+On-Page: Master the Basics
+Schema All The Things
+Make it Fast, Make it Sing
+Over-Optimization: Titles, URLs, Stuffing, and Links
+ 
+Internal Links, Relevance, & User Engagement
+Linking Internally for the Reasonable Surfer
+Content Hubs & Category Pages
+ 
+The 50/50 Rule of Link Building
+Don't Create Content Until You Do This First
+The Easiest Shortcut to Good Links
+Tentpole & Flywheels: Link Building on AutoPilot
+A World of Link Building Tactics
+Keep It Fresh: Links, Content, & Engagement
+Tips to keep in mind:
+There are hundreds of ways to rank a page in Google, from simply sharing an article on Twitter, to scoring a link from the New York Times. This guide represents only one possible process.
+This checklist is meant as an SEO framework. It doesn't cover every scenario in detail, but instead provides you with a basic outline of ranking a webpage from start to finish, so you can build your own process on top of it.
+Many other experienced SEOs have their own processes for ranking for desired keywords. Choose carefully who you listen to, and seek out their advice whenever you can.
+Keyword Research Header
+Better data & analytics = higher rankings.
+Ranking well requires pristine data and high-quality SEO analytics. Lucky for you, Moz Pro has it all. Take a free trial and see what insights you're missing out on.
+
+
+1. Working Smarter, Not Harder
+Here's the secret about this SEO process: we don't want to rank for a single keyword, we want to rank for hundreds or thousands of keywords at the same time. We can do this with the exact same amount of work.
+
+Smarter, not harder.
+
+The magic happens when starting with keyword research. Choosing the right (or wrong) keywords to target at this stage can predict our entire probability of success.
+
+Starting out, you probably have a guess which keywords you want to rank for, but are they the right ones? The biggest mistakes people make at this stage of keyword research are:
+
+Choosing keywords that aren't specific enough (too broad)
+Choosing keywords with too much competition
+Keywords without enough traffic
+Keywords not relevant to your business
+Trying to rank for a single keyword at a time
+By far, the biggest mistake is trying to rank for a single keyword at a time. People search for the same things in very different ways. Or they search in very specific ways. This represents the long tail of keyword research, and it can represent up to 80% of all search traffic. 
+
+You want to capture as much of that long tail as possible, while doing the same amount of work.
+
+Think of it as the difference between fishing with a spear, versus fishing with a net. Fishing with a spear, we might capture a single fish - or none at all if we miss. But fishing with a net might catch dozens of fish with a single throw.
+
+So instead of ranking for a single keyword, let's start with a keyword seed that grows into a theme.
+
+Themed Keywords
+2. Start With A Mighty Seed
+To begin, you want to discover your "Seed Keywords" to grow your keyword theme. Seed keywords are the basic, typically most obvious phrases.
+
+Often, seed keywords are the phrases you "think" you want to rank for. If your shop sells motorcycle lifts, your first seed keyword may then likely be "buy motorcycle lifts."
+
+Finding good keyword seeds is often a mix of brainstorming with a bit of research. A good seed answers the following questions:
+
+What's my website about and/or what do I offer?
+What keywords do I think I want to rank for?
+What ads would I buy?
+Good seeds are typically broad, but not too broad. For example, if you run an ice cream shop, the phrase "ice cream" might seem like a good seed, but it's probably too broad. ("ice cream" can mean many, many things.) A more specific phrase like "ice cream shop" or "ice cream shop Seattle" might work better.
+
+There are typically three good places to find keyword seed.
+
+What keywords does my website already rank for?
+What do my competitors rank for?
+What do SEO tools reveal about what people search for? (Tools to find seed keywords include Keyword Explorer and Google Keyword Planner)
+You need at least 1 keyword seed at this stage, but it doesn't hurt to have more, even dozens or hundreds of seeds if you're planning a larger content strategy.
+
+Finding Keyword Seeds
+Want more tips on how to find the best seeds? We've written an entire chapter.
+
+Read the chapter 
+3. List It Out: Dream Your Keyword Theme
+Next, we want to grow our keyword seed into a keyword theme, comprised of many related keywords grouped together.
+
+Using keyword themes presents us with much larger opportunities. Instead of ranking for a single Holy Grail keyword, a better goal is to rank for multiple keywords focused around a single idea. Done right, the results are amazing.
+
+Simply put, the more long-tail keywords our webpage ranks for, the more qualified traffic search engines will send it.
+
+Creating lists typically involves using a combination of Google and keyword tools (either free or paid) to find all the related keywords to your keyword seeds.
+
+Typically, your list contains keywords with greater specificity. Your goal at this stage is to find keywords that are not only specific but also relevant to your business and have enough search volume to justify targeting.
+
+For example, if our seed keyword was "motorcycle jacket" we might find the following related keywords.
+
+Seed Keywords
+Each of these new keywords supports our seed keyword, and gives us a ton of new content ideas. If the related keywords seem like they can support enough traffic, they may even become new seed keywords themselves.
+
+Here's why this works: by targeting a slightly broader keyword theme comprised of multiple, closely related keywords, our chances of ranking for these keywords actually increases dramatically.
+
+Keyword Lists
+Become a keyword list master: How to Create Keyword Lists
+
+4. Leverage The Competition
+Here's a step many people miss: ranking for the hidden keywords your competition already ranks for.
+
+No matter how smart you are, your competitors have already figured out—either by accident or design—which keywords are the most lucrative.
+
+Instead of finding these lucrative keywords yourself through the long process of trial and error, it's 1000 times easier simply to steal your competitor's intelligence. (Most of the time, stealing is wrong, but we'll let it slide in the case of competitive SEO.)
+
+The basics work like this:
+
+Find the URLs of your competitors that already rank for your target keyword
+Find all the other related keywords that URL also ranks for in Google
+These other related keywords are gold.
+
+Unfortunately, Google won't directly tell you what your competitors rank for, but a handful of 3rd party SEO tools do exactly that, making the work much easier. Here's what this data looks like in Keyword Explorer.
+
+Ranking Keywords by Site
+Competitor Keyword Gap Analysis﻿
+We've written the guide on competitor analysis SEO.
+
+Learn more about Keyword Gap Analysis 
+5. Finding Diamonds in the Google Rough
+At this point, we likely have dozens or perhaps hundreds or thousands of potential keywords to work with.
+
+The magic is choosing exactly the right keywords to target and build content around.
+
+Sorting and filtering keywords is an art in and of itself, but the basic requirements we want to meet are roughly:
+
+Does the keyword have sufficient search volume?
+Is this keyword relevant to my business?
+Can I create compelling content around this keyword that's better than anything else out there?
+Can I actually rank for this keyword?
+The last question may be the most difficult to answer, but it's also one of the most important. Certain topics, such as medical and financial queries, can be especially challenging to rank for in Google.
+
+Pro Tip: Keyword Difficulty
+One of the easiest ways to find out if you can rank for a keyword is to find the keyword difficulty score of your target keyword. Compare this number to the keywords with the highest difficulty score you already rank. More details here.
+
+Keyword Difficulty
+Content Header
+6. Creating Value
+Want to know the absolute worst phrase in marketing?
+
+It's "SEO content."
+
+Far too many people think of content as a commodity: something predictably produced completely separated from the potential value it creates for end users.
+
+Content without value is spam.
+
+If you want to rank—if you really want to rank—you need to understand this question:
+
+How is your content better than the content that currently ranks for your keyword?
+
+Because if your content doesn't satisfy the user in a superior way to content that already exists, why would Google rank you higher?
+
+Starting with your keyword theme, ask first how you can create value.
+
+Value takes many forms. While Google provides clues and guidelines about how they evaluate content, it typically includes a mix of utility, trust, authority, and user experience. In short, you want your website to be the one that most completely satisfies the user for their given keyword.
+
+Making your content the absolute best not only helps satisfy your users, but it also helps build links, improves user engagement, and protects against future algorithmic changes.
+
+How do we create value? We begin by figuring out intent.
+
+7. Detect Intent: Form & Function
+Here's where a lot of people stumble: You take your keyword and create content around it—maybe you create a blog post, maybe a shopping page—before you really understand what people are looking for with that keyword.
+
+This is known as intent.
+
+Guessing at intent is like gambling. You may think you know what people want, but unless you verify, it's like throwing darts blindfolded.
+
+Google's job is to give people web results that satisfy their questions, so if you don't satisfy intent, you'll likely not rank very well for very long.
+
+Fortunately, there's a dead-simple way of determining keyword intent: search Google for your keyword phrase, and determine:
+
+What kind of pages are already ranking
+The common elements of each page, e.g. images, videos, shopping, etc
+What Google lists as "related searches"
+Google has already tested your keyword across thousands or millions of searches, so they have a pretty good idea of what people are looking for.
+
+For example, if our keyword phrase was "easter hats", we could write another blog post about easter hats, or we could examine what Google currently ranks:
+
+Google Searcher Intent
+From this, we see that Google determines the search intent of "easter hats" to be:
+
+Images of Easter hats
+Shopping for Easter hats
+Related searches about Easter bonnets
+If we wanted to rank for this keyword, we would be wise to create content that delivered on these elements. We would learn even more from diving into the individual pages themselves.
+
+But is it enough to simply copy the form of these pages, and deliver answers that are just as good? No, no, no! There is a better way...
+
+8. Be The Last Click
+Number 8 on the checklist seems like a small thing, but it makes a world of difference.
+
+Be the absolute best result for your keyword query.
+
+Sounds simple in theory, but literally all of your competition is trying to be the best as well, and there can be only one.
+
+What does it mean to be the absolute best result? We'll cover a few techniques, but the ultimate goal is this:
+
+Be the last click.
+
+In other words, make sure when people search for your keyword—and they eventually find you—you are the last result they need to click. You provide such good information, they have no need to go back and click any other result. You may not be the first result they click (although that helps too) but you'll definitely be the last. Let's repeat that.
+
+Be the last click.
+
+Which begs the question, how do you become the last click? The answer varies from query to query, and mixes a little bit of art and science, but to be the last click there are a number of check boxes you want to tick:
+
+Match user intent, in form and style ✔️
+Provide more complete information
+Be authoritative
+Offer a better and/or unique experience, e.g. design, UX, speed
+We've touched on user intent, so let's cover completeness.
+
+9. Why Completeness Beats Length
+"500 words, or 2000 words? That is the question."
+
+Sorry, Shakespeare, that's actually not the question.
+
+The idea of content length arises in SEO quite often. "How long should your content be?"
+
+Part of the reason is that multiple studies over the years consistently show that, on average, longer content tends to perform better in Google than shorter content. But smart SEOs believe that the reason this content performs better is not that it's longer, but because it actually offers more completeness.
+
+What is "complete" content? This is content that:
+
+Completely satisfies a user's search query (again, "be the last click")
+Offers supporting evidence
+Answers additional related questions to the user's search query
+Is authoritative (in other words, gives the user a reason to trust the information)
+Provides quality supplemental content to support the main content
+From Google's perspective, there are several reasons why more complete content may perform better. We won't dive into all the science and details here, but a simplification may be that:
+
+Google constantly works to figure out what your content is "about." More complete content makes this job easier.
+More complete content tends to satisfy users.
+To make our content more complete, and to appease the Google gods, we're going to answer all the user's questions. Read on!
+
+10. Smart Topic Modeling (Without A Computer)
+A huge hunk of Google's job is simply spent trying to figure out what your content is "about." This is easy for humans, but hard for computers. To accomplish this, they employ a lot of advanced techniques like Natural Language Processing (NLP), phrased-based indexing, and machine learning.
+
+Fortunately, you don't need a bank of computers to optimize your content around a particular subject. (Though if you have the budget, there are plenty of good software companies that can deliver this service for you.)
+
+If your aim is to make your content more complete, a basic process to implement might resemble:
+
+Focus on you primary topic (keyword) in your:
+Title tag
+URL
+Page Title
+Main Content of the page
+Images and/or video
+Use the list of your most important secondary topics/keywords from your keyword research and use them to support your main topic. If warranted, these can be used in subheads and/or become their own section.
+Similarly, incorporate your most important "related questions" (from your keyword research) into their own content sections.
+Be sure to satisfy user intent by incorporating elements and formats of top ranking results, including images and video formats.
+Enhance your Main Content with useful Supplemental Content, including additional helpful information in the sidebar and navigation of the page.
+If you can't address a deserving topic in the content itself, link out to a resource that does.
+On the last note, it's typically ideal to link internally to one of your own pages if you can, but don't be afraid to link to other websites. Remember, you want to be the last click so users don't have to go back to Google. When users get the answer from you (even when it's a link) you become more of an authority.
+
+When done correctly, your research up to this point should help you create a page that thoroughly satisfies a user's query through complete content.
+ 
+
+11. E-A-T Your Authority
+Aside from content itself, Google employs a number of ranking signals to determine how authoritative and trustworthy a site is.
+
+While this is especially true for medical and transactional sites (YMYL - Your Money or Your Life), in general Google holds all sites to certain "quality" standards - including yours!
+
+Google's Search Quality Guidelines are filled with information about how Google wants to judge "quality." Many of these standards are not easy to control when creating your content (e.g. third-party reviews about you on other sites.)
+
+That said, many of these "trust and authority signals" are certainly within your control, including the editorial standards of your writing. For this reason, it's good to review the questions Google has published for website owners in regards to its Panda algorithms and E-A-T guidelines. Questions which include:
+
+Would you trust the information presented in this article?
+Is this article written by an expert or enthusiast who knows the topic well, or is it more shallow in nature?
+Does the site have duplicate, overlapping, or redundant articles on the same or similar topics with slightly different keyword variations?
+Is the content free from spelling or stylistic issues?
+Was the content produced well, or does it appear sloppy or hastily produced?
+For what it's worth, most professional SEOs don't believe these questions represent "hard" ranking factors (e.g. Google doesn't have an explicit "authority" score.) One hypothesis is that these qualities are scored and fed into a machine learning model, which then evaluates your content.
+
+Regardless, at this point you have all the tools you need to create high-quality content.
+ 
+
+On-Page Optimization Header
+12. CTR Starts Here: Be The First Click
+Remember in step 8 when we said you want to be the last click (that a user needs)? Here, we offer complimentary advice which works hand-in-hand with that tip:
+
+Be the first click, too.
+
+When presented with a page of search results, users make decisions about what to click in milliseconds. You might rank #1, #4, or #7, but you still want to attract as many clicks as possible. This is known as improving your click-through rate (CTR.)
+
+While there's contradictory evidence as to whether or not Google uses clicks in its search results as a ranking factor, there's plenty of evidence to suggest that they do, including a Google patent that explains exactly how they might do it.
+
+But honestly, it doesn't matter if clicks are an actual ranking signal or not, because more clicks means more qualified traffic, one way or another. This is the goal, right?
+
+Google gives you 4-5 primary levers to influence CTR:
+
+Titles
+Meta Description
+Rich Snippets
+URLs / Breadcrumbs
+In some cases, image and video results
+For most sites, titles are typically the most influential factor you can leverage to influence CTR, followed by rich snippets (if you can get them.) Google displays a title for every page, and nearly every searcher at least glances at them before clicking.
+
+Title Tags
+We won't cover each element in detail here, but earning as many clicks as possible by optimizing these elements will go a long way. Each of the resources below should help to improve your CTR, and ultimately, your traffic.
+
+Advanced Title Tag Optimization (Webinar)
+Google's Rich Snippet Gallery
+Meta Description Best Practices
+15 Best Practices for URLs
+13. On-Page: Master the Basics
+Entire chapters could be written about on-page optimization (and we have!)
+
+In truth—and this may seem counterintuitive—most of the time, you don't need to sweat the details. Don't get us wrong, on-page SEO is very, very important. But if you've followed the steps up to this point you've already covered most of the basics!
+
+If you're new to SEO, you should absolutely make sure your website is friendly to search robots such as Googlebot. You can do this easily with online tools such as Hubspot's Website Grader or Moz's On-Page Grader, for example.
+
+And if you use Wordpress, plugins such as Rankmath will do a lot of the heavy SEO lifting for you.
+
+We'll cover a few more salient aspects of on-page SEO in this guide, but if you find yourself unfamiliar with this topic, we highly recommend the following resources:
+
+A Visual Guide to Keyword Targeting and On-Page SEO
+On-Page SEO for 2019 (and beyond!)
+The Web Developer's SEO Cheat Sheet (below)
+ 
+The SEO Cheat Sheet
+14. Schema All The Things
+We want to take a moment to give schema markup its own callout. If content is king (or preferably, queen) then schema is certainly the crown prince of on-page SEO.
+
+Schema, while it doesn't appear on page for the user, is important for two very significant reasons:
+
+As additional content, it can help Google understand your page, thereby giving you a potential ranking boost in some circumstances.
+Schema can help you win a variety of rich snippets, further boosting your CTR
+To be clear, schema itself isn't a Google ranking factor. This means that you shouldn't expect a rankings boost simply because you added schema to your page.
+
+That said, schema can help you to rank. Multiple studies have demonstrated this. Think of it as additional content that search engines can read, that also help it understand what your content is about.
+
+At a minimum you should include standard schemas like Article and Local Business (if appropriate), but even more so you should consider schema to help earn your site rich snippets. Chief among these are:
+
+Breadcrumb
+Event
+FAQ
+How-To
+Video
+… and more. Check out Google's list.
+Rich Snippets Schema
+Additional Resources:
+
+Schema Markup Generator
+Google's Rich Results Test
+15. Make it Fast, Make it Sing
+Aside from content itself, how the user experiences your page can hugely influence rankings as well. Google calls these official ranking factors page experience signals, and include:
+
+Core Web Vitals (i.e. page speed)
+Mobile Friendliness
+Safe Browsing
+HTTPS
+Intrusive Interstitial (i.e. avoid aggressive popups)
+Understand that having these qualities won't give you a big boost (for the most part.) Instead, these days they are simply table stakes, or the cost of admission. Having a mobile-friendly website is almost a requirement, and aggressive pop-ups are certain to put your rankings at risk.
+
+The one exception to this is speed. While website speed is admittedly only a minor ranking factor for most sites, it can exert outsized influence on several other factors, and the user experience itself. For example, page speed can significantly impact both bounce rate and conversion rates (even when rankings remain stable.)
+
+When in doubt, make it fast.
+
+Further Reading: Page Speed Optimization: Metrics, Tools, and How to Improve
+
+16. Over-Optimization: Titles, URLs, Stuffing, and Links
+As SEOs, we like to get "perfect" scores. We like to optimize everything. It's even in our title!
+
+But for newer sites, and sites without a lot of authority, over-optimization can be a real drag.
+
+What exactly is over-optimization? 
+
+In short, over-optimization means a lack of diversification in your SEO elements. For example, if your target keyword is "best plumber Seattle", over-optimization might look like:
+
+Your title tag is "best plumber Seattle"
+Your url https://best-plumber-seattle.c...
+Your H1 is "best plumber Seattle"
+You include the phrase "best plumber Seattle" 20-25 times on the page
+Most of your internal links (and external too) use "best plumber Seattle" as anchor text
+On the web, over-optimization like this doesn't appear naturally, unless an SEO deliberately puts it there. As this can influence rankings, Google typically takes steps to demote pages with over-optimized keywords.
+
+In short, don't over-optimize, diversify instead.
+ 
+
+ 
+
+Site Architecture Header
+17. Internal Links, Relevance, & User Engagement
+Here’s the special secret of this SEO checklist: Now that you've made a single page to rank, now you're going to make several more.
+
+This is the SEO magic that makes this process work. In truth, it's incredibly difficult to rank a single page by itself for a handful of keywords - especially if there's any competition at all.
+
+On the other hand, when you create several pages around a central theme, or even an entire site around that theme, the job becomes exponentially easier.
+
+By creating multiple pages that address related (but different) aspects of your topic, you create a web of topical relevance that allows you to:
+ 
+
+Interlink related pages...
+...with topical anchor text
+Improve user engagement by answering more questions
+Taken together, this strategy can improve the relevance of your site and pages for multiple queries.
+ 
+
+18. Linking Internally for the Reasonable Surfer
+Since we're now linking our topically related pages together, we now want to make sure to optimize our linking strategy for maximum SEO impact.
+
+Links are a powerful ranking signal, but remember, not all links are equal. Google doesn't "count" all links the same.
+
+How you link can be just as important (or more so) as what you link to. To leverage our links for maximum power, it's best to follow a few linking guidelines with every new page we create.
+
+Link to your most topically related content. The closer in relevance to your main topic, the more likely users will click on the links you provide. It's also widely believed that Google may pass more weight through topically relevant links (through a process known as Topic-Weighted PageRank.)
+When possible, try to link within your main content (as opposed to sidebars and navigation.)
+Additionally, try to link higher up within your main content, as these links may carry more weight than links further down the page.
+Use anchor text with relevant keywords, but vary your anchor text greatly. In other words, don't repeatedly use the same anchor text over and over. Many SEOs recommend avoiding exact match keywords for anchor text, preferring partial match instead.
+Finally, after you've created a new page and linked to other pages on your site, you have one more step to go. Now it's time to update your older pages with links to your new page. We recommend not simply adding links to existing text, but adding context around the new links, which can boost both the relevance and the freshness of the new links.
+
+19. Content Hubs & Category Pages
+Just as we know not all links are equal, not all pages are equal either.
+
+Category and/or hub pages can be incredibly effective tools for ranking all your related pages higher. While it's important to link your topically relevant pages together, it may be even more important to link relevant pages together under the umbrella of a master category (hub) page. There are several reasons for this:
+
+Category pages often have more link equity. They often sit closer to the homepage (or other high authority pages) and often attract external link equity as well.
+Category pages often sit higher in a site's architecture hierarchy, meaning they are usually better placed in a site's navigation and breadcrumbs, for example.
+These pages often can rank for high-volume head terms (as opposed to lower-volume long tail terms)
+Category pages can target broader user intent than individual topic pages, and can serve as a jumping off point into deeper dives for each subject.
+Hub pages
+The wrong way to create category pages is to simply list your latest posts, or a list of relevant products. The best category pages typically have their own unique content, relevant answers to questions, and links to sub-topics and related pages.
+
+For example, if your site sells 100 different types of hamster wheels, you probably want a broad category page that broadly covers all your hamster wheels.
+
+If such a page doesn't exist, you need to create one.
+
+Premium SEO insights at your fingertips
+Get in-depth insights, know how you're ranking, track competitors, and more with a free trial of Moz Pro.
+
+
+Link Building Header
+20. The 50/50 Rule of Link Building
+Links are a powerful ranking factor. In fact, they might be the most powerful that we know of. If you want to rank, you almost certainly need links, but you've got to know the rules.
+
+Actually, there are two 50/50 rules of link building:
+
+#1. Assume Google ignores 50% of your links, and only 50% of your links are good. In reality, we don't know how many links Google ignores, but it's good to assume this regardless.
+
+Google will ignore or devalue links for many reasons. Among them:
+
+Irrelevance
+Manipulation (if they believe you've engaged in a pattern of linking that violates Webmaster Guidelines)
+Disavowed
+Links are marked nofollowed, or possibly "ugc" or "sponsored"
+Penalized domains
+And more
+Earning links can be one of the most challenging jobs in SEO, so early on, it's tempting to go after the "easy" links, i.e. links you pay for, cheap directory links, blogroll links, etc. But as these are exactly the ones most likely to pass the least value, it's worth it to go after something better.
+
+As Google wants to reward high-quality, "natural" links (editorially given) - these are the links you want to pursue. The upper 50%.
+
+Keep these two guidelines in mind:
+
+The harder the link, the more valuable it can be
+The easier the link, the more likely it can hurt you
+#2. When building link-worthy content, spend 50% of your time actually creating the content itself, and 50% of your time promoting it.
+
+"If you build it, they will come."
+
+Sorry. No they won't.
+
+Link building is typically an active endeavor. True, some types of content naturally earn links (and we'll incorporate these into our checklist.) But too many people create content and falsely believe the content is going to do all the work for them.
+
+If you want to rank, you've got to roll up your sleeves and tell people about it.
+
+Outreach is tough for some, but if you want to get better, we highly recommend reading these link building promotion tactics from our friends at Siege Media.
+
+Link Building for Beginners
+Want to dive a little deeper? We cover the topic of link building in our Beginner's Guide to SEO.
+
+Read the guide 
+21. Don't Create Content Until You Do This First
+Many link building campaigns fail, or at least fall short of their goals.
+
+Link building can fail for many reasons: content that doesn't resonate, poor design/layout, not enough outreach, and many other reasons.
+
+That said, one reason for link building failure stands head and tails above the rest: you created content before you knew exactly who was likely to link to it.
+
+Link building needn't be a guessing game. Too often, folks create content and only then go looking for link targets, only to find that very few opportunities actually exist. Wasted effort!
+
+Instead, you want to guarantee your success. Or at least improve your chances.
+
+Fortunately, SEO tools contain a ton of actionable link data. You can find out ahead of time:
+
+What type of content earns the most links
+What topics are trending
+Exactly the kind of content that journalists/publishers/bloggers are looking for
+When you understand these data points ahead of time, you can create content that exactly fills an existing need. You also know who to reach out to—or who your audience is—before investing a ton of work.
+
+Rule: Don't create content until you first know exactly who's likely to link to it.
+
+Further reading: How to Start a Link Building Campaign
+
+22. The Easiest Shortcut to Good Links
+The same way you can leverage your competition to find the most profitable keywords, some of the easiest link building opportunities you will find will also come directly from your competitors.
+
+In addition to using SEO tools to see who's linking to your competition, and what type of content has earned your competition the most links, you can investigate the numbers and sources of links pointing to the most popular sites on the web by exploring Moz's top 500 sites list, organized by metrics like number of linking domains. When looking into these or smaller competitors' inbound links, it's typically a no-brainer to perform a simple link gap analysis.
+
+Here's one technique for a simple link gap analysis:
+
+See who's ranking in Google for your target keyword
+Select 2-3 of the top ranking URLs
+Use a link research tool to find pages that link to each of your competitor URLs (but not to you)
+Here's what this looks like in Link Explorer:
+
+Link Explorer
+When a page links to multiple top ranking pages, it's typically a resource-type page. The barrier to getting a link for yourself from these resource pages is usually far lower than other types of pages (as long as you can show your content is superior!)
+
+Another similar tactic this pairs well with is broken link building. Whatever you choose, be sure to find who is linking to the competition, and earn those links for yourself.
+
+Related Reading: Link Gap Analysis for SEO
+
+Link Gap Analysis for SEO
+Want a free template for better link gap analysis? We've got you covered.
+
+Read the Guide 
+23. Tentpole & Flywheels: Link Building on AutoPilot
+Link building outreach is cool, but you know what's even cooler? Content that earns links completely on it's own.
+
+No outreach required.
+
+Since this process requires you to create at least one piece of "linkbait" content, it makes sense to create content that earns more and more links over time. This is one type of "Flywheel Marketing."
+
+Consider this scenario: A blogger needs to write about housing costs in Canada. They Google "most expensive small cities CA" and find a data-rich article on the first page. They link to this article, citing it as a source.
+
+This type of "natural" link building happens all the time, thousands of times a day.
+
+The trick to this type of flywheel link building is creating content that is naturally "citable" by bloggers and journalists. These types of content include (with our own examples from Moz):
+
+Studies: 7 Search Ranking Factors Analyzed: A Follow-Up Study
+Statistics/Data: How Data-Driven Content Marketing Builds Links and Earns Press Mentions
+"How To" Content: How-To Content Isn’t Going Anywhere
+Guides: How Search Engines Work
+Tools: Domain SEO Analysis Tool
+Wikis/Reference: SEO Glossary of Terms
+Once these types of content start ranking, they tend to naturally earn more and more links over time, pushing them—and your site—even higher in search results.
+
+That said, don't throw away your manual outreach strategies entirely. For newer and less visible sites, it often takes a fair degree of effort to get your link building flywheel moving. This often means a lot of manual outreach at the beginning, and then momentum to continually carry you forward.
+
+Smarter, not harder.
+
+Related Reading: Building a Marketing Flywheel
+
+24. A World of Link Building Tactics
+While this checklist gives you a number of link building guidelines, in truth, the greatest success comes when you color outside the lines.
+
+Don't be tied to a single tactic! Link building can be challenging, especially before you get the hang of it, and you often have to try multiple angles before something sticks.
+
+Because all content is different, and so is each audience, the best link building tactic is the one that you invent.
+
+If you need inspiration into the literally 100s of different link building tactics that others have invented previously, check out:
+
+Link Building Tactics (Beginner's Guide to Link Building)
+Link Building Strategies: The Complete List
+Moz Blog’s Link Building category
+Website Ranking Tips Fireside Chat
+Get practical insights on ranking higher from Cyrus Shepard and Google's John Mueller.
+
+Watch now 
+25. Keep It Fresh: Links, Content, & Engagement
+Congrats! You now have a page that ranks.
+
+But can you keep your ranking?
+
+Google constantly shifts rankings based on relevancy. Earning a #1 spot is terrific, but only if you can hold onto it for the long run. This means keeping your SEO fresh.
+
+Many SEOs understand that freshness is a ranking signal, but they mistakenly believe that it only applies to the content itself. E.g. updating the publish date and refreshing the content every couple of years.
+
+In truth, Google looks at several different types of freshness signals, and it's best to keep them all in mind. These may include:
+
+Date last updated
+Amount of content updated (significant vs minor)
+How often content is updated, i.e. a regular cadence may signal more freshness than updating only occasionally
+How often you create new pages on your site
+Rate of new link growth (don't let your link building stagnate)
+Freshness of traffic and engagement signals (less relevant sites tend to have declining engagement)
+So after you do the work of ranking, you have to work to keep it there. Freshness isn't simply about the content itself, but about the entire SEO experience to continually deliver the most relevant result to the user.
+
+Keep it relevant. Keep it fresh.
+
+This is how you rank. Best of luck with your SEO!
+
+Ready to increase your rankings?
+Moz Pro can help. Give our all-in-one SEO suite a spin.
+
+
+Scale revenue from SEO with Moz Pro
+Get started with the all-in-one SEO tool marketers trust
+
+Get the latest SEO tips and strategies in your inbox
+
+I acknowledge that my data will be processed by Moz and accept to be contacted by email with relevant promotional information. For more, see Moz's privacy policy.
+Back to Top 
+Read Next
+The Beginner's Guide to SEO
+The Beginner's Guide to SEO
+New to SEO? Looking for higher rankings and traffic through Search Engine Optimization? The Beginner's Guide to SEO has been read over 10 million times.
+
+The SEO's Guide to Content Marketing
+The SEO's Guide to Content Marketing
+What is content marketing, and how does it relate to SEO? This guide takes you from definition to practice to analysis and reporting: everything you need to know about content + SEO.
+
+How to Do an SEO Competitor Analysis
+How to Do an SEO Competitor Analysis
+Discover how to analyze your SEO competitors, uncover keyword gaps, and boost your rankings with our step-by-step guide. Download the free template and start outranking competitors today!
+
+Get started with Moz Pro!
+Unlock the power of advanced SEO tools and data-driven insights.
+
+Products 
+Moz Pro
+Moz Local
+Moz API
+Moz Data
+STAT
+Product Updates
+Moz Solutions
+SMB Solutions
+Agency Solutions
+Enterprise Solutions
+Digital Marketers
+Free SEO Tools 
+Domain Authority Checker
+Link Explorer
+Keyword Explorer
+Competitive Research
+Brand Authority Checker
+Local Citation Checker
+MozBar Extension
+MozCast
+Resources
+Blog
+SEO Learning Center
+Help Hub
+Beginner's Guide to SEO
+How-to Guides
+Moz Academy
+API Docs
+About Moz
+About
+Team
+Careers
+Contact
+Why Moz
+Case Studies
+Testimonials
+Get Involved
+Become an Affiliate
+MozCon
+Webinars
+Practical Marketer Series
+MozPod
+Connect with us
+    
+Contact the Help team
+
+Join our newsletter
+© 2021 - 2026 SEOMoz, Inc., a Ziff Davis company. All rights reserved. Moz is a registered trademark of SEOMoz, Inc.
+Accessibility
+Terms of Use
+Privacy
+
+
+Products
+Pricing
+Resources
+Enterprise
+Login
+Sign up
+Blog
+SEO
+Marketing
+News & Research
+Product
+Don’t miss out. Try 55+ products for free.
+
+Sign up for a free Semrush One trial to:
+See how LLMs talk about you
+Track keyword and prompt rankings
+Spot visibility gaps in ChatGPT and AI Mode
+Get personalized performance metrics
+Streamline SEO and AI audits
+Uncover questions your audience asks
+Get AI-powered recommendations
+Find brand mention opportunities
+Succeed with search engines and LLMs:
+Accelerate your search strategy across Google, ChatGPT, and more with the SEO Toolkit + AI Visibility Toolkit together as Semrush One. Try it for free.
+Theme switcher
+Semrush
+Blog
+SEO
+General SEO
+How to Rank Higher on Google and Get More Organic Traffic
+Author:Rachel Handley
+8 min read
+Nov 28, 2024
+Contributors: Sydney Go and Selina Scheumann
+Ranking higher on Google increases your visibility in search results, which can lead to more organic traffic to your site.
+
+Learn how to rank higher on Google and get more organic (unpaid) traffic to your website.
+
+1. Align Your Content with Search Intent
+Search intent is the purpose behind a user’s search, and satisfying it is key to ranking higher in Google Search.
+
+After all, Google wants to serve results that satisfy its users’ queries.
+
+You can find a keyword’s search intent by looking it up on Google. And observing the top-ranking results.
+
+For example, the search engine results page (SERP) for “best protein powder” has a lot of product roundups.
+
+Which is a strong indicator that searchers using this keyword probably want to see product roundups from peers and health experts.
+
+listicle articles rank higher on google for this keyword
+To rank highly, you probably need to create similar content. While also ensuring your content has unique information and provides a great user experience.
+
+Do this by making sure your content has the following characteristics:
+
+It uses clear headers so readers can get the main points of your article quickly
+It uses simple, conversational language readers can easily understand
+It’s accurate and original 
+It’s comprehensive, meaning it covers all the relevant main points your competitors cover
+If you can’t or don’t want to fulfill a particular intent, it’s probably best to target another keyword.
+
+2. Target Low-Difficulty Keywords
+Keyword difficulty is a measure of how hard it is to rank highly for a given keyword, so it’s important to look up a keyword’s difficulty score before deciding to create or optimize content for it.
+
+Here’s how.
+
+Let’s say you run a small tech website or store.
+
+Targeting the keyword “iphone” might seem like a good idea. After all, you sell iPhones, and your target audience is interested in them.
+
+The problem is “iphone” has the highest possible difficulty score of 100%, according to Semrush’s Keyword Magic Tool:
+
+keyword difficulty score is 100%
+This means it’s extremely difficult to outrank the top results since they’re mainly high-authority sites from big brands.
+
+The good news is there are keywords related to “iphone” that may be more attainable.
+
+To find them, enter “iphone” into the Keyword Magic Tool.
+
+search for keyword in the tool
+The tool will provide a list of keyword ideas.
+
+If you enter your domain into the tool, you’ll also get your Personal Keyword Difficulty (PKD %) score. Which represents how hard it’ll be for your domain, in particular, to rank highly.
+
+domain entered with keyword personal keyword difficulty score columns highlighted
+Focusing on keywords with a 0% to 29% (very easy to easy) PKD % can be an effective way to rank higher on Google Search.
+
+3. Focus on Originality and Unique Insights
+Focusing on originality and adding unique insights to your content can help your content stand out.
+
+Additionally, Google says it values the uniqueness of content.
+
+Here are some ways to add unique value to your content:
+
+Add ideas, insights, or opinions that aren’t covered elsewhere
+Create your own images, infographics, and videos
+Conduct original research and share your findings
+Share your personal experiences or expert take
+Just make sure your unique elements add value for target users.
+
+4. Optimize for Prominent SERP Features
+SERP features are enhanced elements on the SERP. Appearing in them can mean ranking higher on Google.
+
+For example, Google sometimes displays an AI Overview at the top of search results.
+
+If you optimize for AI Overviews, you stand a better chance of getting featured. Like the Mayo Clinic does here:
+
+ai overview serp feature shows this domain ranks highly on google
+Featured snippets also tend to appear at the top of the page when they’re triggered.
+
+These are large page extracts designed to provide an immediate response to the user’s query. And it’s possible to optimize for them.
+
+For example, this is the featured snippet for “what does a giraffe look like.” It contains text, some images, and a link to the snippet source (Britannica).
+
+featured snippet serp feature addresses the query and provides pictures
+If you use Google Search Console to track your rankings, it’s important to note that it doesn’t provide data about SERP features.
+
+If you want to track your appearance in SERP features, use a tool like Position Tracking.
+
+In the “Overview” report, the “Pos.” columns show your organic position for each target keyword. And the presence of an icon means you rank for a SERP feature.
+
+serp feature icon is highlighted in the rankings overview table
+You can see what SERP feature opportunities are available by clicking the numbers in the “SF” column. Then clicking the “View SERP” icon to see how high up each feature appears on the SERP.
+
+view serp icon labeled in the table
+5. Improve Your On-Page SEO
+On-page SEO is the process of optimizing a specific webpage to help search engines understand its purpose and quality.
+
+On-page SEO is largely about using keywords (search terms you want to rank for) strategically.
+
+To start, choose a primary keyword that represents the overall topic of your page. And try to naturally incorporate it into the following locations:
+
+Title tag: The HTML page title that can appear in search results. It’s important that this describes your page well and encourages target users to click through.
+Meta description: The HTML page description that can appear in search results. It doesn’t impact rankings directly, but it should help users understand what your page is about.
+H1 tag: The HTML tag that contains the main on-page heading. This should be the same as or very similar to your title tag.
+Alt text: HTML image descriptions. These should help search engines and screen reader users understand what images depict. 
+URL slug: The unique part of the webpage address. It should be concise and descriptive.
+Body content: Try to use the keyword in the first paragraph or so to quickly establish relevance. And use it throughout, where natural.
+Any other relevant keywords are called secondary keywords. And they should appear in your subheadings, body content, and alt text, where appropriate.
+
+You can get bespoke recommendations for your existing content with the On Page SEO Checker.
+
+It provides optimization ideas based on SEO best practices and analyses of your top-ranking competitors. And helps you decide which pages to work on first.
+
+on page seo checker shows ideas for various categories and top pages to optimize
+6. Build Backlinks from Authoritative Sites
+If the quality of your content is similar to competitors’, you may need more backlinks (links from other websites) to set you apart. 
+
+Google considers backlinks to be a reflection of domain and page authority. So backlinks from highly reputable sites (like Forbes or Insider) tell Google that your content is trustworthy.
+
+Here are some ways to get backlinks from relevant and reputable sites:
+
+Send outreach emails to creators who might be interested in sharing your content with their audience
+Find unlinked mentions of your brand with the Brand Monitoring app, then persuade creators to include a link
+Use Backlinks to find broken backlinks to your own or competitors’ sites, then persuade creators to replace them with functioning links to your site
+Just a few targeted backlinks from reputable sites can help a specific page rank higher on Google.
+
+But building your overall website authority (and search visibility) will take more time and effort.
+
+7. Improve Page Performance to Enhance Your User Experience
+Google considers performance metrics known as Core Web Vitals when ranking search results because they have a significant impact on the user experience.
+
+Largest Contentful Paint (LCP) measures how long it takes for the largest element on the page to load
+Cumulative Layout Shift (CLS) measures how much elements move around as the page loads
+Interaction to Next Paint (INP) measures how long it takes for the page to respond to a user interaction
+You can check your Core Web Vitals through Google’s PageSpeed Insights tool.
+
+core web vitals assessment includes LCP, INP, CLS, and other notable metrics
+For maximum impact on rankings, focus on transforming red (poor) metrics into yellow (need improvement) metrics. Then transforming yellow metrics into green (good) metrics.
+
+Google provides a list of recommendations in the “Diagnostics” section of your report.
+
+diagnostics issue list
+Common issues include large image files, unoptimized code, too many redirects, lack of browser caching, and render-blocking JavaScript.
+
+8. Conduct a Technical SEO Audit
+A technical SEO audit helps you find technical issues that could hold your website rankings back.
+
+For example, it can check for critical issues with:
+
+Crawling and indexing, which are processes Google uses to find and store your content
+Duplicate content, which can confuse search engines
+HTTPS encryption, which is important for website security
+Mobile usability, which is extremely important to ranking on Google
+Core Web Vitals, which are page experience metrics that affect your rankings
+Fixing these kinds of problems can help you rank higher on Google.
+
+You can identify the most important issues through the Google Search Console website. 
+
+There are reports for page indexing, Core Web Vitals, HTTPS, etc. Which you can learn more about in our Google Search Console guide.
+
+Google search console page indexing report shows pages not indexed and those that are indexed
+Alternatively, perform a more detailed analysis with a tool like Site Audit. 
+
+It categorizes issues into errors, warnings, and notices to help you prioritize tasks. And provides advice on how and why to fix each one.
+
+Site audit issues list shows errors like too large html size, invalid data items, broken internal links, and more
+Bonus: How to Rank Higher in Google’s Local Results
+If you have a location-based business, learn how to rank higher in Google’s local results.
+
+Local SEO can help you get more web traffic, foot traffic, and inquiries.
+
+Optimize Your Google Business Profile
+Optimizing your Google Business Profile (GBP) helps it rank higher in map-based results like this:
+
+local pack with google business profiles highlighted to the left of the google map
+You can manage your profile via the GBP website.
+
+Here’s a quick checklist for you to follow:
+
+Verify your listing
+Provide complete and accurate business information—and keep it updated
+Include local keywords in your business description
+Encourage customers to leave Google reviews
+Respond to your Google reviews
+The GBP platform lets you see what queries people use to find your business. And allows you to monitor key performance metrics, like the number of clicks you get.
+
+google business profile performance report shows interactions, views, and more
+But you’ll need to use external tools to monitor your rankings.
+
+The Map Rank Tracker allows you to track your profile’s visibility in Google Maps. 
+
+map rank tracker shows a google map with how a business ranks in various parts of a city
+While the Position Tracking tool shows whether your profile appears in Google Search.
+
+google business profile ranking highlighted in the rankings overview table
+Get More NAP Citations
+Lots of consistent NAP (name, address, and phone number) citations can help you rank higher in Google because they make your business more prominent and corroborate your information.
+
+So, make sure your business is listed on reputable and relevant directories. And make sure they all use the exact same information.
+
+You can streamline this process with the Listing Management tool.
+
+Use the search bar to find your business. Then, the tool will show any key listings you need to fix.
+
+NAP citation errors list shows things like wrong phone number, not present, wrong business name, and more
+If you subscribe to Semrush Local, you can use the tool to submit the correct information to all these listings simultaneously. You’ll also get access to other local SEO tools.
+
+Start Tracking Your Rankings in Google
+The Position Tracking tool makes it easy to see if you’re ranking higher on Google.
+
+Here are just some of its advantages over using Google Search Console:
+
+Compare keyword rankings across your chosen time range
+Get email alerts about important ranking changes
+Check for SERP feature rankings and opportunities
+Track your positions in multiple and specific locations
+See how your visibility compares to competitors’
+position tracking overview report compares a business's google rankings compared to a competitor in the same location
+Track Your Google Rankings
+
+with the Position Tracking Tool
+
+Try for Free
+Share
+Subscribe to learn more about General SEO
+Your email
+By clicking “Subscribe” you agree to Semrush Privacy Policy and consent to Semrush using your contact data for newsletter purposes
+
+Rachel Handley
+Rachel is a Senior Content Writer with 12+ years‘ experience in content marketing and SEO. She has worked agency-side, developing and executing content strategies for a wide range of brands, and in-house, driving organic growth for a SaaS startup.
+Share
+Table of contents
+1. Align Your Content with Search Intent
+2. Target Low-Difficulty Keywords
+3. Focus on Originality and Unique Insights
+Show all table of contents
+Semrush One
+Everything you need to win AI visibility and drive SEO success
+
+Free 7-day Trial
+
+Boost your digital marketing efforts
+
+Get free trial
+GET STARTED WITH SEMRUSH TODAY
+Try Semrush free for seven days. Cancel anytime.
+
+Start free trial
+Semrush
+
+Semrush One
+Features
+Pricing
+Compare Semrush
+Success Stories
+Stats and Facts
+Affiliate Program
+More tools
+
+Enterprise SEO
+Enterprise AIO
+Enterprise SI
+Insights24
+Mfour
+App Center
+Top Websites
+Free Tools
+Sensor
+Company
+
+About Us
+News
+Careers
+Partners
+For Investors
+Semrush Select
+Global Issues Index
+Contact Us
+Support
+
+Knowledge Base
+Academy
+Semrush API
+Community
+
+Semrush Blog
+Webinars
+Ambassador Program
+© 2008 - 2026 Semrush. All rights reserved.
+
+Privacy Policy
+Terms of Service
+Cookies Settings
+
+English

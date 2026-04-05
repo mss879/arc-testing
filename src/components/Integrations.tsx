@@ -138,7 +138,7 @@ const IntegrationCard = ({ integration }: { integration: Integration }) => {
 
         {/* Text content */}
         <div className="mt-3">
-          <h3 className="text-base font-semibold mb-1.5 text-white">{integration.name}</h3>
+          <p className="text-base font-semibold mb-1.5 text-white">{integration.name}</p>
           <p className="text-xs text-gray-400 leading-relaxed">{integration.description}</p>
         </div>
       </div>

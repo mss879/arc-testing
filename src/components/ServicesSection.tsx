@@ -210,7 +210,7 @@ const ServicesSection = () => {
               variants={headingVariants}
             >
               <h2 className="services-subtitle">How can we help</h2>
-              <h2 className="services-title">Your business grow</h2>
+              <p className="services-title">Your business grow</p>
             </motion.div>
           </div>
         </div>
@@ -246,7 +246,7 @@ const ServicesSection = () => {
                 <div className="services-number services-number-dim">
                   {service.number}
                 </div>
-                <h5 className="services-service-title">{service.title}</h5>
+                <h3 className="services-service-title">{service.title}</h3>
                 <div 
                   className="services-icon" 
                   aria-hidden="true"
