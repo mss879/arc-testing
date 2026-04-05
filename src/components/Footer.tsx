@@ -405,10 +405,10 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              <p className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                 Beyond Visuals.<br />
                 Built with Vision.
-              </h3>
+              </p>
             </motion.div>
           </div>
         </div>

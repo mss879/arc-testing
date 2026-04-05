@@ -48,7 +48,7 @@ const Benefits = () => {
                   loading="lazy" />
               </div>
               <div className="mt-4 pb-2">
-                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Strategy-First Execution</h3>
+                <p className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Strategy-First Execution</p>
                 <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed">We don't pull tactics from thin air. Every system we architect is rooted in deep operational clarity and scalable design.</p>
               </div>
             </Card>
@@ -60,11 +60,11 @@ const Benefits = () => {
               <Card index={1} className="relative overflow-hidden p-0 flex-[3] min-h-[180px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700" />
                 <div className="relative flex flex-col h-full p-6">
-                  <h3 className="text-lg md:text-xl font-semibold text-white leading-tight mb-2">
+                  <p className="text-lg md:text-xl font-semibold text-white leading-tight mb-2">
                     Quality Over
                     <br />
                     Quantity, Always
-                  </h3>
+                  </p>
                   <div className="absolute left-6 bottom-0 translate-y-[73%] md:translate-y-[67%] w-16 md:w-20 select-none pointer-events-none">
                     <Image src="/images/brush.webp"
                       alt="brush"
@@ -84,7 +84,7 @@ const Benefits = () => {
               <Card index={2} className="relative bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 flex-[1] min-h-[100px] overflow-hidden">
                 <div className="flex items-center h-full gap-4 md:gap-6 px-4">
                   <div className="flex flex-col justify-center">
-                    <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-none">24/7</h3>
+                    <p className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-none">24/7</p>
                     <p className="text-[11px] md:text-xs text-zinc-400 mt-2">Priority Support</p>
                   </div>
                   <div className="relative ml-auto">
@@ -128,7 +128,7 @@ const Benefits = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-black/10 to-black/70" />
               </div>
               <div className="p-5">
-                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Bespoke Engineering</h3>
+                <p className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Bespoke Engineering</p>
                 <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed max-w-[280px]">
                   No cookie-cutter templates. We architect custom solutions engineered explicitly for your operational goals.
                 </p>
@@ -157,7 +157,7 @@ const Benefits = () => {
 
               {/* Text Area explicitly positioned at the bottom */}
               <div className="relative flex flex-col justify-end h-full p-6 md:p-8 z-10 pt-48">
-                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Collaborative Partnership</h3>
+                <p className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Collaborative Partnership</p>
                 <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed max-w-sm">
                   We don't just build for you; we build with you. True collaboration creates solutions that actually fit your workflow.
                 </p>
@@ -187,7 +187,7 @@ const Benefits = () => {
               </div>
 
               <div className="relative z-10 flex flex-col justify-center h-full pt-10 pb-4 pl-5 pr-4">
-                <h3 className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Data-Driven Performance</h3>
+                <p className="text-2xl font-semibold text-white mb-3 leading-tight tracking-tight">Data-Driven Performance</p>
                 <p className="text-[12px] md:text-sm text-zinc-300 leading-relaxed max-w-[280px] md:max-w-xs mb-4">
                   Beautiful design is only half the equation. We architect scalable solutions backed by analytics, ensuring every interaction translates to measurable business growth.
                 </p>

@@ -246,7 +246,7 @@ const ServicesSection = () => {
                 <div className="services-number services-number-dim">
                   {service.number}
                 </div>
-                <h3 className="services-service-title">{service.title}</h3>
+                <p className="services-service-title">{service.title}</p>
                 <div 
                   className="services-icon" 
                   aria-hidden="true"

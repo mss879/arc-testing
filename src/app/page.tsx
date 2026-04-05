@@ -160,19 +160,19 @@ export default function HomePage() {
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Dual-Market Expertise</h3>
+                  <p className="text-lg font-semibold text-white">Dual-Market Expertise</p>
                   <p className="text-zinc-400 leading-relaxed">
                     With teams in both the UK and Sri Lanka, we understand the unique business landscape, consumer behaviour, and digital marketing dynamics of both markets. This is why businesses consistently rank ARC AI among the top AI companies in Sri Lanka — our dual presence allows us to offer competitive pricing without compromising on quality.
                   </p>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">AI-First Approach</h3>
+                  <p className="text-lg font-semibold text-white">AI-First Approach</p>
                   <p className="text-zinc-400 leading-relaxed">
                     Unlike traditional agencies, we integrate AI into everything we build. From AI-powered content generation and automated customer service to predictive analytics and smart sales funnels, every solution is designed to learn, adapt, and improve over time.
                   </p>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Proven Results</h3>
+                  <p className="text-lg font-semibold text-white">Proven Results</p>
                   <p className="text-zinc-400 leading-relaxed">
                     Our portfolio speaks for itself — with a 4.9 out of 5 rating on Google Reviews and over 100 successful projects delivered. We have helped clients increase leads by up to 67%, reduce operational costs by 45%, and achieve measurable growth across key performance indicators.
                   </p>
