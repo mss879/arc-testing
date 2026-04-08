@@ -1,6 +1,5 @@
 // Server Component - Optimized for SEO
 import { Metadata } from "next";
-import Link from "next/link";
 import NextImage from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,8 +9,6 @@ import SchemaOrg from "@/components/SchemaOrg";
 import PortfolioHero from "@/components/PortfolioHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ScrollToTop from "@/components/ScrollToTop";
-import UpcomingLaunchesCarousel, { LaunchItem } from "@/components/UpcomingLaunchesCarousel";
-import { supabase } from "@/lib/supabase";
 
 // SEO Metadata for Portfolio Page
 export const metadata: Metadata = {
@@ -59,24 +56,24 @@ export const metadata: Metadata = {
   },
 };
 
-async function getLaunches() {
-  const { data } = await supabase
-    .from('upcoming_launches')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  // Transform or cast data if needed. 
-  // Supabase returns string for launch_date, ensuring it matches LaunchItem which expects string | null.
-  return (data as any[])?.map(item => ({
-    ...item,
-    status: item.status as 'planned' | 'development' | 'ready'
-  })) as LaunchItem[] || [];
-}
-
 export default async function Portfolio() {
-  const launches = await getLaunches();
-
   const portfolioItems = [
+    {
+      id: 31,
+      title: "Agenly",
+      description: "An innovative SaaS platform that empowers businesses to build, train, and deploy custom AI agents in minutes. Features seamless integration with Next.js, WordPress, and popular social channels without requiring any coding expertise.",
+      image: "/agenly.online.webp",
+      link: "https://www.agenly.online/",
+      status: "live"
+    },
+    {
+      id: 30,
+      title: "Mulberry Living",
+      description: "A premium Next.js platform and tailored booking system developed for a tranquil boutique accommodation in Negombo. Engineered for a seamless user experience to handle property reservations smoothly.",
+      image: "/mulberry-living.webp",
+      link: "https://www.mulberry-living.com/",
+      status: "live"
+    },
     {
       id: 29,
       title: "Java Global Access Platform LLC",
@@ -407,17 +404,7 @@ export default async function Portfolio() {
         {/* Hero Section with Animation */}
         <PortfolioHero />
 
-        {/* SEO Context */}
-        <section className="px-6 lg:px-12 pb-8 -mt-8" aria-label="Portfolio introduction">
-          <div className="max-w-[1800px] mx-auto">
-            <p className="text-zinc-400 text-base leading-relaxed max-w-3xl">
-              As one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link> and the UK, ARC AI has delivered 100+ successful projects across AI automation, web design, branding, and digital marketing.
-            </p>
-          </div>
-        </section>
 
-        {/* Upcoming Launches Section */}
-        <UpcomingLaunchesCarousel launches={launches} />
 
         {/* Portfolio Grid */}
         <section className="relative px-6 lg:px-12 pb-32" aria-label="Portfolio projects">
@@ -428,7 +415,7 @@ export default async function Portfolio() {
                   key={item.id}
                   href={item.link}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   aria-label={`${item.title} - view project (opens in new tab)`}
                   className="group cursor-pointer transition-all duration-700 opacity-100 translate-y-0"
                   style={{
@@ -441,7 +428,7 @@ export default async function Portfolio() {
                       <div className="relative w-full h-full">
                         <NextImage
                           src={item.image}
-                          alt={item.title}
+                          alt={`${item.title} - Custom Web Design & Software built by ARC AI`}
                           fill
                           className="object-contain transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -502,30 +489,32 @@ export default async function Portfolio() {
                     </p>
 
                     {/* Results */}
-                    <div className="pt-3 mt-3 border-t border-zinc-700/50">
-                      <div className="flex items-center gap-2 mb-2">
-                        <svg
-                          className="w-4 h-4 text-green-500"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                          />
-                        </svg>
-                        <p className="text-xs text-green-500 uppercase tracking-wider font-bold">
-                          Results
+                    {item.results && (
+                      <div className="pt-3 mt-3 border-t border-zinc-700/50">
+                        <div className="flex items-center gap-2 mb-2">
+                          <svg
+                            className="w-4 h-4 text-green-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                            />
+                          </svg>
+                          <p className="text-xs text-green-500 uppercase tracking-wider font-bold">
+                            Results
+                          </p>
+                        </div>
+                        <p className="text-sm md:text-base text-zinc-200 leading-relaxed font-medium">
+                          {item.results}
                         </p>
                       </div>
-                      <p className="text-sm md:text-base text-zinc-200 leading-relaxed font-medium">
-                        {item.results}
-                      </p>
-                    </div>
+                    )}
                   </div>
                 </a>
               ))}
@@ -556,7 +545,7 @@ export default async function Portfolio() {
                   key={template.id}
                   href={template.link}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   aria-label={`${template.title} demo (opens in new tab)`}
                   className="group cursor-pointer transition-all duration-700 opacity-100 translate-y-0"
                   style={{
@@ -569,7 +558,7 @@ export default async function Portfolio() {
                       <div className="relative w-full h-full">
                         <NextImage
                           src={template.image}
-                          alt={template.title}
+                          alt={`${template.title} - Premium Web Design Template by ARC AI`}
                           fill
                           className="object-contain transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
