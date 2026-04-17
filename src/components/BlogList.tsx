@@ -46,12 +46,12 @@ export default function BlogList() {
         },
         {
             id: "software-company-sri-lanka",
-            title: "Top Software Company in Sri Lanka: Replacing Legacy Code with AI",
+            title: "Top Software Companies in Sri Lanka: Replacing Legacy Code with AI",
             date: "April 8, 2026",
             category: "Software Engineering",
             image: "/arc-ai-software-company-sri-lanka.webp",
-            excerpt: "Compare traditional enterprise legacy agencies in Sri Lanka with ARC AI. Learn why the top software company in Sri Lanka uses Serverless architecture and Edge AI.",
-            tags: ["Software Company Sri Lanka", "Smart Websites", "Serverless", "AI Integration"]
+            excerpt: "Compare traditional enterprise legacy agencies in Sri Lanka with ARC AI. Learn why the top software companies in Sri Lanka use Serverless architecture and Edge AI.",
+            tags: ["Software Companies Sri Lanka", "Smart Websites", "Serverless", "AI Integration"]
         },
         {
             id: "how-ai-transforms-sri-lanka-businesses-2026",
@@ -98,15 +98,7 @@ export default function BlogList() {
             excerpt: "Discover how AI companies in Sri Lanka are revolutionising tourism, real estate, e-commerce, healthcare, and manufacturing with custom AI solutions.",
             tags: ["AI Sri Lanka", "AI Tourism", "AI Real Estate", "Digital Transformation"]
         },
-        {
-            id: "best-ai-companies-sri-lanka-2026",
-            title: "Best AI Companies in Sri Lanka (2026) — Complete Guide",
-            date: "April 4, 2026",
-            category: "AI Companies",
-            image: "/ai_companies_sri_lanka_blog.webp",
-            excerpt: "Discover the best AI companies in Sri Lanka for 2026. Learn what to look for in an AI partner and why ARC AI leads Sri Lanka's AI industry.",
-            tags: ["AI Companies Sri Lanka", "Top AI Companies", "AI Agency Colombo", "AI Chatbots"]
-        },
+
         {
             id: "smart-websites-sri-lanka-2026",
             title: "Why Your Sri Lankan Business Needs a Smart Website in 2026",

@@ -170,11 +170,11 @@ export default function BlogPost() {
 
                     {/* Navigation */}
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mt-12 pt-8 border-t border-neutral-800 flex items-center justify-between">
-                        <Link href="/blog/best-ai-companies-sri-lanka-2026" className="group flex items-center gap-2 text-neutral-400 hover:text-[rgb(255,73,37)] transition-colors">
+                        <Link href="/ai-companies-sri-lanka" className="group flex items-center gap-2 text-neutral-400 hover:text-[rgb(255,73,37)] transition-colors">
                             <ArrowLeft className="w-5 h-5" />
                             <div>
-                                <div className="text-xs uppercase tracking-wider mb-1">Previous</div>
-                                <div className="font-semibold">Best AI Companies in Sri Lanka</div>
+                                <div className="text-xs uppercase tracking-wider mb-1">Previous Article</div>
+                                <div className="font-semibold">Top AI Companies in Sri Lanka</div>
                             </div>
                         </Link>
                         <Link href="/blog/ai-for-tourism-sri-lanka" className="group flex items-center gap-2 text-neutral-400 hover:text-[rgb(255,73,37)] transition-colors text-right">

@@ -3,8 +3,8 @@ import BlogPost from "./content";
 
 export async function generateMetadata(): Promise<Metadata> {
     const post = {
-        title: "Top Software Company in Sri Lanka: Replacing Legacy Code with AI | ARC AI",
-        excerpt: "Compare traditional enterprise legacy agencies in Sri Lanka with ARC AI. Learn why the top software company in Sri Lanka uses Serverless architecture and Edge AI.",
+        title: "Top Software Companies in Sri Lanka: Replacing Legacy Code with AI | ARC AI",
+        excerpt: "Compare traditional enterprise legacy agencies in Sri Lanka with ARC AI. Learn why the top software companies in Sri Lanka use Serverless architecture and Edge AI.",
         featuredImage: "https://www.arcai.agency/arc-ai-software-company-sri-lanka.webp"
     };
 

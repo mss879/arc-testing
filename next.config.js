@@ -82,6 +82,16 @@ const nextConfig = {
   generateBuildId: async () => {
     return 'build-' + Date.now()
   },
+  // Add redirects for keyword cannibalization
+  async redirects() {
+    return [
+      {
+        source: '/blog/best-ai-companies-sri-lanka-2026',
+        destination: '/ai-companies-sri-lanka',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

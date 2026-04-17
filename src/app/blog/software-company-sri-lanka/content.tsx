@@ -21,7 +21,7 @@ export default function BlogPost() {
                             Technical Analysis & Market Positioning
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                            Why the Next Top <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-500">Software Company in Sri Lanka</span> Isn't Using Legacy Code
+                            Why the Top <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-500">Software Companies in Sri Lanka</span> Aren't Using Legacy Code
                         </h1>
                         <p className="text-xl text-neutral-400 mb-8 max-w-2xl mx-auto">
                             An aggressive technical teardown comparing traditional enterprise IT powerhouses against ARC AI's serverless, AI-native edge architecture.
@@ -54,7 +54,7 @@ export default function BlogPost() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="prose prose-invert prose-lg max-w-none">
                         <div className="space-y-6 text-neutral-300 leading-relaxed">
                             <p className="text-xl text-neutral-200">
-                                If you search for a <strong>software company in Sri Lanka</strong> to modernize your enterprise, you are typically greeted by a roster of monolithic giants. Companies that built their empires two decades ago by operating vast <a href="https://www.wiley.com/en-us/Offshore+Outsourcing%3A+Business+Models%2C+ROI+and+Best+Practices-p-9780471676092" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">offshore outsourcing</a> centers designed to maintain legacy Java and .NET environments for Western enterprises. But the landscape of software engineering has violently shifted.
+                                If you search for <strong>software companies in Sri Lanka</strong> to modernize your enterprise, you are typically greeted by a roster of monolithic giants. Companies that built their empires two decades ago by operating vast <a href="https://www.wiley.com/en-us/Offshore+Outsourcing%3A+Business+Models%2C+ROI+and+Best+Practices-p-9780471676092" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">offshore outsourcing</a> centers designed to maintain legacy Java and .NET environments for Western enterprises. But the landscape of software engineering has violently shifted.
                             </p>
 
                             <p>
@@ -121,7 +121,7 @@ export default function BlogPost() {
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">The ARC AI Advantage: Serverless Edge & AI-Native Integration</h2>
                             <p>
-                                To operate as the premier <strong>software development company in Sri Lanka</strong> for the AI era, ARC AI bypasses the monolithic architecture entirely. We architect software using the <strong>Next.js App Router</strong>, globally distributed database clusters like Supabase, and Serverless Edge Functions that execute code within geographic proximity to the end-user.
+                                To operate as one of the premier <strong>software development companies in Sri Lanka</strong> for the AI era, ARC AI bypasses the monolithic architecture entirely. We architect software using the <strong>Next.js App Router</strong>, globally distributed database clusters like Supabase, and Serverless Edge Functions that execute code within geographic proximity to the end-user.
                             </p>
 
                             <p>
@@ -130,7 +130,7 @@ export default function BlogPost() {
 
                             <h3 className="text-2xl font-bold text-white mt-10 mb-4">Why Outsource When You Can Automate?</h3>
                             <p>
-                                For decades, the entire value proposition of a Sri Lankan software company was labor arbitrage: "Hire developers in Colombo because they are cheaper than developers in London."
+                                For decades, the entire value proposition of traditional <strong>software companies in Sri Lanka</strong> was labor arbitrage: "Hire developers in Colombo because they are cheaper than developers in London."
                             </p>
                             <p>
                                 Our pitch is mathematically superior: <strong>Do not hire developers to do what AI can do flawlessly in milliseconds.</strong>
@@ -149,7 +149,7 @@ export default function BlogPost() {
                                         Deploy the Impossible. Faster.
                                     </h3>
                                     <p className="text-neutral-200 mb-6 max-w-xl">
-                                        If your business relies on a traditional offshore IT agency to modernize your technology stack, your infrastructure is already obsolete. Transition your enterprise to an AI-native edge network designed explicitly for the demands of the 2030s. Contact the best <strong>software company in Sri Lanka</strong> directly.
+                                        If your business relies on a traditional offshore IT agency to modernize your technology stack, your infrastructure is already obsolete. Transition your enterprise to an AI-native edge network designed explicitly for the demands of the 2030s. Work with the leading <strong>software companies in Sri Lanka</strong> directly.
                                     </p>
                                     <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors">
                                         Speak with an ARC Engineer

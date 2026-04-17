@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FloatingActions";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
@@ -580,7 +579,6 @@ export default function AICompaniesSriLankaPage() {
           { label: "AI Companies in Sri Lanka" },
         ]}
       />
-      <FloatingActions />
 
       {/* ─── Hero Section ───────────────────────────────────────────── */}
       <section className="relative pt-8 md:pt-16 pb-20 px-6 lg:px-12">

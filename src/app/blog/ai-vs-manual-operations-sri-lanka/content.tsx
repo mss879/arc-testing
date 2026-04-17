@@ -227,9 +227,9 @@ export default function BlogPost() {
                                 <div className="font-semibold">AI for Tourism in Sri Lanka</div>
                             </div>
                         </Link>
-                        <Link href="/blog/best-ai-companies-sri-lanka-2026" className="group flex items-center gap-2 text-neutral-400 hover:text-[rgb(255,73,37)] transition-colors text-right">
+                        <Link href="/ai-companies-sri-lanka" className="group flex items-center gap-2 text-neutral-400 hover:text-[rgb(255,73,37)] transition-colors text-right">
                             <div>
-                                <div className="text-xs uppercase tracking-wider mb-1">Next</div>
+                                <div className="text-xs uppercase tracking-wider mb-1">Next Article</div>
                                 <div className="font-semibold">Best AI Companies in Sri Lanka</div>
                             </div>
                             <ArrowRight className="w-5 h-5" />
