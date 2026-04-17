@@ -36,6 +36,15 @@ const fadeInUp: Variants = {
 export default function BlogList() {
     const blogPosts = [
         {
+            id: "top-software-companies-sri-lanka",
+            title: "Top 10 Software Companies in Sri Lanka (2026 Guide)",
+            date: "April 17, 2026",
+            category: "Industry Guide",
+            image: "/arc-ai-software-company-sri-lanka.webp",
+            excerpt: "A complete guide to the top 10 software companies in Sri Lanka for 2026. Compare services, technologies, and find the perfect development partner for your next project.",
+            tags: ["Software Companies Sri Lanka", "Digital Transformation", "App Development", "IT Outsourcing"]
+        },
+        {
             id: "automation-companies-sri-lanka",
             title: "Top Automation Companies in Sri Lanka | AI Agents vs Legacy RPA",
             date: "April 8, 2026",
