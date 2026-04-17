@@ -482,7 +482,7 @@ export default function BlogPost() {
                             </div>
                         </Link>
                         <Link
-                            href="/blog/workflow-automation-tools-2024"
+                            href="/ai-automation-sri-lanka"
                             className="group flex items-center gap-2 text-neutral-400 hover:text-accent transition-colors text-right"
                         >
                             <div>

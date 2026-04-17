@@ -136,24 +136,7 @@ export default function BlogList() {
             excerpt: "Learn how AI Agents are revolutionizing Sri Lankan industries from tourism to real estate by automating tasks and improving customer engagement.",
             tags: ["AI Agents", "Automation", "Sri Lanka Business", "Hospitality AI"]
         },
-        {
-            id: "websites-vs-smart-websites-sri-lanka",
-            title: "Websites vs. Smart Websites: Why Sri Lankan Businesses Need to Upgrade",
-            date: "March 15, 2025",
-            category: "Web Development",
-            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
-            excerpt: "Discover the difference between traditional static websites and modern Smart Websites. Learn why Sri Lankan businesses need to upgrade for 24/7 engagement.",
-            tags: ["Smart Websites", "Web Development", "Sri Lanka Business", "Digital Transformation"]
-        },
-        {
-            id: "ai-automation-transform-business-2024",
-            title: "How AI Automation is Transforming Businesses in 2024",
-            date: "Jan 11, 2026",
-            category: "AI Automation",
-            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=80",
-            excerpt: "Discover how AI automation is revolutionizing business operations, increasing efficiency, and reducing costs across industries.",
-            tags: ["AI Automation", "Business Transformation", "Machine Learning", "Productivity"]
-        },
+
         {
             id: "digital-marketing-strategies-2024",
             title: "10 Digital Marketing Strategies That Actually Work in 2024",
@@ -181,15 +164,7 @@ export default function BlogList() {
             excerpt: "Master the art of SEO with proven strategies for keyword research, on-page optimization, link building, and technical SEO to dominate search rankings.",
             tags: ["SEO", "Google Rankings", "Keyword Research", "Content Optimization"]
         },
-        {
-            id: "workflow-automation-tools-2024",
-            title: "Top 10 Workflow Automation Tools Every Business Needs",
-            date: "Dec 15, 2025",
-            category: "AI Automation",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
-            excerpt: "Streamline your business processes with these powerful workflow automation tools. Save time, reduce errors, and boost productivity instantly.",
-            tags: ["Workflow Automation", "Productivity Tools", "Business Efficiency", "Process Automation"]
-        },
+
         {
             id: "social-media-marketing-guide",
             title: "Social Media Marketing: A Complete Guide for 2024",

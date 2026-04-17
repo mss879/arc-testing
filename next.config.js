@@ -95,6 +95,21 @@ const nextConfig = {
         destination: '/blog/top-software-companies-sri-lanka',
         permanent: true,
       },
+      {
+        source: '/blog/websites-vs-smart-websites-sri-lanka',
+        destination: '/blog/smart-websites-sri-lanka-2026',
+        permanent: true,
+      },
+      {
+        source: '/blog/ai-automation-transform-business-2024',
+        destination: '/ai-automation-sri-lanka',
+        permanent: true,
+      },
+      {
+        source: '/blog/workflow-automation-tools-2024',
+        destination: '/ai-automation-sri-lanka',
+        permanent: true,
+      },
     ]
   },
 }

@@ -1298,7 +1298,7 @@ export default function AICompaniesSriLankaPage() {
                 desc: "AI-powered websites that actively engage visitors and generate leads.",
               },
               {
-                href: "/blog/websites-vs-smart-websites-sri-lanka",
+                href: "/blog/smart-websites-sri-lanka-2026",
                 label: "Blog",
                 title: "Traditional vs Smart Websites in Sri Lanka",
                 desc: "Why smart websites outperform traditional websites for Sri Lankan businesses.",

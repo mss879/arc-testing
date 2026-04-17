@@ -266,7 +266,7 @@ export default function BlogPost() {
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mt-12 pt-8 border-t border-neutral-800 flex items-center justify-between">
-                        <Link href="/blog/workflow-automation-tools-2024" className="group flex items-center gap-2 text-neutral-400 hover:text-accent transition-colors">
+                        <Link href="/ai-automation-sri-lanka" className="group flex items-center gap-2 text-neutral-400 hover:text-accent transition-colors">
                             <ArrowLeft className="w-5 h-5" />
                             <div>
                                 <div className="text-xs uppercase tracking-wider mb-1">Previous</div>
