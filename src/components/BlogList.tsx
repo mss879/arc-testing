@@ -53,15 +53,7 @@ export default function BlogList() {
             excerpt: "Traditional RPA bots are fragile. Learn why the top automation companies in Sri Lanka are upgrading to Semantic AI Agents to build unbreakable workflows.",
             tags: ["AI Automation", "Sri Lanka Business", "RPA", "Business Process Optimization"]
         },
-        {
-            id: "software-company-sri-lanka",
-            title: "Top Software Companies in Sri Lanka: Replacing Legacy Code with AI",
-            date: "April 8, 2026",
-            category: "Software Engineering",
-            image: "/arc-ai-software-company-sri-lanka.webp",
-            excerpt: "Compare traditional enterprise legacy agencies in Sri Lanka with ARC AI. Learn why the top software companies in Sri Lanka use Serverless architecture and Edge AI.",
-            tags: ["Software Companies Sri Lanka", "Smart Websites", "Serverless", "AI Integration"]
-        },
+
         {
             id: "how-ai-transforms-sri-lanka-businesses-2026",
             title: "How AI Is Transforming Sri Lankan Businesses in 2026 — Real Results",

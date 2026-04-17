@@ -90,6 +90,11 @@ const nextConfig = {
         destination: '/ai-companies-sri-lanka',
         permanent: true,
       },
+      {
+        source: '/blog/software-company-sri-lanka',
+        destination: '/blog/top-software-companies-sri-lanka',
+        permanent: true,
+      },
     ]
   },
 }
