@@ -92,7 +92,12 @@ const nextConfig = {
       },
       {
         source: '/blog/software-company-sri-lanka',
-        destination: '/blog/top-software-companies-sri-lanka',
+        destination: '/software-companies-sri-lanka',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-software-companies-sri-lanka',
+        destination: '/software-companies-sri-lanka',
         permanent: true,
       },
       {

@@ -178,7 +178,7 @@ export default function BlogPost() {
                                 <div className="font-semibold">All Articles</div>
                             </div>
                         </Link>
-                        <Link href="/blog/top-software-companies-sri-lanka" className="group flex items-center gap-2 text-neutral-400 hover:text-accent transition-colors text-right">
+                        <Link href="/software-companies-sri-lanka" className="group flex items-center gap-2 text-neutral-400 hover:text-accent transition-colors text-right">
                             <div>
                                 <div className="text-xs uppercase tracking-wider mb-1">Next Concept</div>
                                 <div className="font-semibold">Software Companies</div>

@@ -69,7 +69,7 @@ export default function BlogPost() {
                             <ul className="list-disc pl-6 space-y-2">
                                 <li><strong>Cost accessibility:</strong> AI solutions that once cost $50,000+ are now available from top AI companies in Sri Lanka starting from competitive Sri Lankan rates.</li>
                                 <li><strong>Proven ROI:</strong> Early adopters in tourism, real estate, and e-commerce have demonstrated 100-300% returns on their AI investments within 6 months.</li>
-                                <li><strong>Talent pool:</strong> Sri Lanka&apos;s strong software engineering talent combined with international AI expertise creates a unique advantage.</li>
+                                <li><strong>Talent pool:</strong> Sri Lanka&apos;s strong <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">software engineering talent</Link> combined with international AI expertise creates a unique advantage.</li>
                                 <li><strong>Multilingual capability:</strong> AI solutions that work in Sinhala, Tamil, and English meet a critical market requirement that global AI platforms cannot.</li>
                             </ul>
 

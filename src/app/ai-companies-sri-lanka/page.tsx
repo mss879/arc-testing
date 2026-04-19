@@ -712,7 +712,10 @@ export default function AICompaniesSriLankaPage() {
               dramatically over the past five years. What was once a small
               ecosystem dominated by outsourced software development has evolved
               into a vibrant hub of specialised AI companies delivering
-              cutting-edge solutions across multiple sectors.
+              cutting-edge solutions across multiple sectors. For a broader view of the overall tech sector, see our comprehensive guide to{" "}
+              <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">
+                software companies in Sri Lanka
+              </Link>.
             </p>
             <p>
               <strong className="text-white">Colombo</strong> serves as the
@@ -1290,6 +1293,12 @@ export default function AICompaniesSriLankaPage() {
                 label: "Blog",
                 title: "AI Customer Service Agents for Sri Lanka",
                 desc: "Why AI customer service agents outperform traditional support teams.",
+              },
+              {
+                href: "/software-companies-sri-lanka",
+                label: "Industry Guide",
+                title: "Software Companies in Sri Lanka (2026)",
+                desc: "The definitive guide to 15 leading software firms — with pricing, comparisons, and selection criteria.",
               },
               {
                 href: "/blog/smart-websites-sri-lanka-2026",
