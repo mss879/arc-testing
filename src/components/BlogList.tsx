@@ -93,12 +93,12 @@ export default function BlogList() {
 
         {
             id: "smart-websites-sri-lanka-2026",
-            title: "Why Your Sri Lankan Business Needs a Smart Website in 2026",
-            date: "March 4, 2026",
-            category: "Web Development",
+            title: "Smart Websites in Sri Lanka: The Complete Guide for 2026",
+            date: "April 19, 2026",
+            category: "Smart Websites",
             image: "/smart-website-sri-lanka.png",
-            excerpt: "Traditional websites are dead. Learn why Sri Lankan businesses are upgrading to AI-powered Smart Websites to capture leads, answer queries, and drive sales 24/7.",
-            tags: ["Smart Websites", "Web Development", "Sri Lanka Business"]
+            excerpt: "Everything you need to know about smart websites in Sri Lanka — features, costs, industry use cases, SEO benefits, and how to choose the right smart website company.",
+            tags: ["Smart Websites", "Smart Website Companies", "Sri Lanka", "AI Websites", "Web Design"]
         },
         {
             id: "ai-customer-service-agent-sri-lanka",

@@ -4,8 +4,8 @@ import BlogPost from "./content";
 
 export async function generateMetadata(): Promise<Metadata> {
     const post = {
-        title: "Why Your Sri Lankan Business Needs a Smart Website in 2026 | ARC AI",
-        excerpt: "Traditional websites are dead. Learn why Sri Lankan businesses are upgrading to AI-powered Smart Websites to capture leads, answer queries, and drive sales 24/7.",
+        title: "Smart Websites in Sri Lanka: The Complete Guide for 2026 | Features, Costs & Companies",
+        excerpt: "Everything Sri Lankan businesses need to know about smart websites — what they are, key features, costs, industry use cases, SEO benefits, and how to choose the right smart website company in Sri Lanka.",
         featuredImage: "/smart-website-sri-lanka.png"
     };
 
@@ -17,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
             description: post.excerpt,
             url: `https://www.arcai.agency/blog/smart-websites-sri-lanka-2026`,
             locale: "en_GB",
+            type: "article",
             images: [
                 {
                     url: `https://www.arcai.agency${post.featuredImage}`,
