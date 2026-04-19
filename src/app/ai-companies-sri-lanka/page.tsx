@@ -1241,10 +1241,10 @@ export default function AICompaniesSriLankaPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                href: "/blog/best-ai-companies-sri-lanka-2026",
+                href: "/blog/automation-companies-sri-lanka",
                 label: "Blog",
-                title: "Best AI Companies in Sri Lanka (2026) — Complete Guide",
-                desc: "A deep dive into what makes an AI company great and how to evaluate providers.",
+                title: "Top Automation Companies in Sri Lanka",
+                desc: "AI agents vs legacy RPA — why the best automation firms are upgrading to semantic AI.",
               },
               {
                 href: "/blog/ai-chatbots-sri-lankan-businesses",
