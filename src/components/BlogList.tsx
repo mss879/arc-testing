@@ -283,6 +283,44 @@ export default function BlogList() {
                 </div>
             </section>
 
+            {/* Pillar Guides — Featured Resources */}
+            <section className="py-12 px-4 md:px-8 bg-black">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <h2 className="text-sm font-bold text-neutral-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                            📚 Definitive Industry Guides
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Link href="/web-design-sri-lanka">
+                                <div className="group relative rounded-2xl overflow-hidden border border-[rgb(255,73,37)]/30 bg-gradient-to-br from-[rgb(255,73,37)]/10 via-neutral-950 to-black p-8 hover:border-[rgb(255,73,37)]/60 transition-all duration-300 cursor-pointer">
+                                    <div className="absolute top-0 right-0 bg-[rgb(255,73,37)] text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-lg tracking-widest">Pillar Guide</div>
+                                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[rgb(255,73,37)] transition-colors">Web Design Companies in Sri Lanka — 2026 Guide</h3>
+                                    <p className="text-neutral-400 text-sm leading-relaxed mb-4">12 agencies evaluated with exact pricing benchmarks (LKR & USD), WordPress vs Next.js comparisons, and an actionable selection framework.</p>
+                                    <span className="inline-flex items-center gap-2 text-[rgb(255,73,37)] text-sm font-semibold">
+                                        Read the Full Guide <ArrowUpRight className="w-4 h-4" />
+                                    </span>
+                                </div>
+                            </Link>
+                            <Link href="/software-companies-sri-lanka">
+                                <div className="group relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 p-8 hover:border-neutral-700 transition-all duration-300 cursor-pointer">
+                                    <div className="absolute top-0 right-0 bg-neutral-700 text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-lg tracking-widest">Pillar Guide</div>
+                                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[rgb(255,73,37)] transition-colors">Top Software Companies in Sri Lanka — 2026</h3>
+                                    <p className="text-neutral-400 text-sm leading-relaxed mb-4">A comprehensive ranking of the leading software development companies, covering IT outsourcing, pricing, and technical capabilities.</p>
+                                    <span className="inline-flex items-center gap-2 text-[rgb(255,73,37)] text-sm font-semibold">
+                                        Read the Full Guide <ArrowUpRight className="w-4 h-4" />
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Blog Grid */}
             <section className="py-20 px-4 md:px-8 bg-black">
                 <div className="max-w-7xl mx-auto">

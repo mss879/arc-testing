@@ -1293,6 +1293,24 @@ export default function SoftwareCompaniesContent() {
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                     </motion.div>
+
+                    {/* Cross-link to Web Design Guide */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="mt-8 bg-gradient-to-br from-[rgb(255,73,37)]/10 via-neutral-950 to-black border border-[rgb(255,73,37)]/20 rounded-xl p-6"
+                    >
+                        <Link href="/web-design-sri-lanka" className="flex items-center justify-between gap-4 group no-underline">
+                            <div>
+                                <div className="text-xs font-bold text-[rgb(255,73,37)] uppercase tracking-widest mb-1">Related Pillar Guide</div>
+                                <h4 className="text-lg font-bold text-white group-hover:text-[rgb(255,73,37)] transition-colors m-0">Web Design Companies in Sri Lanka — The Complete 2026 Guide</h4>
+                                <p className="text-sm text-neutral-400 mt-1 m-0">12 agencies evaluated · Pricing benchmarks · WordPress vs Next.js</p>
+                            </div>
+                            <ArrowRight className="w-6 h-6 text-neutral-400 group-hover:text-[rgb(255,73,37)] transition-colors shrink-0" />
+                        </Link>
+                    </motion.div>
                 </div>
             </article>
         </div>

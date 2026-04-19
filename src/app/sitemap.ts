@@ -144,6 +144,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'monthly',
             priority: 0.9,
         },
+        {
+            url: `${baseUrl}/web-design-sri-lanka`,
+            lastModified: getPageModDate('web-design-sri-lanka'),
+            changeFrequency: 'weekly',
+            priority: 1.0,
+        },
     ];
 
     // ─── Service pages (auto-discovered) ─────────────────────────

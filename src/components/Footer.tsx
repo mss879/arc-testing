@@ -58,6 +58,8 @@ const Footer = () => {
     { label: "Contact", href: "/contact" },
     { label: "Blog", href: "/blog" },
     { label: "AI Sri Lanka", href: "/ai-companies-sri-lanka" },
+    { label: "Web Design Guide", href: "/web-design-sri-lanka" },
+    { label: "Software Companies", href: "/software-companies-sri-lanka" },
   ];
 
   const socialLinks = [
