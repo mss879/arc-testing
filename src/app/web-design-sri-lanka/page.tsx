@@ -11,7 +11,7 @@ const post = {
 export const metadata: Metadata = {
     title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
     description:
-        "An authoritative industry report on the Sri Lankan web design market. Covers TCO pricing benchmarks (LKR), WordPress vs Next.js architectures, Core Web Vitals, and how to evaluate local agencies.",
+        "2026 industry report on Sri Lankan web design. TCO pricing (LKR), WordPress vs Next.js, Core Web Vitals, and how to evaluate agencies.",
     openGraph: {
         title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
         description:

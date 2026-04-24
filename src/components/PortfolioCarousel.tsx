@@ -4,25 +4,25 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const row1Images = [
-    "/javagap.jpg",
-    "/sponge-global.png",
-    "/delft-tours.png",
-    "/secertery-services.png",
-    "/halo.png",
-    "/exim.png",
-    "/core-craft-screenshot.png",
-    "/Ontriq-screenshot.png",
+    "/javagap.webp",
+    "/sponge-global.webp",
+    "/delft-tours.webp",
+    "/secertery-services.webp",
+    "/halo.webp",
+    "/exim.webp",
+    "/core-craft-screenshot.webp",
+    "/Ontriq-screenshot.webp",
 ];
 
 const row2Images = [
-    "/orkestrate-screenshot.png",
-    "/KeysPlease-Screenshot.png",
-    "/dek-studio-screenshot.png",
-    "/vibewebstudio.png",
-    "/yboagency.png",
-    "/carrush.png",
-    "/cararenaceylon.png",
-    "/hiltopglobal.png",
+    "/orkestrate-screenshot.webp",
+    "/KeysPlease-Screenshot.webp",
+    "/dek-studio-screenshot.webp",
+    "/vibewebstudio.webp",
+    "/yboagency.webp",
+    "/carrush.webp",
+    "/cararenaceylon.webp",
+    "/hiltopglobal.webp",
 ];
 
 const CarouselRow = ({ images, reverse = false }: { images: string[], reverse?: boolean }) => {
@@ -41,7 +41,7 @@ const CarouselRow = ({ images, reverse = false }: { images: string[], reverse?: 
                             <div className="relative w-full h-full">
                                 <Image
                                     src={src}
-                                    alt={`Portfolio design ${idx}`}
+                                    alt={`Portfolio project ${src.replace(/^\//, '').replace(/\.(png|jpg|jpeg|webp)$/i, '').replace(/[-_]/g, ' ')}`}
                                     fill
                                     className="object-contain"
                                     sizes="(max-width: 768px) 260px, 450px"
@@ -67,7 +67,7 @@ const CarouselRow = ({ images, reverse = false }: { images: string[], reverse?: 
                             <div className="relative w-full h-full">
                                 <Image
                                     src={src}
-                                    alt=""
+                                    alt={`Portfolio project ${src.replace(/^\//, '').replace(/\.(png|jpg|jpeg|webp)$/i, '').replace(/[-_]/g, ' ')}`}
                                     fill
                                     className="object-contain"
                                     sizes="(max-width: 768px) 260px, 450px"

@@ -11,7 +11,7 @@ const post = {
 export const metadata: Metadata = {
     title: "AI Consultants in Sri Lanka — The Complete 2026 Industry Report",
     description:
-        "An authoritative industry report for C-Suite executives on the Sri Lankan AI consulting landscape. Covers the difference between AI hype and ROI, TCO benchmarks (LKR), auditing frameworks, and evaluating traditional vs agile engineering firms.",
+        "2026 industry report on AI consulting in Sri Lanka. AI hype vs ROI, TCO benchmarks (LKR), auditing frameworks, and evaluating traditional vs agile firms.",
     openGraph: {
         title: "AI Consultants in Sri Lanka — The Complete 2026 Industry Report",
         description:
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "https://www.arcai.agency/ai-consultants-sri-lanka",
         images: [
             {
-                url: "/arc-ai-ai-consultants-sri-lanka.png",
+                url: "https://www.arcai.agency/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "AI Consultants in Sri Lanka 2026 Industry Report",
@@ -137,7 +137,7 @@ const articleSchema = {
         "@type": "WebPage",
         "@id": "https://www.arcai.agency/ai-consultants-sri-lanka",
     },
-    image: "https://www.arcai.agency/arc-ai-ai-consultants-sri-lanka.png",
+    image: "https://www.arcai.agency/og-image.jpg",
     wordCount: 4500,
     keywords:
         "AI consultants Sri Lanka, AI consulting firms Colombo, AI strategy, artificial intelligence consultants, AI feasibility study, machine learning consultant Sri Lanka, AI auditing",

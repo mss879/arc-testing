@@ -9,7 +9,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 export const metadata: Metadata = {
   title: "Top AI Companies in Sri Lanka (2026) — Complete Guide & Rankings | ARC AI",
   description:
-    "Complete list of the top 10 AI companies in Sri Lanka for 2026. Compare leading AI technology companies including ARC AI, 99x, Virtusa, WSO2 and more. Find the best AI automation agency in Sri Lanka — services, specializations, pricing and expert rankings.",
+    "Top 10 AI companies in Sri Lanka for 2026. Compare ARC AI, 99x, Virtusa, WSO2 & more — services, pricing, and expert rankings.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Top AI Companies in Sri Lanka (2026) — Complete Guide & Rankings",

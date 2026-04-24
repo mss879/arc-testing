@@ -37,7 +37,7 @@ const WhyUs: React.FC = () => {
         <div style={{ position: "absolute", borderRadius: "inherit", top: 0, right: 0, bottom: 0, left: 0 }}>
           <Image
             src="/images/why-us-bg.webp"
-            alt=""
+            alt="Abstract dark background pattern for ARC AI statistics section"
             fill
             sizes="100vw"
             quality={85}

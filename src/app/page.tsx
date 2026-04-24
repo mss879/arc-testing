@@ -29,7 +29,6 @@ const CTA = dynamic(() => import("@/components/CTA"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 // Client-only component - imported separately
-import FloatingActions from "@/components/FloatingActions";
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
@@ -251,6 +250,18 @@ export default function HomePage() {
                   <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">Top AI Companies in Sri Lanka</p>
                   <p className="text-sm text-zinc-400 mt-1">Discover why ARC AI is the #1 AI company in Sri Lanka for 2026.</p>
                 </a>
+                <a href="/ai-consultants-sri-lanka" className="group p-5 rounded-xl border border-zinc-800 hover:border-[rgb(255,73,37)]/30 transition-colors">
+                  <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">AI Consultants Sri Lanka</p>
+                  <p className="text-sm text-zinc-400 mt-1">Expert AI consulting &amp; strategic audits for Sri Lankan enterprises.</p>
+                </a>
+                <a href="/web-design-sri-lanka" className="group p-5 rounded-xl border border-zinc-800 hover:border-[rgb(255,73,37)]/30 transition-colors">
+                  <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">Web Design Sri Lanka</p>
+                  <p className="text-sm text-zinc-400 mt-1">Premium web design &amp; development services for businesses in Sri Lanka.</p>
+                </a>
+                <a href="/software-companies-sri-lanka" className="group p-5 rounded-xl border border-zinc-800 hover:border-[rgb(255,73,37)]/30 transition-colors">
+                  <p className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">Software Companies Sri Lanka</p>
+                  <p className="text-sm text-zinc-400 mt-1">Top software development companies in Sri Lanka — 2026 guide.</p>
+                </a>
               </div>
             </div>
 
@@ -261,7 +272,6 @@ export default function HomePage() {
       </article>
 
       <Footer />
-      <FloatingActions />
     </div>
   );
 }

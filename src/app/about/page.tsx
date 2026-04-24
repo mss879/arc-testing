@@ -16,7 +16,7 @@ import { Rocket, Users } from "lucide-react";
 // SEO Metadata for About Page
 export const metadata: Metadata = {
   title: "About ARC AI | Top AI Company in Sri Lanka & UK",
-  description: "About ARC AI — one of the top AI companies in Sri Lanka & UK. Founded 2022, 100+ clients, 4.9/5 Google Reviews. Expert AI automation, chatbots, web design & digital marketing.",
+  description: "About ARC AI — top AI company in Sri Lanka & UK. Founded 2022, 100+ clients, 4.9/5 Google Reviews. AI automation, chatbots & web design.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "About ARC AI - AI Digital Agency",

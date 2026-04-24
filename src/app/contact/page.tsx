@@ -6,11 +6,12 @@ import SchemaOrg from "@/components/SchemaOrg";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { clientLogos } from "@/lib/client-logos";
+import StoreLocator from "@/components/StoreLocator";
 
 // SEO Metadata for Contact Page
 export const metadata: Metadata = {
   title: "Contact ARC AI | Top AI Company Sri Lanka & UK — Get a Free Quote",
-  description: "Contact ARC AI, one of the top AI companies in Sri Lanka & UK. Get a free consultation for AI automation, chatbots, web design & digital marketing. Book a call today.",
+  description: "Contact ARC AI — top AI company in Sri Lanka & UK. Free consultation for AI automation, chatbots, web design & digital marketing.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Contact ARC AI - AI Agency UK & Sri Lanka",
@@ -145,7 +146,7 @@ export default function ContactPage() {
                   {clientLogos.map((logo, i) => (
                     <div
                       key={`logo-1-${i}`}
-                      className="flex-shrink-0 w-24 h-24 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 p-4 flex items-center justify-center hover:border-white/20 transition-all duration-300"
+                      className={`flex-shrink-0 w-24 h-24 rounded-full ${['care-arena-ceylon', 'essential'].includes(logo.file) ? 'bg-black' : 'bg-white'} backdrop-blur-sm border ${['care-arena-ceylon', 'essential'].includes(logo.file) ? 'border-white/10' : 'border-black/5 shadow-sm'} p-4 flex items-center justify-center hover:scale-105 transition-all duration-300`}
                     >
                       <img
                         src={`/logos/${logo.file}.webp`}
@@ -159,7 +160,7 @@ export default function ContactPage() {
                   {clientLogos.map((logo, i) => (
                     <div
                       key={`logo-2-${i}`}
-                      className="flex-shrink-0 w-24 h-24 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 p-4 flex items-center justify-center hover:border-white/20 transition-all duration-300"
+                      className={`flex-shrink-0 w-24 h-24 rounded-full ${['care-arena-ceylon', 'essential'].includes(logo.file) ? 'bg-black' : 'bg-white'} backdrop-blur-sm border ${['care-arena-ceylon', 'essential'].includes(logo.file) ? 'border-white/10' : 'border-black/5 shadow-sm'} p-4 flex items-center justify-center hover:scale-105 transition-all duration-300`}
                     >
                       <img
                         src={`/logos/${logo.file}.webp`}
@@ -297,6 +298,11 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Store Locator Section */}
+            <div className="mt-20 w-full max-w-[1200px] mx-auto">
+              <StoreLocator />
             </div>
           </div>
         </section>

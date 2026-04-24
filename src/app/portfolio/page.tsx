@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import NextImage from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FloatingActions";
 import CTA from "@/components/CTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import PortfolioHero from "@/components/PortfolioHero";
@@ -13,7 +12,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 // SEO Metadata for Portfolio Page
 export const metadata: Metadata = {
   title: "Portfolio | Top AI Company Work — ARC AI",
-  description: "Explore the portfolio of ARC AI, one of the top AI companies in Sri Lanka & UK. Successful web design, AI automation, branding & digital marketing projects with proven results.",
+  description: "ARC AI portfolio — web design, AI automation, branding & marketing projects with proven results. Top AI company in Sri Lanka & UK.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "Portfolio - Our Best Work | ARC AI",
@@ -397,7 +396,6 @@ export default async function Portfolio() {
         { label: "Home", href: "/" },
         { label: "Portfolio" }
       ]} />
-      <FloatingActions />
 
       <main>
 

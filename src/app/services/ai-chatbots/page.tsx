@@ -4,7 +4,7 @@ import AIAgentsContent from "./content";
 
 export const metadata: Metadata = {
   title: "AI Agent Development | Top AI Company Sri Lanka & UK — ARC AI",
-  description: "Deploy intelligent AI agents with ARC AI, one of the top AI companies in Sri Lanka & UK. 24/7 customer support AI agents that automate operations, qualify leads & reduce support costs by 60%.",
+  description: "Deploy intelligent AI agents with ARC AI — top AI company in Sri Lanka & UK. 24/7 support bots that qualify leads & reduce costs by 60%.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
     title: "AI Agents Service | ARC AI",

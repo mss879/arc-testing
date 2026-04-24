@@ -4,7 +4,7 @@ import SoftwareCompaniesContent from "./content";
 export const metadata: Metadata = {
     title: "Software Companies in Sri Lanka — The Definitive 2026 Industry Guide",
     description:
-        "An in-depth guide to the 15 leading software companies in Sri Lanka for 2026. Covers enterprise IT, AI development, product engineering, outsourcing rates ($20–$60/hr), Sri Lanka vs India comparison, tech hubs, and expert selection criteria.",
+        "Guide to 15 leading software companies in Sri Lanka (2026). Enterprise IT, AI development, outsourcing rates ($20–$60/hr), and selection criteria.",
     openGraph: {
         title: "Software Companies in Sri Lanka — The Definitive 2026 Industry Guide",
         description:

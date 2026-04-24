@@ -150,6 +150,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'weekly',
             priority: 1.0,
         },
+        {
+            url: `${baseUrl}/ai-consultants-sri-lanka`,
+            lastModified: getPageModDate('ai-consultants-sri-lanka'),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
     ];
 
     // ─── Service pages (auto-discovered) ─────────────────────────
