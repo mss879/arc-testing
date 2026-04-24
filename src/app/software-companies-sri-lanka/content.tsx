@@ -37,6 +37,7 @@ import {
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Footer from "@/components/Footer";
 
 /* ── Animation Variants ──────────────────────────────────────── */
 
@@ -55,7 +56,7 @@ const tocItems = [
     { id: "methodology", label: "How We Evaluated These Companies" },
     { id: "industry-overview", label: "Sri Lanka's Software Industry in 2026" },
     { id: "what-to-look-for", label: "What to Look for in a Software Partner" },
-    { id: "rankings", label: "The 15 Leading Firms (2026)" },
+    { id: "rankings", label: "The 15 Leading Firms by Category" },
     { id: "comparison-table", label: "At-a-Glance Comparison" },
     { id: "pricing", label: "How Much Does Development Cost?" },
     { id: "sri-lanka-vs-india", label: "Sri Lanka vs India vs Philippines" },
@@ -90,10 +91,9 @@ const companies: Company[] = [
         size: "10–50",
         specialty: "AI Development & Smart Websites",
         description:
-            "A newer entrant that has gained rapid traction by building exclusively on AI-native architecture. ARC AI specialises in serverless Next.js applications deployed at the edge, AI-powered customer service agents, and process automation using LLM-driven workflows. Their dual-market presence (Sri Lanka + UK) gives them a unique blend of local cost efficiency and international design standards. Notable for delivering complete AI ecosystems — from chatbots handling Sinhala, Tamil, and English to fully automated lead qualification pipelines. Their case studies show measurable outcomes including 167% booking increases for tourism clients and 237% organic traffic growth for e-commerce platforms.",
+            "A newer entrant building exclusively on AI-native architecture. ARC AI specialises in serverless Next.js applications deployed at the edge, AI-powered customer service agents, and process automation using LLM-driven workflows. Their dual-market presence (Sri Lanka + UK) gives them a blend of local cost efficiency and international design standards. They focus on delivering complete AI ecosystems — from multilingual chatbots handling Sinhala, Tamil, and English to automated lead qualification pipelines — primarily serving tourism, real estate, and e-commerce clients.",
         services: ["Custom AI Development", "Serverless Next.js Apps", "AI Chatbots & Voice Agents", "Process Automation"],
         bestFor: "Businesses wanting modern, AI-powered systems built on cutting-edge architecture.",
-        website: "https://www.arcai.agency",
         notableClients: "Tourism operators, real estate agencies, e-commerce retailers (UK & Sri Lanka)",
         techStack: "Next.js, React, TypeScript, LangChain, Supabase, Vercel Edge, OpenAI",
     },
@@ -315,6 +315,50 @@ const companies: Company[] = [
     },
 ];
 
+const companyWebsites: Record<string, string> = {
+    "ARC AI": "https://www.arcai.agency",
+    "WSO2": "https://wso2.com",
+    "Virtusa": "https://www.virtusa.com",
+    "99x": "https://99x.io",
+    "IFS": "https://www.ifs.com",
+    "Sysco LABS": "https://syscolabs.lk",
+    "Calcey Technologies": "https://calcey.com",
+    "Arimac": "https://arimac.digital",
+    "Rootcode": "https://rootcodelabs.com",
+    "Surge Global": "https://surgeglobal.com",
+    "Mitra Innovation": "https://mitrainnovation.com",
+    "Creative Software": "https://creativesoftware.com",
+    "hSenid": "https://hsenid.com",
+    "Addix": "https://addix.lk",
+    "CodeGen International": "https://codegen.co.uk",
+};
+
+const companyCategories: Record<string, string> = {
+    "WSO2": "Enterprise & Global",
+    "Virtusa": "Enterprise & Global",
+    "IFS": "Enterprise & Global",
+    "Sysco LABS": "Enterprise & Global",
+    "99x": "Enterprise & Global",
+    "hSenid": "Enterprise & Global",
+    "CodeGen International": "Enterprise & Global",
+    "Calcey Technologies": "Mid-Market & Growth",
+    "Arimac": "Mid-Market & Growth",
+    "Creative Software": "Mid-Market & Growth",
+    "Rootcode": "Mid-Market & Growth",
+    "Surge Global": "Mid-Market & Growth",
+    "Mitra Innovation": "Mid-Market & Growth",
+    "ARC AI": "Boutique & Specialist",
+    "Addix": "Boutique & Specialist",
+};
+
+const categoryOrder = ["Enterprise & Global", "Mid-Market & Growth", "Boutique & Specialist"];
+
+const categoryDescriptions: Record<string, string> = {
+    "Enterprise & Global": "Large-scale companies with 500+ employees, global operations, and enterprise-grade platforms.",
+    "Mid-Market & Growth": "Established firms with 100–500 employees delivering specialised software services.",
+    "Boutique & Specialist": "Agile, focused teams under 100 employees with deep specialisation in specific technology domains.",
+};
+
 const faqs = [
     {
         q: "What are the top-rated software development companies in Sri Lanka for 2026?",
@@ -444,7 +488,7 @@ export default function SoftwareCompaniesContent() {
                         className="relative aspect-video rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl mt-10"
                     >
                         <Image
-                            src="/arc-ai-software-company-sri-lanka.webp"
+                            src="/software-companies-sri-lanka-guide-2026.webp"
                             alt="Software development offices and tech teams in Colombo, Sri Lanka"
                             fill
                             className="object-cover"
@@ -584,7 +628,7 @@ export default function SoftwareCompaniesContent() {
                         </p>
 
                         <p className="text-neutral-300 mt-4">
-                            Structurally, the industry is undergoing a strategic pivot from basic &ldquo;digitisation&rdquo; (cloud migration, simple CRM/ERP implementation) toward what analysts at the Morning Herald and SLASSCOM are calling <strong>&ldquo;intelligent operations&rdquo;</strong> — leveraging AI-native development platforms, multi-agent systems, and domain-specific AI models to build fundamentally smarter software. This shift is creating a two-tier market: established firms integrating AI into existing enterprise offerings, and newer AI-native companies like ARC AI or Rootcode building entirely on modern architectures from day one.
+                            Structurally, the industry is undergoing a strategic pivot from basic &ldquo;digitisation&rdquo; (cloud migration, simple CRM/ERP implementation) toward what analysts at the Morning Herald and SLASSCOM are calling <strong>&ldquo;intelligent operations&rdquo;</strong> — leveraging AI-native development platforms, multi-agent systems, and domain-specific AI models to build fundamentally smarter software. This shift is creating a two-tier market: established firms integrating AI into existing enterprise offerings, and newer AI-native studios building entirely on modern architectures from day one.
                         </p>
 
                         <p className="text-neutral-300 mt-4 text-sm italic">
@@ -669,113 +713,125 @@ export default function SoftwareCompaniesContent() {
                             The 15 Leading Software Companies in Sri Lanka (2026)
                         </h2>
                         <p className="text-neutral-400 mb-10">
-                            Ranked using the weighted methodology described above. This list covers the full spectrum — from global enterprise giants with 30,000+ employees to agile AI-native studios with 10 engineers — so you can find a partner that genuinely matches your project&apos;s specific needs and budget.
+                            Grouped by company size and market tier rather than subjective ranking. This list covers the full spectrum — from global enterprise giants with 30,000+ employees to agile AI-native studios with fewer than 50 engineers — so you can find a partner that genuinely matches your project&apos;s specific needs and budget.
                         </p>
 
-                        <div className="space-y-6">
-                            {companies.map((company, index) => (
-                                <div
-                                    key={company.name}
-                                    className="bg-neutral-950 border border-neutral-800 rounded-xl p-6 md:p-8 hover:border-neutral-700 transition-colors"
-                                >
-                                    {/* Header */}
-                                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                                        <div>
-                                            <div className="flex items-center gap-3 mb-1">
-                                                <span className="text-sm font-mono text-neutral-600">
-                                                    {String(index + 1).padStart(2, "0")}
-                                                </span>
-                                                <h3 className="text-2xl font-bold text-white m-0">
-                                                    {company.name}
-                                                </h3>
-                                            </div>
-                                            <p className="text-sm text-[rgb(255,73,37)] font-medium m-0">
-                                                {company.tagline}
-                                            </p>
+                        <div className="space-y-12">
+                            {categoryOrder.map((category) => {
+                                const categoryCompanies = companies.filter(
+                                    (c) => companyCategories[c.name] === category
+                                );
+                                return (
+                                    <div key={category}>
+                                        <div className="mb-6 pb-4 border-b border-neutral-800">
+                                            <h3 className="text-xl font-bold text-white mb-1 m-0">{category}</h3>
+                                            <p className="text-sm text-neutral-500 m-0">{categoryDescriptions[category]}</p>
                                         </div>
-                                        <div className="flex items-center gap-3">
-                                            {company.rating && (
-                                                <div className="flex items-center gap-1 px-2.5 py-1 bg-neutral-900 rounded-full border border-neutral-800">
-                                                    <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-                                                    <span className="text-xs font-bold text-white">{company.rating}</span>
-                                                    <span className="text-xs text-neutral-500">/ 5</span>
-                                                </div>
-                                            )}
-                                            {company.website && (
-                                                <Link
-                                                    href={company.website}
-                                                    className="inline-flex items-center gap-1 text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline"
+                                        <div className="space-y-6">
+                                            {categoryCompanies.map((company) => (
+                                                <div
+                                                    key={company.name}
+                                                    className="bg-neutral-950 border border-neutral-800 rounded-xl p-6 md:p-8 hover:border-neutral-700 transition-colors"
                                                 >
-                                                    <ExternalLink className="w-3 h-3" />
-                                                    Visit
-                                                </Link>
-                                            )}
-                                        </div>
-                                    </div>
+                                                    {/* Header */}
+                                                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                                                        <div>
+                                                            <h3 className="text-2xl font-bold text-white m-0 mb-1">
+                                                                {company.name}
+                                                            </h3>
+                                                            <p className="text-sm text-[rgb(255,73,37)] font-medium m-0">
+                                                                {company.tagline}
+                                                            </p>
+                                                        </div>
+                                                        <div className="flex items-center gap-3">
+                                                            {company.rating && (
+                                                                <div className="flex items-center gap-1 px-2.5 py-1 bg-neutral-900 rounded-full border border-neutral-800">
+                                                                    <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                                                                    <span className="text-xs font-bold text-white">{company.rating}</span>
+                                                                    <span className="text-xs text-neutral-500">/ 5</span>
+                                                                </div>
+                                                            )}
+                                                            {companyWebsites[company.name] && (
+                                                                <Link
+                                                                    href={companyWebsites[company.name]}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="inline-flex items-center gap-1 text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline"
+                                                                >
+                                                                    <ExternalLink className="w-3 h-3" />
+                                                                    Visit
+                                                                </Link>
+                                                            )}
+                                                        </div>
+                                                    </div>
 
-                                    {/* Meta row */}
-                                    <div className="flex flex-wrap gap-4 text-xs text-neutral-500 mb-5">
-                                        <span className="flex items-center gap-1">
-                                            <Calendar className="w-3 h-3" /> Est. {company.founded}
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <MapPin className="w-3 h-3" /> {company.hq}
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <Users className="w-3 h-3" /> {company.size} employees
-                                        </span>
-                                        {company.ratingSource && (
-                                            <span className="flex items-center gap-1">
-                                                <Star className="w-3 h-3" /> {company.ratingSource}
-                                            </span>
-                                        )}
-                                    </div>
+                                                    {/* Meta row */}
+                                                    <div className="flex flex-wrap gap-4 text-xs text-neutral-500 mb-5">
+                                                        <span className="flex items-center gap-1">
+                                                            <Calendar className="w-3 h-3" /> Est. {company.founded}
+                                                        </span>
+                                                        <span className="flex items-center gap-1">
+                                                            <MapPin className="w-3 h-3" /> {company.hq}
+                                                        </span>
+                                                        <span className="flex items-center gap-1">
+                                                            <Users className="w-3 h-3" /> {company.size} employees
+                                                        </span>
+                                                        {company.ratingSource && (
+                                                            <span className="flex items-center gap-1">
+                                                                <Star className="w-3 h-3" /> {company.ratingSource}
+                                                            </span>
+                                                        )}
+                                                    </div>
 
-                                    {/* Description */}
-                                    <p className="text-neutral-300 mb-5">{company.description}</p>
+                                                    {/* Description */}
+                                                    <p className="text-neutral-300 mb-5">{company.description}</p>
 
-                                    {/* Notable clients & Tech stack */}
-                                    {(company.notableClients || company.techStack) && (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-                                            {company.notableClients && (
-                                                <div className="text-xs">
-                                                    <span className="text-neutral-500 font-semibold uppercase tracking-wider">Notable Clients: </span>
-                                                    <span className="text-neutral-400">{company.notableClients}</span>
+                                                    {/* Notable clients & Tech stack */}
+                                                    {(company.notableClients || company.techStack) && (
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+                                                            {company.notableClients && (
+                                                                <div className="text-xs">
+                                                                    <span className="text-neutral-500 font-semibold uppercase tracking-wider">Notable Clients: </span>
+                                                                    <span className="text-neutral-400">{company.notableClients}</span>
+                                                                </div>
+                                                            )}
+                                                            {company.techStack && (
+                                                                <div className="text-xs">
+                                                                    <span className="text-neutral-500 font-semibold uppercase tracking-wider">Tech Stack: </span>
+                                                                    <span className="text-neutral-400">{company.techStack}</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+
+                                                    {/* Services + Best For */}
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                                        <div>
+                                                            <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2">
+                                                                Core Services
+                                                            </div>
+                                                            <ul className="space-y-1.5 m-0 p-0 list-none">
+                                                                {company.services.map((s) => (
+                                                                    <li key={s} className="flex items-center gap-2 text-sm text-neutral-300">
+                                                                        <CheckCircle2 className="w-3.5 h-3.5 text-[rgb(255,73,37)] shrink-0" />
+                                                                        {s}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                        <div className="bg-neutral-900/50 p-4 rounded-lg border border-neutral-800/50">
+                                                            <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                                                <Rocket className="w-3.5 h-3.5" /> Best For
+                                                            </div>
+                                                            <p className="text-sm text-neutral-300 m-0">{company.bestFor}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            )}
-                                            {company.techStack && (
-                                                <div className="text-xs">
-                                                    <span className="text-neutral-500 font-semibold uppercase tracking-wider">Tech Stack: </span>
-                                                    <span className="text-neutral-400">{company.techStack}</span>
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-
-                                    {/* Services + Best For */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                        <div>
-                                            <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2">
-                                                Core Services
-                                            </div>
-                                            <ul className="space-y-1.5 m-0 p-0 list-none">
-                                                {company.services.map((s) => (
-                                                    <li key={s} className="flex items-center gap-2 text-sm text-neutral-300">
-                                                        <CheckCircle2 className="w-3.5 h-3.5 text-[rgb(255,73,37)] shrink-0" />
-                                                        {s}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                        <div className="bg-neutral-900/50 p-4 rounded-lg border border-neutral-800/50">
-                                            <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                                                <Rocket className="w-3.5 h-3.5" /> Best For
-                                            </div>
-                                            <p className="text-sm text-neutral-300 m-0">{company.bestFor}</p>
+                                            ))}
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </motion.section>
 
@@ -797,7 +853,6 @@ export default function SoftwareCompaniesContent() {
                             <table className="w-full text-sm border border-neutral-800 min-w-[800px]">
                                 <thead>
                                     <tr className="border-b border-neutral-800 bg-neutral-950">
-                                        <th className="p-3 text-left text-neutral-400 font-semibold">#</th>
                                         <th className="p-3 text-left text-neutral-400 font-semibold">Company</th>
                                         <th className="p-3 text-left text-neutral-400 font-semibold">Est.</th>
                                         <th className="p-3 text-left text-neutral-400 font-semibold">Specialty</th>
@@ -807,9 +862,8 @@ export default function SoftwareCompaniesContent() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {companies.map((c, i) => (
+                                    {companies.map((c) => (
                                         <tr key={c.name} className="border-b border-neutral-800/50 hover:bg-neutral-900/50 transition-colors">
-                                            <td className="p-3 text-neutral-600 font-mono text-xs">{String(i + 1).padStart(2, "0")}</td>
                                             <td className="p-3 text-white font-semibold whitespace-nowrap">{c.name}</td>
                                             <td className="p-3 text-neutral-400">{c.founded}</td>
                                             <td className="p-3 text-neutral-400 text-xs">{c.specialty}</td>
@@ -1214,9 +1268,9 @@ export default function SoftwareCompaniesContent() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-bold text-white mb-1 m-0">About the Author</h3>
-                                    <p className="text-sm text-[rgb(255,73,37)] font-medium mb-3 m-0">ARC AI Research Team</p>
+                                    <p className="text-sm text-[rgb(255,73,37)] font-medium mb-3 m-0">Shahid &middot; Founder, ARC AI</p>
                                     <p className="text-sm text-neutral-400 m-0">
-                                        This guide was researched and compiled by the ARC AI editorial team, drawing on direct experience operating as a software company in both Colombo and Birmingham (UK). Our team has worked with firms across the Sri Lankan tech ecosystem and maintains relationships with SLASSCOM and multiple companies on this list. Data sourced from the Export Development Board (EDB), Central Bank Annual Report, SLASSCOM publications, Clutch, and GoodFirms.
+                                        This guide was researched and compiled by Shahid, founder of ARC AI, drawing on direct experience operating as a software company in both Colombo and Birmingham (UK). Data sourced from the Export Development Board (EDB), Central Bank Annual Report 2025, SLASSCOM publications, Clutch, GoodFirms, and Gartner Peer Insights. Companies were independently evaluated &mdash; readers are encouraged to verify all claims via the listed websites and third-party review platforms.
                                     </p>
                                     <div className="flex gap-3 mt-4">
                                         <Link href="/about" className="text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline">About ARC AI</Link>
@@ -1313,6 +1367,7 @@ export default function SoftwareCompaniesContent() {
                     </motion.div>
                 </div>
             </article>
+            <Footer />
         </div>
     );
 }

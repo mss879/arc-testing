@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         type: "article",
         images: [
             {
-                url: "https://www.arcai.agency/arc-ai-software-company-sri-lanka.webp",
+                url: "https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp",
                 width: 1200,
                 height: 630,
                 alt: "Software Companies in Sri Lanka 2026 Guide",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         title: "Software Companies in Sri Lanka — 2026 Industry Guide",
         description:
             "An in-depth guide to the 15 leading software companies in Sri Lanka for 2026. Updated with industry statistics, pricing, and selection criteria.",
-        images: ["https://www.arcai.agency/arc-ai-software-company-sri-lanka.webp"],
+        images: ["https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp"],
     },
     alternates: {
         canonical: "https://www.arcai.agency/software-companies-sri-lanka",
@@ -118,7 +118,7 @@ const articleJsonLd = {
     headline: "Software Companies in Sri Lanka — The Definitive 2026 Industry Guide",
     description:
         "An in-depth guide to the 15 leading software companies in Sri Lanka for 2026, covering enterprise IT, AI development, product engineering, outsourcing rates, and industry statistics.",
-    image: "https://www.arcai.agency/arc-ai-software-company-sri-lanka.webp",
+    image: "https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp",
     author: {
         "@type": "Organization",
         name: "ARC AI",
