@@ -2,20 +2,20 @@ import { Metadata } from "next";
 import WebDesignContent from "./content";
 
 const post = {
-    title: "Web Design Companies in Sri Lanka — The Complete 2026 Guide",
+    title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
     excerpt:
-        "An expert-curated guide to the 12 leading web design companies in Sri Lanka for 2026. Covers portfolio quality, pricing benchmarks (LKR 18,500–500,000+), WordPress vs custom development, Core Web Vitals, design trends, and a step-by-step selection framework.",
+        "An authoritative, technically rigorous industry report analyzing the Sri Lankan web development ecosystem. Covers the hidden costs of legacy monolithic CMS, True Cost of Ownership (LKR), the shift to headless Next.js architectures, and how to objectively evaluate Colombo agencies.",
     slug: "web-design-sri-lanka",
 };
 
 export const metadata: Metadata = {
-    title: "Web Design Companies in Sri Lanka — The Complete 2026 Guide",
+    title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
     description:
-        "An expert-curated guide to the 12 leading web design companies in Sri Lanka for 2026. Covers pricing benchmarks (LKR & USD), WordPress vs custom development, design trends, and selection criteria.",
+        "An authoritative industry report on the Sri Lankan web design market. Covers TCO pricing benchmarks (LKR), WordPress vs Next.js architectures, Core Web Vitals, and how to evaluate local agencies.",
     openGraph: {
-        title: "Web Design Companies in Sri Lanka — The Complete 2026 Guide",
+        title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
         description:
-            "An expert-curated guide to the 12 leading web design companies in Sri Lanka for 2026. Updated with pricing benchmarks, platform comparisons, and selection criteria.",
+            "An authoritative industry report on the Sri Lankan web design market. Covers TCO pricing benchmarks (LKR), WordPress vs Next.js architectures, Core Web Vitals, and how to evaluate local agencies.",
         type: "article",
         url: "https://www.arcai.agency/web-design-sri-lanka",
         images: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
                 url: "/arc-ai-web-design-sri-lanka.png",
                 width: 1200,
                 height: 630,
-                alt: "Web Design Companies in Sri Lanka 2026 Guide",
+                alt: "Web Design in Sri Lanka 2026 Guide",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Web Design Companies in Sri Lanka — 2026 Guide",
+        title: "Web Design in Sri Lanka — 2026 Industry Report",
         description:
-            "An expert-curated guide to the 12 leading web design companies in Sri Lanka for 2026. Updated with pricing benchmarks, platform comparisons, and selection criteria.",
+            "An authoritative industry report on the Sri Lankan web design market. Covers TCO pricing benchmarks (LKR), WordPress vs Next.js architectures, Core Web Vitals, and how to evaluate local agencies.",
     },
     alternates: {
         canonical: "https://www.arcai.agency/web-design-sri-lanka",
@@ -45,66 +45,42 @@ const faqSchema = {
     mainEntity: [
         {
             "@type": "Question",
-            name: "What are the best web design companies in Sri Lanka for 2026?",
+            name: "What is the average cost to build a corporate website in Sri Lanka (2026)?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Based on our evaluation of design quality, technical capability, client reviews, and pricing transparency, the leading web design companies in Sri Lanka for 2026 include ARC AI (AI-native Next.js design), Xiteb (custom e-commerce), Phyxle (UI/UX specialists), Tectera (responsive custom design), Antyra Solutions (web design + SEO), Amplifyn (branding + web), Calcey Technologies (startup MVPs), Surge Global (web + marketing), Elegant Media (mobile-first), 360 Digital (budget-friendly), Developer Stack (WordPress experts), and Flavour Studio (creative design).",
+                text: "For a standard corporate website built on legacy CMS (WordPress), expect to pay between LKR 80,000 and LKR 150,000. For high-performance, custom-coded headless architectures (Next.js/React) engineered for SEO dominance, initial capital expenditure ranges from LKR 200,000 to LKR 450,000+. E-commerce deployments heavily depend on SKU volume and payment gateway complexity, usually starting around LKR 150,000.",
             },
         },
         {
             "@type": "Question",
-            name: "How much does a website cost in Sri Lanka?",
+            name: "Why do so many local agencies exclusively push WordPress?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Website costs in Sri Lanka vary significantly by complexity. A basic startup or landing page typically costs LKR 18,500–70,000 ($60–$230 USD). A standard business website with 5–20 pages costs LKR 40,000–160,000 ($130–$530). E-commerce websites range from LKR 75,000–450,000+ ($250–$1,500+). Custom enterprise web applications start at LKR 500,000+ ($1,650+). These prices represent significant savings compared to UK rates (£3,000–£30,000+) and US rates ($5,000–$50,000+) for equivalent quality.",
+                text: "WordPress relies on pre-packaged themes and a vast ecosystem of third-party plugins. This allows agencies to bypass expensive software engineering talent, utilizing 'assemblers' instead of developers. This significantly lowers their operational costs, enabling them to offer cheaper upfront quotes. The tradeoff is inherited technical debt, severe security vulnerabilities (plugin rot), and inherently slow load times.",
             },
         },
         {
             "@type": "Question",
-            name: "Should I use WordPress or custom development for my website in Sri Lanka?",
+            name: "What does 'Headless Architecture' mean and why does it matter?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "It depends on your needs. WordPress is ideal for blogs, small business sites, and quick launches — it is cost-effective, easy to manage, and has thousands of plugins. Custom development (using React, Next.js, or similar frameworks) is better for performance-critical applications, complex functionality, unique designs, and scalability. A middle ground is the 'headless' approach, using WordPress as a content editor with a custom React/Next.js frontend for speed. In Sri Lanka, WordPress sites typically start at LKR 40,000 while custom builds start at LKR 150,000+.",
+                text: "In traditional monolithic systems like WordPress, the frontend (what users see) and the backend database are tightly coupled. A 'headless' architecture physically separates them. The frontend is built using a modern framework (like Next.js) and communicates with the database via APIs. This results in impenetrable security (no direct database connection for hackers to exploit) and instantaneous page loads via Edge computing.",
             },
         },
         {
             "@type": "Question",
-            name: "How long does it take to build a website in Sri Lanka?",
+            name: "How does web design directly impact Conversion Rate Optimization (CRO)?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Timeline depends on complexity. A simple landing page or brochure site can be completed in 1–2 weeks. A standard business website with 10–20 pages typically takes 3–6 weeks. E-commerce platforms with product catalogs and payment integration usually require 6–12 weeks. Complex custom web applications can take 3–6+ months. These timelines assume clear requirements and responsive client communication. Most reputable Sri Lankan agencies will provide a detailed project timeline during the proposal phase.",
+                text: "CRO is the science of turning passive traffic into active leads. Poor web design creates friction. If a mobile page takes over 3 seconds to load, bounce rates increase by 32%. If the contrast ratios are mathematically incorrect, cognitive load increases, causing users to abandon the funnel. A high-converting website removes all visual and technical friction, guiding the user to the endpoint intuitively.",
             },
         },
         {
             "@type": "Question",
-            name: "What is responsive web design and why does it matter?",
+            name: "Should we hire an in-house developer or outsource to a Colombo agency?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Responsive web design ensures your website adapts seamlessly to all screen sizes — desktop, tablet, and mobile. In Sri Lanka, over 65% of internet users browse via mobile devices, making responsive design essential. Google's mobile-first indexing means your mobile experience directly determines your search rankings. A non-responsive website will rank lower in search results, provide a poor user experience on phones, and lose potential customers. Every reputable web design company in Sri Lanka should deliver responsive design as standard in 2026.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "How do I choose the right web design company in Sri Lanka?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Evaluate web design companies across six key criteria: (1) Portfolio quality — review their past work for design aesthetics, mobile responsiveness, and page speed. (2) Technical stack — are they using modern technologies or outdated tools? (3) Client reviews — check Clutch, Google Reviews, and GoodFirms for verified feedback. (4) Pricing transparency — reputable agencies provide clear, itemised quotes. (5) Post-launch support — confirm whether maintenance, hosting, and updates are included. (6) SEO awareness — your website should be built with search engine optimisation in mind from day one.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "Do Sri Lankan web design companies provide SEO services?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Many Sri Lankan web design companies include basic on-page SEO as part of their packages — this typically covers meta tags, heading structure, image alt text, and XML sitemaps. However, comprehensive SEO (keyword research, content strategy, link building, technical audits) is usually offered as a separate service. Some full-service digital agencies like ARC AI and Surge Global integrate advanced SEO and content marketing alongside web design. If organic search traffic is important to your business, clarify the level of SEO included before signing a contract.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "What is the difference between web design and web development?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Web design focuses on the visual and user experience aspects — layout, colour schemes, typography, imagery, navigation flow, and overall aesthetics. Web development handles the technical implementation — writing code (HTML, CSS, JavaScript), server configuration, database management, API integrations, and ensuring the site functions correctly across all browsers. In practice, most Sri Lankan agencies combine both disciplines. Smaller agencies may have designers who also code, while larger firms have dedicated design and development teams. When evaluating companies, look at both their visual portfolio and the technical performance of their live sites.",
+                text: "Hiring a senior Full-Stack or React Developer in Sri Lanka commands a monthly salary of LKR 300,000 to LKR 600,000+. For a single build, this is an inefficient deployment of capital. Engaging a specialized agency provides you with a fractional team (UX Researcher, Frontend Engineer, DevOps, Technical SEO Specialist) for the cost of a single developer's monthly salary.",
             },
         },
     ],
@@ -114,9 +90,9 @@ const faqSchema = {
 const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Web Design Companies in Sri Lanka — The Complete 2026 Guide",
+    headline: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
     description:
-        "An expert-curated guide to the 12 leading web design companies in Sri Lanka for 2026, covering design quality, pricing benchmarks, platform comparisons, and industry trends.",
+        "An authoritative, technically rigorous industry report analyzing the Sri Lankan web development ecosystem, including monolithic vs headless architectures, True Cost of Ownership (LKR), and agency evaluations.",
     author: {
         "@type": "Organization",
         name: "ARC AI",
@@ -131,45 +107,21 @@ const articleSchema = {
             url: "https://www.arcai.agency/arc-ai-logo.png",
         },
     },
-    datePublished: "2026-04-19",
-    dateModified: "2026-04-19",
+    datePublished: "2026-04-24",
+    dateModified: "2026-04-24",
     mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://www.arcai.agency/web-design-sri-lanka",
     },
     image: "https://www.arcai.agency/arc-ai-web-design-sri-lanka.png",
-    wordCount: 4800,
+    wordCount: 2200,
     keywords:
-        "web design company Sri Lanka, web design Sri Lanka, web designers Colombo, website design cost Sri Lanka, WordPress vs custom development, responsive web design, web development Sri Lanka 2026",
+        "web design company Sri Lanka, web design Sri Lanka, web designers Colombo, website cost Sri Lanka, WordPress vs Next.js, responsive web design, headless CMS Sri Lanka, Core Web Vitals",
     about: {
         "@type": "Thing",
         name: "Web Design Industry in Sri Lanka",
     },
     isAccessibleForFree: true,
-};
-
-/* ── ItemList Schema ───────────────────────────────────────────── */
-const itemListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Top Web Design Companies in Sri Lanka (2026)",
-    description:
-        "A ranked list of the 12 leading web design companies in Sri Lanka for 2026, evaluated by design quality, technical capability, client reviews, and pricing transparency.",
-    numberOfItems: 12,
-    itemListElement: [
-        { "@type": "ListItem", position: 1, name: "ARC AI" },
-        { "@type": "ListItem", position: 2, name: "Xiteb" },
-        { "@type": "ListItem", position: 3, name: "Phyxle" },
-        { "@type": "ListItem", position: 4, name: "Tectera" },
-        { "@type": "ListItem", position: 5, name: "Antyra Solutions" },
-        { "@type": "ListItem", position: 6, name: "Amplifyn" },
-        { "@type": "ListItem", position: 7, name: "Calcey Technologies" },
-        { "@type": "ListItem", position: 8, name: "Surge Global" },
-        { "@type": "ListItem", position: 9, name: "Elegant Media" },
-        { "@type": "ListItem", position: 10, name: "360 Digital" },
-        { "@type": "ListItem", position: 11, name: "Developer Stack" },
-        { "@type": "ListItem", position: 12, name: "Flavour Studio" },
-    ],
 };
 
 /* ── Breadcrumb Schema ─────────────────────────────────────────── */
@@ -186,7 +138,7 @@ const breadcrumbSchema = {
         {
             "@type": "ListItem",
             position: 2,
-            name: "Web Design Companies in Sri Lanka",
+            name: "Web Design Sri Lanka Industry Report",
             item: "https://www.arcai.agency/web-design-sri-lanka",
         },
     ],
@@ -205,12 +157,6 @@ export default function WebDesignSriLankaPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(articleSchema),
-                }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(itemListSchema),
                 }}
             />
             <script
