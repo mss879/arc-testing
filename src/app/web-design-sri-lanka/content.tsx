@@ -17,7 +17,8 @@ import {
     Database,
     Globe,
     Layers,
-    Search
+    Search,
+    DollarSign
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
