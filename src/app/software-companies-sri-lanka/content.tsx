@@ -392,6 +392,14 @@ const faqs = [
         q: "What is SLASSCOM and how does it relate to Sri Lankan software companies?",
         a: "SLASSCOM (Sri Lanka Association of Software and Service Companies) is the national chamber representing the IT/BPM industry in Sri Lanka. It serves as the primary industry body advocating for policy, talent development, and international market access. SLASSCOM members include most major software companies in Sri Lanka. The organisation publishes industry reports, organises events, and runs initiatives supporting startup growth and talent pipeline development. Being a SLASSCOM member is generally considered a positive indicator of a company's standing in the local industry.",
     },
+    {
+        q: "What is the best custom software development company in Sri Lanka for startups?",
+        a: "For startups, agile boutique firms like Addix, Rootcode, Calcey Technologies, and ARC AI are often the best fit. These software development companies in Sri Lanka specialise in rapid MVP development, modern tech stacks (React, Next.js, AI integration), and offer flexible engagement models tailored to startup budgets.",
+    },
+    {
+        q: "How do Sri Lankan software engineers rank globally?",
+        a: "Sri Lankan software engineers are highly regarded globally, known for their strong problem-solving skills and design sensibility. The country focuses on quality over quantity, producing elite talent that frequently wins global competitive programming awards. Engineers from top Sri Lankan institutions are actively recruited by leading international tech giants.",
+    },
 ];
 
 /* ── FAQ Accordion Component ─────────────────────────────────── */
@@ -495,6 +503,41 @@ export default function SoftwareCompaniesContent() {
                             priority
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ── Key Takeaways (Featured Snippet Target) ──────────────── */}
+            <section className="px-4 md:px-8 pb-8 -mt-4 relative z-20">
+                <div className="max-w-4xl mx-auto">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="rounded-2xl border border-[rgb(255,73,37)]/20 bg-[rgb(255,73,37)]/[0.03] p-6 md:p-8 space-y-4"
+                    >
+                        <p className="text-sm font-bold uppercase tracking-wider text-[rgb(255,73,37)]">
+                            Key Takeaways
+                        </p>
+                        <ul className="space-y-3 text-neutral-300">
+                            <li className="flex items-start gap-3">
+                                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                                <span><strong className="text-white">Sri Lanka is a premier destination for software outsourcing</strong>, offering high-quality engineering talent with excellent English proficiency at competitive rates ($20–$60/hour).</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                                <span><strong className="text-white">The market has three distinct tiers:</strong> Enterprise firms (like WSO2, Virtusa), Mid-Market specialists (Calcey, Rootcode), and Agile/AI-native boutique studios (like ARC AI).</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                                <span><strong className="text-white">Choosing the right software development company in Sri Lanka</strong> depends on your project size. Startups benefit from boutique firms, while large multinationals typically partner with enterprise-scale vendors.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
+                                <span><strong className="text-white">Compared to India</strong>, Sri Lanka focuses on quality over volume, making it ideal for teams of 3–30 developers requiring senior attention and design excellence.</span>
+                            </li>
+                        </ul>
                     </motion.div>
                 </div>
             </section>
@@ -628,7 +671,7 @@ export default function SoftwareCompaniesContent() {
                         </p>
 
                         <p className="text-neutral-300 mt-4">
-                            Structurally, the industry is undergoing a strategic pivot from basic &ldquo;digitisation&rdquo; (cloud migration, simple CRM/ERP implementation) toward what analysts at the Morning Herald and SLASSCOM are calling <strong>&ldquo;intelligent operations&rdquo;</strong> — leveraging AI-native development platforms, multi-agent systems, and domain-specific AI models to build fundamentally smarter software. This shift is creating a two-tier market: established firms integrating AI into existing enterprise offerings, and newer AI-native studios building entirely on modern architectures from day one.
+                            Structurally, the industry is undergoing a strategic pivot from basic &ldquo;digitisation&rdquo; (cloud migration, simple CRM/ERP implementation) toward what analysts at the Morning Herald and SLASSCOM are calling <strong>&ldquo;intelligent operations&rdquo;</strong> — leveraging <Link href="/ai-automation-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI automation</Link>, multi-agent systems, and domain-specific AI models to build fundamentally smarter software. This shift is creating a two-tier market: established firms integrating AI into existing enterprise offerings, and newer AI-native studios building entirely on modern architectures from day one. For a broader look at web-specific capabilities, see our guide on <Link href="/web-design-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">web design companies in Sri Lanka</Link>.
                         </p>
 
                         <p className="text-neutral-300 mt-4 text-sm italic">

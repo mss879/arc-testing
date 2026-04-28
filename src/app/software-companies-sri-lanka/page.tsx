@@ -109,6 +109,22 @@ const faqJsonLd = {
                 text: "SLASSCOM (Sri Lanka Association of Software and Service Companies) is the national chamber representing the IT/BPM industry in Sri Lanka. It serves as the primary industry body advocating for policy, talent development, and international market access. Most major software companies in Sri Lanka are SLASSCOM members. The organisation publishes industry reports, organises events, and runs initiatives supporting startup growth and talent pipeline development.",
             },
         },
+        {
+            "@type": "Question",
+            name: "What is the best custom software development company in Sri Lanka for startups?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "For startups, agile boutique firms like Addix, Rootcode, Calcey Technologies, and ARC AI are often the best fit. These software development companies in Sri Lanka specialise in rapid MVP development, modern tech stacks (React, Next.js, AI integration), and offer flexible engagement models tailored to startup budgets.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "How do Sri Lankan software engineers rank globally?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sri Lankan software engineers are highly regarded globally, known for their strong problem-solving skills and design sensibility. The country focuses on quality over quantity, producing elite talent that frequently wins global competitive programming awards. Engineers from top Sri Lankan institutions are actively recruited by leading international tech giants.",
+            },
+        },
     ],
 };
 
@@ -138,6 +154,7 @@ const articleJsonLd = {
         "@type": "WebPage",
         "@id": "https://www.arcai.agency/software-companies-sri-lanka",
     },
+    wordCount: 5200,
 };
 
 const itemListJsonLd = {
@@ -181,6 +198,110 @@ const breadcrumbJsonLd = {
     ],
 };
 
+const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.arcai.agency/#organization",
+    name: "ARC AI",
+    alternateName: "ARC AI Agency",
+    url: "https://www.arcai.agency",
+    logo: {
+        "@type": "ImageObject",
+        url: "https://www.arcai.agency/logo.png",
+        width: 512,
+        height: 512,
+    },
+    description:
+        "ARC AI is a premier AI-native software development company in Sri Lanka, specialising in custom software development, AI automation, and web design.",
+    email: "support@arcai.agency",
+    telephone: "+94771852522",
+    address: [
+        {
+            "@type": "PostalAddress",
+            addressCountry: "LK",
+            addressLocality: "Colombo",
+            addressRegion: "Western Province",
+        },
+        {
+            "@type": "PostalAddress",
+            addressCountry: "GB",
+            addressLocality: "Birmingham",
+            addressRegion: "West Midlands",
+        },
+    ],
+    sameAs: [
+        "https://x.com/arc_ai_agency",
+        "https://www.instagram.com/arcai_agency/",
+        "https://www.linkedin.com/company/105845719",
+        "https://www.facebook.com/ARCAI.lk",
+    ],
+    foundingDate: "2022",
+    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
+    knowsAbout: [
+        "Software Development",
+        "Artificial Intelligence",
+        "Custom Software Solutions",
+        "Web Design",
+        "Digital Marketing",
+    ],
+};
+
+const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.arcai.agency/software-companies-sri-lanka#localbusiness",
+    name: "ARC AI — Software Development Company in Sri Lanka",
+    alternateName: "ARC AI Agency Sri Lanka",
+    url: "https://www.arcai.agency/software-companies-sri-lanka",
+    logo: {
+        "@type": "ImageObject",
+        url: "https://www.arcai.agency/logo.png",
+        width: 512,
+        height: 512,
+    },
+    description:
+        "ARC AI is a leading software development company in Sri Lanka, offering custom software solutions, AI development, and digital transformation services.",
+    email: "support@arcai.agency",
+    telephone: "+94771852522",
+    priceRange: "LKR",
+    address: {
+        "@type": "PostalAddress",
+        addressCountry: "LK",
+        addressRegion: "Western Province",
+        addressLocality: "Colombo",
+        streetAddress: "Colombo 4",
+    },
+    geo: {
+        "@type": "GeoCoordinates",
+        latitude: 6.8935,
+        longitude: 79.8558,
+    },
+    areaServed: {
+        "@type": "Country",
+        name: "Sri Lanka",
+    },
+    aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        bestRating: "5",
+        worstRating: "1",
+        ratingCount: "47",
+        reviewCount: "47",
+    },
+    openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+    },
+    sameAs: [
+        "https://x.com/arc_ai_agency",
+        "https://www.instagram.com/arcai_agency/",
+        "https://www.linkedin.com/company/105845719",
+        "https://www.facebook.com/ARCAI.lk",
+    ],
+};
+
 export default function Page() {
     return (
         <>
@@ -199,6 +320,14 @@ export default function Page() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
             />
             <SoftwareCompaniesContent />
         </>
