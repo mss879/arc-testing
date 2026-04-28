@@ -32,7 +32,7 @@ interface KnowledgeMatch {
 async function extractSearchQuery(userMessage: string): Promise<string> {
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4.1',
+      model: 'gpt-4o-mini',
       temperature: 0,
       max_tokens: 100,
       messages: [
@@ -78,21 +78,23 @@ Examples:
 /**
  * Retrieve the most relevant knowledge chunks for a user message.
  *
- * @param userMessage  - The latest message from the user
+ * @param userMessage  - The latest message from the user (or pre-cleaned query)
+ * @param isRawMessage - If true, uses an LLM to clean the query. If false, skips cleaning.
  * @param matchCount   - How many chunks to retrieve (default: 10)
  * @param threshold    - Minimum similarity score (default: 0.40)
  * @returns Formatted context string to append to the system prompt
  */
 export async function retrieveContext(
   userMessage: string,
+  isRawMessage: boolean = true,
   matchCount: number = 10,
-  threshold: number = 0.40,
+  threshold: number = 0.20,
 ): Promise<string> {
   try {
-    // 1. Extract clean search query from the messy user message
-    const searchQuery = await extractSearchQuery(userMessage);
+    // 1. Extract clean search query from the messy user message (if needed)
+    const searchQuery = isRawMessage ? await extractSearchQuery(userMessage) : userMessage;
 
-    // 2. Generate embedding for the cleaned query
+    // 2. Generate embedding for the query
     const embeddingResponse = await openai.embeddings.create({
       model: 'text-embedding-3-small',
       input: searchQuery,

@@ -109,8 +109,8 @@ export default function DashboardLayout({
                                 href={item.path}
                                 onClick={() => setSidebarOpen(false)}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${isActive
-                                        ? 'bg-[#FF4925]/10 text-[#FF4925] border border-[#FF4925]/20'
-                                        : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                    ? 'bg-[#FF4925]/10 text-[#FF4925] border border-[#FF4925]/20'
+                                    : 'text-gray-400 hover:text-white hover:bg-white/5'
                                     }`}
                             >
                                 <item.icon className={`w-5 h-5 ${isActive ? 'text-[#FF4925]' : ''}`} />

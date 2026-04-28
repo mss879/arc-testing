@@ -23,10 +23,47 @@ const proposalRateLimit = new Map<string, { count: number; firstSent: number }>(
 const RATE_LIMIT_MS = 24 * 60 * 60 * 1000; // 24 hours
 const MAX_PROPOSALS_PER_EMAIL = 3;
 
+// Per-IP rate limit for chat messages (prevents OpenAI credit burn)
+const chatRateLimit = new Map<string, { count: number; firstRequest: number }>();
+const CHAT_RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_CHAT_MESSAGES_PER_HOUR = 30;
+
+// Periodic cleanup to prevent memory leaks (every 10 minutes)
+setInterval(() => {
+    const now = Date.now();
+    for (const [ip, record] of chatRateLimit.entries()) {
+        if (now - record.firstRequest > CHAT_RATE_LIMIT_WINDOW_MS) {
+            chatRateLimit.delete(ip);
+        }
+    }
+}, 10 * 60 * 1000);
+
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
     try {
+        // ── Per-IP Rate Limiting (protects OpenAI credits) ──────────────────
+        const clientIP = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+            || req.headers.get('x-real-ip')
+            || 'unknown';
+
+        const now = Date.now();
+        const chatRecord = chatRateLimit.get(clientIP);
+        if (chatRecord) {
+            if (now - chatRecord.firstRequest > CHAT_RATE_LIMIT_WINDOW_MS) {
+                chatRateLimit.set(clientIP, { count: 1, firstRequest: now });
+            } else if (chatRecord.count >= MAX_CHAT_MESSAGES_PER_HOUR) {
+                return new Response(JSON.stringify({ error: 'Too many messages. Please try again later.' }), {
+                    status: 429,
+                    headers: { 'Content-Type': 'application/json', 'Retry-After': '3600' },
+                });
+            } else {
+                chatRecord.count++;
+            }
+        } else {
+            chatRateLimit.set(clientIP, { count: 1, firstRequest: now });
+        }
+
         // Validate API key
         if (!process.env.OPENAI_API_KEY) {
             return new Response(JSON.stringify({ error: 'API key not configured' }), {
@@ -80,7 +117,7 @@ export async function POST(req: Request) {
 
         // Call OpenAI with tool support + RAG context
         const result = await generateText({
-            model: openai('gpt-5.4'),
+            model: openai('gpt-4o'),
             system: systemPromptWithContext,
             messages: formattedMessages,
             stopWhen: stepCountIs(5),
@@ -248,6 +285,27 @@ export async function POST(req: Request) {
                         } catch (e: unknown) {
                             const err = e as Error;
                             console.error('subscribeNewsletter caught error:', err);
+                            return { success: false, error: err.message };
+                        }
+                    }
+                }),
+
+                searchCompanyKnowledge: tool({
+                    description: 'Search the ARC AI knowledge base for pricing, packages, services, portfolio, and company info. Use this ANY TIME you need to check a price, confirm a service detail, or if you do not have enough info to answer the user.',
+                    inputSchema: z.object({
+                        query: z.string().describe("The search query. Be specific, e.g., 'website packages pricing' or 'growth package features'."),
+                    }),
+                    execute: async ({ query }) => {
+                        console.log(`Executing searchCompanyKnowledge tool for query: ${query}...`);
+                        try {
+                            const context = await retrieveContext(query, false);
+                            return {
+                                success: true,
+                                context: context || "No relevant information found in the knowledge base."
+                            };
+                        } catch (e: unknown) {
+                            const err = e as Error;
+                            console.error('searchCompanyKnowledge caught error:', err);
                             return { success: false, error: err.message };
                         }
                     }

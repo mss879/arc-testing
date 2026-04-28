@@ -1,13 +1,51 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// Service-role client for server-side operations (bypasses RLS safely)
+const supabaseAdmin = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || '',
+);
+
+// ── Rate Limiting ──────────────────────────────────────────────────────────
+const rateLimitMap = new Map<string, { count: number; firstRequest: number }>();
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_REQUESTS_PER_WINDOW = 5; // max 5 applications per hour per IP
+
+// Periodic cleanup to prevent memory leaks (every 10 minutes)
+setInterval(() => {
+    const now = Date.now();
+    for (const [ip, record] of rateLimitMap.entries()) {
+        if (now - record.firstRequest > RATE_LIMIT_WINDOW_MS) {
+            rateLimitMap.delete(ip);
+        }
+    }
+}, 10 * 60 * 1000);
 
 export async function POST(req: NextRequest) {
     try {
-        const supabase = createClient(supabaseUrl, supabaseAnonKey);
-        
+        // ── Rate Limiting ────────────────────────────────────────────────
+        const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+            || req.headers.get('x-real-ip')
+            || 'unknown';
+
+        const now = Date.now();
+        const record = rateLimitMap.get(ip);
+        if (record) {
+            if (now - record.firstRequest > RATE_LIMIT_WINDOW_MS) {
+                rateLimitMap.set(ip, { count: 1, firstRequest: now });
+            } else if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+                return NextResponse.json(
+                    { error: 'Too many submissions. Please try again later.' },
+                    { status: 429 }
+                );
+            } else {
+                record.count++;
+            }
+        } else {
+            rateLimitMap.set(ip, { count: 1, firstRequest: now });
+        }
+
         const formData = await req.formData();
         
         const vacancyId = formData.get('vacancy_id') as string;
@@ -75,7 +113,7 @@ export async function POST(req: NextRequest) {
             const arrayBuffer = await cvFile.arrayBuffer();
             const buffer = new Uint8Array(arrayBuffer);
 
-            const { error: uploadError } = await supabase.storage
+            const { error: uploadError } = await supabaseAdmin.storage
                 .from('career-cvs')
                 .upload(fileName, buffer, {
                     contentType: cvFile.type,
@@ -90,7 +128,7 @@ export async function POST(req: NextRequest) {
                 );
             }
 
-            const { data: { publicUrl } } = supabase.storage
+            const { data: { publicUrl } } = supabaseAdmin.storage
                 .from('career-cvs')
                 .getPublicUrl(fileName);
 
@@ -98,7 +136,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Insert application
-        const { error: insertError } = await supabase
+        const { error: insertError } = await supabaseAdmin
             .from('career_applications')
             .insert([{
                 vacancy_id: vacancyId,

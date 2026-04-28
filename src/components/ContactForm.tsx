@@ -6,6 +6,45 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+// ── Validation helpers ──────────────────────────────────────────────────────
+const PHONE_ALLOWED_CHARS = /^[0-9+\-\s()]*$/;
+const PHONE_MIN_DIGITS = 7;
+const PHONE_MAX_LENGTH = 20;
+const NAME_MIN_LENGTH = 2;
+const MESSAGE_MIN_LENGTH = 10;
+
+function extractDigits(value: string): string {
+  return value.replace(/\D/g, "");
+}
+
+function validateName(value: string): string | null {
+  if (!value.trim()) return "Name is required";
+  if (value.trim().length < NAME_MIN_LENGTH) return "Name must be at least 2 characters";
+  if (/\d/.test(value)) return "Name should not contain numbers";
+  return null;
+}
+
+function validatePhone(value: string): string | null {
+  if (!value.trim()) return "Phone number is required";
+  if (!PHONE_ALLOWED_CHARS.test(value)) return "Only digits, +, -, spaces, and parentheses are allowed";
+  const digits = extractDigits(value);
+  if (digits.length < PHONE_MIN_DIGITS) return `Phone number must have at least ${PHONE_MIN_DIGITS} digits`;
+  if (value.length > PHONE_MAX_LENGTH) return "Phone number is too long";
+  return null;
+}
+
+function validateMessage(value: string): string | null {
+  if (!value.trim()) return "Message is required";
+  if (value.trim().length < MESSAGE_MIN_LENGTH) return `Message must be at least ${MESSAGE_MIN_LENGTH} characters`;
+  return null;
+}
+
+type FieldErrors = {
+  name?: string | null;
+  phone?: string | null;
+  message?: string | null;
+};
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +53,9 @@ export default function ContactForm() {
     service: "",
     message: "",
   });
+
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   // Check if mobile view
   const [isMobile, setIsMobile] = useState(false);
@@ -33,8 +75,24 @@ export default function ContactForm() {
     message: string;
   }>({ type: null, message: "" });
 
+  // ── Validate all fields and return true if form is valid ──────────────────
+  function validateAll(): boolean {
+    const errors: FieldErrors = {
+      name: validateName(formData.name),
+      phone: validatePhone(formData.phone),
+      message: validateMessage(formData.message),
+    };
+    setFieldErrors(errors);
+    setTouched({ name: true, phone: true, message: true });
+    return !errors.name && !errors.phone && !errors.message;
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Run full validation before submitting
+    if (!validateAll()) return;
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
@@ -75,13 +133,16 @@ export default function ContactForm() {
           service: "",
           message: "",
         });
+        setFieldErrors({});
+        setTouched({});
       } else {
-        throw new Error("Failed to send message");
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Failed to send message");
       }
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Failed to send message. Please try again.",
+        message: error instanceof Error ? error.message : "Failed to send message. Please try again.",
       });
       console.error("Form submission error:", error);
     } finally {
@@ -89,21 +150,60 @@ export default function ContactForm() {
     }
   };
 
+  // ── Phone-specific handler that strips invalid characters ─────────────────
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    // Strip any character that isn't a digit, +, -, space, or parenthesis
+    const sanitised = raw.replace(/[^0-9+\-\s()]/g, "");
+    const updated = { ...formData, phone: sanitised };
+    setFormData(updated);
+    if (touched.phone) {
+      setFieldErrors((prev) => ({ ...prev, phone: validatePhone(sanitised) }));
+    }
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    const updated = { ...formData, [name]: value };
+    setFormData(updated);
+
+    // Re-validate on change only if field was already touched
+    if (touched[name]) {
+      if (name === "name") setFieldErrors((prev) => ({ ...prev, name: validateName(value) }));
+      if (name === "message") setFieldErrors((prev) => ({ ...prev, message: validateMessage(value) }));
+    }
   };
+
+  // ── Mark field as touched on blur & validate ──────────────────────────────
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    if (name === "name") setFieldErrors((prev) => ({ ...prev, name: validateName(value) }));
+    if (name === "phone") setFieldErrors((prev) => ({ ...prev, phone: validatePhone(value) }));
+    if (name === "message") setFieldErrors((prev) => ({ ...prev, message: validateMessage(value) }));
+  };
+
+  // Inline error message component
+  const FieldError = ({ error }: { error?: string | null }) => {
+    if (!error) return null;
+    return (
+      <p className="text-[#FF4925] text-xs mt-1.5 pl-1 animate-[fadeIn_0.2s_ease-out]">
+        {error}
+      </p>
+    );
+  };
+
+  const errorRingClass = "ring-1 ring-[#FF4925]/60";
 
   return (
     <form
       onSubmit={handleSubmit}
       className="space-y-6 bg-[rgb(20,20,20)] border border-[rgb(40,40,40)] rounded-3xl p-8 lg:p-10"
+      noValidate
     >
-      {/* Name & Email Row */}
+      {/* Name & Phone Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <Input
@@ -112,22 +212,30 @@ export default function ContactForm() {
             placeholder={isMobile ? "Name" : "Enter your name"}
             required
             aria-label="Your name"
+            aria-invalid={!!fieldErrors.name}
             value={formData.name}
             onChange={handleChange}
-            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
+            onBlur={handleBlur}
+            className={`bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6 ${touched.name && fieldErrors.name ? errorRingClass : ""}`}
           />
+          {touched.name && <FieldError error={fieldErrors.name} />}
         </div>
         <div>
           <Input
             type="tel"
             name="phone"
+            inputMode="tel"
             placeholder={isMobile ? "Phone" : "Phone number"}
             required
             aria-label="Phone number"
+            aria-invalid={!!fieldErrors.phone}
             value={formData.phone}
-            onChange={handleChange}
-            className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6"
+            onChange={handlePhoneChange}
+            onBlur={handleBlur}
+            maxLength={PHONE_MAX_LENGTH}
+            className={`bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl h-14 px-6 ${touched.phone && fieldErrors.phone ? errorRingClass : ""}`}
           />
+          {touched.phone && <FieldError error={fieldErrors.phone} />}
         </div>
       </div>
 
@@ -164,10 +272,13 @@ export default function ContactForm() {
           placeholder="Message"
           required
           aria-label="Your message"
+          aria-invalid={!!fieldErrors.message}
           value={formData.message}
           onChange={handleChange}
-          className="bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl min-h-[160px] resize-none px-6 py-4"
+          onBlur={handleBlur}
+          className={`bg-[rgb(30,30,30)] border-none text-white placeholder:text-[rgb(90,90,90)] focus-visible:ring-1 focus-visible:ring-[#FF4925]/50 focus-visible:ring-offset-0 rounded-xl min-h-[160px] resize-none px-6 py-4 ${touched.message && fieldErrors.message ? errorRingClass : ""}`}
         />
+        {touched.message && <FieldError error={fieldErrors.message} />}
       </div>
 
       {/* Status Message */}

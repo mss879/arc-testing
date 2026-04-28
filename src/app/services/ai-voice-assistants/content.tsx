@@ -56,8 +56,14 @@ export default function AIVoiceAssistantsContent() {
                         initial="hidden"
                         animate="show"
                         variants={letterContainer}
-                        className="mb-8"
+                        className="mb-8 flex flex-col items-center"
                     >
+                        <motion.span 
+                            variants={letterVariant}
+                            className="px-3 py-1 border border-orange-500/50 bg-orange-500/10 text-orange-400 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-block"
+                        >
+                            Beta Testing
+                        </motion.span>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
                             {["COGNITIVE", "VOICE AI"].map((word, i) => (
                                 <span key={i} className="block mb-2">

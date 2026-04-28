@@ -71,6 +71,45 @@ export async function POST(req: NextRequest) {
 
         const { name, phone, company, service, message } = body;
 
+        // ── Phone number validation ─────────────────────────────────────────
+        // Only allow digits, +, -, spaces, parentheses
+        const phoneAllowedPattern = /^[0-9+\-\s()]+$/;
+        const phoneDigits = phone.replace(/\D/g, '');
+        if (!phoneAllowedPattern.test(phone)) {
+            return NextResponse.json(
+                { error: 'Phone number contains invalid characters. Only digits, +, -, spaces, and parentheses are allowed.' },
+                { status: 400 }
+            );
+        }
+        if (phoneDigits.length < 7) {
+            return NextResponse.json(
+                { error: 'Phone number must contain at least 7 digits.' },
+                { status: 400 }
+            );
+        }
+        if (phone.length > 20) {
+            return NextResponse.json(
+                { error: 'Phone number is too long.' },
+                { status: 400 }
+            );
+        }
+
+        // ── Name validation ─────────────────────────────────────────────────
+        if (name.trim().length < 2) {
+            return NextResponse.json(
+                { error: 'Name must be at least 2 characters.' },
+                { status: 400 }
+            );
+        }
+
+        // ── Message validation ──────────────────────────────────────────────
+        if (message.trim().length < 10) {
+            return NextResponse.json(
+                { error: 'Message must be at least 10 characters.' },
+                { status: 400 }
+            );
+        }
+
         // Basic input sanitization — reject suspiciously long inputs
         if (name.length > 200 || phone.length > 50 || (company && company.length > 200) || (service && service.length > 200) || message.length > 5000) {
             return NextResponse.json(
