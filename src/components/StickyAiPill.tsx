@@ -120,7 +120,11 @@ export function StickyAiPill() {
     const aiAnalyserRef = useRef<AnalyserNode | null>(null);
     const animationFrameRef = useRef<number | null>(null);
     const inactivityTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const maxDurationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const maxDurationWarnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const INACTIVITY_TIMEOUT_MS = 3 * 60 * 1000; // 3 minutes
+    const MAX_CALL_DURATION_MS = 90 * 1000; // 1.5 minutes — Beta limit
+    const MAX_CALL_WARN_MS = 80 * 1000; // Warn at 1:20
 
     // Friendly tool status messages (hide internal tool names from users)
     const toolStatusMap: Record<string, string> = {
@@ -249,6 +253,27 @@ export function StickyAiPill() {
                 setIsVoiceConnecting(false);
                 setIsVoiceActive(true);
                 resetInactivityTimer(); // Start the inactivity timer
+
+                // ── Beta: Hard max call duration (1.5 minutes) ──────────────
+                // At 1:20, instruct the AI to wrap up and inform the user
+                maxDurationWarnTimerRef.current = setTimeout(() => {
+                    if (dcRef.current && dcRef.current.readyState === 'open') {
+                        dcRef.current.send(JSON.stringify({
+                            type: "response.create",
+                            response: {
+                                instructions: "IMPORTANT: The beta call time limit of 1 minute 30 seconds is almost up. Politely inform the user that the call is ending soon due to the beta time limit. Thank them for trying the voice feature and suggest they continue via the chat or book a call through our website. Keep it brief and friendly."
+                            }
+                        }));
+                    }
+                }, MAX_CALL_WARN_MS);
+
+                // At 1:30, force disconnect
+                maxDurationTimerRef.current = setTimeout(() => {
+                    console.warn('[Voice] Beta max call duration reached — disconnecting after 1.5 minutes');
+                    setVoiceStatus("Beta time limit reached");
+                    stopVoiceSession();
+                    setTimeout(() => setActiveMode(null), 1500);
+                }, MAX_CALL_DURATION_MS);
                 // Trigger the agent to greet the user with a constrained greeting.
                 // We pass explicit instructions so the model does NOT hallucinate
                 // a user question from ambient mic audio before the user actually speaks.
@@ -393,6 +418,14 @@ export function StickyAiPill() {
         if (inactivityTimerRef.current) {
             clearTimeout(inactivityTimerRef.current);
             inactivityTimerRef.current = null;
+        }
+        if (maxDurationTimerRef.current) {
+            clearTimeout(maxDurationTimerRef.current);
+            maxDurationTimerRef.current = null;
+        }
+        if (maxDurationWarnTimerRef.current) {
+            clearTimeout(maxDurationWarnTimerRef.current);
+            maxDurationWarnTimerRef.current = null;
         }
 
         setIsVoiceActive(false);
