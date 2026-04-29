@@ -74,7 +74,23 @@ export function StickyAiPill() {
     // Shared State
     const [activeMode, setActiveMode] = useState<"chat" | "voice" | null>(null);
     const [pillVisible, setPillVisible] = useState(true);
+    const [showOnMobile, setShowOnMobile] = useState(false);
     const router = useRouter();
+
+    // Hide pill on mobile until user scrolls past hero section
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const heroHeight = window.innerHeight;
+            setShowOnMobile(scrollPosition > heroHeight * 0.8);
+        };
+
+        // Run once on mount to set initial state
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     // Chat State
     const sessionId = useMemo(() => crypto.randomUUID(), []);
@@ -461,7 +477,7 @@ export function StickyAiPill() {
     if (!pillVisible) return null;
 
     return (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center">
+        <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center transition-all duration-500 ${showOnMobile || activeMode ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-8 pointer-events-none'} md:opacity-100 md:translate-y-0 md:pointer-events-auto`}>
 
             {/* Expanded UI (Chat or Voice Window) */}
             <AnimatePresence>

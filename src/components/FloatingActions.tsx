@@ -142,7 +142,7 @@ const FloatingActions = () => {
         )}
       </AnimatePresence>
 
-      {/* Sticky AI Pill (Always visible) */}
+      {/* Sticky AI Pill (hidden on mobile until scroll past hero) */}
       <StickyAiPill />
 
       {/* Calendly Modal */}

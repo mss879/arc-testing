@@ -58,6 +58,22 @@ export const metadata: Metadata = {
 export default async function Portfolio() {
   const portfolioItems = [
     {
+      id: 33,
+      title: "TOS Lanka",
+      description: "Sri Lanka's pioneer Electronic Manufacturing Services (EMS) provider and a BOI-approved subsidiary of Tosslec Company Limited, Japan. Delivering end-to-end high-tech assembly for global clients across automotive, biomedical, telecom and IoT.",
+      image: "/tos-lanka.png",
+      link: "https://www.toslanka.com",
+      status: "live"
+    },
+    {
+      id: 32,
+      title: "Inspira Worldwide",
+      description: "Sri Lanka's definitive pharmaceutical distribution outsourcing partner. From strategic brand building to risk-minimized logistics, Inspira connects domestic manufacturers to patients with unmatched speed, flexibility, and absolute reliability.",
+      image: "/inspira-wordwide.png",
+      link: "https://inspiraworldwide.com",
+      status: "live"
+    },
+    {
       id: 31,
       title: "Agenly",
       description: "An innovative SaaS platform that empowers businesses to build, train, and deploy custom AI agents in minutes. Features seamless integration with Next.js, WordPress, and popular social channels without requiring any coding expertise.",
