@@ -112,9 +112,9 @@ export async function POST(req: Request) {
                 temperature: 0.7,
                 turn_detection: {
                     type: "server_vad",
-                    // Increased from 0.5 to 0.8: requires much clearer, louder voice to interrupt the AI. 
-                    // This prevents coughs, throat-clears, or background noise from causing accidental interruptions.
-                    threshold: 0.8,
+                    // Increased threshold (0.9) requires much clearer, louder voice to interrupt the AI. 
+                    // This aggressively prevents background noise from triggering the agent.
+                    threshold: 0.9,
                     prefix_padding_ms: 300,
                     // Increased from 500 to 800: Gives the user slightly more time to pause between sentences 
                     // without the AI immediately cutting in.

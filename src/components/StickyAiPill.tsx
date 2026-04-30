@@ -225,8 +225,14 @@ export function StickyAiPill() {
                 setupAIAudioAnalyser(e.streams[0]);
             };
 
-            // 4. Setup outgoing local audio track (Microphone)
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            // 4. Setup outgoing local audio track (Microphone) with explicit noise suppression
+            const stream = await navigator.mediaDevices.getUserMedia({
+                audio: {
+                    echoCancellation: true,
+                    noiseSuppression: true,
+                    autoGainControl: true,
+                }
+            });
             micStreamRef.current = stream;
             pc.addTrack(stream.getTracks()[0]);
 
@@ -274,20 +280,26 @@ export function StickyAiPill() {
                     stopVoiceSession();
                     setTimeout(() => setActiveMode(null), 1500);
                 }, MAX_CALL_DURATION_MS);
-                // Trigger the agent to greet the user with a constrained greeting.
-                // We pass explicit instructions so the model does NOT hallucinate
-                // a user question from ambient mic audio before the user actually speaks.
-                dc.send(JSON.stringify({
-                    type: "response.create",
-                    response: {
-                        instructions: "Deliver ONLY your short greeting (e.g. 'Hey there! I'm the ARC AI assistant. How can I help you today?'). Say nothing else after the greeting. Do NOT assume the user has said anything yet. Do NOT ask follow-up questions beyond 'How can I help you today?'. After greeting, STOP speaking and wait silently for the user to talk first."
-                    }
-                }));
             };
+
+            let hasGreeted = false;
 
             dc.onmessage = async (e) => {
                 try {
                     const event = JSON.parse(e.data);
+
+                    if (event.type === 'session.created' && !hasGreeted) {
+                        hasGreeted = true;
+                        // Trigger the agent to greet the user with a constrained greeting.
+                        // We pass explicit instructions so the model does NOT hallucinate
+                        // a user question from ambient mic audio before the user actually speaks.
+                        dc.send(JSON.stringify({
+                            type: "response.create",
+                            response: {
+                                instructions: "Deliver ONLY your short greeting (e.g. 'Hey there! I'm the ARC AI assistant. How can I help you today?'). Say nothing else after the greeting. Do NOT assume the user has said anything yet. Do NOT ask follow-up questions beyond 'How can I help you today?'. After greeting, STOP speaking and wait silently for the user to talk first."
+                            }
+                        }));
+                    }
 
                     if (event.type === 'error') {
                         console.error("OpenAI WebRTC Error:", event.error);
@@ -302,12 +314,19 @@ export function StickyAiPill() {
                         setVoiceStatus("Thinking...");
                         resetInactivityTimer();
                     }
-                    if (event.type === 'response.audio.started') {
-                        setVoiceStatus("Agent Speaking...");
+                    if (event.type === 'response.audio.delta') {
+                        setVoiceStatus(prev => prev !== "Agent Speaking..." ? "Agent Speaking..." : prev);
+                    }
+                    if (event.type === 'response.output_item.added') {
                         resetInactivityTimer();
                     }
                     if (event.type === 'response.done') {
-                        setVoiceStatus("Listening...");
+                        // Check if the response was a function call. If so, we are executing it
+                        // and should not immediately reset the UI to 'Listening...'
+                        const hasFunctionCall = event.response?.output?.some((o: any) => o.type === 'function_call');
+                        if (!hasFunctionCall) {
+                            setVoiceStatus("Listening...");
+                        }
                         resetInactivityTimer();
                     }
 
@@ -331,7 +350,7 @@ export function StickyAiPill() {
                                     item: { type: "function_call_output", call_id, output: JSON.stringify({ success: true, navigated_to: target_path }) }
                                 }));
                                 dc.send(JSON.stringify({ type: "response.create" }));
-                                setVoiceStatus("Listening...");
+                                setVoiceStatus("Thinking...");
                             } catch (e) {
                                 console.error("Navigation failed", e);
                             }
@@ -351,7 +370,7 @@ export function StickyAiPill() {
                                 item: { type: "function_call_output", call_id, output: JSON.stringify(result) }
                             }));
                             dc.send(JSON.stringify({ type: "response.create" }));
-                            setVoiceStatus("Listening...");
+                            setVoiceStatus("Thinking...");
 
                         } catch (err) {
                             dc.send(JSON.stringify({
@@ -359,7 +378,7 @@ export function StickyAiPill() {
                                 item: { type: "function_call_output", call_id, output: JSON.stringify({ error: String(err) }) }
                             }));
                             dc.send(JSON.stringify({ type: "response.create" }));
-                            setVoiceStatus("Listening...");
+                            setVoiceStatus("Thinking...");
                         }
                     }
                 } catch (err) {
