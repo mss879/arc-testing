@@ -32,10 +32,13 @@ const ProblemSection = () => {
     <section className="problem-section" id="problem" aria-label="Problem">
       <div className="problem-inner">
         <motion.div
-          className="problem-tag-wrap"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
+        <motion.div
+          className="problem-tag-wrap"
           variants={headingVariants}
         >
           <div className="problem-tag">
@@ -45,9 +48,6 @@ const ProblemSection = () => {
 
         <motion.div
           className="problem-headline"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
           variants={headingVariants}
         >
           <h2>
@@ -61,9 +61,6 @@ const ProblemSection = () => {
 
         <motion.p
           className="problem-lede"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
           variants={headingVariants}
         >
           Most agencies and freelancers have no clue about conversions. They don&apos;t
@@ -74,9 +71,6 @@ const ProblemSection = () => {
           <motion.div
             className="problem-card"
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="problem-card-head">
               <div className="problem-icon-box" aria-hidden="true">
@@ -112,9 +106,6 @@ const ProblemSection = () => {
           <motion.div
             className="problem-card"
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="problem-card-head">
               <div className="problem-icon-box" aria-hidden="true">
@@ -183,6 +174,7 @@ const ProblemSection = () => {
             </p>
           </motion.div>
         </div>
+        </motion.div>
       </div>
     </section>
   );

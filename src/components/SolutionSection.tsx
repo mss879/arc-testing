@@ -32,10 +32,13 @@ const SolutionSection = () => {
     <section className="solution-section" id="solution" aria-labelledby="solution-heading">
       <div className="solution-inner">
         <motion.div
-          className="solution-tag-wrap"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
+        <motion.div
+          className="solution-tag-wrap"
           variants={headingVariants}
         >
           <div className="solution-tag">
@@ -45,9 +48,6 @@ const SolutionSection = () => {
 
         <motion.div
           className="solution-headline"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
           variants={headingVariants}
         >
           <h2 id="solution-heading">
@@ -61,9 +61,6 @@ const SolutionSection = () => {
           <motion.div
             className="solution-card"
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="solution-card-head">
               <div className="solution-icon-box" aria-hidden="true">
@@ -88,9 +85,6 @@ const SolutionSection = () => {
           <motion.div
             className="solution-card"
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="solution-card-head">
               <div className="solution-icon-box" aria-hidden="true">
@@ -116,9 +110,6 @@ const SolutionSection = () => {
           <motion.div
             className="solution-card"
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="solution-card-head">
               <div className="solution-icon-box" aria-hidden="true">
@@ -137,6 +128,7 @@ const SolutionSection = () => {
             </p>
           </motion.div>
         </div>
+        </motion.div>
       </div>
     </section>
   );

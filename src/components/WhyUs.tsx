@@ -8,7 +8,7 @@
 */
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useAnimation, useInView, Variants } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 
 const title = "NUMBERS DON'T LIE";
 
@@ -106,11 +106,7 @@ const WhyUs: React.FC = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="framer-hg4gxq grid gap-8 border-t border-white/10 pt-16 sm:grid-cols-2 lg:grid-cols-3" data-framer-name="Content">
-          {stats.map((item, idx) => (
-            <Stat key={item.label} item={item} index={idx} />
-          ))}
-        </div>
+        <StatsGrid />
       </div>
     </section>
   );
@@ -118,23 +114,35 @@ const WhyUs: React.FC = () => {
 
 interface StatItem { value: string; suffix: string; label: string; }
 
-const Stat = ({ item, index }: { item: StatItem; index: number }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
-  const controls = useAnimation();
+const StatsGrid = () => {
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(gridRef, { once: true, amount: 0.3 });
+
+  return (
+    <div
+      ref={gridRef}
+      className="framer-hg4gxq grid gap-8 border-t border-white/10 pt-16 sm:grid-cols-2 lg:grid-cols-3"
+      data-framer-name="Content"
+    >
+      {stats.map((item, idx) => (
+        <Stat key={item.label} item={item} index={idx} inView={inView} />
+      ))}
+    </div>
+  );
+};
+
+const Stat = ({ item, index, inView }: { item: StatItem; index: number; inView: boolean }) => {
   const [displayValue, setDisplayValue] = useState("0");
 
   useEffect(() => {
     if (inView) {
-      controls.start("show");
-      // Count up effect
       const target = parseInt(item.value, 10);
       if (!isNaN(target)) {
         const start = performance.now();
-        const duration = 1400 + index * 120; // staggered durations
+        const duration = 1400 + index * 120;
         const step = (now: number) => {
           const progress = Math.min(1, (now - start) / duration);
-          const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+          const eased = 1 - Math.pow(1 - progress, 3);
           const current = Math.round(target * eased);
           setDisplayValue(current.toString());
           if (progress < 1) requestAnimationFrame(step);
@@ -144,18 +152,14 @@ const Stat = ({ item, index }: { item: StatItem; index: number }) => {
         setDisplayValue(item.value);
       }
     }
-  }, [inView, item.value, index, controls]);
+  }, [inView, item.value, index]);
 
   return (
     <motion.div
-      ref={ref}
       className="group relative flex flex-col items-center border-l border-white/5 pl-6 sm:pl-8"
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: index * 0.1 } },
-      }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: index * 0.1 }}
     >
       <div className="flex items-baseline gap-1 text-6xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl">
         <span className="tabular-nums">{displayValue}</span>

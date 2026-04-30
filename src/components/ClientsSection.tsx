@@ -1,21 +1,12 @@
 "use client";
 
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { clientLogos } from "@/lib/client-logos";
 
 const ClientsSection = memo(() => {
-  const [rotation, setRotation] = useState(0);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
-
-  useEffect(() => {
-    const animate = () => {
-      setRotation((prev) => (prev + 0.1) % 360);
-    };
-    const interval = setInterval(animate, 16); // ~60fps
-    return () => clearInterval(interval);
-  }, []);
 
   const openCalendly = () => {
     setIsCalendlyOpen(true);
@@ -51,11 +42,9 @@ const ClientsSection = memo(() => {
               }}
             >
               <div
-                className="relative w-full h-full"
+                className="relative w-full h-full animate-[spin-clients_60s_linear_infinite]"
                 style={{
                   willChange: "transform",
-                  transform: `rotate(${rotation}deg)`,
-                  transition: "none"
                 }}
               >
                 {arms.map((arm, index) => (

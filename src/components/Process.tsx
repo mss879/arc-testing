@@ -56,15 +56,18 @@ const Process = () => {
           </div>
 
           {/* Right Side - Steps */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          <motion.div
+            className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+          >
             {steps.map((step) => (
               <motion.div
                 key={step.number}
                 className="border border-[rgb(51,51,51)] bg-[rgb(10,10,10)] p-6 lg:p-8 min-h-[280px] sm:min-h-[400px] flex flex-col"
                 variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
               >
                 {/* Step Number */}
                 <div className="mb-4 sm:mb-auto">
@@ -87,7 +90,7 @@ const Process = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

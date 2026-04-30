@@ -35,7 +35,7 @@ const pillVariants: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      delay: 2.5 + (i * 0.2), // Starts after typing finishes (approx 2s)
+      delay: 0.3 + (i * 0.15),
       duration: 0.5,
       ease: [0.23, 1, 0.32, 1]
     }
@@ -49,7 +49,7 @@ const bubbleVariants: Variants = {
     scale: 1,
     y: 0,
     transition: {
-      delay: delay,
+      delay: Math.min(delay, 0.4),
       duration: 0.5,
       type: "spring",
       stiffness: 200,
@@ -63,8 +63,8 @@ const typingContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.5
+      staggerChildren: 0.03,
+      delayChildren: 0.2
     }
   }
 };
@@ -97,15 +97,17 @@ const AIServices = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15 } } }}
+        >
           {/* Content Generation Card */}
           <motion.div
             className="framer-kt4eez-container"
-            style={{ willChange: "transform", opacity: 1, transform: "none" }}
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="ssr-variant hidden-72rtr7">
               <div
@@ -151,9 +153,6 @@ const AIServices = () => {
                         height: "auto"
                       }}
                       variants={typingContainer}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
                     >
                       <span className="text-[10px] text-white font-medium whitespace-nowrap mr-0.5">
                         {Array.from("Generate marketing copy...").map((char, i) => (
@@ -184,9 +183,6 @@ const AIServices = () => {
                     style={{ opacity: 1 }}
                     variants={pillVariants}
                     custom={0}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
                   >
                     <div className="framer-2q1dkc" style={{ opacity: 1 }}>
                       <div
@@ -218,9 +214,6 @@ const AIServices = () => {
                     style={{ opacity: 1 }}
                     variants={pillVariants}
                     custom={1}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
                   >
                     <div className="framer-whm74r" style={{ opacity: 1 }}>
                       <div
@@ -252,9 +245,6 @@ const AIServices = () => {
                     style={{ opacity: 1 }}
                     variants={pillVariants}
                     custom={2}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
                   >
                     <div className="framer-1863du7" style={{ opacity: 1 }}>
                       <div
@@ -336,11 +326,7 @@ const AIServices = () => {
           {/* Automated Workflows Card */}
           <motion.div
             className="framer-1wwoz27-container"
-            style={{ willChange: "transform", opacity: 1, transform: "none" }}
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="ssr-variant hidden-72rtr7">
               <div
@@ -626,11 +612,7 @@ const AIServices = () => {
           {/* AI-Powered Chatbots Card */}
           <motion.div
             className="framer-hnkli9-container"
-            style={{ willChange: "transform", opacity: 1, transform: "none" }}
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="ssr-variant hidden-72rtr7">
               <div
@@ -699,10 +681,7 @@ const AIServices = () => {
                 <motion.div
                   className="framer-fx0oj2"
                   variants={bubbleVariants}
-                  custom={0.5} // User message appears first
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
+                  custom={0.5}
                   style={{
                     backgroundColor: "var(--token-4f00a517-d75a-4557-9433-caf4536a911d, rgb(245, 245, 245))",
                     borderRadius: "10px",
@@ -870,7 +849,7 @@ const AIServices = () => {
               </div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div >
     </section >
   );

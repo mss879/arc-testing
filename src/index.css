@@ -246,4 +246,13 @@ All colors MUST be HSL.
   .animate-cursor-blink {
     animation: cursor-blink 1s step-end infinite;
   }
+
+  @keyframes spin-clients {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }

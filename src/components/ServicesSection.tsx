@@ -189,12 +189,15 @@ const ServicesSection = () => {
     <section className="services-section" id="services">
       <div className="services-content-container">
         <div className="services-headline">
-          <div className="services-header">
+          <motion.div
+            className="services-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+          >
             <motion.div
               className="services-tag-wrapper"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
               variants={headingVariants}
             >
               <div className="services-tag">
@@ -204,18 +207,21 @@ const ServicesSection = () => {
 
             <motion.div
               className="services-text-container"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
               variants={headingVariants}
             >
               <h2 className="services-subtitle">How can we help</h2>
               <p className="services-title">Your business grow</p>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="services-list">
+        <motion.div
+          className="services-list"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -223,11 +229,7 @@ const ServicesSection = () => {
               ref={(el) => {
                 itemRefs.current[service.id] = el;
               }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
               variants={itemVariants}
-              transition={{ delay: index * 0.1 }}
             >
               <div
                 className="services-question"
@@ -284,7 +286,7 @@ const ServicesSection = () => {
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -36,7 +36,13 @@ const Benefits = () => {
         {/* Custom layout: First row 3 columns (middle stacked), second row 2 wide cards */}
         <div className="space-y-6 md:space-y-8">
           {/* First Row */}
-          <div className="grid gap-4 md:gap-6 md:grid-cols-3">
+          <motion.div
+            className="grid gap-4 md:gap-6 md:grid-cols-3"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+          >
             {/* Col 1: Strategy */}
             <Card index={0} className="bg-white/[0.04] border-white/10">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5">
@@ -134,10 +140,16 @@ const Benefits = () => {
                 </p>
               </div>
             </Card>
-          </div>
+          </motion.div>
 
           {/* Second Row: Two wide cards spanning full width */}
-          <div className="grid gap-4 md:gap-6 md:grid-cols-2">
+          <motion.div
+            className="grid gap-4 md:gap-6 md:grid-cols-2"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+          >
             {/* Collaborative (wide) */}
             <Card index={4} className="relative overflow-hidden p-0 min-h-[300px] md:min-h-[400px] bg-black">
               {/* Full Background Image */}
@@ -193,7 +205,7 @@ const Benefits = () => {
                 </p>
               </div>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -202,11 +214,8 @@ const Benefits = () => {
 
 const Card = ({ children, index, className = "" }: { children: React.ReactNode; index: number; className?: string }) => (
   <motion.div
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: true, amount: 0.3 }}
-    custom={index}
     variants={fade as any}
+    custom={index}
     className={`group relative rounded-xl border border-white/10 p-5 overflow-hidden 
       before:content-[''] before:absolute before:inset-0 before:pointer-events-none before:rounded-[inherit]
       before:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.14),transparent_65%)]

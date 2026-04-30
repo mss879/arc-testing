@@ -32,12 +32,15 @@ const Features = () => {
   return (
     <section className="py-20 lg:py-16 px-4 md:px-6 bg-black" id="features">
       <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
         {/* Heading Section */}
         <motion.div
           className="flex flex-col items-center text-center mb-12 space-y-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
           variants={headingVariants}
         >
           {/* Main Heading */}
@@ -59,9 +62,6 @@ const Features = () => {
           <motion.div 
             className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:border-white/20 transition-all duration-300 flex flex-col md:flex-row md:h-[220px]" 
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             {/* Image Section - Left */}
             <div className="relative md:w-1/2 h-48 md:h-auto">
@@ -92,9 +92,6 @@ const Features = () => {
           <motion.div 
             className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 shadow-2xl hover:border-white/20 transition-all duration-300 flex flex-col justify-center md:h-[220px]" 
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="space-y-3">
               <div className="w-10 h-10 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl flex items-center justify-center shadow-lg">
@@ -113,9 +110,6 @@ const Features = () => {
           <motion.div 
             className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 shadow-2xl hover:border-white/20 transition-all duration-300 flex flex-col justify-center md:h-[220px]" 
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="space-y-3">
               <div className="w-10 h-10 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl flex items-center justify-center shadow-lg">
@@ -134,9 +128,6 @@ const Features = () => {
           <motion.div 
             className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:border-white/20 transition-all duration-300 flex flex-col md:flex-row md:h-[220px]" 
             variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             {/* Content - Left */}
             <div className="md:w-1/2 p-6 flex flex-col justify-center space-y-3 order-2 md:order-1">
@@ -163,6 +154,7 @@ const Features = () => {
             </div>
           </motion.div>
         </div>
+        </motion.div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">

@@ -2,20 +2,20 @@ import { Metadata } from "next";
 import WebDesignContent from "./content";
 
 const post = {
-    title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
+    title: "Web Design & Development Services Sri Lanka — 2026 Industry Guide | ARC AI",
     excerpt:
-        "An authoritative, technically rigorous industry report analyzing the Sri Lankan web development ecosystem. Covers the hidden costs of legacy monolithic CMS, True Cost of Ownership (LKR), the shift to headless Next.js architectures, and how to objectively evaluate Colombo agencies.",
+        "The definitive guide to web design and web development services in Sri Lanka. Custom Next.js websites, e-commerce, web apps — LKR pricing benchmarks, technology comparisons, and how to choose the right web development company in Colombo (2026).",
     slug: "web-design-sri-lanka",
 };
 
 export const metadata: Metadata = {
-    title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
+    title: "Web Design & Development Services Sri Lanka — 2026 Industry Guide | ARC AI",
     description:
-        "2026 industry report on Sri Lankan web design. TCO pricing (LKR), WordPress vs Next.js, Core Web Vitals, and how to evaluate agencies.",
+        "Web design & development services in Sri Lanka. Custom Next.js websites, e-commerce, web apps — LKR pricing, technology comparison, and how to choose the right agency (2026).",
     openGraph: {
-        title: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
+        title: "Web Design & Development Services Sri Lanka — 2026 Industry Guide | ARC AI",
         description:
-            "An authoritative industry report on the Sri Lankan web design market. Covers TCO pricing benchmarks (LKR), WordPress vs Next.js architectures, Core Web Vitals, and how to evaluate local agencies.",
+            "The definitive guide to web design and web development services in Sri Lanka. Covers LKR pricing benchmarks, WordPress vs Next.js, service offerings, and how to evaluate web development companies in Colombo.",
         type: "article",
         url: "https://www.arcai.agency/web-design-sri-lanka",
         images: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
                 url: "/arc-ai-web-design-sri-lanka.png",
                 width: 1200,
                 height: 630,
-                alt: "Web Design in Sri Lanka 2026 Guide",
+                alt: "Web Design & Development Services Sri Lanka 2026 Guide",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Web Design in Sri Lanka — 2026 Industry Report",
+        title: "Web Design & Development Services Sri Lanka — 2026 Guide",
         description:
-            "An authoritative industry report on the Sri Lankan web design market. Covers TCO pricing benchmarks (LKR), WordPress vs Next.js architectures, Core Web Vitals, and how to evaluate local agencies.",
+            "The definitive guide to web design and web development services in Sri Lanka. LKR pricing, technology comparison, service offerings, and how to evaluate agencies.",
     },
     alternates: {
         canonical: "https://www.arcai.agency/web-design-sri-lanka",
@@ -83,6 +83,30 @@ const faqSchema = {
                 text: "Hiring a senior Full-Stack or React Developer in Sri Lanka commands a monthly salary of LKR 300,000 to LKR 600,000+. For a single build, this is an inefficient deployment of capital. Engaging a specialized agency provides you with a fractional team (UX Researcher, Frontend Engineer, DevOps, Technical SEO Specialist) for the cost of a single developer's monthly salary.",
             },
         },
+        {
+            "@type": "Question",
+            name: "What web development services are available in Sri Lanka?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sri Lankan web development companies offer a full spectrum of services including custom corporate website development, e-commerce platform builds (with PayHere and Webxpay payment gateway integration), progressive web apps (PWAs), SaaS web application development, API and backend engineering, and ongoing website maintenance. Leading agencies like ARC AI build exclusively on modern frameworks such as Next.js and React, delivering significantly faster and more secure websites compared to traditional WordPress builds.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "How long does custom web development take in Sri Lanka?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Timelines vary based on project complexity. A standard corporate website (5–10 pages) typically takes 3–5 days with ARC AI. A full-featured e-commerce store ranges from 4–8 weeks depending on product catalog size and payment integrations. Custom web applications (dashboards, SaaS platforms) can take 6–16 weeks. Agencies using pre-built WordPress templates may deliver faster initially, but the resulting technical debt often requires a complete rebuild within 12–18 months.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "Can a Sri Lankan agency build a multilingual website in Sinhala, Tamil, and English?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Modern web development frameworks like Next.js have built-in internationalisation (i18n) support, enabling seamless multilingual websites in Sinhala, Tamil, and English. This is critical for Sri Lankan businesses targeting both local and international audiences. The key technical considerations include proper Unicode font rendering for Sinhala and Tamil scripts, right-to-left (RTL) layout support if needed, and hreflang tags for SEO so Google serves the correct language version to each user.",
+            },
+        },
     ],
 };
 
@@ -90,9 +114,9 @@ const faqSchema = {
 const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Web Design in Sri Lanka — The Complete 2026 Industry Report",
+    headline: "Web Design & Development Services Sri Lanka — The Complete 2026 Industry Guide",
     description:
-        "An authoritative, technically rigorous industry report analyzing the Sri Lankan web development ecosystem, including monolithic vs headless architectures, True Cost of Ownership (LKR), and agency evaluations.",
+        "The definitive guide to web design and web development services in Sri Lanka. Covers service offerings, LKR pricing benchmarks, technology stack comparisons, industries served, and how to evaluate web development companies in Colombo.",
     author: {
         "@type": "Organization",
         name: "ARC AI",
@@ -108,18 +132,18 @@ const articleSchema = {
         },
     },
     datePublished: "2026-04-24",
-    dateModified: "2026-04-24",
+    dateModified: "2026-04-30",
     mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://www.arcai.agency/web-design-sri-lanka",
     },
     image: "https://www.arcai.agency/arc-ai-web-design-sri-lanka.png",
-    wordCount: 2200,
+    wordCount: 4700,
     keywords:
-        "web design company Sri Lanka, web design Sri Lanka, web designers Colombo, website cost Sri Lanka, WordPress vs Next.js, responsive web design, headless CMS Sri Lanka, Core Web Vitals",
+        "web development services Sri Lanka, web development company Sri Lanka, web design Sri Lanka, web development Colombo, custom web development Sri Lanka, website development Sri Lanka, e-commerce development Sri Lanka, web designers Colombo, website cost Sri Lanka, WordPress vs Next.js, headless CMS Sri Lanka, Core Web Vitals, web application development Sri Lanka",
     about: {
         "@type": "Thing",
-        name: "Web Design Industry in Sri Lanka",
+        name: "Web Design & Development Services in Sri Lanka",
     },
     isAccessibleForFree: true,
 };
@@ -138,7 +162,7 @@ const breadcrumbSchema = {
         {
             "@type": "ListItem",
             position: 2,
-            name: "Web Design Sri Lanka Industry Report",
+            name: "Web Design & Development Services Sri Lanka Guide",
             item: "https://www.arcai.agency/web-design-sri-lanka",
         },
     ],
