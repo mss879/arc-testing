@@ -12,6 +12,7 @@ import {
     MessageSquare,
     Briefcase,
     ClipboardList,
+    Star,
     LogOut,
     Menu,
     X,
@@ -27,6 +28,7 @@ const navItems = [
     { name: 'AI Chat History', path: '/admin/dashboard/chat', icon: MessageSquare },
     { name: 'Careers', path: '/admin/dashboard/careers', icon: Briefcase },
     { name: 'Job Requests', path: '/admin/dashboard/job-requests', icon: ClipboardList },
+    { name: 'Reviews', path: '/admin/dashboard/reviews', icon: Star },
 ];
 
 export default function DashboardLayout({
