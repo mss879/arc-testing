@@ -127,7 +127,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                 </div>
               </a>
 
-              {/* Success Stories Link */}
+              {/* Success Stories Link - Hidden until reviews are collected
               <a
                 href="/success-stories"
                 onClick={(e) => {
@@ -144,6 +144,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
                   <div className="h-px flex-1 ml-8 bg-[rgb(255,73,37)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               </a>
+              */}
 
               {/* Blog Link */}
               <a

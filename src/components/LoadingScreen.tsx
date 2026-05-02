@@ -68,7 +68,7 @@ const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-hidden"
+        className="fixed inset-0 z-[70] flex items-center justify-center bg-black overflow-hidden"
         style={{ willChange: 'opacity' }}
       >
         {/* Static Gradient Background - Removed heavy animation for performance */}

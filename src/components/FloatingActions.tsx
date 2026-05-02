@@ -1,12 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { StickyAiPill } from "@/components/StickyAiPill";
 
 const FloatingActions = () => {
+  const pathname = usePathname();
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  // Check if on admin pages
+  const isAdmin = pathname?.startsWith("/admin");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +55,9 @@ const FloatingActions = () => {
   const closeCalendly = () => {
     setIsCalendlyOpen(false);
   };
+
+  // Hide on admin pages
+  if (isAdmin) return null;
 
   return (
     <>
