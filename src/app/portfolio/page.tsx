@@ -58,6 +58,14 @@ export const metadata: Metadata = {
 export default async function Portfolio() {
   const portfolioItems = [
     {
+      id: 34,
+      title: "Java Global Nexus Platform",
+      description: "A premier global delivery and execution hub based in Dubai, offering standardized processes, centralized governance, scalable workforce solutions, and secure digital infrastructure.",
+      image: "/java global nexus platform.jpeg",
+      link: "https://www.javagnp.ae",
+      status: "live"
+    },
+    {
       id: 33,
       title: "TOS Lanka",
       description: "Sri Lanka's pioneer Electronic Manufacturing Services (EMS) provider and a BOI-approved subsidiary of Tosslec Company Limited, Japan. Delivering end-to-end high-tech assembly for global clients across automotive, biomedical, telecom and IoT.",
