@@ -561,9 +561,9 @@ export default function SoftwareCompaniesContent() {
                             Industry Guide · Updated May 2026
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            22 Best Software Companies in Sri Lanka
+                            Software Companies in Sri Lanka
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,73,37)] to-orange-500">
-                                Rated & Compared for 2026
+                                22 Top Firms Rated & Compared (2026)
                             </span>
                         </h1>
                         

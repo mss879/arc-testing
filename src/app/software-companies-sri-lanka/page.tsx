@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import SoftwareCompaniesContent from "./content";
 
 export const metadata: Metadata = {
-    title: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
+    title: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
     description:
         "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
     openGraph: {
-        title: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
+        title: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
         description:
             "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
         url: "https://www.arcai.agency/software-companies-sri-lanka",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@arcaiagency",
         creator: "@arcaiagency",
-        title: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
+        title: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
         description:
             "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
         images: ["https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp"],
@@ -131,7 +131,7 @@ const faqJsonLd = {
 const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
+    headline: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
     description:
         "We reviewed 22 software companies in Sri Lanka for 2026, covering enterprise IT, AI development, product engineering, outsourcing rates ($20–$60/hr), and industry statistics.",
     image: "https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp",
