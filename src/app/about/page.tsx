@@ -174,7 +174,7 @@ export default function About() {
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
                 }}
               >
-                We combine cutting-edge AI technology with strategic digital marketing to transform businesses. Recognised as one of the <a href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</a>, we deliver intelligent automation and data-driven campaigns that help you scale faster and smarter.
+                We combine cutting-edge AI technology with strategic digital marketing to transform businesses. Recognised as one of the <a href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</a> and among the <a href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top software companies in Sri Lanka</a>, we deliver intelligent automation and data-driven campaigns that help you scale faster and smarter.
               </p>
 
               {/* Stats Cards - Horizontal layout as in screenshot */}

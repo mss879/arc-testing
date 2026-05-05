@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import SoftwareCompaniesContent from "./content";
 
 export const metadata: Metadata = {
-    title: "Software Companies in Sri Lanka — The Definitive 2026 Industry Guide",
+    title: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
     description:
-        "Guide to 15 leading software companies in Sri Lanka (2026). Enterprise IT, AI development, outsourcing rates ($20–$60/hr), and selection criteria.",
+        "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
     openGraph: {
-        title: "Software Companies in Sri Lanka — The Definitive 2026 Industry Guide",
+        title: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
         description:
-            "An in-depth guide to the 15 leading software companies in Sri Lanka for 2026. Updated with industry statistics, pricing benchmarks, and selection criteria.",
+            "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
         url: "https://www.arcai.agency/software-companies-sri-lanka",
         locale: "en_GB",
         type: "article",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@arcaiagency",
         creator: "@arcaiagency",
-        title: "Software Companies in Sri Lanka — 2026 Industry Guide",
+        title: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
         description:
-            "An in-depth guide to the 15 leading software companies in Sri Lanka for 2026. Updated with industry statistics, pricing, and selection criteria.",
+            "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
         images: ["https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp"],
     },
     alternates: {
@@ -50,7 +50,7 @@ const faqJsonLd = {
             name: "What are the top-rated software development companies in Sri Lanka for 2026?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Based on our evaluation of technical capability, market reputation, innovation, and client portfolio, the leading software companies in Sri Lanka for 2026 include ARC AI (AI-native development), WSO2 (API & integration), Virtusa (enterprise digital engineering), 99x (product engineering), IFS (ERP & FSM), Sysco LABS (supply chain innovation), Calcey Technologies (startup MVPs), Arimac (immersive tech), Rootcode (digital products), Surge Global (development + marketing), Mitra Innovation (cloud migration), Creative Software (dedicated teams), hSenid (HR tech), Addix (custom apps), and CodeGen International (travel tech).",
+                text: "The top-rated software companies in Sri Lanka for 2026 include WSO2, Virtusa, IFS, 99x, LSEG Technology, Calcey Technologies, Rootcode, and Surge Global. Based on our evaluation of technical capability, market reputation, innovation, and client portfolio, the full list spans enterprise middleware (WSO2), digital engineering (Virtusa), ERP (IFS), product engineering (99x), capital markets (LSEG Technology), startup MVPs (Calcey), cloud-native development (Rootcode), IoT (Fcode Labs), and travel tech (CodeGen International).",
             },
         },
         {
@@ -114,7 +114,7 @@ const faqJsonLd = {
             name: "What is the best custom software development company in Sri Lanka for startups?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "For startups, agile boutique firms like Addix, Rootcode, Calcey Technologies, and ARC AI are often the best fit. These software development companies in Sri Lanka specialise in rapid MVP development, modern tech stacks (React, Next.js, AI integration), and offer flexible engagement models tailored to startup budgets.",
+                text: "For startups, agile boutique and mid-market firms like Calcey Technologies, Rootcode, Addix, and Fcode Labs are often the best fit. These software development companies in Sri Lanka specialise in rapid MVP development, modern tech stacks (React, Next.js, AI integration), and offer flexible engagement models tailored to startup budgets.",
             },
         },
         {
@@ -131,14 +131,23 @@ const faqJsonLd = {
 const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Software Companies in Sri Lanka — The Definitive 2026 Industry Guide",
+    headline: "22 Best Software Companies in Sri Lanka (2026) — Rated & Compared",
     description:
-        "An in-depth guide to the 15 leading software companies in Sri Lanka for 2026, covering enterprise IT, AI development, product engineering, outsourcing rates, and industry statistics.",
+        "We reviewed 22 software companies in Sri Lanka for 2026, covering enterprise IT, AI development, product engineering, outsourcing rates ($20–$60/hr), and industry statistics.",
     image: "https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp",
     author: {
-        "@type": "Organization",
-        name: "ARC AI",
-        url: "https://www.arcai.agency",
+        "@type": "Person",
+        name: "Shahid Shamir",
+        url: "https://www.arcai.agency/about",
+        jobTitle: "Founder & Lead Engineer",
+        worksFor: {
+            "@type": "Organization",
+            name: "ARC AI",
+            url: "https://www.arcai.agency",
+        },
+        sameAs: [
+            "https://www.linkedin.com/in/shahid-shamir-2ab901105/",
+        ],
     },
     publisher: {
         "@type": "Organization",
@@ -147,35 +156,44 @@ const articleJsonLd = {
             "@type": "ImageObject",
             url: "https://www.arcai.agency/favicon.png",
         },
+        sameAs: [
+            "https://www.linkedin.com/company/105845719",
+        ],
     },
     datePublished: "2026-04-19",
-    dateModified: "2026-04-19",
+    dateModified: "2026-05-05",
     mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://www.arcai.agency/software-companies-sri-lanka",
     },
-    wordCount: 5200,
 };
 
 const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: [
-        { "@type": "ListItem", position: 1, name: "ARC AI", url: "https://www.arcai.agency" },
-        { "@type": "ListItem", position: 2, name: "WSO2", url: "https://wso2.com" },
-        { "@type": "ListItem", position: 3, name: "Virtusa", url: "https://www.virtusa.com" },
-        { "@type": "ListItem", position: 4, name: "99x", url: "https://99x.io" },
-        { "@type": "ListItem", position: 5, name: "IFS", url: "https://www.ifs.com" },
-        { "@type": "ListItem", position: 6, name: "Sysco LABS", url: "https://syscolabs.lk" },
-        { "@type": "ListItem", position: 7, name: "Calcey Technologies", url: "https://calcey.com" },
-        { "@type": "ListItem", position: 8, name: "Arimac", url: "https://arimac.digital" },
-        { "@type": "ListItem", position: 9, name: "Rootcode", url: "https://rootcodelabs.com" },
-        { "@type": "ListItem", position: 10, name: "Surge Global", url: "https://surgeglobal.com" },
-        { "@type": "ListItem", position: 11, name: "Mitra Innovation", url: "https://mitrainnovation.com" },
-        { "@type": "ListItem", position: 12, name: "Creative Software", url: "https://creativesoftware.com" },
-        { "@type": "ListItem", position: 13, name: "hSenid", url: "https://hsenid.com" },
-        { "@type": "ListItem", position: 14, name: "Addix", url: "https://addix.lk" },
-        { "@type": "ListItem", position: 15, name: "CodeGen International", url: "https://codegen.co.uk" },
+        { "@type": "ListItem", position: 1, name: "WSO2", url: "https://wso2.com", description: "Open-source API management and enterprise integration platform" },
+        { "@type": "ListItem", position: 2, name: "Virtusa", url: "https://www.virtusa.com", description: "Global digital engineering and IT consulting services" },
+        { "@type": "ListItem", position: 3, name: "99x", url: "https://99x.io", description: "Product engineering for Scandinavian and European markets" },
+        { "@type": "ListItem", position: 4, name: "IFS", url: "https://www.ifs.com", description: "Enterprise ERP, asset management and field service solutions" },
+        { "@type": "ListItem", position: 5, name: "Sysco LABS", url: "https://syscolabs.lk", description: "Technology innovation centre for global supply chain" },
+        { "@type": "ListItem", position: 6, name: "LSEG Technology (MillenniumIT)", url: "https://www.lseg.com", description: "Capital markets technology powering 40+ global exchanges" },
+        { "@type": "ListItem", position: 7, name: "Calcey Technologies", url: "https://calcey.com", description: "Boutique software engineering for startups and enterprises" },
+        { "@type": "ListItem", position: 8, name: "Arimac", url: "https://arimac.digital", description: "Immersive technology, AR/VR, and digital innovation" },
+        { "@type": "ListItem", position: 9, name: "Rootcode", url: "https://rootcodelabs.com", description: "Cloud-native digital product engineering" },
+        { "@type": "ListItem", position: 10, name: "Surge Global", url: "https://surgeglobal.com", description: "Software development combined with digital marketing" },
+        { "@type": "ListItem", position: 11, name: "Mitra Innovation", url: "https://mitrainnovation.com", description: "AWS cloud migration and enterprise solutions" },
+        { "@type": "ListItem", position: 12, name: "Creative Software", url: "https://creativesoftware.com", description: "Dedicated offshore development teams since 1999" },
+        { "@type": "ListItem", position: 13, name: "hSenid", url: "https://hsenid.com", description: "HR technology and enterprise software solutions" },
+        { "@type": "ListItem", position: 14, name: "Fcode Labs", url: "https://fcodelabs.com", description: "Full-stack product engineering with IoT specialisation" },
+        { "@type": "ListItem", position: 15, name: "Insighture", url: "https://insighture.com", description: "Enterprise app modernisation and cloud consulting" },
+        { "@type": "ListItem", position: 16, name: "Allion Technologies", url: "https://www.alliontechnologies.com", description: "Offshore development and quality assurance services" },
+        { "@type": "ListItem", position: 17, name: "Addix", url: "https://addix.lk", description: "Custom application development with source code ownership" },
+        { "@type": "ListItem", position: 18, name: "CodeGen International", url: "https://codegen.co.uk", description: "Travel technology and booking engine platforms" },
+        { "@type": "ListItem", position: 19, name: "Zone24x7", url: "https://zone24x7.com", description: "R&D engineering and retail technology solutions" },
+        { "@type": "ListItem", position: 20, name: "Fortude", url: "https://fortude.co", description: "Enterprise ERP implementation and digital services" },
+        { "@type": "ListItem", position: 21, name: "Cambio Software Engineering", url: "https://cambio.lk", description: "Healthcare IT and electronic medical record systems" },
+        { "@type": "ListItem", position: 22, name: "ARC AI", url: "https://www.arcai.agency", description: "AI-native software and automation studio" },
     ],
 };
 
@@ -198,109 +216,7 @@ const breadcrumbJsonLd = {
     ],
 };
 
-const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.arcai.agency/#organization",
-    name: "ARC AI",
-    alternateName: "ARC AI Agency",
-    url: "https://www.arcai.agency",
-    logo: {
-        "@type": "ImageObject",
-        url: "https://www.arcai.agency/logo.png",
-        width: 512,
-        height: 512,
-    },
-    description:
-        "ARC AI is a premier AI-native software development company in Sri Lanka, specialising in custom software development, AI automation, and web design.",
-    email: "support@arcai.agency",
-    telephone: "+94771852522",
-    address: [
-        {
-            "@type": "PostalAddress",
-            addressCountry: "LK",
-            addressLocality: "Colombo",
-            addressRegion: "Western Province",
-        },
-        {
-            "@type": "PostalAddress",
-            addressCountry: "GB",
-            addressLocality: "Birmingham",
-            addressRegion: "West Midlands",
-        },
-    ],
-    sameAs: [
-        "https://x.com/arc_ai_agency",
-        "https://www.instagram.com/arcai_agency/",
-        "https://www.linkedin.com/company/105845719",
-        "https://www.facebook.com/ARCAI.lk",
-    ],
-    foundingDate: "2022",
-    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
-    knowsAbout: [
-        "Software Development",
-        "Artificial Intelligence",
-        "Custom Software Solutions",
-        "Web Design",
-        "Digital Marketing",
-    ],
-};
-
-const localBusinessJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://www.arcai.agency/software-companies-sri-lanka#localbusiness",
-    name: "ARC AI — Software Development Company in Sri Lanka",
-    alternateName: "ARC AI Agency Sri Lanka",
-    url: "https://www.arcai.agency/software-companies-sri-lanka",
-    logo: {
-        "@type": "ImageObject",
-        url: "https://www.arcai.agency/logo.png",
-        width: 512,
-        height: 512,
-    },
-    description:
-        "ARC AI is a leading software development company in Sri Lanka, offering custom software solutions, AI development, and digital transformation services.",
-    email: "support@arcai.agency",
-    telephone: "+94771852522",
-    priceRange: "LKR",
-    address: {
-        "@type": "PostalAddress",
-        addressCountry: "LK",
-        addressRegion: "Western Province",
-        addressLocality: "Colombo",
-        streetAddress: "Colombo 4",
-    },
-    geo: {
-        "@type": "GeoCoordinates",
-        latitude: 6.8935,
-        longitude: 79.8558,
-    },
-    areaServed: {
-        "@type": "Country",
-        name: "Sri Lanka",
-    },
-    aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        bestRating: "5",
-        worstRating: "1",
-        ratingCount: "47",
-        reviewCount: "47",
-    },
-    openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
-    },
-    sameAs: [
-        "https://x.com/arc_ai_agency",
-        "https://www.instagram.com/arcai_agency/",
-        "https://www.linkedin.com/company/105845719",
-        "https://www.facebook.com/ARCAI.lk",
-    ],
-};
+/* Organization and LocalBusiness schemas removed — they belong on /about, not an editorial guide page */
 
 export default function Page() {
     return (
@@ -321,14 +237,7 @@ export default function Page() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-            />
+            {/* Organization and LocalBusiness schemas removed — belong on /about page */}
             <SoftwareCompaniesContent />
         </>
     );

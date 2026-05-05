@@ -141,8 +141,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         {
             url: `${baseUrl}/software-companies-sri-lanka`,
             lastModified: getPageModDate('software-companies-sri-lanka'),
-            changeFrequency: 'monthly',
-            priority: 0.9,
+            changeFrequency: 'weekly',
+            priority: 1.0,
         },
         {
             url: `${baseUrl}/web-design-sri-lanka`,

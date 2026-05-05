@@ -117,7 +117,7 @@ export default function BlogPost() {
 
                             <h2 className="text-3xl font-bold text-white mt-12 mb-6">Getting Started: AI Implementation for Tourism Businesses</h2>
                             <p>
-                                If you run a hotel, resort, tour company, or travel agency in Sri Lanka, here is a practical roadmap for AI adoption:
+                                If you run a hotel, resort, tour company, or travel agency in Sri Lanka, here is a practical roadmap for AI adoption. You can also explore the wider <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">software development companies in Sri Lanka</Link> to find a technology partner:
                             </p>
                             <ol className="list-decimal pl-6 space-y-3">
                                 <li><strong>Start with a chatbot:</strong> Deploy an AI chatbot on your website and WhatsApp. This delivers the fastest ROI and solves the most urgent pain point (slow response times).</li>

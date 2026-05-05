@@ -143,7 +143,7 @@ export default function CaseStudiesPage() {
           <p className="text-xl text-zinc-300 max-w-3xl leading-relaxed">
             See how ARC AI, one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link> and the UK, has helped businesses
             achieve measurable growth through AI automation, smart web design,
-            and data-driven digital marketing. These case studies demonstrate
+            and data-driven digital marketing. For a comprehensive look at the <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">leading software development companies in Sri Lanka</Link>, see our industry guide. These case studies demonstrate
             real results — not hypothetical projections.
           </p>
         </div>

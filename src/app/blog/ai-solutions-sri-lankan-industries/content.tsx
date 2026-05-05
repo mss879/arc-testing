@@ -117,7 +117,7 @@ export default function BlogPost() {
                                 When selecting an AI partner, look for a company with demonstrable experience in your specific industry. <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">ARC AI</Link> is the leading AI company in Sri Lanka with proven results across all major sectors — from tourism and real estate to e-commerce and healthcare.
                             </p>
                             <p>
-                                Read our comprehensive guide: <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">Top AI Companies in Sri Lanka (2026)</Link> for a detailed breakdown of what to look for, or explore our <Link href="/case-studies" className="text-[rgb(255,73,37)] hover:underline">case studies</Link> for full results from our Sri Lankan clients.
+                                Read our comprehensive guide: <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">Top AI Companies in Sri Lanka (2026)</Link> for a detailed breakdown of what to look for, browse our ranked list of the <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">best software companies in Sri Lanka</Link>, or explore our <Link href="/case-studies" className="text-[rgb(255,73,37)] hover:underline">case studies</Link> for full results from our Sri Lankan clients.
                             </p>
 
                             <div className="bg-gradient-to-r from-[rgb(255,73,37)]/20 to-orange-600/20 border border-[rgb(255,73,37)]/30 rounded-xl p-8 mt-12">

@@ -485,7 +485,7 @@ export default function BlogPost() {
                                 </div>
 
                                 <p>
-                                    At ARC AI, we check every one of these boxes. As a specialised <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI company in Sri Lanka</Link>, we build smart websites using Next.js, integrate custom AI agents trained on your business data, and provide measurable results. Our websites load in under 2 seconds, rank on Google, and convert visitors into customers — whether it is 2 PM or 2 AM.
+                                    At ARC AI, we check every one of these boxes. As a specialised <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI company in Sri Lanka</Link>, we build smart websites using Next.js, integrate custom AI agents trained on your business data, and provide measurable results. Our websites load in under 2 seconds, rank on Google, and convert visitors into customers — whether it is 2 PM or 2 AM. For a full breakdown of the island&apos;s development ecosystem, see our guide to the <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top software companies in Sri Lanka</Link>.
                                 </p>
 
                                 {/* Section 10: Future Trends */}

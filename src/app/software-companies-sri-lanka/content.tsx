@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
 import {
     ArrowLeft,
     ArrowRight,
@@ -25,7 +22,6 @@ import {
     MapPin,
     ExternalLink,
     HelpCircle,
-    ChevronDown,
     Star,
     DollarSign,
     Scale,
@@ -34,34 +30,23 @@ import {
     CircleDot,
     Search,
 } from "lucide-react";
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
+import { FAQItem, ScrollProgressBar, ActiveTOC, SocialShareButtons, BackToTop } from "./ClientComponents";
 
-/* ── Animation Variants ──────────────────────────────────────── */
-
-const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-    },
-};
-
-/* ── Data ─────────────────────────────────────────────────────── */
+/* â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const tocItems = [
     { id: "methodology", label: "How We Evaluated These Companies" },
     { id: "industry-overview", label: "Sri Lanka's Software Industry in 2026" },
     { id: "what-to-look-for", label: "What to Look for in a Software Partner" },
-    { id: "rankings", label: "The 15 Leading Firms by Category" },
+    { id: "rankings", label: "The 22 Leading Firms by Category" },
     { id: "comparison-table", label: "At-a-Glance Comparison" },
     { id: "pricing", label: "How Much Does Development Cost?" },
     { id: "sri-lanka-vs-india", label: "Sri Lanka vs India vs Philippines" },
     { id: "tech-ecosystem", label: "Tech Hubs & Ecosystem" },
-    { id: "why-outsource", label: "Why Outsource to Sri Lanka?" },
+    { id: "why-outsource", label: "Why Outsource Software Development to Sri Lanka?" },
     { id: "faq", label: "Frequently Asked Questions" },
 ];
 
@@ -80,23 +65,10 @@ interface Company {
     ratingSource?: string;
     notableClients?: string;
     techStack?: string;
+    projectExample?: string;
 }
 
 const companies: Company[] = [
-    {
-        name: "ARC AI",
-        tagline: "AI-Native Software & Automation",
-        founded: "2024",
-        hq: "Colombo & Birmingham, UK",
-        size: "10–50",
-        specialty: "AI Development & Smart Websites",
-        description:
-            "A newer entrant building exclusively on AI-native architecture. ARC AI specialises in serverless Next.js applications deployed at the edge, AI-powered customer service agents, and process automation using LLM-driven workflows. Their dual-market presence (Sri Lanka + UK) gives them a blend of local cost efficiency and international design standards. They focus on delivering complete AI ecosystems — from multilingual chatbots handling Sinhala, Tamil, and English to automated lead qualification pipelines — primarily serving tourism, real estate, and e-commerce clients.",
-        services: ["Custom AI Development", "Serverless Next.js Apps", "AI Chatbots & Voice Agents", "Process Automation"],
-        bestFor: "Businesses wanting modern, AI-powered systems built on cutting-edge architecture.",
-        notableClients: "Tourism operators, real estate agencies, e-commerce retailers (UK & Sri Lanka)",
-        techStack: "Next.js, React, TypeScript, LangChain, Supabase, Vercel Edge, OpenAI",
-    },
     {
         name: "WSO2",
         tagline: "Open-Source Integration & API Management",
@@ -112,6 +84,7 @@ const companies: Company[] = [
         ratingSource: "Gartner Peer Insights",
         notableClients: "Global banks, healthcare systems, government agencies across 70+ countries",
         techStack: "Java, Ballerina, Kubernetes, Microservices, OAuth/OIDC",
+        projectExample: "Provided the core API management infrastructure for a major European bank, securely processing over 10 billion API calls monthly while ensuring strict PSD2 compliance.",
     },
     {
         name: "Virtusa",
@@ -128,28 +101,30 @@ const companies: Company[] = [
         ratingSource: "Glassdoor",
         notableClients: "Fortune 500 companies in BFSI, healthcare, telecommunications",
         techStack: "Java, .NET, Salesforce, Pega, AWS, Azure, Spark, Hadoop",
+        projectExample: "Executed a massive legacy-to-cloud migration for a Fortune 500 healthcare provider, migrating 400+ applications to AWS and enabling real-time patient data analytics.",
     },
     {
         name: "99x",
         tagline: "Product Engineering for Global Markets",
         founded: "2004",
         hq: "Colombo (Parent: Oslo, Norway)",
-        size: "500–1,000",
+        size: "500â€“1,000",
         specialty: "Product Engineering",
         description:
-            "99x has built a strong reputation as a product engineering company, primarily serving Scandinavian and European clients. They focus on building long-term partnerships rather than project-based engagements, embedding dedicated teams that function as extensions of their client's internal engineering departments. 99x was recognised as a Great Place to Work® multiple consecutive years and is known for investing heavily in employee development and R&D. Their technical expertise spans full-stack development, DevOps, QA, and emerging technologies. They operate under a \"co-creation\" model where their teams share ownership of product outcomes rather than simply executing specifications.",
+            "99x has built a strong reputation as a product engineering company, primarily serving Scandinavian and European clients. They focus on building long-term partnerships rather than project-based engagements, embedding dedicated teams that function as extensions of their client's internal engineering departments. 99x was recognised as a Great Place to WorkÂ® multiple consecutive years and is known for investing heavily in employee development and R&D. Their technical expertise spans full-stack development, DevOps, QA, and emerging technologies. They operate under a \"co-creation\" model where their teams share ownership of product outcomes rather than simply executing specifications.",
         services: ["Custom Software Development", "Product Engineering", "QA & Testing", "DevOps"],
         bestFor: "European companies looking for reliable, long-term offshore engineering teams.",
         rating: "4.7",
-        ratingSource: "Great Place to Work®",
+        ratingSource: "Great Place to WorkÂ®",
         notableClients: "Scandinavian SaaS companies, European enterprises",
         techStack: "React, Angular, Node.js, .NET, Azure, AWS, Docker, Kubernetes",
+        projectExample: "Acted as the extended engineering arm for a Norwegian SaaS scale-up, accelerating their product roadmap and delivering a new enterprise module 3 months ahead of schedule.",
     },
     {
         name: "IFS",
         tagline: "Enterprise ERP, EAM & Field Service Management",
         founded: "1983",
-        hq: "Colombo (Global HQ: Linköping, Sweden)",
+        hq: "Colombo (Global HQ: LinkÃ¶ping, Sweden)",
         size: "6,000+ (global)",
         specialty: "Enterprise Software (ERP)",
         description:
@@ -160,6 +135,7 @@ const companies: Company[] = [
         ratingSource: "Gartner Magic Quadrant (Leader)",
         notableClients: "Aerospace, defence, energy, construction companies globally",
         techStack: "PL/SQL, .NET, C++, REST APIs, Azure, Industrial IoT protocols",
+        projectExample: "Implemented a comprehensive Field Service Management system for a global heavy equipment manufacturer, integrating IoT sensor data to enable predictive maintenance.",
     },
     {
         name: "Sysco LABS",
@@ -169,18 +145,19 @@ const companies: Company[] = [
         size: "1,500+",
         specialty: "Supply Chain & Retail Technology",
         description:
-            "Sysco LABS is the captive technology innovation centre for Sysco Corporation, the world's largest foodservice distribution company (Fortune 51 on the 2026 Fortune 500 list, with $82 billion in annual revenue). Operating out of Colombo, their engineering teams build the software that powers Sysco's global supply chain managing $70+ billion in annual revenue, logistics, and e-commerce platforms. While they don't accept external clients, Sysco LABS is an important indicator of the calibre of engineering talent in Sri Lanka — they compete with Silicon Valley for talent and offer some of the most competitive compensation packages on the island.",
+            "Sysco LABS is the captive technology innovation centre for Sysco Corporation, the world's largest foodservice distribution company (Fortune 51 on the 2026 Fortune 500 list, with $82 billion in annual revenue). Operating out of Colombo, their engineering teams build the software that powers Sysco's global supply chain managing $70+ billion in annual revenue, logistics, and e-commerce platforms. While they don't accept external clients, Sysco LABS is an important indicator of the calibre of engineering talent in Sri Lanka â€” they compete with Silicon Valley for talent and offer some of the most competitive compensation packages on the island.",
         services: ["Supply Chain Software", "E-commerce Platforms", "Data Engineering", "Enterprise Architecture"],
-        bestFor: "Captive centre — demonstrates Sri Lanka's enterprise engineering capability.",
+        bestFor: "Captive centre â€” demonstrates Sri Lanka's enterprise engineering capability.",
         notableClients: "Sysco Corporation (Fortune 51)",
         techStack: "Java, Kotlin, React, Python, Kafka, Kubernetes, GCP, ML/AI pipelines",
+        projectExample: "Developed the core logistics intelligence platform that routes thousands of Sysco delivery trucks daily, optimising fuel consumption and delivery windows.",
     },
     {
         name: "Calcey Technologies",
         tagline: "Boutique Software Engineering for Startups & Enterprises",
         founded: "2013",
         hq: "Colombo (TRACE Expert City)",
-        size: "200–500",
+        size: "200â€“500",
         specialty: "Full-Stack Product Development",
         description:
             "Located at TRACE Expert City in Colombo, Calcey Technologies is a boutique software engineering firm that partners with startups and growth-stage companies globally to build web and mobile applications. They are known for their strong design sensibility, agile delivery processes, and ability to take products from concept to market quickly. Calcey has worked with clients from Silicon Valley, Australia, Europe, and the Middle East across industries including fintech, healthtech, and proptech. They are a Clutch Global Leader with consistently high client satisfaction scores.",
@@ -190,29 +167,31 @@ const companies: Company[] = [
         ratingSource: "Clutch",
         notableClients: "Silicon Valley startups, Australian fintechs, European proptechs",
         techStack: "React Native, Flutter, React, Node.js, AWS, Firebase, Python",
+        projectExample: "Built the complete MVP and v1.0 architecture for a Y-Combinator backed fintech startup, helping them secure a successful Series A funding round.",
     },
     {
         name: "Arimac",
         tagline: "Immersive Technology & Digital Innovation",
         founded: "2013",
         hq: "Colombo",
-        size: "200–500",
+        size: "200â€“500",
         specialty: "AR/VR, Gamification & Creative Tech",
         description:
-            "Arimac stands out in the Sri Lankan tech landscape for its focus on immersive and experiential technologies. They specialise in augmented reality (AR), virtual reality (VR), gamification, and creative digital solutions. Beyond immersive tech, Arimac also delivers custom software development, mobile apps, and enterprise solutions. Their work has been recognised internationally — including at global competitions and startup showcases — and they've partnered with brands in tourism, education, and entertainment to create engaging digital experiences. Founded by Chamira Fernando, Arimac represents the creative and innovative edge of Sri Lanka's software sector.",
+            "Arimac stands out in the Sri Lankan tech landscape for its focus on immersive and experiential technologies. They specialise in augmented reality (AR), virtual reality (VR), gamification, and creative digital solutions. Beyond immersive tech, Arimac also delivers custom software development, mobile apps, and enterprise solutions. Their work has been recognised internationally â€” including at global competitions and startup showcases â€” and they've partnered with brands in tourism, education, and entertainment to create engaging digital experiences. Founded by Chamira Fernando, Arimac represents the creative and innovative edge of Sri Lanka's software sector.",
         services: ["AR/VR Development", "Gamification", "Mobile Apps", "Enterprise Software"],
         bestFor: "Brands wanting immersive, experiential digital products.",
         rating: "4.6",
         ratingSource: "Clutch",
         notableClients: "Tourism boards, educational institutions, entertainment brands",
         techStack: "Unity, Unreal Engine, ARKit, ARCore, React, Node.js, Swift, Kotlin",
+        projectExample: "Created a highly interactive AR-driven cultural heritage app for a national tourism board, achieving over 500,000 downloads in the first month.",
     },
     {
         name: "Rootcode",
         tagline: "Digital Product Engineering Hub",
         founded: "2016",
         hq: "Colombo",
-        size: "100–300",
+        size: "100â€“300",
         specialty: "Product Engineering & Cloud-Native Development",
         description:
             "Rootcode has grown rapidly as a specialised digital product engineering company. They focus on building scalable, cloud-native applications using modern technology stacks and are known for their engineering-first culture. Their team works with startups, scale-ups, and enterprises to build products from scratch or modernise legacy systems. Rootcode places a strong emphasis on DevOps, continuous delivery practices, and infrastructure-as-code. Their rapid growth and focus on modern architectures make them representative of the new generation of Sri Lankan software companies.",
@@ -222,73 +201,78 @@ const companies: Company[] = [
         ratingSource: "Clutch",
         notableClients: "International startups, SaaS scale-ups",
         techStack: "React, Next.js, Node.js, Go, AWS, Terraform, Docker, Kubernetes",
+        projectExample: "Re-architected a monolithic application into a microservices architecture for a European logistics scale-up, improving deployment frequency by 400%.",
     },
     {
         name: "Surge Global",
         tagline: "Software Development + Digital Marketing",
         founded: "2014",
         hq: "Colombo",
-        size: "100–300",
+        size: "100â€“300",
         specialty: "Full-Service Digital Agency",
         description:
-            "Surge Global occupies an interesting niche by combining custom software development with digital marketing expertise. They can build your product and then help you market it — a combination that few pure-play software companies offer. Their development team handles web and mobile applications, while their marketing division provides data-driven campaigns, performance marketing, SEO, and analytics. Surge serves clients across Australia, USA, UK, and the MENA region and has won multiple industry awards for their integrated approach.",
+            "Surge Global occupies an interesting niche by combining custom software development with digital marketing expertise. They can build your product and then help you market it â€” a combination that few pure-play software companies offer. Their development team handles web and mobile applications, while their marketing division provides data-driven campaigns, performance marketing, SEO, and analytics. Surge serves clients across Australia, USA, UK, and the MENA region and has won multiple industry awards for their integrated approach.",
         services: ["Web & Mobile Development", "Digital Marketing & SEO", "Data Analytics", "E-commerce Solutions"],
         bestFor: "Businesses needing both software development and marketing execution.",
         rating: "4.7",
         ratingSource: "Clutch",
         notableClients: "Australian e-commerce brands, UK digital businesses",
         techStack: "React, Angular, Laravel, Node.js, Python, Google Analytics, AWS",
+        projectExample: "Developed a custom e-commerce platform integrated directly with a predictive marketing engine, resulting in a 35% increase in customer lifetime value.",
     },
     {
         name: "Mitra Innovation",
         tagline: "Digital Advancement & Cloud Engineering",
         founded: "2014",
         hq: "Colombo & London, UK",
-        size: "100–300",
+        size: "100â€“300",
         specialty: "Cloud Migration & Enterprise Solutions",
         description:
-            "Mitra Innovation specialises in helping enterprises adopt modern cloud architectures, particularly on AWS. With offices in both Sri Lanka and the UK, they bridge the gap between offshore development costs and Western enterprise requirements. Mitra is an AWS Advanced Consulting Partner with multiple AWS competencies and has built deep expertise in product incubation — helping enterprises turn internal ideas into standalone software products. Their engagements tend to be long-term, often evolving into managed services relationships that cover ongoing platform maintenance and optimisation.",
+            "Mitra Innovation specialises in helping enterprises adopt modern cloud architectures, particularly on AWS. With offices in both Sri Lanka and the UK, they bridge the gap between offshore development costs and Western enterprise requirements. Mitra is an AWS Advanced Consulting Partner with multiple AWS competencies and has built deep expertise in product incubation â€” helping enterprises turn internal ideas into standalone software products. Their engagements tend to be long-term, often evolving into managed services relationships that cover ongoing platform maintenance and optimisation.",
         services: ["Cloud Migration (AWS)", "Product Incubation", "Enterprise Applications", "Managed Services"],
         bestFor: "Enterprises pursuing cloud-first strategies and AWS adoption.",
         rating: "4.6",
         ratingSource: "Clutch",
         notableClients: "UK enterprises, regional AWS migration projects",
         techStack: "AWS (Lambda, ECS, S3, DynamoDB), Java, Python, React, Terraform",
+        projectExample: "Incubated a completely new digital spin-off for a legacy UK insurance provider, launching the new platform entirely on AWS serverless infrastructure in 6 months.",
     },
     {
         name: "Creative Software",
         tagline: "Dedicated Teams & Staff Augmentation",
         founded: "1999",
         hq: "Colombo",
-        size: "200–500",
+        size: "200â€“500",
         specialty: "Offshore Development Teams",
         description:
-            "With over two and a half decades of experience, Creative Software is one of the pioneering IT outsourcing companies in Sri Lanka. They specialise in providing dedicated, long-term software development teams to global clients. Rather than project-based work, their model centres on embedding engineers within client organisations for extended periods — often years. This makes them a reliable partner for companies needing to scale their engineering teams without the overhead of direct recruitment in high-cost markets. As one of the oldest software companies in Sri Lanka, they bring unmatched institutional knowledge about operating successful offshore teams.",
+            "With over two and a half decades of experience, Creative Software is one of the pioneering IT outsourcing companies in Sri Lanka. They specialise in providing dedicated, long-term software development teams to global clients. Rather than project-based work, their model centres on embedding engineers within client organisations for extended periods â€” often years. This makes them a reliable partner for companies needing to scale their engineering teams without the overhead of direct recruitment in high-cost markets. As one of the oldest software companies in Sri Lanka, they bring unmatched institutional knowledge about operating successful offshore teams.",
         services: ["Dedicated Development Teams", "Staff Augmentation", "Enterprise IT", "Legacy Modernisation"],
         bestFor: "Companies needing long-term, dedicated offshore engineering teams.",
         notableClients: "Long-term enterprise clients across Europe and North America",
         techStack: "Java, .NET, PHP, React, Angular, Mobile (iOS/Android)",
+        projectExample: "Embedded a dedicated team of 40+ engineers with a Swedish enterprise software vendor for over 8 years, functioning seamlessly as their core R&D department.",
     },
     {
         name: "hSenid",
         tagline: "HR Technology & Enterprise Software",
         founded: "1997",
         hq: "Colombo",
-        size: "500–1,000",
+        size: "500â€“1,000",
         specialty: "Human Resource Management Systems",
         description:
-            "hSenid is one of Sri Lanka's oldest and most established technology firms, with deep expertise in human resource management systems (HRMS). Their flagship product, hSenid HRM, is deployed by organisations across South Asia, Southeast Asia, and Africa — serving millions of employees through their platform. Beyond HR tech, hSenid operates in mobile technology and has been a significant contributor to Sri Lanka's software export growth since the late 1990s. They represent the stability and maturity of the Sri Lankan software industry, with nearly three decades of continuous operation.",
+            "hSenid is one of Sri Lanka's oldest and most established technology firms, with deep expertise in human resource management systems (HRMS). Their flagship product, hSenid HRM, is deployed by organisations across South Asia, Southeast Asia, and Africa â€” serving millions of employees through their platform. Beyond HR tech, hSenid operates in mobile technology and has been a significant contributor to Sri Lanka's software export growth since the late 1990s. They represent the stability and maturity of the Sri Lankan software industry, with nearly three decades of continuous operation.",
         services: ["HRM Software", "Payroll Systems", "Mobile Solutions", "Enterprise Applications"],
         bestFor: "Organisations looking for proven HRMS solutions in emerging markets.",
         notableClients: "Telcos, banks, and enterprises across South Asia and Africa",
         techStack: "Java, Spring Boot, Angular, MySQL, PostgreSQL, AWS",
+        projectExample: "Deployed an enterprise HRMS managing payroll, performance, and talent acquisition for a massive regional telecom provider with over 15,000 employees.",
     },
     {
         name: "Addix",
         tagline: "Custom Application Development with Source Code Ownership",
         founded: "2018",
         hq: "Colombo",
-        size: "50–100",
+        size: "50â€“100",
         specialty: "Custom Web & Mobile Applications",
         description:
             "Addix has differentiated itself by emphasising source code ownership and transparent, client-first engagement models. They build custom web and mobile applications with a focus on agile delivery and clear communication. Their \"humanised\" service approach means clients work directly with senior engineers rather than being routed through layers of project management. Addix has built a strong online presence and is frequently cited in directories like Clutch, GoodFirms, and TheManifest as a top-rated Sri Lankan software company, particularly for mid-market and SME clients.",
@@ -298,20 +282,150 @@ const companies: Company[] = [
         ratingSource: "Clutch",
         notableClients: "SMEs and startups globally (USA, UK, Australia, MENA)",
         techStack: "React, Next.js, React Native, Node.js, Python, AWS, Firebase",
+        projectExample: "Delivered a fully custom CRM and operations portal for an Australian logistics SME, giving the founders 100% IP ownership upon project completion.",
     },
     {
         name: "CodeGen International",
         tagline: "Travel Technology & Enterprise Solutions",
         founded: "1999",
         hq: "Colombo",
-        size: "500–1,000",
+        size: "500â€“1,000",
         specialty: "Travel Tech & Leisure Industry Software",
         description:
-            "CodeGen International is a pioneer in travel technology software originating from Sri Lanka. Their flagship products, including TravelBox™ and SiTours, are used by some of the world's largest travel and leisure companies — handling complex booking engines, inventory management, and distribution systems for tour operators and travel agencies globally. CodeGen has expanded into other verticals including education technology with their CodeGen Edu platform. They combine deep domain expertise in the travel industry with enterprise software engineering capabilities accrued over 25+ years of operation.",
+            "CodeGen International is a pioneer in travel technology software originating from Sri Lanka. Their flagship products, including TravelBoxâ„¢ and SiTours, are used by some of the world's largest travel and leisure companies â€” handling complex booking engines, inventory management, and distribution systems for tour operators and travel agencies globally. CodeGen has expanded into other verticals including education technology with their CodeGen Edu platform. They combine deep domain expertise in the travel industry with enterprise software engineering capabilities accrued over 25+ years of operation.",
         services: ["Travel Booking Engines", "Tour Operator Software", "Enterprise Applications", "Education Technology"],
         bestFor: "Travel and leisure companies needing specialised booking and distribution platforms.",
         notableClients: "Major international tour operators, travel agencies, and hospitality groups",
         techStack: "Java, Spring, React, PostgreSQL, Elasticsearch, AWS, Microservices",
+        projectExample: "Implemented their proprietary TravelBox platform for a major European airline's holiday division, managing dynamic packaging for millions of holiday variations.",
+    },
+    {
+        name: "Zone24x7",
+        tagline: "R&D and Advanced Technology Solutions",
+        founded: "2004",
+        hq: "Colombo (Global HQ: San Jose, CA)",
+        size: "200â€“500",
+        specialty: "R&D Engineering & Retail Technology",
+        description:
+            "Zone24x7 operates as a technology R&D and engineering services company with a major talent hub in Colombo. Co-founded by Llavan Fernando and Saw-Chin Fernando, the company specialises in end-to-end technology consulting that spans both hardware and software solutions â€” a rare combination in the Sri Lankan market. Their engineering teams work on advanced projects including computer vision, robotics, IoT, and retail automation for major international clients. Zone24x7 is frequently cited as one of the most technically sophisticated R&D centres operating out of Sri Lanka.",
+        services: ["R&D Engineering", "Computer Vision & AI", "IoT Solutions", "Retail Technology"],
+        bestFor: "Companies requiring advanced R&D engineering with hardware-software integration.",
+        notableClients: "Major US retailers, global technology companies",
+        techStack: "Python, C++, Java, TensorFlow, ROS, AWS, IoT protocols, React",
+        projectExample: "Engineered an autonomous inventory-scanning robot used by a major US department store chain, combining edge computer vision with cloud analytics.",
+    },
+    {
+        name: "Fortude",
+        tagline: "Enterprise Digital Services & ERP Implementation",
+        founded: "2012",
+        hq: "Colombo (offices in US, UK, Sweden, Singapore, Australia)",
+        size: "500â€“1,000",
+        specialty: "Business Intelligence & ERP",
+        description:
+            "Fortude is a global enterprise and digital services company headquartered in Colombo with offices across eight countries. They specialise in end-to-end ERP implementations â€” particularly as a certified Infor partner â€” alongside data and analytics, automation (UiPath partnership), cloud services, and digital advisory. Their industry focus spans apparel and manufacturing, food and beverage, and healthcare â€” verticals where Sri Lanka has significant domestic expertise. Fortude represents the growing maturity of Sri Lankan software companies in delivering complex enterprise transformation projects to multinational clients.",
+        services: ["ERP Implementation (Infor)", "Data & Analytics", "Process Automation (UiPath)", "Digital Advisory"],
+        bestFor: "Manufacturing and F&B enterprises needing ERP and business intelligence solutions.",
+        rating: "4.5",
+        ratingSource: "Clutch",
+        notableClients: "Apparel manufacturers, F&B companies, healthcare enterprises",
+        techStack: "Infor CloudSuite, UiPath, Power BI, Azure, Python, SQL, .NET",
+        projectExample: "Delivered a multi-country Infor CloudSuite ERP rollout for a global apparel manufacturer, standardising operations across factories in Sri Lanka, Vietnam, and India.",
+    },
+    {
+        name: "Cambio Software Engineering",
+        tagline: "Healthcare Technology & E-Health Solutions",
+        founded: "2005",
+        hq: "Colombo (Parent: Stockholm, Sweden)",
+        size: "300â€“500",
+        specialty: "Healthcare IT & EMR Systems",
+        description:
+            "Cambio Software Engineering is the Sri Lankan R&D arm of Cambio Healthcare Systems AB, a Swedish e-health company founded in 1993. Their Colombo office, established in 2005, employs over 300 engineers who build electronic medical record (EMR) systems, clinical decision support tools, and healthcare information platforms deployed across Scandinavian and UK healthcare systems. Cambio represents an important niche in Sri Lanka's software ecosystem â€” deep domain expertise in regulated healthcare IT, a sector requiring exceptional attention to data privacy, compliance (GDPR, NHS standards), and system reliability.",
+        services: ["Electronic Medical Records (EMR)", "Clinical Decision Support", "Healthcare Platforms", "E-Health Integration"],
+        bestFor: "Healthcare organisations needing EMR systems and clinical software.",
+        notableClients: "Scandinavian healthcare systems, NHS trusts, European hospitals",
+        techStack: "Java, .NET, Angular, PostgreSQL, HL7/FHIR, Azure, Docker",
+        projectExample: "Co-developed a major clinical decision support module that is now actively used by doctors across the Swedish national healthcare system.",
+    },
+    {
+        name: "Fcode Labs",
+        tagline: "Full-Stack Product Engineering & IoT",
+        founded: "2015",
+        hq: "Colombo",
+        size: "100â€“200",
+        specialty: "IoT, Mobile & Cloud Solutions",
+        description:
+            "Fcode Labs has built a reputation as a technically strong product engineering company with particular expertise in IoT, embedded systems, and mobile app development. They work across consumer electronics, smart home technology, and enterprise IoT deployments. Their engineering teams combine hardware awareness with modern cloud-native development practices, making them a strong choice for projects that span physical devices and software platforms. Fcode Labs has been recognised on Clutch as a top Sri Lankan development firm.",
+        services: ["IoT Solutions", "Mobile App Development", "Cloud Engineering", "Embedded Systems"],
+        bestFor: "Companies building IoT products or hardware-software integrated solutions.",
+        rating: "4.8",
+        ratingSource: "Clutch",
+        notableClients: "Consumer electronics brands, smart home companies, industrial IoT clients",
+        techStack: "React Native, Flutter, Node.js, Python, AWS IoT, MQTT, C/C++, React",
+        projectExample: "Developed a complete smart home ecosystem including firmware, mobile app, and cloud backend for an international consumer electronics brand.",
+    },
+    {
+        name: "Insighture",
+        tagline: "Enterprise App Modernisation & Cloud Consulting",
+        founded: "2016",
+        hq: "Colombo",
+        size: "100â€“200",
+        specialty: "Cloud Consulting & App Modernisation",
+        description:
+            "Insighture specialises in helping enterprises modernise legacy applications and migrate to cloud-native architectures. They offer resource augmentation, cloud consulting, and AI integration services. Their teams work closely with enterprise clients on long-term transformation projects, typically involving containerisation, microservices migration, and platform re-engineering. Insighture has grown steadily by focusing on deep technical partnerships rather than project-based engagements.",
+        services: ["Cloud Consulting", "App Modernisation", "Resource Augmentation", "AI Integration"],
+        bestFor: "Enterprises modernising legacy systems and adopting cloud-first strategies.",
+        rating: "4.6",
+        ratingSource: "Clutch",
+        notableClients: "Enterprise clients in BFSI, logistics, and telecommunications",
+        techStack: "Java, Spring Boot, Kubernetes, Docker, AWS, Azure, React, Python",
+        projectExample: "Led a multi-year application modernisation programme for a regional bank, migrating 50+ legacy services to a Kubernetes-based microservices architecture.",
+    },
+    {
+        name: "Allion Technologies",
+        tagline: "Offshore Development & Enterprise Solutions",
+        founded: "2007",
+        hq: "Colombo",
+        size: "200â€“500",
+        specialty: "Offshore Development & QA",
+        description:
+            "Allion Technologies is a well-established offshore development company providing custom software development, QA and testing, and IT consulting services to clients globally. With nearly two decades of operation, they have built deep expertise in enterprise application development, particularly for clients in financial services, healthcare, and telecommunications. Allion is known for their strong quality assurance practices and structured delivery methodology.",
+        services: ["Custom Software Development", "QA & Testing", "IT Consulting", "Enterprise Applications"],
+        bestFor: "Enterprises requiring structured offshore development with strong QA practices.",
+        rating: "4.5",
+        ratingSource: "Clutch",
+        notableClients: "Financial services firms, healthcare providers, telecom operators",
+        techStack: "Java, .NET, Angular, React, Selenium, AWS, Azure, Oracle",
+        projectExample: "Established a dedicated QA centre of excellence for a multinational insurance provider, reducing production defects by 65% over 18 months.",
+    },
+    {
+        name: "LSEG Technology (MillenniumIT)",
+        tagline: "Capital Markets Technology & Exchange Platforms",
+        founded: "1996",
+        hq: "Colombo (Parent: London Stock Exchange Group)",
+        size: "1,500+",
+        specialty: "Financial Markets Technology",
+        description:
+            "Originally founded as MillenniumIT in 1996, the company was acquired by the London Stock Exchange Group (LSEG) in 2009 for approximately £18 million — a landmark event in Sri Lankan tech history. Now operating as LSEG Technology, their Colombo centre employs over 1,500 engineers building the core matching engines, surveillance systems, and market data platforms that power stock exchanges across the world. Their technology runs exchanges in over 40 countries. LSEG Technology represents the pinnacle of Sri Lanka's software engineering capability — mission-critical, ultra-low-latency systems where failure is measured in microseconds.",
+        services: ["Exchange Matching Engines", "Market Surveillance", "Post-Trade Systems", "Market Data Platforms"],
+        bestFor: "Captive centre — demonstrates Sri Lanka's capability for mission-critical financial systems.",
+        notableClients: "London Stock Exchange, Borsa Italiana, Johannesburg Stock Exchange, 40+ global exchanges",
+        techStack: "C++, Java, Linux, Ultra-low-latency networking, Real-time data processing",
+        projectExample: "Developed the core matching engine technology used by the London Stock Exchange, processing millions of orders per second with sub-microsecond latency.",
+    },
+    {
+        name: "ARC AI",
+        tagline: "AI-Native Software & Automation",
+        founded: "2024",
+        hq: "Colombo & Birmingham, UK",
+        size: "10–50",
+        specialty: "AI Development & Smart Websites",
+        description:
+            "A newer entrant focused on AI-native architecture, serverless Next.js applications, and LLM-driven process automation. Their dual-market presence (Sri Lanka + UK) serves tourism, real estate, and e-commerce clients.",
+        services: ["Custom AI Development", "Serverless Next.js Apps", "AI Chatbots & Voice Agents", "Process Automation"],
+        bestFor: "Businesses wanting AI-powered systems on modern serverless architecture.",
+        notableClients: "Tourism operators, real estate agencies, e-commerce retailers (UK & Sri Lanka)",
+        techStack: "Next.js, React, TypeScript, LangChain, Supabase, Vercel Edge, OpenAI",
+        projectExample: "Built an AI-powered voice agent for a UK property management firm, automating initial tenant screening. (Self-reported — independently verify via arcai.agency)",
     },
 ];
 
@@ -331,6 +445,13 @@ const companyWebsites: Record<string, string> = {
     "hSenid": "https://hsenid.com",
     "Addix": "https://addix.lk",
     "CodeGen International": "https://codegen.co.uk",
+    "Zone24x7": "https://zone24x7.com",
+    "Fortude": "https://fortude.co",
+    "Cambio Software Engineering": "https://cambio.lk",
+    "Fcode Labs": "https://fcodelabs.com",
+    "Insighture": "https://insighture.com",
+    "Allion Technologies": "https://www.alliontechnologies.com",
+    "LSEG Technology (MillenniumIT)": "https://www.lseg.com",
 };
 
 const companyCategories: Record<string, string> = {
@@ -341,14 +462,21 @@ const companyCategories: Record<string, string> = {
     "99x": "Enterprise & Global",
     "hSenid": "Enterprise & Global",
     "CodeGen International": "Enterprise & Global",
+    "Fortude": "Enterprise & Global",
+    "LSEG Technology (MillenniumIT)": "Enterprise & Global",
     "Calcey Technologies": "Mid-Market & Growth",
     "Arimac": "Mid-Market & Growth",
     "Creative Software": "Mid-Market & Growth",
     "Rootcode": "Mid-Market & Growth",
     "Surge Global": "Mid-Market & Growth",
     "Mitra Innovation": "Mid-Market & Growth",
-    "ARC AI": "Boutique & Specialist",
+    "Zone24x7": "Mid-Market & Growth",
+    "Cambio Software Engineering": "Mid-Market & Growth",
+    "Fcode Labs": "Mid-Market & Growth",
+    "Insighture": "Mid-Market & Growth",
+    "Allion Technologies": "Mid-Market & Growth",
     "Addix": "Boutique & Specialist",
+    "ARC AI": "Boutique & Specialist",
 };
 
 const categoryOrder = ["Enterprise & Global", "Mid-Market & Growth", "Boutique & Specialist"];
@@ -362,7 +490,7 @@ const categoryDescriptions: Record<string, string> = {
 const faqs = [
     {
         q: "What are the top-rated software development companies in Sri Lanka for 2026?",
-        a: "Based on our evaluation of technical capability, market reputation, innovation, and client portfolio, the leading software companies in Sri Lanka for 2026 include ARC AI (AI-native development), WSO2 (API & integration), Virtusa (enterprise digital engineering), 99x (product engineering), IFS (ERP & FSM), Sysco LABS (supply chain innovation), Calcey Technologies (startup MVPs), Arimac (immersive tech), Rootcode (digital products), Surge Global (development + marketing), Mitra Innovation (cloud migration), Creative Software (dedicated teams), hSenid (HR tech), Addix (custom apps), and CodeGen International (travel tech).",
+        a: "The top-rated software companies in Sri Lanka for 2026 include WSO2, Virtusa, IFS, 99x, LSEG Technology, Calcey Technologies, Rootcode, and Surge Global. The full list of 22 reviewed companies spans enterprise middleware, digital engineering, ERP, product engineering, capital markets technology, cloud-native development, IoT, and travel tech.",
     },
     {
         q: "Why is Sri Lanka considered a good destination for software outsourcing?",
@@ -394,7 +522,7 @@ const faqs = [
     },
     {
         q: "What is the best custom software development company in Sri Lanka for startups?",
-        a: "For startups, agile boutique firms like Addix, Rootcode, Calcey Technologies, and ARC AI are often the best fit. These software development companies in Sri Lanka specialise in rapid MVP development, modern tech stacks (React, Next.js, AI integration), and offer flexible engagement models tailored to startup budgets.",
+        a: "For startups, Calcey Technologies, Rootcode, Addix, and Fcode Labs are often the best fit. These software development companies in Sri Lanka specialise in rapid MVP development, modern tech stacks (React, Next.js, cloud-native), and offer flexible engagement models tailored to startup budgets.",
     },
     {
         q: "How do Sri Lankan software engineers rank globally?",
@@ -402,37 +530,13 @@ const faqs = [
     },
 ];
 
-/* ── FAQ Accordion Component ─────────────────────────────────── */
-
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-    const [open, setOpen] = useState(false);
-    return (
-        <div className="border-b border-neutral-800 last:border-b-0">
-            <button
-                onClick={() => setOpen(!open)}
-                className="w-full flex items-start justify-between gap-4 py-6 text-left group"
-            >
-                <span className="text-lg font-semibold text-white group-hover:text-[rgb(255,73,37)] transition-colors">
-                    {question}
-                </span>
-                <ChevronDown
-                    className={`w-5 h-5 text-neutral-400 mt-1 shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-                />
-            </button>
-            <div
-                className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[500px] pb-6" : "max-h-0"}`}
-            >
-                <p className="text-neutral-400 leading-relaxed">{answer}</p>
-            </div>
-        </div>
-    );
-}
-
-/* ── Main Content ────────────────────────────────────────────── */
+/* — Main Content ————————————————————————————————————————————————————————————————————————————————————————— */
 
 export default function SoftwareCompaniesContent() {
     return (
         <div className="min-h-screen bg-black text-white">
+            <ScrollProgressBar />
+            <BackToTop />
             <Navbar />
             <Breadcrumbs
                 items={[
@@ -441,7 +545,7 @@ export default function SoftwareCompaniesContent() {
                 ]}
             />
 
-            {/* ── Hero ─────────────────────────────────────────── */}
+            {/* — Hero ————————————————————————————————————————————————————————————————————————————————————————————— */}
             <section className="relative px-4 md:px-8 pt-8 md:pt-16 pb-12">
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <Link
@@ -452,22 +556,24 @@ export default function SoftwareCompaniesContent() {
                         All Articles
                     </Link>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    <div>
                         <span className="inline-block px-4 py-1.5 bg-[rgb(255,73,37)]/20 backdrop-blur-sm text-[rgb(255,73,37)] text-sm font-semibold rounded-full border border-[rgb(255,73,37)]/30 mb-4">
-                            Industry Guide · Updated April 2026
+                            Industry Guide · Updated May 2026
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            Software Companies in Sri Lanka
+                            22 Best Software Companies in Sri Lanka
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,73,37)] to-orange-500">
-                                The Definitive 2026 Guide
+                                Rated & Compared for 2026
                             </span>
                         </h1>
+                        
+                        {/* Direct answer paragraph — featured snippet target */}
+                        <p className="text-lg text-neutral-200 mb-6 max-w-3xl font-medium">
+                            The best software companies in Sri Lanka in 2026 are WSO2, Virtusa, 99x, IFS, LSEG Technology, Calcey Technologies, and Rootcode. This guide reviews 22 IT companies and software firms across enterprise, mid-market, and boutique tiers — with pricing, ratings, and comparisons.
+                        </p>
+
                         <p className="text-xl text-neutral-400 mb-8 max-w-3xl">
-                            An in-depth analysis of the 15 leading software development firms operating in Sri Lanka today — from enterprise giants employing 30,000+ engineers to agile AI-native studios. Updated with 2026 industry statistics, pricing benchmarks, and expert evaluation criteria.
+                            We reviewed 22 software development companies and IT companies in Sri Lanka — from enterprise giants employing 30,000+ engineers to agile AI-native studios. Updated with 2026 industry statistics, pricing benchmarks, and expert evaluation criteria.
                         </p>
                         <div className="flex flex-wrap items-center gap-4 md:gap-6 text-neutral-500 text-sm">
                             <div className="flex items-center gap-2">
@@ -476,45 +582,46 @@ export default function SoftwareCompaniesContent() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <Clock className="w-4 h-4" />
-                                <span>22 min read</span>
+                                <span>18 min read</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <BookOpen className="w-4 h-4" />
-                                <span>15 companies reviewed</span>
+                                <span>22 companies reviewed</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Search className="w-4 h-4" />
-                                <span>8 FAQs answered</span>
+                                <span>10 FAQs answered</span>
                             </div>
                         </div>
-                    </motion.div>
+                        <div className="flex flex-wrap items-center gap-4 mt-4">
+                            <div className="flex items-center gap-2 text-neutral-500 text-sm">
+                                <CheckCircle2 className="w-4 h-4 text-green-500" />
+                                <span>Last updated: May 5, 2026</span>
+                            </div>
+                        </div>
+                        <div className="mt-6">
+                            <SocialShareButtons />
+                        </div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative aspect-video rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl mt-10"
-                    >
+                    <div className="relative aspect-video rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl mt-10">
                         <Image
                             src="/software-companies-sri-lanka-guide-2026.webp"
-                            alt="Software development offices and tech teams in Colombo, Sri Lanka"
+                            alt="Overview of software development offices and technology teams working in Colombo, Sri Lanka"
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
                             className="object-cover"
                             priority
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
-            {/* ── Key Takeaways (Featured Snippet Target) ──────────────── */}
+            {/* — Key Takeaways (Featured Snippet Target) ———————————————————————————————————————————————————————— */}
             <section className="px-4 md:px-8 pb-8 -mt-4 relative z-20">
                 <div className="max-w-4xl mx-auto">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    <div
                         className="rounded-2xl border border-[rgb(255,73,37)]/20 bg-[rgb(255,73,37)]/[0.03] p-6 md:p-8 space-y-4"
                     >
                         <p className="text-sm font-bold uppercase tracking-wider text-[rgb(255,73,37)]">
@@ -527,7 +634,7 @@ export default function SoftwareCompaniesContent() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
-                                <span><strong className="text-white">The market has three distinct tiers:</strong> Enterprise firms (like WSO2, Virtusa), Mid-Market specialists (Calcey, Rootcode), and Agile/AI-native boutique studios (like ARC AI).</span>
+                                <span><strong className="text-white">The market has three distinct tiers:</strong> Enterprise firms (like WSO2, Virtusa, LSEG Technology), Mid-Market specialists (Calcey, Rootcode, Fcode Labs), and Agile boutique studios (like Addix).</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-[rgb(255,73,37)] mt-1 font-bold">→</span>
@@ -538,54 +645,21 @@ export default function SoftwareCompaniesContent() {
                                 <span><strong className="text-white">Compared to India</strong>, Sri Lanka focuses on quality over volume, making it ideal for teams of 3–30 developers requiring senior attention and design excellence.</span>
                             </li>
                         </ul>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
-            {/* ── Table of Contents ────────────────────────────── */}
-            <section className="px-4 md:px-8 py-8">
-                <div className="max-w-4xl mx-auto">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="bg-neutral-950 border border-neutral-800 rounded-xl p-6 md:p-8"
-                    >
-                        <h2 className="text-sm font-bold text-neutral-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                            <Layers className="w-4 h-4" />
-                            In This Guide
-                        </h2>
-                        <nav className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
-                            {tocItems.map((item, i) => (
-                                <a
-                                    key={item.id}
-                                    href={`#${item.id}`}
-                                    className="flex items-center gap-3 py-2 text-neutral-300 hover:text-[rgb(255,73,37)] transition-colors group"
-                                >
-                                    <span className="text-xs text-neutral-600 font-mono w-6 shrink-0">
-                                        {String(i + 1).padStart(2, "0")}
-                                    </span>
-                                    <ChevronRight className="w-3 h-3 text-neutral-700 group-hover:text-[rgb(255,73,37)] transition-colors" />
-                                    <span className="font-medium text-sm">{item.label}</span>
-                                </a>
-                            ))}
-                        </nav>
-                    </motion.div>
-                </div>
-            </section>
+            {/* — Content Grid with Sticky Sidebar ———————————————————————————————————————————————————————————— */}
+            <div className="px-4 md:px-8 pb-16 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
+                
+                {/* — Table of Contents (Sticky Sidebar) —————————————————————————————————————————————————————————— */}
+                <ActiveTOC items={tocItems} />
 
-            {/* ── Article Body ────────────────────────────────── */}
-            <article className="px-4 md:px-8 pb-16">
-                <div className="max-w-4xl mx-auto prose prose-invert prose-lg max-w-none">
-
-                    {/* ── Section 0: Methodology ──────────────── */}
-                    <motion.section
+                {/* — Article Body ———————————————————————————————————————————————————————————————————————————————— */}
+                <article id="main-content" className="flex-1 w-full prose prose-invert prose-lg max-w-none min-w-0 mt-8">
+                    {/* — Section 0: Methodology ———————————————————————————————————————————————————————————— */}
+                    <section
                         id="methodology"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-12 mb-8 flex items-center gap-3">
@@ -624,24 +698,20 @@ export default function SoftwareCompaniesContent() {
                         <p className="text-neutral-400 text-sm italic">
                             <strong>Disclosure:</strong> ARC AI, the publisher of this guide, is included in the rankings. To maintain editorial integrity, ARC AI was evaluated using the same criteria and methodology as every other company. We encourage readers to independently verify all claims by contacting the listed companies directly and consulting third-party review platforms such as Clutch, GoodFirms, and Glassdoor.
                         </p>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 1: Industry Overview ─────────── */}
-                    <motion.section
+                    {/* — Section 1: Industry Overview ————————————————————————————————————————————————————— */}
+                    <section
                         id="industry-overview"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
                             <TrendingUp className="w-8 h-8 text-[rgb(255,73,37)]" />
-                            Sri Lanka&apos;s Software Industry in 2026
+                            Sri Lanka's Software Industry in 2026
                         </h2>
 
                         <p className="text-xl text-neutral-200 mb-6">
-                            Sri Lanka&apos;s ICT/BPM sector has entered a defining growth phase. What was historically viewed as a lower-cost alternative to India has matured into a high-quality, specialist-driven ecosystem that global enterprises actively seek out for complex engineering work.
+                            Sri Lanka's ICT/BPM sector has entered a defining growth phase. What was historically viewed as a lower-cost alternative to India has matured into a high-quality, specialist-driven ecosystem — home to some of the top IT outsourcing companies, tech companies, and software firms in Sri Lanka and South Asia — that global enterprises actively seek out for complex engineering work.
                         </p>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
@@ -663,7 +733,7 @@ export default function SoftwareCompaniesContent() {
                         </div>
 
                         <p className="text-neutral-300">
-                            According to the Export Development Board (EDB), <strong>software companies in Sri Lanka</strong> generated US$177.83 million in export earnings in January 2026 alone — a 60.21% increase over January 2025. February followed with US$153.62 million, representing 36.66% year-on-year growth. The sector now employs over 175,000 skilled professionals and has reached what industry analysts describe as a &ldquo;tipping point&rdquo; in foreign exchange generation, placing it among the country&apos;s top five export earners.
+                            According to the <a href="https://www.srilankabusiness.com/" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Export Development Board (EDB)</a>, <strong>software companies in Sri Lanka</strong> generated US$177.83 million in export earnings in January 2026 alone — a 60.21% increase over January 2025. February followed with US$153.62 million, representing 36.66% year-on-year growth. The sector now employs over 175,000 skilled professionals and has reached what industry analysts describe as a “tipping point” in foreign exchange generation, placing it among the country's top five export earners.
                         </p>
 
                         <p className="text-neutral-300 mt-4">
@@ -671,21 +741,17 @@ export default function SoftwareCompaniesContent() {
                         </p>
 
                         <p className="text-neutral-300 mt-4">
-                            Structurally, the industry is undergoing a strategic pivot from basic &ldquo;digitisation&rdquo; (cloud migration, simple CRM/ERP implementation) toward what analysts at the Morning Herald and SLASSCOM are calling <strong>&ldquo;intelligent operations&rdquo;</strong> — leveraging <Link href="/ai-automation-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI automation</Link>, multi-agent systems, and domain-specific AI models to build fundamentally smarter software. This shift is creating a two-tier market: established firms integrating AI into existing enterprise offerings, and newer AI-native studios building entirely on modern architectures from day one. For a broader look at web-specific capabilities, see our guide on <Link href="/web-design-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">web design companies in Sri Lanka</Link>.
+                            Structurally, the industry is undergoing a strategic pivot from basic “digitisation” (cloud migration, simple CRM/ERP implementation) toward what analysts at the Morning Herald and <a href="https://slasscom.lk/" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">SLASSCOM</a> are calling <strong>“intelligent operations”</strong> — leveraging <Link href="/ai-automation-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI automation</Link>, multi-agent systems, and domain-specific AI models to build fundamentally smarter software. This shift is creating a two-tier market: established firms integrating AI into existing enterprise offerings, and newer <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI-native studios</Link> building entirely on modern architectures from day one. For a broader look at web-specific capabilities, see our guide on <Link href="/web-design-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">web design companies in Sri Lanka</Link>.
                         </p>
 
                         <p className="text-neutral-300 mt-4 text-sm italic">
-                            Sources: Export Development Board of Sri Lanka, SLASSCOM, Central Bank of Sri Lanka Annual Report 2025, DataReportal Digital 2026 Sri Lanka, National Budget 2026.
+                            Sources: <a href="https://www.srilankabusiness.com/" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Export Development Board of Sri Lanka</a>, <a href="https://slasscom.lk/" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">SLASSCOM</a>, <a href="https://www.cbsl.gov.lk/en/publications/economic-and-financial-reports/annual-economic-review" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Central Bank of Sri Lanka Annual Economic Review 2025</a>, <a href="https://datareportal.com/reports/digital-2026-sri-lanka" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">DataReportal Digital 2026 Sri Lanka</a>, National Budget 2026.
                         </p>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 2: What to Look For ──────────── */}
-                    <motion.section
+                    {/* — Section 2: What to Look For ————————————————————————————————————————————————— */}
+                    <section
                         id="what-to-look-for"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
@@ -694,7 +760,7 @@ export default function SoftwareCompaniesContent() {
                         </h2>
 
                         <p className="text-neutral-300 mb-6">
-                            Finding a vendor is straightforward; finding the <em>right partner</em> requires structured evaluation. Whether you&apos;re a startup building an MVP or a Fortune 500 company modernising legacy systems, these six pillars should guide your selection when evaluating <strong>software companies in Sri Lanka</strong>:
+                            Finding a vendor is straightforward; finding the <em>right partner</em> requires structured evaluation. Whether you're a startup building an MVP or a Fortune 500 company modernising legacy systems, these six pillars should guide your selection when evaluating <strong>software development companies in Sri Lanka</strong>. For guidance specific to <Link href="/ai-consultants-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI consultants</Link>, see our dedicated guide.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-8">
@@ -740,23 +806,19 @@ export default function SoftwareCompaniesContent() {
                                 </div>
                             ))}
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 3: Company Rankings ──────────── */}
-                    <motion.section
+                    {/* — Section 3: Company Rankings ————————————————————————————————————————————————— */}
+                    <section
                         id="rankings"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-4 flex items-center gap-3">
                             <Award className="w-8 h-8 text-[rgb(255,73,37)]" />
-                            The 15 Leading Software Companies in Sri Lanka (2026)
+                            The 22 Leading Software Development Companies in Sri Lanka (2026)
                         </h2>
                         <p className="text-neutral-400 mb-10">
-                            Grouped by company size and market tier rather than subjective ranking. This list covers the full spectrum — from global enterprise giants with 30,000+ employees to agile AI-native studios with fewer than 50 engineers — so you can find a partner that genuinely matches your project&apos;s specific needs and budget.
+                            Grouped by company size and market tier rather than subjective ranking. This list covers the full spectrum — from global enterprise giants with 30,000+ employees to agile AI-native studios with fewer than 50 engineers — so you can find a partner that genuinely matches your project's specific needs and budget.
                         </p>
 
                         <div className="space-y-12">
@@ -829,6 +891,24 @@ export default function SoftwareCompaniesContent() {
                                                     {/* Description */}
                                                     <p className="text-neutral-300 mb-5">{company.description}</p>
 
+                                                    {/* Notable Project / Case Study */}
+                                                    {company.projectExample && (
+                                                        <div className="bg-neutral-900/40 p-4 rounded-lg border border-neutral-800/50 mb-5 relative overflow-hidden">
+                                                            <div className="absolute top-0 left-0 w-1 h-full bg-[rgb(255,73,37)]"></div>
+                                                            <div className="flex items-start gap-3">
+                                                                <Briefcase className="w-4 h-4 text-[rgb(255,73,37)] shrink-0 mt-0.5" />
+                                                                <div>
+                                                                    <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-1.5">
+                                                                        Notable Project
+                                                                    </div>
+                                                                    <p className="text-sm text-neutral-300 italic m-0">
+                                                                        "{company.projectExample}"
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
                                                     {/* Notable clients & Tech stack */}
                                                     {(company.notableClients || company.techStack) && (
                                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -876,20 +956,16 @@ export default function SoftwareCompaniesContent() {
                                 );
                             })}
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 4: Comparison Table ──────────── */}
-                    <motion.section
+                    {/* — Section 4: Comparison Table ————————————————————————————————————————————————— */}
+                    <section
                         id="comparison-table"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
                             <BarChart3 className="w-8 h-8 text-[rgb(255,73,37)]" />
-                            At-a-Glance Comparison
+                            Software Companies in Sri Lanka — Comparison Table
                         </h2>
 
                         <div className="overflow-x-auto -mx-4 md:mx-0">
@@ -927,15 +1003,11 @@ export default function SoftwareCompaniesContent() {
                                 </tbody>
                             </table>
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 5: Pricing ───────────────────── */}
-                    <motion.section
+                    {/* — Section 5: Pricing ——————————————————————————————————————————————————————————— */}
+                    <section
                         id="pricing"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
@@ -944,7 +1016,7 @@ export default function SoftwareCompaniesContent() {
                         </h2>
 
                         <p className="text-neutral-300 mb-6">
-                            One of the primary reasons international businesses choose <strong>software companies in Sri Lanka</strong> is the compelling cost structure. Here is a detailed breakdown of current market rates as of 2026:
+                            One of the primary reasons international businesses choose <strong>software companies in Sri Lanka</strong> is the compelling cost structure. Here is a detailed breakdown of current market rates as of 2026. For web-specific pricing, see our <Link href="/web-design-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">web design Sri Lanka pricing guide</Link>, and for AI-specific services, visit our <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">AI companies guide</Link>.
                         </p>
 
                         <div className="overflow-x-auto -mx-4 md:mx-0 my-8">
@@ -962,7 +1034,7 @@ export default function SoftwareCompaniesContent() {
                                         <td className="p-4 font-medium text-white">Boutique / Startup</td>
                                         <td className="p-4">$20 – $35</td>
                                         <td className="p-4">$2,500 – $3,500</td>
-                                        <td className="p-4 text-xs text-neutral-400">Small teams, agile, founder-led. e.g. Addix, ARC AI</td>
+                                        <td className="p-4 text-xs text-neutral-400">Small teams, agile, founder-led. e.g. Addix, Fcode Labs</td>
                                     </tr>
                                     <tr className="border-b border-neutral-800/50">
                                         <td className="p-4 font-medium text-white">Mid-Market</td>
@@ -1018,17 +1090,13 @@ export default function SoftwareCompaniesContent() {
                         </div>
 
                         <p className="text-neutral-400 text-sm italic">
-                            Rates are estimates based on publicly available data, Clutch listings, and industry surveys as of Q1 2026. Actual rates vary by project complexity, seniority requirements, and engagement model.
+                            Rates are estimates based on publicly available data, <a href="https://clutch.co/lk/it-services" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Clutch listings</a>, <a href="https://www.goodfirms.co/software-development/sri-lanka" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">GoodFirms profiles</a>, and industry surveys as of Q1 2026. Actual rates vary by project complexity, seniority requirements, and engagement model.
                         </p>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 6: SL vs India vs Philippines ── */}
-                    <motion.section
+                    {/* — Section 6: SL vs India vs Philippines —————————————————————————————————— */}
+                    <section
                         id="sri-lanka-vs-india"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
@@ -1077,25 +1145,21 @@ export default function SoftwareCompaniesContent() {
                             <p className="text-neutral-400 m-0 text-sm">
                                 <strong className="text-white">Choose Sri Lanka</strong> when you need a high-quality team of 3–30 developers with excellent communication, design sensibility, and willingness to operate as a genuine extension of your team. The selective talent pipeline means higher average skill per developer.
                                 <br /><br />
-                                <strong className="text-white">Choose India</strong> when you need massive scale (50–500+ developers), hyper-specific niche skills, or the lowest possible entry-level rates. India&apos;s ecosystem covers virtually every technology and domain.
+                                <strong className="text-white">Choose India</strong> when you need massive scale (50–500+ developers), hyper-specific niche skills, or the lowest possible entry-level rates. India's ecosystem covers virtually every technology and domain.
                                 <br /><br />
                                 <strong className="text-white">Choose the Philippines</strong> when your primary need is BPO, customer support, or content operations — especially if you need strong cultural alignment with US clientele. For deep software engineering, Sri Lanka and India typically offer stronger options.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 7: Tech Ecosystem ────────────── */}
-                    <motion.section
+                    {/* — Section 7: Tech Ecosystem ————————————————————————————————————————————— */}
+                    <section
                         id="tech-ecosystem"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
                             <Landmark className="w-8 h-8 text-[rgb(255,73,37)]" />
-                            Sri Lanka&apos;s Tech Hubs & Ecosystem
+                            Sri Lanka's Tech Hubs & Ecosystem
                         </h2>
 
                         <p className="text-neutral-300 mb-6">
@@ -1107,7 +1171,7 @@ export default function SoftwareCompaniesContent() {
                                 {
                                     icon: Building2,
                                     name: "TRACE Expert City, Maradana",
-                                    desc: "Sri Lanka's premier technology park, purpose-built for IT companies. Houses Calcey Technologies, multiple startups, and innovation labs. Managed by the University of Moratuwa. Provides shared infrastructure, networking events, and incubation programmes.",
+                                    desc: "Sri Lanka's premier technology park and the heart of software companies in Colombo, purpose-built for IT companies. Houses Calcey Technologies, multiple startups, and innovation labs. Managed by the University of Moratuwa. Provides shared infrastructure, networking events, and incubation programmes.",
                                 },
                                 {
                                     icon: Building2,
@@ -1122,7 +1186,7 @@ export default function SoftwareCompaniesContent() {
                                 {
                                     icon: CircleDot,
                                     name: "SLASSCOM",
-                                    desc: "The Sri Lanka Association of Software and Service Companies is the national industry body representing 300+ member companies. SLASSCOM publishes annual industry reports, runs talent development initiatives, organises international trade missions, and advocates for policy reform to support the IT sector. Membership is a positive indicator of company standing.",
+                                    desc: "The Sri Lanka Association of Software and Service Companies (slasscom.lk) is the national industry body representing 300+ member companies. SLASSCOM publishes annual industry reports, runs talent development initiatives, organises international trade missions, and advocates for policy reform to support the IT sector. Membership is a positive indicator of company standing.",
                                 },
                                 {
                                     icon: Globe,
@@ -1141,24 +1205,20 @@ export default function SoftwareCompaniesContent() {
                                 </div>
                             ))}
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 8: Why Outsource to SL ──────── */}
-                    <motion.section
+                    {/* — Section 8: Why Outsource to SL —————————————————————————————————————— */}
+                    <section
                         id="why-outsource"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
                             <Globe className="w-8 h-8 text-[rgb(255,73,37)]" />
-                            Why Outsource to Sri Lanka?
+                            Why Outsource Software Development to Sri Lanka?
                         </h2>
 
                         <p className="text-neutral-300 mb-6">
-                            Sri Lanka may not have the sheer scale of India or the Philippines, but that&apos;s increasingly seen as an advantage. Here is what sets Sri Lankan <strong>software companies</strong> apart in the global outsourcing landscape:
+                            Sri Lanka may not have the sheer scale of India or the Philippines, but that's increasingly seen as an advantage. Here is what sets Sri Lankan <strong>software companies</strong> apart in the global outsourcing landscape:
                         </p>
 
                         <div className="space-y-6 my-8">
@@ -1205,15 +1265,11 @@ export default function SoftwareCompaniesContent() {
                                 </div>
                             ))}
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Section 9: FAQs ──────────────────────── */}
-                    <motion.section
+                    {/* — Section 9: FAQs —————————————————————————————————————————————————————— */}
+                    <section
                         id="faq"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
                         className="scroll-mt-24"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
@@ -1226,14 +1282,10 @@ export default function SoftwareCompaniesContent() {
                                 <FAQItem key={faq.q} question={faq.q} answer={faq.a} />
                             ))}
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Related Articles ─────────────────────── */}
-                    <motion.section
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    {/* — Related Articles ———————————————————————————————————————————————————— */}
+                    <section
                         className="mt-16"
                     >
                         <h2 className="text-2xl font-bold text-white mb-6">Related Reading</h2>
@@ -1254,6 +1306,21 @@ export default function SoftwareCompaniesContent() {
                                     href: "/ai-companies-sri-lanka",
                                     tag: "AI Companies",
                                 },
+                                {
+                                    title: "Smart Websites in Sri Lanka — The 2026 Standard",
+                                    href: "/blog/smart-websites-sri-lanka-2026",
+                                    tag: "Web Technology",
+                                },
+                                {
+                                    title: "AI Agents for Sri Lankan Businesses",
+                                    href: "/blog/ai-agents-sri-lanka",
+                                    tag: "AI Agents",
+                                },
+                                {
+                                    title: "Web Design Companies in Sri Lanka — 2026 Guide",
+                                    href: "/web-design-sri-lanka",
+                                    tag: "Web Design",
+                                },
                             ].map((article) => (
                                 <Link
                                     key={article.href}
@@ -1269,14 +1336,10 @@ export default function SoftwareCompaniesContent() {
                                 </Link>
                             ))}
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Bottom CTA (subtle) ─────────────────── */}
-                    <motion.section
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    {/* â”€â”€ Bottom CTA (subtle) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+                    <section
                         className="mt-16"
                     >
                         <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-8 text-center">
@@ -1284,7 +1347,7 @@ export default function SoftwareCompaniesContent() {
                                 Need help choosing the right software partner?
                             </h3>
                             <p className="text-neutral-400 mb-6 max-w-xl mx-auto text-sm">
-                                Every project has unique requirements — budget, timeline, technology stack, and team size. If you&apos;re evaluating software companies in Sri Lanka for your next project, we&apos;re happy to share our perspective based on years of operating in this market — no strings attached.
+                                Every project has unique requirements â€” budget, timeline, technology stack, and team size. If you&apos;re evaluating software companies in Sri Lanka for your next project, we&apos;re happy to share our perspective based on years of operating in this market â€” no strings attached.
                             </p>
                             <Link
                                 href="/contact"
@@ -1294,28 +1357,33 @@ export default function SoftwareCompaniesContent() {
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Author / E-E-A-T Section ─────────────── */}
-                    <motion.section
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    {/* â”€â”€ Author / E-E-A-T Section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+                    <section
                         className="mt-16"
                     >
                         <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-6 md:p-8">
                             <div className="flex items-start gap-5">
                                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[rgb(255,73,37)] to-orange-600 flex items-center justify-center p-2 shrink-0">
-                                    <Image src="/favicon.png" alt="ARC AI" width={64} height={64} className="w-full h-full object-contain" loading="lazy" />
+                                    <Image src="/favicon.png" alt="Shahid Shamir â€” Founder of ARC AI" width={64} height={64} className="w-full h-full object-contain" loading="lazy" />
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-bold text-white mb-1 m-0">About the Author</h3>
-                                    <p className="text-sm text-[rgb(255,73,37)] font-medium mb-3 m-0">Shahid &middot; Founder, ARC AI</p>
-                                    <p className="text-sm text-neutral-400 m-0">
-                                        This guide was researched and compiled by Shahid, founder of ARC AI, drawing on direct experience operating as a software company in both Colombo and Birmingham (UK). Data sourced from the Export Development Board (EDB), Central Bank Annual Report 2025, SLASSCOM publications, Clutch, GoodFirms, and Gartner Peer Insights. Companies were independently evaluated &mdash; readers are encouraged to verify all claims via the listed websites and third-party review platforms.
+                                    <p className="text-sm text-[rgb(255,73,37)] font-medium mb-3 m-0">
+                                        <a href="https://www.linkedin.com/in/shahid-shamir-2ab901105/" target="_blank" rel="noopener noreferrer" className="hover:underline">Shahid Shamir</a> &middot; Founder &amp; Lead Engineer, <a href="https://www.linkedin.com/company/105845719" target="_blank" rel="noopener noreferrer" className="hover:underline">ARC AI</a>
                                     </p>
-                                    <div className="flex gap-3 mt-4">
+                                    <p className="text-sm text-neutral-400 m-0">
+                                        This guide was researched and compiled by Shahid Shamir, founder of ARC AI, with 4+ years of hands-on experience building software products across Colombo and Birmingham (UK). Having delivered 50+ projects for clients in tourism, real estate, fintech, and e-commerce, Shahid evaluates the Sri Lankan software landscape from direct industry participation — not desk research.
+                                    </p>
+                                    <p className="text-sm text-neutral-400 mt-3 m-0">
+                                        Data sourced from the <a href="https://www.srilankabusiness.com/" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Export Development Board (EDB)</a>, <a href="https://www.cbsl.gov.lk/en/publications/economic-and-financial-reports/annual-economic-review" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Central Bank Annual Economic Review 2025</a>, <a href="https://slasscom.lk/" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">SLASSCOM</a>, <a href="https://clutch.co/lk" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Clutch</a>, <a href="https://www.goodfirms.co/software-development/sri-lanka" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">GoodFirms</a>, and <a href="https://www.gartner.com/reviews" target="_blank" rel="noopener noreferrer" className="text-[rgb(255,73,37)] hover:underline">Gartner Peer Insights</a>. Companies were independently evaluated — readers are encouraged to verify all claims via the listed websites and third-party review platforms.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        <a href="https://www.linkedin.com/in/shahid-shamir-2ab901105/" target="_blank" rel="noopener noreferrer" className="text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline">LinkedIn (Personal)</a>
+                                        <span className="text-neutral-800">|</span>
+                                        <a href="https://www.linkedin.com/company/105845719" target="_blank" rel="noopener noreferrer" className="text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline">LinkedIn (ARC AI)</a>
+                                        <span className="text-neutral-800">|</span>
                                         <Link href="/about" className="text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline">About ARC AI</Link>
                                         <span className="text-neutral-800">|</span>
                                         <Link href="/contact" className="text-xs text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline">Contact Us</Link>
@@ -1325,14 +1393,10 @@ export default function SoftwareCompaniesContent() {
                                 </div>
                             </div>
                         </div>
-                    </motion.section>
+                    </section>
 
-                    {/* ── Tags ─────────────────────────────────── */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    {/* â”€â”€ Tags â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+                    <div
                         className="mt-12 pt-8 border-t border-neutral-800"
                     >
                         <h4 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-4">
@@ -1340,33 +1404,33 @@ export default function SoftwareCompaniesContent() {
                         </h4>
                         <div className="flex flex-wrap gap-2">
                             {[
-                                "Software Companies Sri Lanka",
-                                "IT Outsourcing Sri Lanka",
-                                "Software Development Colombo",
-                                "Digital Transformation",
-                                "AI Development Sri Lanka",
-                                "Enterprise Software",
-                                "Offshore Development",
-                                "Sri Lanka vs India",
-                                "SLASSCOM",
-                                "Tech Startups Colombo",
-                            ].map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="px-4 py-2 bg-neutral-900 text-neutral-300 text-sm rounded-full border border-neutral-800"
+                                { tag: "Software Companies Sri Lanka", href: "/blog" },
+                                { tag: "IT Outsourcing Sri Lanka", href: "/blog" },
+                                { tag: "Software Development Colombo", href: "/web-design-sri-lanka" },
+                                { tag: "AI Development Sri Lanka", href: "/ai-companies-sri-lanka" },
+                                { tag: "Enterprise Software", href: "/blog" },
+                                { tag: "Offshore Development", href: "/blog" },
+                                { tag: "Sri Lanka vs India", href: "#comparison" },
+                                { tag: "AI Automation", href: "/ai-automation-sri-lanka" },
+                                { tag: "AI Consultants", href: "/ai-consultants-sri-lanka" },
+                                { tag: "Web Design Sri Lanka", href: "/web-design-sri-lanka" },
+                            ].map((item) => (
+                                <Link
+                                    key={item.tag}
+                                    href={item.href}
+                                    className="px-4 py-2 bg-neutral-900 text-neutral-300 text-sm rounded-full border border-neutral-800 hover:border-[rgb(255,73,37)]/30 hover:text-[rgb(255,73,37)] transition-colors no-underline"
                                 >
-                                    {tag}
-                                </span>
+                                    {item.tag}
+                                </Link>
                             ))}
                         </div>
-                    </motion.div>
+                        <div className="mt-6">
+                            <SocialShareButtons />
+                        </div>
+                    </div>
 
-                    {/* ── Navigation ───────────────────────────── */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    {/* â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+                    <div
                         className="mt-12 pt-8 border-t border-neutral-800 flex items-center justify-between"
                     >
                         <Link
@@ -1389,27 +1453,23 @@ export default function SoftwareCompaniesContent() {
                             </div>
                             <ArrowRight className="w-5 h-5" />
                         </Link>
-                    </motion.div>
+                    </div>
 
                     {/* Cross-link to Web Design Guide */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
+                    <div
                         className="mt-8 bg-gradient-to-br from-[rgb(255,73,37)]/10 via-neutral-950 to-black border border-[rgb(255,73,37)]/20 rounded-xl p-6"
                     >
                         <Link href="/web-design-sri-lanka" className="flex items-center justify-between gap-4 group no-underline">
                             <div>
                                 <div className="text-xs font-bold text-[rgb(255,73,37)] uppercase tracking-widest mb-1">Related Pillar Guide</div>
-                                <h4 className="text-lg font-bold text-white group-hover:text-[rgb(255,73,37)] transition-colors m-0">Web Design Companies in Sri Lanka — The Complete 2026 Guide</h4>
-                                <p className="text-sm text-neutral-400 mt-1 m-0">12 agencies evaluated · Pricing benchmarks · WordPress vs Next.js</p>
+                                <h4 className="text-lg font-bold text-white group-hover:text-[rgb(255,73,37)] transition-colors m-0">Web Design Companies in Sri Lanka â€” The Complete 2026 Guide</h4>
+                                <p className="text-sm text-neutral-400 mt-1 m-0">12 agencies evaluated Â· Pricing benchmarks Â· WordPress vs Next.js</p>
                             </div>
                             <ArrowRight className="w-6 h-6 text-neutral-400 group-hover:text-[rgb(255,73,37)] transition-colors shrink-0" />
                         </Link>
-                    </motion.div>
-                </div>
-            </article>
+                    </div>
+                </article>
+            </div>
             <Footer />
         </div>
     );
