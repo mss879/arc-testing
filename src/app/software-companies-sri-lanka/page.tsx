@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import SoftwareCompaniesContent from "./content";
 
 export const metadata: Metadata = {
-    title: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
+    title: "Software Companies in Sri Lanka — 21 Top Firms Rated & Compared (2026)",
     description:
-        "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
+        "We reviewed 21 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
     openGraph: {
-        title: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
+        title: "Software Companies in Sri Lanka — 21 Top Firms Rated & Compared (2026)",
         description:
-            "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
+            "We reviewed 21 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
         url: "https://www.arcai.agency/software-companies-sri-lanka",
         locale: "en_GB",
         type: "article",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@arcaiagency",
         creator: "@arcaiagency",
-        title: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
+        title: "Software Companies in Sri Lanka — 21 Top Firms Rated & Compared (2026)",
         description:
-            "We reviewed 22 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
+            "We reviewed 21 software companies in Sri Lanka for 2026 — from enterprise giants to boutique studios. Compare pricing ($20–$60/hr), specialties, ratings, and find your ideal partner.",
         images: ["https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp"],
     },
     alternates: {
@@ -131,9 +131,9 @@ const faqJsonLd = {
 const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Software Companies in Sri Lanka — 22 Top Firms Rated & Compared (2026)",
+    headline: "Software Companies in Sri Lanka — 21 Top Firms Rated & Compared (2026)",
     description:
-        "We reviewed 22 software companies in Sri Lanka for 2026, covering enterprise IT, AI development, product engineering, outsourcing rates ($20–$60/hr), and industry statistics.",
+        "We reviewed 21 software companies in Sri Lanka for 2026, covering enterprise IT, AI development, product engineering, outsourcing rates ($20–$60/hr), and industry statistics.",
     image: "https://www.arcai.agency/software-companies-sri-lanka-guide-2026.webp",
     author: {
         "@type": "Person",
@@ -193,7 +193,6 @@ const itemListJsonLd = {
         { "@type": "ListItem", position: 19, name: "Zone24x7", url: "https://zone24x7.com", description: "R&D engineering and retail technology solutions" },
         { "@type": "ListItem", position: 20, name: "Fortude", url: "https://fortude.co", description: "Enterprise ERP implementation and digital services" },
         { "@type": "ListItem", position: 21, name: "Cambio Software Engineering", url: "https://cambio.lk", description: "Healthcare IT and electronic medical record systems" },
-        { "@type": "ListItem", position: 22, name: "ARC AI", url: "https://www.arcai.agency", description: "AI-native software and automation studio" },
     ],
 };
 

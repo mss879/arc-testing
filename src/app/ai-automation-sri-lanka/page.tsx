@@ -110,7 +110,7 @@ export default function SriLankaPage() {
               AI & Digital Services for Sri Lankan Businesses
             </h2>
             <p className="text-lg text-zinc-300 leading-relaxed">
-              Sri Lanka&apos;s digital economy is growing rapidly, and businesses that adopt AI early will have a decisive competitive advantage. ARC AI brings world-class AI solutions, smart website development, and digital marketing expertise to Sri Lankan businesses across Colombo, Kandy, Galle, and beyond. Learn why ARC AI is recognised as one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link>.
+              Sri Lanka&apos;s digital economy is growing rapidly, and businesses that adopt AI early will have a decisive competitive advantage. ARC AI brings world-class AI solutions, smart website development, and digital marketing expertise to Sri Lankan businesses across Colombo, Kandy, Galle, and beyond. Learn why ARC AI is recognised as one of the <Link href="/ai-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">top AI companies in Sri Lanka</Link>, and explore our comprehensive guide to all <Link href="/software-companies-sri-lanka" className="text-[rgb(255,73,37)] hover:underline">software companies in Sri Lanka</Link>.
             </p>
           </div>
 

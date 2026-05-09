@@ -33,7 +33,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
-import { FAQItem, ScrollProgressBar, ActiveTOC, SocialShareButtons, BackToTop } from "./ClientComponents";
+import { FAQItem, ScrollProgressBar, ActiveTOC, SocialShareButtons, BackToTop, InteractiveComparisonTable } from "./ClientComponents";
 
 /* â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
@@ -41,12 +41,13 @@ const tocItems = [
     { id: "methodology", label: "How We Evaluated These Companies" },
     { id: "industry-overview", label: "Sri Lanka's Software Industry in 2026" },
     { id: "what-to-look-for", label: "What to Look for in a Software Partner" },
-    { id: "rankings", label: "The 22 Leading Firms by Category" },
+    { id: "rankings", label: "The 21 Leading Firms by Category" },
     { id: "comparison-table", label: "At-a-Glance Comparison" },
     { id: "pricing", label: "How Much Does Development Cost?" },
     { id: "sri-lanka-vs-india", label: "Sri Lanka vs India vs Philippines" },
     { id: "tech-ecosystem", label: "Tech Hubs & Ecosystem" },
     { id: "why-outsource", label: "Why Outsource Software Development to Sri Lanka?" },
+    { id: "industry-voices", label: "Industry Voices & Data Points" },
     { id: "faq", label: "Frequently Asked Questions" },
 ];
 
@@ -63,6 +64,7 @@ interface Company {
     website?: string;
     rating?: string;
     ratingSource?: string;
+    ratingUrl?: string;
     notableClients?: string;
     techStack?: string;
     projectExample?: string;
@@ -82,6 +84,7 @@ const companies: Company[] = [
         bestFor: "Large enterprises needing robust API management and identity solutions.",
         rating: "4.5",
         ratingSource: "Gartner Peer Insights",
+        ratingUrl: "https://www.gartner.com/reviews/market/full-life-cycle-api-management/vendor/wso2",
         notableClients: "Global banks, healthcare systems, government agencies across 70+ countries",
         techStack: "Java, Ballerina, Kubernetes, Microservices, OAuth/OIDC",
         projectExample: "Provided the core API management infrastructure for a major European bank, securely processing over 10 billion API calls monthly while ensuring strict PSD2 compliance.",
@@ -99,6 +102,7 @@ const companies: Company[] = [
         bestFor: "Multinational corporations requiring large-scale digital transformation.",
         rating: "4.2",
         ratingSource: "Glassdoor",
+        ratingUrl: "https://www.glassdoor.com/Overview/Working-at-Virtusa-EI_IE8534.11,18.htm",
         notableClients: "Fortune 500 companies in BFSI, healthcare, telecommunications",
         techStack: "Java, .NET, Salesforce, Pega, AWS, Azure, Spark, Hadoop",
         projectExample: "Executed a massive legacy-to-cloud migration for a Fortune 500 healthcare provider, migrating 400+ applications to AWS and enabling real-time patient data analytics.",
@@ -115,7 +119,8 @@ const companies: Company[] = [
         services: ["Custom Software Development", "Product Engineering", "QA & Testing", "DevOps"],
         bestFor: "European companies looking for reliable, long-term offshore engineering teams.",
         rating: "4.7",
-        ratingSource: "Great Place to WorkÂ®",
+        ratingSource: "Great Place to Work®",
+        ratingUrl: "https://www.greatplacetowork.com/certified-company/7048538",
         notableClients: "Scandinavian SaaS companies, European enterprises",
         techStack: "React, Angular, Node.js, .NET, Azure, AWS, Docker, Kubernetes",
         projectExample: "Acted as the extended engineering arm for a Norwegian SaaS scale-up, accelerating their product roadmap and delivering a new enterprise module 3 months ahead of schedule.",
@@ -133,6 +138,7 @@ const companies: Company[] = [
         bestFor: "Heavy industries requiring strict ERP and asset management systems.",
         rating: "4.3",
         ratingSource: "Gartner Magic Quadrant (Leader)",
+        ratingUrl: "https://www.gartner.com/reviews/market/field-service-management/vendor/ifs",
         notableClients: "Aerospace, defence, energy, construction companies globally",
         techStack: "PL/SQL, .NET, C++, REST APIs, Azure, Industrial IoT protocols",
         projectExample: "Implemented a comprehensive Field Service Management system for a global heavy equipment manufacturer, integrating IoT sensor data to enable predictive maintenance.",
@@ -165,6 +171,7 @@ const companies: Company[] = [
         bestFor: "Startups and SMEs looking for agile, design-focused MVP development.",
         rating: "4.9",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/calcey-technologies",
         notableClients: "Silicon Valley startups, Australian fintechs, European proptechs",
         techStack: "React Native, Flutter, React, Node.js, AWS, Firebase, Python",
         projectExample: "Built the complete MVP and v1.0 architecture for a Y-Combinator backed fintech startup, helping them secure a successful Series A funding round.",
@@ -182,6 +189,7 @@ const companies: Company[] = [
         bestFor: "Brands wanting immersive, experiential digital products.",
         rating: "4.6",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/arimac",
         notableClients: "Tourism boards, educational institutions, entertainment brands",
         techStack: "Unity, Unreal Engine, ARKit, ARCore, React, Node.js, Swift, Kotlin",
         projectExample: "Created a highly interactive AR-driven cultural heritage app for a national tourism board, achieving over 500,000 downloads in the first month.",
@@ -199,6 +207,7 @@ const companies: Company[] = [
         bestFor: "Startups and scale-ups building cloud-native products.",
         rating: "4.8",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/rootcode-labs",
         notableClients: "International startups, SaaS scale-ups",
         techStack: "React, Next.js, Node.js, Go, AWS, Terraform, Docker, Kubernetes",
         projectExample: "Re-architected a monolithic application into a microservices architecture for a European logistics scale-up, improving deployment frequency by 400%.",
@@ -216,6 +225,7 @@ const companies: Company[] = [
         bestFor: "Businesses needing both software development and marketing execution.",
         rating: "4.7",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/surge-global",
         notableClients: "Australian e-commerce brands, UK digital businesses",
         techStack: "React, Angular, Laravel, Node.js, Python, Google Analytics, AWS",
         projectExample: "Developed a custom e-commerce platform integrated directly with a predictive marketing engine, resulting in a 35% increase in customer lifetime value.",
@@ -233,6 +243,7 @@ const companies: Company[] = [
         bestFor: "Enterprises pursuing cloud-first strategies and AWS adoption.",
         rating: "4.6",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/mitra-innovation",
         notableClients: "UK enterprises, regional AWS migration projects",
         techStack: "AWS (Lambda, ECS, S3, DynamoDB), Java, Python, React, Terraform",
         projectExample: "Incubated a completely new digital spin-off for a legacy UK insurance provider, launching the new platform entirely on AWS serverless infrastructure in 6 months.",
@@ -280,6 +291,7 @@ const companies: Company[] = [
         bestFor: "SMEs wanting hands-on, agile development with full code ownership.",
         rating: "4.9",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/addix",
         notableClients: "SMEs and startups globally (USA, UK, Australia, MENA)",
         techStack: "React, Next.js, React Native, Node.js, Python, AWS, Firebase",
         projectExample: "Delivered a fully custom CRM and operations portal for an Australian logistics SME, giving the founders 100% IP ownership upon project completion.",
@@ -327,6 +339,7 @@ const companies: Company[] = [
         bestFor: "Manufacturing and F&B enterprises needing ERP and business intelligence solutions.",
         rating: "4.5",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/fortude",
         notableClients: "Apparel manufacturers, F&B companies, healthcare enterprises",
         techStack: "Infor CloudSuite, UiPath, Power BI, Azure, Python, SQL, .NET",
         projectExample: "Delivered a multi-country Infor CloudSuite ERP rollout for a global apparel manufacturer, standardising operations across factories in Sri Lanka, Vietnam, and India.",
@@ -359,6 +372,7 @@ const companies: Company[] = [
         bestFor: "Companies building IoT products or hardware-software integrated solutions.",
         rating: "4.8",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/fcode-labs",
         notableClients: "Consumer electronics brands, smart home companies, industrial IoT clients",
         techStack: "React Native, Flutter, Node.js, Python, AWS IoT, MQTT, C/C++, React",
         projectExample: "Developed a complete smart home ecosystem including firmware, mobile app, and cloud backend for an international consumer electronics brand.",
@@ -376,6 +390,7 @@ const companies: Company[] = [
         bestFor: "Enterprises modernising legacy systems and adopting cloud-first strategies.",
         rating: "4.6",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/insighture",
         notableClients: "Enterprise clients in BFSI, logistics, and telecommunications",
         techStack: "Java, Spring Boot, Kubernetes, Docker, AWS, Azure, React, Python",
         projectExample: "Led a multi-year application modernisation programme for a regional bank, migrating 50+ legacy services to a Kubernetes-based microservices architecture.",
@@ -393,6 +408,7 @@ const companies: Company[] = [
         bestFor: "Enterprises requiring structured offshore development with strong QA practices.",
         rating: "4.5",
         ratingSource: "Clutch",
+        ratingUrl: "https://clutch.co/profile/allion-technologies",
         notableClients: "Financial services firms, healthcare providers, telecom operators",
         techStack: "Java, .NET, Angular, React, Selenium, AWS, Azure, Oracle",
         projectExample: "Established a dedicated QA centre of excellence for a multinational insurance provider, reducing production defects by 65% over 18 months.",
@@ -412,25 +428,9 @@ const companies: Company[] = [
         techStack: "C++, Java, Linux, Ultra-low-latency networking, Real-time data processing",
         projectExample: "Developed the core matching engine technology used by the London Stock Exchange, processing millions of orders per second with sub-microsecond latency.",
     },
-    {
-        name: "ARC AI",
-        tagline: "AI-Native Software & Automation",
-        founded: "2024",
-        hq: "Colombo & Birmingham, UK",
-        size: "10–50",
-        specialty: "AI Development & Smart Websites",
-        description:
-            "A newer entrant focused on AI-native architecture, serverless Next.js applications, and LLM-driven process automation. Their dual-market presence (Sri Lanka + UK) serves tourism, real estate, and e-commerce clients.",
-        services: ["Custom AI Development", "Serverless Next.js Apps", "AI Chatbots & Voice Agents", "Process Automation"],
-        bestFor: "Businesses wanting AI-powered systems on modern serverless architecture.",
-        notableClients: "Tourism operators, real estate agencies, e-commerce retailers (UK & Sri Lanka)",
-        techStack: "Next.js, React, TypeScript, LangChain, Supabase, Vercel Edge, OpenAI",
-        projectExample: "Built an AI-powered voice agent for a UK property management firm, automating initial tenant screening. (Self-reported — independently verify via arcai.agency)",
-    },
 ];
 
 const companyWebsites: Record<string, string> = {
-    "ARC AI": "https://www.arcai.agency",
     "WSO2": "https://wso2.com",
     "Virtusa": "https://www.virtusa.com",
     "99x": "https://99x.io",
@@ -476,7 +476,6 @@ const companyCategories: Record<string, string> = {
     "Insighture": "Mid-Market & Growth",
     "Allion Technologies": "Mid-Market & Growth",
     "Addix": "Boutique & Specialist",
-    "ARC AI": "Boutique & Specialist",
 };
 
 const categoryOrder = ["Enterprise & Global", "Mid-Market & Growth", "Boutique & Specialist"];
@@ -490,7 +489,7 @@ const categoryDescriptions: Record<string, string> = {
 const faqs = [
     {
         q: "What are the top-rated software development companies in Sri Lanka for 2026?",
-        a: "The top-rated software companies in Sri Lanka for 2026 include WSO2, Virtusa, IFS, 99x, LSEG Technology, Calcey Technologies, Rootcode, and Surge Global. The full list of 22 reviewed companies spans enterprise middleware, digital engineering, ERP, product engineering, capital markets technology, cloud-native development, IoT, and travel tech.",
+        a: "The top-rated software companies in Sri Lanka for 2026 include WSO2, Virtusa, IFS, 99x, LSEG Technology, Calcey Technologies, Rootcode, and Surge Global. The full list of 21 reviewed companies spans enterprise middleware, digital engineering, ERP, product engineering, capital markets technology, cloud-native development, IoT, and travel tech.",
     },
     {
         q: "Why is Sri Lanka considered a good destination for software outsourcing?",
@@ -563,17 +562,17 @@ export default function SoftwareCompaniesContent() {
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                             Software Companies in Sri Lanka
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,73,37)] to-orange-500">
-                                22 Top Firms Rated & Compared (2026)
+                                21 Top Firms Rated & Compared (2026)
                             </span>
                         </h1>
                         
                         {/* Direct answer paragraph — featured snippet target */}
                         <p className="text-lg text-neutral-200 mb-6 max-w-3xl font-medium">
-                            The best software companies in Sri Lanka in 2026 are WSO2, Virtusa, 99x, IFS, LSEG Technology, Calcey Technologies, and Rootcode. This guide reviews 22 IT companies and software firms across enterprise, mid-market, and boutique tiers — with pricing, ratings, and comparisons.
+                            The best software companies in Sri Lanka in 2026 are WSO2, Virtusa, 99x, IFS, LSEG Technology, Calcey Technologies, and Rootcode. This guide reviews 21 IT companies and software firms across enterprise, mid-market, and boutique tiers — with pricing, ratings, and comparisons.
                         </p>
 
                         <p className="text-xl text-neutral-400 mb-8 max-w-3xl">
-                            We reviewed 22 software development companies and IT companies in Sri Lanka — from enterprise giants employing 30,000+ engineers to agile AI-native studios. Updated with 2026 industry statistics, pricing benchmarks, and expert evaluation criteria.
+                            We reviewed 21 software development companies and IT companies in Sri Lanka — from enterprise giants employing 30,000+ engineers to agile AI-native studios. Updated with 2026 industry statistics, pricing benchmarks, and expert evaluation criteria.
                         </p>
                         <div className="flex flex-wrap items-center gap-4 md:gap-6 text-neutral-500 text-sm">
                             <div className="flex items-center gap-2">
@@ -586,7 +585,7 @@ export default function SoftwareCompaniesContent() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <BookOpen className="w-4 h-4" />
-                                <span>22 companies reviewed</span>
+                                <span>21 companies reviewed</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Search className="w-4 h-4" />
@@ -696,7 +695,7 @@ export default function SoftwareCompaniesContent() {
                         </div>
 
                         <p className="text-neutral-400 text-sm italic">
-                            <strong>Disclosure:</strong> ARC AI, the publisher of this guide, is included in the rankings. To maintain editorial integrity, ARC AI was evaluated using the same criteria and methodology as every other company. We encourage readers to independently verify all claims by contacting the listed companies directly and consulting third-party review platforms such as Clutch, GoodFirms, and Glassdoor.
+                            <strong>Publisher Note:</strong> This guide is researched and published by ARC AI. ARC AI is <em>not</em> included in the rankings below. All 21 companies were evaluated independently using the criteria outlined above. We encourage readers to verify all claims by contacting the listed companies directly and consulting third-party review platforms such as Clutch, GoodFirms, and Glassdoor.
                         </p>
                     </section>
 
@@ -815,11 +814,28 @@ export default function SoftwareCompaniesContent() {
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-4 flex items-center gap-3">
                             <Award className="w-8 h-8 text-[rgb(255,73,37)]" />
-                            The 22 Leading Software Development Companies in Sri Lanka (2026)
+                            The 21 Leading Software Development Companies in Sri Lanka (2026)
                         </h2>
                         <p className="text-neutral-400 mb-10">
-                            Grouped by company size and market tier rather than subjective ranking. This list covers the full spectrum — from global enterprise giants with 30,000+ employees to agile AI-native studios with fewer than 50 engineers — so you can find a partner that genuinely matches your project's specific needs and budget.
+                            Grouped by company size and market tier rather than subjective ranking. This list covers the full spectrum — from global enterprise giants with 30,000+ employees to agile AI-native studios with fewer than 50 engineers — so you can find a partner that genuinely matches your project{"'"}s specific needs and budget.
                         </p>
+
+                        {/* Interactive comparison table */}
+                        <div className="mb-12 bg-neutral-950 border border-neutral-800 rounded-xl p-4 md:p-6">
+                            <h3 className="text-lg font-bold text-white mb-1">Quick Comparison: Filter & Sort</h3>
+                            <p className="text-xs text-neutral-500 mb-4">Filter by company tier and sort by any column to quickly compare all 21 firms.</p>
+                            <InteractiveComparisonTable
+                                companies={companies.map((c) => ({
+                                    name: c.name,
+                                    founded: c.founded,
+                                    specialty: c.specialty,
+                                    size: c.size,
+                                    rating: c.rating,
+                                    bestFor: c.bestFor,
+                                    category: companyCategories[c.name] || "Other",
+                                }))}
+                            />
+                        </div>
 
                         <div className="space-y-12">
                             {categoryOrder.map((category) => {
@@ -850,11 +866,19 @@ export default function SoftwareCompaniesContent() {
                                                         </div>
                                                         <div className="flex items-center gap-3">
                                                             {company.rating && (
-                                                                <div className="flex items-center gap-1 px-2.5 py-1 bg-neutral-900 rounded-full border border-neutral-800">
-                                                                    <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-                                                                    <span className="text-xs font-bold text-white">{company.rating}</span>
-                                                                    <span className="text-xs text-neutral-500">/ 5</span>
-                                                                </div>
+                                                                company.ratingUrl ? (
+                                                                    <a href={company.ratingUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2.5 py-1 bg-neutral-900 rounded-full border border-neutral-800 hover:border-yellow-500/40 transition-colors no-underline">
+                                                                        <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                                                                        <span className="text-xs font-bold text-white">{company.rating}</span>
+                                                                        <span className="text-xs text-neutral-500">/ 5</span>
+                                                                    </a>
+                                                                ) : (
+                                                                    <div className="flex items-center gap-1 px-2.5 py-1 bg-neutral-900 rounded-full border border-neutral-800">
+                                                                        <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                                                                        <span className="text-xs font-bold text-white">{company.rating}</span>
+                                                                        <span className="text-xs text-neutral-500">/ 5</span>
+                                                                    </div>
+                                                                )
                                                             )}
                                                             {companyWebsites[company.name] && (
                                                                 <Link
@@ -882,9 +906,16 @@ export default function SoftwareCompaniesContent() {
                                                             <Users className="w-3 h-3" /> {company.size} employees
                                                         </span>
                                                         {company.ratingSource && (
-                                                            <span className="flex items-center gap-1">
-                                                                <Star className="w-3 h-3" /> {company.ratingSource}
-                                                            </span>
+                                                            company.ratingUrl ? (
+                                                                <a href={company.ratingUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-neutral-500 hover:text-[rgb(255,73,37)] transition-colors no-underline">
+                                                                    <Star className="w-3 h-3" /> {company.ratingSource}
+                                                                    <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
+                                                                </a>
+                                                            ) : (
+                                                                <span className="flex items-center gap-1">
+                                                                    <Star className="w-3 h-3" /> {company.ratingSource}
+                                                                </span>
+                                                            )
                                                         )}
                                                     </div>
 
@@ -1263,6 +1294,61 @@ export default function SoftwareCompaniesContent() {
                                         <p className="text-neutral-400 m-0 text-sm">{item.desc}</p>
                                     </div>
                                 </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* — Industry Voices ————————————————————————————————————————————————————— */}
+                    <section
+                        id="industry-voices"
+                        className="scroll-mt-24"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 flex items-center gap-3">
+                            <Award className="w-8 h-8 text-[rgb(255,73,37)]" />
+                            Industry Voices & Data Points
+                        </h2>
+                        <p className="text-neutral-400 mb-8">
+                            What industry bodies, analysts, and trade publications are saying about software companies in Sri Lanka in 2026.
+                        </p>
+
+                        <div className="space-y-6">
+                            {[
+                                {
+                                    quote: "Sri Lanka's IT/BPM sector recorded US$177.83 million in export earnings in January 2026 — a 60.21% year-on-year increase — signalling a structural shift from cost-centre outsourcing to value-added digital engineering.",
+                                    source: "Export Development Board of Sri Lanka (EDB)",
+                                    url: "https://www.srilankabusiness.com/",
+                                    context: "Monthly Export Performance Report, January 2026",
+                                },
+                                {
+                                    quote: "The Sri Lankan IT workforce is shifting from execution-only outsourcing to intellectual property co-creation. Companies like WSO2 and 99x are now building products, not just providing staff augmentation.",
+                                    source: "SLASSCOM Industry Report 2026",
+                                    url: "https://slasscom.lk/",
+                                    context: "Annual Industry Overview & Talent Pipeline Analysis",
+                                },
+                                {
+                                    quote: "Sri Lanka produces approximately 10,000 IT graduates annually from a highly selective university system, competing on quality rather than volume — a fundamentally different proposition from India's scale-first model.",
+                                    source: "University Grants Commission of Sri Lanka / SLASSCOM",
+                                    url: "https://www.ugc.ac.lk/",
+                                    context: "Higher Education Statistics, 2025",
+                                },
+                                {
+                                    quote: "The government's 2026 digital budget of approximately 30 billion LKR (~US$98M) — including the Unique Digital Identity initiative and e-Grama Niladhari programme — represents the largest public-sector technology investment in Sri Lanka's history.",
+                                    source: "National Budget 2026 / Central Bank of Sri Lanka",
+                                    url: "https://www.cbsl.gov.lk/en/publications/economic-and-financial-reports/annual-economic-review",
+                                    context: "Annual Economic Review 2025 & Budget Estimates 2026",
+                                },
+                            ].map((item) => (
+                                <blockquote key={item.source} className="bg-neutral-950 border-l-4 border-[rgb(255,73,37)] rounded-r-xl p-6 m-0">
+                                    <p className="text-neutral-200 mb-4 italic leading-relaxed">
+                                        &ldquo;{item.quote}&rdquo;
+                                    </p>
+                                    <footer className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[rgb(255,73,37)] hover:underline no-underline">
+                                            — {item.source}
+                                        </a>
+                                        <span className="text-xs text-neutral-600">{item.context}</span>
+                                    </footer>
+                                </blockquote>
                             ))}
                         </div>
                     </section>

@@ -7,12 +7,12 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: "Top AI Companies in Sri Lanka (2026) — Complete Guide & Rankings | ARC AI",
+  title: "Best AI Companies in Sri Lanka: 2026 Guide",
   description:
     "Top 10 AI companies in Sri Lanka for 2026. Compare ARC AI, 99x, Virtusa, WSO2 & more — services, pricing, and expert rankings.",
   authors: [{ name: "ARC AI Agency" }],
   openGraph: {
-    title: "Top AI Companies in Sri Lanka (2026) — Complete Guide & Rankings",
+    title: "Best AI Companies in Sri Lanka: 2026 Guide",
     description:
       "Compare the best AI companies in Sri Lanka. In-depth guide covering 10+ companies, services, specializations, and how to choose the right AI partner for your business.",
     url: "https://www.arcai.agency/ai-companies-sri-lanka",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top AI Companies in Sri Lanka (2026) — Complete Guide",
+    title: "Best AI Companies in Sri Lanka: 2026 Guide",
     description:
       "Compare 10+ AI companies in Sri Lanka. Services, specializations, pricing & expert recommendations.",
     images: ["https://www.arcai.agency/og-image.jpg"],
