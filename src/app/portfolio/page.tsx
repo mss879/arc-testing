@@ -58,6 +58,14 @@ export const metadata: Metadata = {
 export default async function Portfolio() {
   const portfolioItems = [
     {
+      id: 35,
+      title: "Ceylon Tea Land",
+      description: "A premium B2B export platform for Ceylon Tea Land (Pvt) Ltd, enabling global buyers to source 100% pure, hand-picked Ceylon tea directly from Sri Lanka's finest estates with export-grade consistency.",
+      image: "/ceylon-tea-land.webp",
+      link: "https://www.ceylontealand.com/",
+      status: "live"
+    },
+    {
       id: 34,
       title: "Java Global Nexus Platform",
       description: "A premier global delivery and execution hub based in Dubai, offering standardized processes, centralized governance, scalable workforce solutions, and secure digital infrastructure.",
@@ -294,15 +302,6 @@ export default async function Portfolio() {
       results: "Online sales ↑ 21%, AOV ↑ 11%, Subscribe-and-save uptake 7.9%, Repeat purchase 24%",
       image: "/fitbite.webp",
       link: "https://www.fitbite.shop/",
-      status: "development"
-    },
-    {
-      id: 13,
-      title: "Ceylon Tea Land",
-      description: "Exporter presence highlighting authentic highland teas and sustainability.",
-      results: "Export enquiries ↑ 32%, Sample requests 58/mo, Top-10 keyword count 4 → 11, Intl. sessions ↑ 37%",
-      image: "/ceylontealandwebsite.webp",
-      link: "https://ceylontealandwebsite.netlify.app/",
       status: "development"
     },
     {
