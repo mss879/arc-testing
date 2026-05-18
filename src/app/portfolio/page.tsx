@@ -58,6 +58,14 @@ export const metadata: Metadata = {
 export default async function Portfolio() {
   const portfolioItems = [
     {
+      id: 36,
+      title: "Portland Flooring",
+      description: "Portland Flooring delivers elegant, durable, and sustainable flooring solutions. We bring your vision to life with materials that stand the test of time, blending aesthetic beauty with uncompromising quality.",
+      image: "/portlands.webp",
+      link: "https://www.portlands.com.au/",
+      status: "live"
+    },
+    {
       id: 35,
       title: "Ceylon Tea Land",
       description: "A premium B2B export platform for Ceylon Tea Land (Pvt) Ltd, enabling global buyers to source 100% pure, hand-picked Ceylon tea directly from Sri Lanka's finest estates with export-grade consistency.",
