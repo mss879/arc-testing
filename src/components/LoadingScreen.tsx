@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState, memo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Environment, Float, Torus, Sphere } from "@react-three/drei";
+import * as THREE from "three";
 
 interface LoadingScreenProps {
   onLoadComplete: () => void;
@@ -54,17 +57,67 @@ const ScrambleText = memo(({ text, onComplete }: { text: string, onComplete: () 
 });
 ScrambleText.displayName = "ScrambleText";
 
+const AtomCore = () => {
+  const outerRef = useRef<THREE.Group>(null);
+  const middleRef = useRef<THREE.Group>(null);
+  const innerRef = useRef<THREE.Group>(null);
+
+  useFrame((state, delta) => {
+    if (outerRef.current) outerRef.current.rotation.y += delta * 0.5;
+    if (middleRef.current) middleRef.current.rotation.x += delta * 0.8;
+    if (innerRef.current) innerRef.current.rotation.z += delta * 1.1;
+  });
+
+  return (
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+      {/* Outer Ring */}
+      <group ref={outerRef}>
+        <Torus args={[2.2, 0.04, 12, 48]} rotation={[Math.PI / 3, 0, 0]}>
+          <meshStandardMaterial color="#f97316" metalness={1} roughness={0.15} />
+        </Torus>
+      </group>
+
+      {/* Middle Ring */}
+      <group ref={middleRef}>
+        <Torus args={[1.7, 0.04, 12, 48]} rotation={[0, Math.PI / 3, 0]}>
+          <meshStandardMaterial color="#ffffff" metalness={1} roughness={0.15} />
+        </Torus>
+      </group>
+
+      {/* Inner Ring */}
+      <group ref={innerRef}>
+        <Torus args={[1.2, 0.04, 12, 48]} rotation={[Math.PI / 4, Math.PI / 4, 0]}>
+          <meshStandardMaterial color="#f97316" metalness={1} roughness={0.15} />
+        </Torus>
+      </group>
+
+      {/* The glowing plasma core */}
+      <Sphere args={[0.4, 16, 16]}>
+        <meshBasicMaterial color="#f97316" />
+      </Sphere>
+
+      {/* Light emitted from the core */}
+      <pointLight color="#f97316" intensity={40} distance={10} decay={2} />
+    </Float>
+  );
+};
+
 const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
+  const container = useRef<HTMLDivElement>(null);
+
+
+
   return (
     <AnimatePresence>
       <motion.div
+        ref={container}
         initial={{ opacity: 1 }}
         exit={{ opacity: 0, y: "-100%" }}
         transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         className="fixed inset-0 z-[70] flex items-center justify-center bg-[#050505] overflow-hidden"
       >
         {/* Tech Grid Background */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.12] pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(rgba(249, 115, 22, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(249, 115, 22, 1) 1px, transparent 1px)`,
@@ -85,75 +138,21 @@ const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
         />
 
         <div className="relative z-10 flex flex-col items-center justify-center gap-12 w-full max-w-4xl px-6">
-          
-          {/* 3D Gyroscopic Arc Core */}
-          <div 
-            className="relative w-44 h-44 md:w-52 md:h-52 mb-12 flex items-center justify-center"
-            style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
-          >
-            {/* Outer Ring */}
-            <motion.svg
-              viewBox="0 0 100 100"
-              className="absolute inset-0 w-full h-full overflow-visible"
-              style={{ transformStyle: "preserve-3d" }}
-              animate={{ rotateX: [0, 360], rotateY: [0, 180] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            >
-              <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(249,115,22,0.6)" strokeWidth="1" />
-              {/* Orbital node perfectly tracked on path */}
-              <circle cx="50" cy="2" r="2" fill="#f97316" style={{ filter: "drop-shadow(0 0 6px #f97316)" }} />
-            </motion.svg>
 
-            {/* Middle Ring */}
-            <motion.svg
-              viewBox="0 0 100 100"
-              className="absolute inset-0 w-full h-full overflow-visible"
-              style={{ transformStyle: "preserve-3d" }}
-              animate={{ rotateY: [0, 360], rotateX: [0, -180] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            >
-              <circle 
-                cx="50" cy="50" r="38" 
-                fill="none" 
-                stroke="rgba(249,115,22,0.6)" 
-                strokeWidth="1.5" 
-              />
-            </motion.svg>
-
-            {/* Inner Ring */}
-            <motion.svg
-              viewBox="0 0 100 100"
-              className="absolute inset-0 w-full h-full overflow-visible"
-              style={{ transformStyle: "preserve-3d" }}
-              animate={{ rotateZ: [0, 360], rotateX: [0, 360] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-            >
-              <circle 
-                cx="50" cy="50" r="28" 
-                fill="none" 
-                stroke="rgba(249,115,22,0.6)" 
-                strokeWidth="1.5" 
-              />
-              <circle cx="22" cy="50" r="1.5" fill="#fff" style={{ filter: "drop-shadow(0 0 4px #fff)" }} />
-            </motion.svg>
-
-            {/* Central Core Sphere */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10">
-              <motion.div
-                className="w-6 h-6 bg-gradient-to-tr from-orange-600 to-orange-400 rounded-full flex items-center justify-center"
-                style={{ boxShadow: "0 0 25px 8px rgba(249,115,22,0.6)" }}
-                animate={{ scale: [1, 1.3, 1], opacity: [0.8, 1, 0.8] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="w-2 h-2 bg-white rounded-full opacity-90 shadow-[0_0_8px_#fff]" />
-              </motion.div>
-            </div>
+          {/* True WebGL 3D Glass Core */}
+          <div className="relative w-64 h-64 md:w-80 md:h-80 mb-8 flex items-center justify-center">
+            <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={1} gl={{ antialias: false, powerPreference: "high-performance" }} performance={{ min: 0.5 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[10, 10, 5]} intensity={1} />
+              <Environment preset="city" resolution={32} frames={1} />
+              <AtomCore />
+            </Canvas>
           </div>
 
           {/* Scrambled Text */}
           <div className="w-full flex flex-col items-center gap-6">
             <ScrambleText text="TRANSFORMING VISIONS INTO REALITY" onComplete={onLoadComplete} />
-            
+
             <div className="w-full max-w-sm flex justify-between text-[10px] md:text-xs font-mono text-zinc-600 uppercase tracking-widest mt-4">
               <motion.span
                 animate={{ opacity: [1, 0.3, 1] }}

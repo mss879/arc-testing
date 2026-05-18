@@ -70,6 +70,7 @@ const nextConfig = {
   },
   // Move serverComponentsExternalPackages to top level (Next.js 15+)
   serverExternalPackages: ['sharp'],
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
   // Experimental features for better performance
   experimental: {
     // Only use optimizePackageImports - compatible with static export
