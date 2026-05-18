@@ -10,12 +10,13 @@ import {
     Plus,
     Trash2,
     RefreshCw,
+    type LucideIcon
 } from 'lucide-react';
 
 interface StatCard {
     label: string;
     value: number;
-    icon: React.ElementType;
+    icon: LucideIcon;
     color: string;
 }
 
