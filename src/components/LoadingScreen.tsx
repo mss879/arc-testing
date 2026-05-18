@@ -50,7 +50,7 @@ const ScrambleText = memo(({ text, onComplete }: { text: string, onComplete: () 
   }, [text, onComplete]);
 
   return (
-    <div className="font-mono text-xl md:text-3xl lg:text-4xl text-white tracking-widest text-center uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] leading-relaxed px-4">
+    <div className="font-mono text-2xl md:text-4xl lg:text-5xl text-white tracking-widest text-center uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] leading-relaxed px-4">
       {displayedText}
     </div>
   );
@@ -153,7 +153,7 @@ const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
           <div className="w-full flex flex-col items-center gap-6">
             <ScrambleText text="TRANSFORMING VISIONS INTO REALITY" onComplete={onLoadComplete} />
 
-            <div className="w-full max-w-sm flex justify-between text-[10px] md:text-xs font-mono text-zinc-600 uppercase tracking-widest mt-4">
+            <div className="w-full max-w-sm flex justify-between text-xs md:text-sm font-mono text-zinc-600 uppercase tracking-widest mt-4">
               <motion.span
                 animate={{ opacity: [1, 0.3, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
