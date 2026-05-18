@@ -47,7 +47,7 @@ const ScrambleText = memo(({ text, onComplete }: { text: string, onComplete: () 
   }, [text, onComplete]);
 
   return (
-    <div className="font-mono text-lg md:text-2xl lg:text-4xl text-white tracking-widest text-center uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] leading-relaxed">
+    <div className="font-mono text-xl md:text-3xl lg:text-4xl text-white tracking-widest text-center uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] leading-relaxed px-4">
       {displayedText}
     </div>
   );
@@ -88,7 +88,7 @@ const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
           
           {/* 3D Gyroscopic Arc Core */}
           <div 
-            className="relative w-32 h-32 md:w-40 md:h-40 mb-12 flex items-center justify-center"
+            className="relative w-44 h-44 md:w-52 md:h-52 mb-12 flex items-center justify-center"
             style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
           >
             {/* Outer Ring */}
