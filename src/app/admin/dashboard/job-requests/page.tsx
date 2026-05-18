@@ -5,7 +5,8 @@ import { supabase } from '@/lib/supabase';
 import {
     Loader2, Trash2, ChevronDown, ChevronUp, Copy, ExternalLink,
     ClipboardList, Globe, Palette, Bot, Sparkles, User, Mail,
-    Phone, Building2, Calendar, Clock, FileText, CheckCircle
+    Phone, Building2, Calendar, Clock, FileText, CheckCircle,
+    type LucideIcon
 } from 'lucide-react';
 
 interface JobRequest {
@@ -35,7 +36,7 @@ const STATUS_COLORS: Record<string, string> = {
     archived: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
 };
 
-const SERVICE_LABELS: { key: keyof JobRequest; label: string; icon: React.ElementType }[] = [
+const SERVICE_LABELS: { key: keyof JobRequest; label: string; icon: LucideIcon }[] = [
     { key: 'service_frontend_only', label: 'Frontend Only', icon: Globe },
     { key: 'service_frontend_backend', label: 'Frontend + Backend', icon: Globe },
     { key: 'service_frontend_backend_ai', label: 'Frontend + Backend + AI', icon: Bot },
