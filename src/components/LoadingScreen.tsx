@@ -331,9 +331,9 @@ const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 480) {
-        setZoomLevel(9);
+        setZoomLevel(10.5);
       } else if (width < 768) {
-        setZoomLevel(12.5);
+        setZoomLevel(13.5);
       } else if (width < 1024) {
         setZoomLevel(14);
       } else {
