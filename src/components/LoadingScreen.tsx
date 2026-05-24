@@ -221,6 +221,23 @@ const IsometricCity = ({ onComplete }: { onComplete: () => void }) => {
         ease: "power2.out"
       }, 2.5);
 
+      // Scale blocks up to close the gaps during the power flare (starts at 2.3s)
+      blockData.forEach((block) => {
+        // Grow to 1.16 to close the gaps (1.16 * 0.95 = 1.102, perfectly touching/overlapping)
+        tl.to(block, {
+          scale: 1.16,
+          duration: 0.25,
+          ease: "power2.out"
+        }, 2.3);
+
+        // Shrink back to 1.0 before collapse begins
+        tl.to(block, {
+          scale: 1.0,
+          duration: 0.4,
+          ease: "power2.inOut"
+        }, 3.1);
+      });
+
       // 4. Matrix collapse: structural fall down into space (delayed to hold letters for 1.3 seconds)
       const collapseIndices = blockData.map((_, i) => i).sort((a, b) => blockData[a].finalY - blockData[b].finalY);
       collapseIndices.forEach((index, i) => {
