@@ -4,6 +4,7 @@ import { Resend } from 'resend';
 import { generateProposalEmail } from '@/lib/email-template';
 import { z } from 'zod';
 import { getClientIP, checkToolExecLimit, checkProposalLimit, recordRateLimitEvent } from '@/lib/rate-limit';
+import { verifyVoiceToken } from '@/lib/session-token';
 
 const resend = process.env.RESEND_API_KEY
     ? new Resend(process.env.RESEND_API_KEY)
@@ -109,6 +110,24 @@ export async function POST(req: Request) {
             });
         }
 
+        // ── Cryptographic Session Token Verification ─────────────────────
+        const token = req.headers.get('x-voice-token');
+        const sessionId = req.headers.get('x-voice-session-id');
+        const expiresAtStr = req.headers.get('x-voice-expires-at');
+
+        const isDev = process.env.NODE_ENV === 'development' || clientIP === '127.0.0.1' || clientIP === '::1' || clientIP === 'localhost';
+        const verified = verifyVoiceToken(token, sessionId, clientIP, expiresAtStr);
+
+        if (!verified && !isDev) {
+            console.warn(`[ExecuteTool] Unauthorized/Invalid voice session token for IP: ${clientIP}`);
+            return new Response(JSON.stringify({
+                error: 'Unauthorized. Invalid or expired voice session.',
+            }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
         const body = await req.json();
         const { toolName, args } = body;
 
@@ -155,7 +174,8 @@ export async function POST(req: Request) {
                 const { name, email, company, selectedPackage } = validatedArgs as z.infer<typeof toolSchemas.sendProposal>;
 
                 // ── Persistent Rate Limit (Supabase) ─────────────────────
-                const { allowed: proposalAllowed } = await checkProposalLimit(email);
+                // Enforces both 3/day per email address and 5/day per IP
+                const { allowed: proposalAllowed } = await checkProposalLimit(email, clientIP);
 
                 if (!proposalAllowed) {
                     result = { success: false, rateLimited: true, hoursUntilReset: 24 };
@@ -186,11 +206,16 @@ export async function POST(req: Request) {
                     }
                 }
 
-                // Record proposal sent for persistent rate limiting
+                // Record proposal sent for persistent rate limiting (email and IP)
                 await recordRateLimitEvent(
                     email.toLowerCase(),
                     'proposal_sent',
                     `Proposal sent to ${email} for ${company} (${selectedPackage})`,
+                );
+                await recordRateLimitEvent(
+                    `ip-${clientIP}`,
+                    'proposal_sent_ip',
+                    `Proposal sent from IP ${clientIP} to ${email}`,
                 );
 
                 result = { success: true, message: `Proposal sent successfully to ${email}` };

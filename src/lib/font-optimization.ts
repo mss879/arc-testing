@@ -17,8 +17,8 @@ export function optimizeFontLoading() {
 
   // Preload critical fonts
   const criticalFonts = [
-    '/fonts/inter-var.woff2',
-    // Add your critical font paths here
+    '/flarex.otf',
+    // Inter is loaded via next/font/google in layout.tsx
   ];
 
   criticalFonts.forEach((font) => {

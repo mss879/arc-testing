@@ -17,17 +17,17 @@ const supabaseAdmin = createClient(
  * Works with Netlify, Vercel, Cloudflare, and standard proxies.
  */
 export function getClientIP(req: Request): string {
-    // Netlify / Vercel / most proxies
-    const forwarded = req.headers.get('x-forwarded-for');
-    if (forwarded) return forwarded.split(',')[0].trim();
-
-    // Cloudflare
+    // Cloudflare (injected securely at CDN edge)
     const cfIp = req.headers.get('cf-connecting-ip');
     if (cfIp) return cfIp;
 
-    // Fallback
+    // Real IP (set securely by reverse proxy/edge gateway)
     const realIp = req.headers.get('x-real-ip');
     if (realIp) return realIp;
+
+    // Netlify / Vercel / standard proxies
+    const forwarded = req.headers.get('x-forwarded-for');
+    if (forwarded) return forwarded.split(',')[0].trim();
 
     return 'unknown';
 }
@@ -112,7 +112,11 @@ export async function checkToolExecLimit(ip: string) {
     return checkRateLimit(ip, 'voice_tool_call', 60, ONE_HOUR);
 }
 
-/** Proposal sending: 3 proposals per email per 24 hours */
-export async function checkProposalLimit(email: string) {
-    return checkRateLimit(email.toLowerCase(), 'proposal_sent', 3, ONE_DAY);
+/** Proposal sending: 3 proposals per email per 24 hours AND 5 proposals per IP per 24 hours */
+export async function checkProposalLimit(email: string, ip: string) {
+    const emailResult = await checkRateLimit(email.toLowerCase(), 'proposal_sent', 3, ONE_DAY);
+    if (!emailResult.allowed) return emailResult;
+
+    // Also check IP limit to prevent utilizing multiple emails to spam
+    return checkRateLimit(`ip-${ip}`, 'proposal_sent_ip', 5, ONE_DAY);
 }

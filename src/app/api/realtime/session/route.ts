@@ -1,5 +1,7 @@
 import { VOICE_SYSTEM_PROMPT } from '@/lib/ai-context';
 import { getClientIP, checkVoiceSessionLimit, recordRateLimitEvent } from '@/lib/rate-limit';
+import { generateVoiceToken } from '@/lib/session-token';
+import crypto from 'crypto';
 
 export async function POST(req: Request) {
     if (!process.env.OPENAI_API_KEY) {
@@ -28,113 +30,142 @@ export async function POST(req: Request) {
     }
 
     try {
-        const response = await fetch("https://api.openai.com/v1/realtime/sessions", {
+        const response = await fetch("https://api.openai.com/v1/realtime/client_secrets", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                model: "gpt-realtime-1.5",
-                voice: "ash",
-                instructions: VOICE_SYSTEM_PROMPT,
-                tools: [
-                    {
-                        type: "function",
-                        name: "searchCompanyKnowledge",
-                        description: "Search the company knowledge base (RAG) to find context and answers regarding ARC AI services and processes. Always use this tool when asked about services, capabilities, or pricing if you don't know the answer.",
-                        parameters: {
-                            type: "object",
-                            properties: {
-                                query: { type: "string", description: "The search query to look up in the knowledge base." }
-                            },
-                            required: ["query"]
+                session: {
+                    type: "realtime",
+                    model: "gpt-realtime-mini",
+                    instructions: VOICE_SYSTEM_PROMPT,
+                    audio: {
+                        input: {
+                            turn_detection: {
+                                type: "server_vad",
+                                // Increased threshold (0.9) requires much clearer, louder voice to interrupt the AI. 
+                                // This aggressively prevents background noise from triggering the agent.
+                                threshold: 0.9,
+                                prefix_padding_ms: 300,
+                                // Increased from 500 to 800: Gives the user slightly more time to pause between sentences 
+                                // without the AI immediately cutting in.
+                                silence_duration_ms: 800,
+                            }
+                        },
+                        output: {
+                            voice: "ash"
                         }
                     },
-                    {
-                        type: "function",
-                        name: "sendProposal",
-                        description: "Generate and email a custom pricing proposal with ARC AI packages. Use selectedPackage 'all' if the user cannot choose a specific package.",
-                        parameters: {
-                            type: "object",
-                            properties: {
-                                name: { type: "string", description: "The prospect's full name" },
-                                email: { type: "string", description: "The prospect's email address" },
-                                company: { type: "string", description: "The prospect's company name" },
-                                selectedPackage: { type: "string", enum: ['starter', 'launch', 'growth', 'scale', 'flow', 'engage', 'qualify', 'command', 'all'], description: "Which package the user is interested in." }
-                            },
-                            required: ["name", "email", "company", "selectedPackage"]
+                    tools: [
+                        {
+                            type: "function",
+                            name: "searchCompanyKnowledge",
+                            description: "Search the company knowledge base (RAG) to find context and answers regarding ARC AI services and processes. Always use this tool when asked about services, capabilities, or pricing if you don't know the answer.",
+                            parameters: {
+                                type: "object",
+                                properties: {
+                                    query: { type: "string", description: "The search query to look up in the knowledge base." }
+                                },
+                                required: ["query"]
+                            }
+                        },
+                        {
+                            type: "function",
+                            name: "sendProposal",
+                            description: "Generate and email a custom pricing proposal with ARC AI packages. Use selectedPackage 'all' if the user cannot choose a specific package.",
+                            parameters: {
+                                type: "object",
+                                properties: {
+                                    name: { type: "string", description: "The prospect's full name" },
+                                    email: { type: "string", description: "The prospect's email address" },
+                                    company: { type: "string", description: "The prospect's company name" },
+                                    selectedPackage: { type: "string", enum: ['starter', 'launch', 'growth', 'scale', 'flow', 'engage', 'qualify', 'command', 'all'], description: "Which package the user is interested in." }
+                                },
+                                required: ["name", "email", "company", "selectedPackage"]
+                            }
+                        },
+                        {
+                            type: "function",
+                            name: "saveLead",
+                            description: "Save a customer as a new lead in the CRM. Use this when you have gathered enough info about a prospect during the conversation.",
+                            parameters: {
+                                type: "object",
+                                properties: {
+                                    name: { type: "string", description: "The prospect's full name" },
+                                    phone: { type: "string", description: "The prospect's phone number" },
+                                    email: { type: "string", description: "The prospect's email address" },
+                                    company: { type: "string", description: "The prospect's company name" },
+                                    notes: { type: "string", description: "AI-generated summary of conversation interests" }
+                                },
+                                required: ["name", "notes"]
+                            }
+                        },
+                        {
+                            type: "function",
+                            name: "subscribeNewsletter",
+                            description: "Subscribe a user to the ARC AI newsletter. Use this when a user agrees to receive updates and provides their email address.",
+                            parameters: {
+                                type: "object",
+                                properties: {
+                                    email: { type: "string", description: "The user's email address" },
+                                    topic_interest: { type: "string", description: "The specific service or topic the user is interested in" }
+                                },
+                                required: ["email", "topic_interest"]
+                            }
+                        },
+                        {
+                            type: "function",
+                            name: "navigateClientScreen",
+                            description: "Magically control the user's browser to physically navigate to a specific page on the website. Use this anytime you recommend a service package, mention the portfolio, or refer to contact information. It creates a powerful 'co-browsing' experience.",
+                            parameters: {
+                                type: "object",
+                                properties: {
+                                    target_path: { type: "string", description: "The relative path to navigate to. Valid paths are: '/portfolio' (for case studies), '/web-pricing' (website development pricing), '/ai-pricing' (AI & automation agent pricing), '/' (home), or '#calendly' (to pop up the booking calendar when user asks to book a call/meeting). Note: There is NO generic '/pricing' page; you must choose '/ai-pricing' or '/web-pricing' based on context." }
+                                },
+                                required: ["target_path"]
+                            }
                         }
-                    },
-                    {
-                        type: "function",
-                        name: "saveLead",
-                        description: "Save a customer as a new lead in the CRM. Use this when you have gathered enough info about a prospect during the conversation.",
-                        parameters: {
-                            type: "object",
-                            properties: {
-                                name: { type: "string", description: "The prospect's full name" },
-                                phone: { type: "string", description: "The prospect's phone number" },
-                                email: { type: "string", description: "The prospect's email address" },
-                                company: { type: "string", description: "The prospect's company name" },
-                                notes: { type: "string", description: "AI-generated summary of conversation interests" }
-                            },
-                            required: ["name", "notes"]
-                        }
-                    },
-                    {
-                        type: "function",
-                        name: "subscribeNewsletter",
-                        description: "Subscribe a user to the ARC AI newsletter. Use this when a user agrees to receive updates and provides their email address.",
-                        parameters: {
-                            type: "object",
-                            properties: {
-                                email: { type: "string", description: "The user's email address" },
-                                topic_interest: { type: "string", description: "The specific service or topic the user is interested in" }
-                            },
-                            required: ["email", "topic_interest"]
-                        }
-                    },
-                    {
-                        type: "function",
-                        name: "navigateClientScreen",
-                        description: "Magically control the user's browser to physically navigate to a specific page on the website. Use this anytime you recommend a service package, mention the portfolio, or refer to contact information. It creates a powerful 'co-browsing' experience.",
-                        parameters: {
-                            type: "object",
-                            properties: {
-                                target_path: { type: "string", description: "The relative path to navigate to. Valid paths are: '/portfolio' (for case studies), '/web-pricing' (website prices), '/ai-pricing' (AI prices), '/' (home), or '#calendly' (to pop up the booking calendar when user asks to book a call/meeting)." }
-                            },
-                            required: ["target_path"]
-                        }
-                    }
-                ],
-                tool_choice: "auto",
-                temperature: 0.7,
-                turn_detection: {
-                    type: "server_vad",
-                    // Increased threshold (0.9) requires much clearer, louder voice to interrupt the AI. 
-                    // This aggressively prevents background noise from triggering the agent.
-                    threshold: 0.9,
-                    prefix_padding_ms: 300,
-                    // Increased from 500 to 800: Gives the user slightly more time to pause between sentences 
-                    // without the AI immediately cutting in.
-                    silence_duration_ms: 800,
+                    ],
+                    tool_choice: "auto"
                 },
             }),
         });
 
+        const text = await response.text();
+
         if (!response.ok) {
-            const errBody = await response.text();
-            console.error("Failed to generate ephemeral token:", response.status, errBody);
-            throw new Error(`Failed to generate ephemeral token: ${response.status}`);
+            console.error("Failed to generate Realtime client secret:", response.status, text);
+            return new Response(JSON.stringify({
+                error: "Failed to generate Realtime client secret",
+                status: response.status,
+                details: text
+            }), {
+                status: response.status,
+                headers: { 'Content-Type': 'application/json' },
+            });
         }
 
-        const data = await response.json();
+        const data = JSON.parse(text);
+
+        // Generate signed session token for secure execute-tool calls
+        const sessionId = data.client_secret?.id || `sess_${crypto.randomUUID()}`;
+        const expiresAt = Date.now() + 30 * 60 * 1000; // 30 minutes lifetime
+        const voiceToken = generateVoiceToken(sessionId, clientIP, expiresAt);
 
         // Record session creation for rate limiting (non-blocking)
         recordRateLimitEvent(clientIP, 'voice_session_created', `Voice session created from ${clientIP}`);
 
-        return new Response(JSON.stringify(data), {
+        // Merge voice token parameters into the response payload
+        const enrichedData = {
+            ...data,
+            voiceToken,
+            sessionId,
+            expiresAt
+        };
+
+        return new Response(JSON.stringify(enrichedData), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',

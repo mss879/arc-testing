@@ -308,6 +308,26 @@ const IsometricCity = ({ onComplete }: { onComplete: () => void }) => {
 // ==========================================
 const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
   const [isExiting, setIsExiting] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(16);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 480) {
+        setZoomLevel(9);
+      } else if (width < 768) {
+        setZoomLevel(12.5);
+      } else if (width < 1024) {
+        setZoomLevel(14);
+      } else {
+        setZoomLevel(16);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleComplete = useCallback(() => {
     setIsExiting(true);
@@ -363,7 +383,7 @@ const LoadingScreen = memo(({ onLoadComplete }: LoadingScreenProps) => {
         {/* Subtle blueprint grid overlay */}
         <div className="absolute inset-0 z-10 pointer-events-none opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]" />
 
-        <Canvas orthographic camera={{ position: [0, 0, 20], zoom: 16 }} dpr={[1, 1.5]} gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }} shadows className="w-full h-full">
+        <Canvas orthographic camera={{ position: [0, 0, 20], zoom: zoomLevel }} dpr={[1, 1.5]} gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }} shadows className="w-full h-full">
           <color attach="background" args={["#020202"]} />
           <ambientLight intensity={0.4} />
           <directionalLight position={[10, 20, 10]} intensity={1.5} color="#ffffff" castShadow shadow-mapSize={[1024, 1024]} />

@@ -110,6 +110,11 @@ export function StickyAiPill() {
     const [frequencyData, setFrequencyData] = useState<number[]>(new Array(16).fill(0));
     const [isMuted, setIsMuted] = useState(false);
 
+    // Cryptographic session credentials for authorizing tool execution
+    const [voiceToken, setVoiceToken] = useState<string | null>(null);
+    const [voiceSessionId, setVoiceSessionId] = useState<string | null>(null);
+    const [voiceSessionExpiresAt, setVoiceSessionExpiresAt] = useState<number | null>(null);
+
     // WebRTC References
     const pcRef = useRef<RTCPeerConnection | null>(null);
     const dcRef = useRef<RTCDataChannel | null>(null);
@@ -202,11 +207,27 @@ export function StickyAiPill() {
         setVoiceStatus("Connecting...");
 
         try {
-            // 1. Get Ephemeral Token
+            // 1. Get Ephemeral Token and secure session headers
             const tokenResponse = await fetch("/api/realtime/session", { method: "POST" });
             if (!tokenResponse.ok) throw new Error("Failed to get session token");
             const data = await tokenResponse.json();
-            const token = data.client_secret.value;
+            
+            console.log("Realtime session response:", data);
+
+            const token = data.value ?? data.client_secret?.value;
+
+            if (!token) {
+                throw new Error("No Realtime client secret returned from /api/realtime/session");
+            }
+
+            // Capture session authorization credentials locally to prevent React async state closure issues in dc.onmessage
+            const currentVoiceToken = data.voiceToken || "";
+            const currentSessionId = data.sessionId || "";
+            const currentExpiresAt = String(data.expiresAt || 0);
+
+            setVoiceToken(currentVoiceToken);
+            setVoiceSessionId(currentSessionId);
+            setVoiceSessionExpiresAt(data.expiresAt || null);
 
             // 2. Setup WebRTC PeerConnection
             const pc = new RTCPeerConnection();
@@ -340,10 +361,17 @@ export function StickyAiPill() {
                         if (name === "navigateClientScreen") {
                             try {
                                 const { target_path } = JSON.parse(argsStr);
-                                if (target_path === "#calendly" || target_path === "/#calendly") {
+                                
+                                // Fallback redirects for generic pricing path requests
+                                let path = target_path;
+                                if (path === "/pricing" || path === "pricing") {
+                                    path = "/ai-pricing";
+                                }
+
+                                if (path === "#calendly" || path === "/#calendly") {
                                     window.dispatchEvent(new CustomEvent("open-calendly"));
                                 } else {
-                                    router.push(target_path);
+                                    router.push(path);
                                 }
                                 dc.send(JSON.stringify({
                                     type: "conversation.item.create",
@@ -360,7 +388,12 @@ export function StickyAiPill() {
                         try {
                             const result = await fetch("/api/realtime/execute-tool", {
                                 method: "POST",
-                                headers: { "Content-Type": "application/json" },
+                                headers: { 
+                                    "Content-Type": "application/json",
+                                    "X-Voice-Token": currentVoiceToken,
+                                    "X-Voice-Session-Id": currentSessionId,
+                                    "X-Voice-Expires-At": currentExpiresAt,
+                                },
                                 body: JSON.stringify({ toolName: name, args: JSON.parse(argsStr) })
                             }).then(res => res.json());
 
@@ -390,8 +423,8 @@ export function StickyAiPill() {
             const offer = await pc.createOffer();
             await pc.setLocalDescription(offer);
 
-            const baseUrl = "https://api.openai.com/v1/realtime";
-            const model = "gpt-realtime-1.5";
+            const baseUrl = "https://api.openai.com/v1/realtime/calls";
+            const model = "gpt-realtime-mini";
             const sdpResponse = await fetch(`${baseUrl}?model=${model}`, {
                 method: "POST",
                 body: offer.sdp,
@@ -401,7 +434,11 @@ export function StickyAiPill() {
                 }
             });
 
-            if (!sdpResponse.ok) throw new Error("Failed to set SDP");
+            if (!sdpResponse.ok) {
+                const sdpErrBody = await sdpResponse.text();
+                console.error("SDP Exchange Failed:", sdpResponse.status, sdpErrBody);
+                throw new Error(`Failed to set SDP: ${sdpResponse.status} - ${sdpErrBody}`);
+            }
             const answerSdp = await sdpResponse.text();
 
             await pc.setRemoteDescription({
@@ -411,13 +448,14 @@ export function StickyAiPill() {
 
         } catch (err) {
             console.error("Voice setup failed", err);
-            setVoiceStatus("Failed to connect");
+            const errMsg = err instanceof Error ? err.message : String(err);
+            setVoiceStatus(`Failed to connect: ${errMsg}`);
             setIsVoiceConnecting(false);
-            stopVoiceSession();
+            stopVoiceSession(true);
         }
     };
 
-    const stopVoiceSession = () => {
+    const stopVoiceSession = (keepErrorStatus = false) => {
         if (pcRef.current) { pcRef.current.close(); pcRef.current = null; }
         if (dcRef.current) { dcRef.current.close(); dcRef.current = null; }
         if (micStreamRef.current) {
@@ -425,7 +463,7 @@ export function StickyAiPill() {
             micStreamRef.current = null;
         }
         if (audioElRef.current) { audioElRef.current.srcObject = null; audioElRef.current = null; }
-
+ 
         if (audioContextRef.current) {
             audioContextRef.current.close();
             audioContextRef.current = null;
@@ -446,13 +484,20 @@ export function StickyAiPill() {
             clearTimeout(maxDurationWarnTimerRef.current);
             maxDurationWarnTimerRef.current = null;
         }
-
+ 
         setIsVoiceActive(false);
         setIsVoiceConnecting(false);
-        setVoiceStatus("Ready to talk");
+        if (!keepErrorStatus) {
+            setVoiceStatus("Ready to talk");
+        }
         setVolumeLevel(0);
         setFrequencyData(new Array(16).fill(0));
         setIsMuted(false);
+
+        // Reset voice credentials
+        setVoiceToken(null);
+        setVoiceSessionId(null);
+        setVoiceSessionExpiresAt(null);
     };
 
     /** Connect the user's microphone stream to an analyser for the visualizer */

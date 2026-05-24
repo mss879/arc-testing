@@ -135,7 +135,7 @@ export default async function RootLayout({
         <link rel="preload" as="image" href="/logo.png" type="image/png" fetchPriority="high" />
         {/* Remove video preload - let browser decide based on bandwidth */}
         <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" type="font/woff2" crossOrigin="anonymous" fetchPriority="high" />
-        <link rel="preload" as="font" href="/fonts/flarex.otf" type="font/otf" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href="/flarex.otf" type="font/otf" crossOrigin="anonymous" />
 
 
         {/* Web App Manifest - Deferred */}
