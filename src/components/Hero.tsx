@@ -3,8 +3,22 @@
 import { ArrowUpRight } from "lucide-react";
 import { memo, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import LoadingScreen from "./LoadingScreen";
+import dynamic from "next/dynamic";
 import { clientLogos } from "@/lib/client-logos";
+
+// Dynamic import with ssr: false to completely offload Three.js from the initial homepage critical bundle
+const LoadingScreen = dynamic(() => import("./LoadingScreen"), {
+  ssr: false,
+  loading: () => (
+    <div className="fixed inset-0 z-[70] bg-[#020202] flex flex-col items-center justify-center pointer-events-none select-none">
+      {/* Sleek, high-end minimal CSS loader during chunk download */}
+      <div className="relative w-16 h-16">
+        <div className="absolute inset-0 rounded-full border-2 border-orange-500/10" />
+        <div className="absolute inset-0 rounded-full border-t-2 border-orange-500 animate-spin shadow-[0_0_15px_rgba(249,115,22,0.2)]" />
+      </div>
+    </div>
+  )
+});
 
 const Hero = memo(() => {
   const videoRef = useRef<HTMLVideoElement>(null);
